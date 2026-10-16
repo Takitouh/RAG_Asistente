@@ -1,0 +1,2 @@
+"""Normativa package."""
+

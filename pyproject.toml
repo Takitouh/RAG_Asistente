@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "normativa-tg"
+version = "0.1.0"
+description = "FastAPI project for normativa tooling"
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+  "fastapi",
+  "httpx",
+  "llama-index-core",
+  "llama-index-embeddings-ollama",
+  "llama-index-llms-ollama",
+  "llama-index-vector-stores-qdrant",
+  "pdfplumber",
+  "pydantic-settings",
+  "psutil",
+  "pytest",
+  "qdrant-client",
+  "uvicorn",
+  "pytesseract>=0.3.13",
+  "pypdfium2>=5.14.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[dependency-groups]
+dev = [
+    "reportlab>=5.0.1",
+]
+
