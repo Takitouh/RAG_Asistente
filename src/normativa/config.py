@@ -11,6 +11,14 @@ class Settings(BaseSettings):
     QDRANT_COLLECTION: str = "normativa"
     SQLITE_PATH: str = "data/db/normativa.db"
     DATA_DIR: str = "data"
+    ADMIN_API_KEY: str = "dev-admin-secret-key"
+
+    # Umbral de confianza OCR (heurístico, no garantía de exactitud textual)
+    OCR_CONFIDENCE_THRESHOLD: float = 75.0
+
+    # Parámetros de recuperación RAG
+    RAG_TOP_K: int = 5
+    RAG_MIN_SCORE: float = 0.0  # 0.0 = sin filtro de umbral; ajustar en producción
 
 
 settings = Settings()

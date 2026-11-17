@@ -244,7 +244,10 @@ def _finalize_inciso(builder: _IncisoBuilder | None) -> Inciso | None:
 def _finalize_paragrafo(builder: _ParagrafoBuilder | None) -> Paragrafo | None:
     if builder is None:
         return None
-    incisos = [_finalize_inciso(inciso) for inciso in builder.incisos]
+    inciso_builders = list(builder.incisos)
+    if builder.current_inciso is not None:
+        inciso_builders.append(builder.current_inciso)
+    incisos = [_finalize_inciso(inciso) for inciso in inciso_builders]
     return Paragrafo(
         numero=builder.numero,
         texto=_clean_content_text(_reflow_lines(builder.lines)),
@@ -414,11 +417,11 @@ def parse_document(clean_pages: list[CleanPage], source_file: str) -> ParsedDocu
     i = 0
 
     def flush_open_blocks(article: _ArticleBuilder) -> None:
+        if article.current_paragrafo is not None and article.current_paragrafo.current_inciso is not None:
+            article.current_paragrafo.incisos.append(article.current_paragrafo.current_inciso)
+            article.current_paragrafo.current_inciso = None
         if article.current_inciso is not None:
-            if article.current_paragrafo is not None:
-                article.current_paragrafo.incisos.append(article.current_inciso)
-            else:
-                article.incisos.append(article.current_inciso)
+            article.incisos.append(article.current_inciso)
             article.current_inciso = None
         if article.current_paragrafo is not None:
             article.paragrafos.append(article.current_paragrafo)

@@ -7,7 +7,7 @@ name = "normativa-tg"
 version = "0.1.0"
 description = "FastAPI project for normativa tooling"
 readme = "README.md"
-requires-python = ">=3.13,<3.14"
+requires-python = ">=3.12"
 dependencies = [
   "fastapi",
   "httpx",
@@ -23,6 +23,7 @@ dependencies = [
   "uvicorn",
   "pytesseract>=0.3.13",
   "pypdfium2>=5.14.0",
+  "python-multipart",
 ]
 
 [tool.setuptools]

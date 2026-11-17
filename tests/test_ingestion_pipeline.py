@@ -154,7 +154,7 @@ def test_reference_document_regression() -> None:
     art15 = next(article for article in reglamento if article.numero == 15)
     assert [par.numero for par in art15.paragrafos] == ["1", "2", "3"]
     assert [inc.marker for inc in art15.paragrafos[1].incisos] == ["a", "b"]
-    assert "Artículo 14" in art15.paragrafos[1].texto
+    assert "Artículo 14" in art15.texto
     art19 = next(article for article in reglamento if article.numero == 19)
     assert [inc.marker for inc in art19.incisos] == list("abcdefgh")
     art26 = next(article for article in reglamento if article.numero == 26)
