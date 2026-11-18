@@ -20,5 +20,7 @@ class QueryTrace:
     retrieval_ms: float
     generation_ms: float
     total_ms: float
-    execution_status: str        # "ok" | "error" | "abstained"
+    execution_status: str        # "ok" | "error" | "abstained" | "social"
     error_message: str | None = None
+    query_type: str = "normative"  # "normative" | "explicit_article" | "greeting" | "clarification"
+    context_chunks_json: str = "[]"

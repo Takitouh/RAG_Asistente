@@ -20,8 +20,9 @@ def insert_trace(trace: QueryTrace, db_path: str | Path | None = None) -> None:
                 id, created_at, version_id, query, response,
                 abstained, retrieved_chunks_json, citations_json,
                 abstention_reason, retrieval_ms, generation_ms,
-                total_ms, execution_status, error_message, latency_ms
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                total_ms, execution_status, error_message, latency_ms,
+                query_type, context_chunks_json
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(id) DO NOTHING
             """,
             (
@@ -39,7 +40,9 @@ def insert_trace(trace: QueryTrace, db_path: str | Path | None = None) -> None:
                 trace.total_ms,
                 trace.execution_status,
                 trace.error_message,
-                trace.total_ms,  # latency_ms = total_ms por compatibilidad con schema previo
+                trace.total_ms,
+                trace.query_type,
+                trace.context_chunks_json,
             ),
         )
 
@@ -50,6 +53,7 @@ def get_trace(trace_id: str, db_path: str | Path | None = None) -> QueryTrace | 
         row = conn.execute("SELECT * FROM traces WHERE id = ?", (trace_id,)).fetchone()
     if not row:
         return None
+    keys = row.keys()
     return QueryTrace(
         id=row["id"],
         created_at=row["created_at"],
@@ -57,12 +61,14 @@ def get_trace(trace_id: str, db_path: str | Path | None = None) -> QueryTrace | 
         version_id=row["version_id"] or None,
         retrieved_chunks_json=row["retrieved_chunks_json"],
         response=row["response"],
-        citations_json=row["citations_json"] if "citations_json" in row.keys() else "[]",
+        citations_json=row["citations_json"] if "citations_json" in keys else "[]",
         abstained=bool(row["abstained"]),
         abstention_reason=row["abstention_reason"],
-        retrieval_ms=row["retrieval_ms"] if "retrieval_ms" in row.keys() else 0.0,
-        generation_ms=row["generation_ms"] if "generation_ms" in row.keys() else 0.0,
-        total_ms=row["total_ms"] if "total_ms" in row.keys() else row["latency_ms"],
-        execution_status=row["execution_status"] if "execution_status" in row.keys() else "ok",
-        error_message=row["error_message"] if "error_message" in row.keys() else None,
+        retrieval_ms=row["retrieval_ms"] if "retrieval_ms" in keys else 0.0,
+        generation_ms=row["generation_ms"] if "generation_ms" in keys else 0.0,
+        total_ms=row["total_ms"] if "total_ms" in keys else row["latency_ms"],
+        execution_status=row["execution_status"] if "execution_status" in keys else "ok",
+        error_message=row["error_message"] if "error_message" in keys else None,
+        query_type=row["query_type"] if "query_type" in keys else "normative",
+        context_chunks_json=row["context_chunks_json"] if "context_chunks_json" in keys else "[]",
     )

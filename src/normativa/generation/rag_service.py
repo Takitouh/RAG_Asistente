@@ -1,6 +1,6 @@
 """Servicio RAG de extremo a extremo.
 
-Orquesta: Retriever → Generator → Citations → Trace → Response.
+Orquesta: Intent Detector → Retriever → Generator → Citations → Trace → Response.
 """
 from __future__ import annotations
 
@@ -11,8 +11,10 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 
+from normativa.corpus.db import get_active_version
 from normativa.generation.citations import Citation, build_citations
 from normativa.generation.generator import GenerationResult, NormativeGenerator, _DISCLAIMER
+from normativa.generation.intents import is_greeting_or_social
 from normativa.retrieval.retriever import NormativeRetriever
 from normativa.tracing.db import insert_trace
 from normativa.tracing.models import QueryTrace
@@ -37,6 +39,9 @@ class RAGResponse:
     retrieval_ms: float
     generation_ms: float
     total_ms: float
+    response_type: str = "normative"  # "greeting", "normative", "clarification", "abstention"
+    clarification_needed: bool = False
+    clarification_question: str | None = None
 
 
 class RAGService:
@@ -63,12 +68,12 @@ class RAGService:
 
         Flujo:
         1. Validar la consulta.
-        2. Bloquear la versión activa (en retrieve).
-        3. Recuperar chunks.
+        2. Detección de intenciones sociales (saludos/cortesía).
+        3. Recuperación normativa contextual (versión activa obligatoria).
         4. Verificar condiciones de abstención.
-        5. Generar respuesta si no hay abstención.
-        6. Construir citas.
-        7. Registrar traza.
+        5. Generar respuesta fundamentada (completa, parcial o aclaratoria).
+        6. Construir citas deterministas verificadas.
+        7. Registrar traza completa en SQLite.
         8. Devolver RAGResponse.
         """
         t0 = time.perf_counter()
@@ -81,11 +86,54 @@ class RAGService:
         if len(query_text) > _MAX_QUERY_LEN:
             raise ValueError(f"La consulta no puede superar {_MAX_QUERY_LEN} caracteres.")
 
-        # --- 2 & 3. Recuperación (la versión se bloquea aquí) ---
+        # --- 2. Detección de saludo / cortesía social rápida ---
+        active = get_active_version(self._db_path)
+        active_name = active.nombre if active else None
+        is_social, social_msg, social_type = is_greeting_or_social(query_text, active_name)
+        if is_social and social_msg is not None:
+            total_ms = (time.perf_counter() - t0) * 1000
+            self._save_trace(
+                trace_id=trace_id,
+                query=query_text,
+                version_id=active.id if active else None,
+                retrieved_chunks_json="[]",
+                response=social_msg,
+                citations=[],
+                abstained=False,
+                abstention_reason=None,
+                retrieval_ms=0.0,
+                generation_ms=0.0,
+                total_ms=total_ms,
+                execution_status="social",
+                error_message=None,
+                query_type=social_type or "greeting",
+                context_chunks_json="[]",
+            )
+            return RAGResponse(
+                answer=social_msg,
+                version_id=active.id if active else None,
+                document_name=active.nombre if active else None,
+                citations=[],
+                abstained=False,
+                abstention_reason=None,
+                disclaimer=_DISCLAIMER,
+                trace_id=trace_id,
+                retrieval_ms=0.0,
+                generation_ms=0.0,
+                total_ms=total_ms,
+                response_type="greeting",
+                clarification_needed=False,
+                clarification_question=None,
+            )
+
+        # --- 3. Recuperación (la versión se bloquea y filtra aquí) ---
         retrieval_result = self._retriever.retrieve(query_text)
 
         citations: list[Citation] = []
         gen_result: GenerationResult | None = None
+        response_type = "normative"
+        clarification_needed = False
+        clarification_question: str | None = None
 
         if retrieval_result.abstained:
             # --- 4a. Abstención por recuperación ---
@@ -93,6 +141,7 @@ class RAGService:
             abstention_reason = retrieval_result.abstention_reason
             answer = f"ABSTENCIÓN: {abstention_reason}"
             generation_ms = 0.0
+            response_type = "abstention"
         else:
             # --- 5. Generación ---
             try:
@@ -119,6 +168,8 @@ class RAGService:
                     total_ms=total_ms,
                     execution_status="error",
                     error_message=str(exc),
+                    query_type="error",
+                    context_chunks_json="[]",
                 )
                 raise
 
@@ -126,6 +177,9 @@ class RAGService:
             abstention_reason = gen_result.abstention_reason
             answer = gen_result.answer
             generation_ms = gen_result.generation_ms
+            response_type = gen_result.response_type
+            clarification_needed = gen_result.clarification_needed
+            clarification_question = gen_result.clarification_question
 
             # --- 6. Citas verificadas ---
             citations = build_citations(
@@ -135,11 +189,20 @@ class RAGService:
 
         total_ms = (time.perf_counter() - t0) * 1000
 
-        # --- 7. Traza ---
+        # --- 7. Traza en SQLite ---
         retrieved_json = json.dumps(
             [{"chunk_id": c.chunk_id, "score": c.score} for c in retrieval_result.chunks]
         )
-        citations_json = json.dumps([c.to_dict() for c in citations])
+        context_chunks_json = json.dumps(
+            [
+                {
+                    "chunk_id": c.chunk_id,
+                    "location": c.location_hint,
+                    "origin": c.payload.get("origin", "semantic"),
+                }
+                for c in retrieval_result.chunks
+            ]
+        )
         exec_status = "abstained" if abstained else "ok"
 
         self._save_trace(
@@ -156,6 +219,8 @@ class RAGService:
             total_ms=total_ms,
             execution_status=exec_status,
             error_message=None,
+            query_type=response_type,
+            context_chunks_json=context_chunks_json,
         )
 
         return RAGResponse(
@@ -170,6 +235,9 @@ class RAGService:
             retrieval_ms=retrieval_result.retrieval_ms,
             generation_ms=generation_ms,
             total_ms=total_ms,
+            response_type=response_type,
+            clarification_needed=clarification_needed,
+            clarification_question=clarification_question,
         )
 
     def _save_trace(
@@ -188,6 +256,8 @@ class RAGService:
         total_ms: float,
         execution_status: str,
         error_message: str | None,
+        query_type: str = "normative",
+        context_chunks_json: str = "[]",
     ) -> None:
         citations_json = json.dumps([c.to_dict() for c in citations])
         trace = QueryTrace(
@@ -205,6 +275,8 @@ class RAGService:
             total_ms=total_ms,
             execution_status=execution_status,
             error_message=error_message,
+            query_type=query_type,
+            context_chunks_json=context_chunks_json,
         )
         try:
             insert_trace(trace, db_path=self._db_path)

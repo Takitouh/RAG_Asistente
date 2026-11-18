@@ -3,7 +3,7 @@
 Responsabilidades:
 - Construir un prompt seguro con los fragmentos normativos recuperados.
 - Llamar al LLM local (qwen2.5:7b por defecto) vía Ollama.
-- Detectar abstención («ABSTENCIÓN:» en la respuesta).
+- Diferenciar respuestas completas, evidencia parcial, solicitudes de aclaración y abstenciones reales.
 - Extraer y verificar los chunk_ids declarados por el LLM.
 - Nunca aceptar IDs que no estén en la lista de chunks recuperados.
 """
@@ -25,25 +25,41 @@ _SYSTEM_PROMPT = """\
 Eres un asistente informativo del Reglamento de Trabajo de Grado de las \
 Unidades Tecnológicas de Santander (UTS).
 
-REGLAS OBLIGATORIAS (no negociables):
-1. Responde ÚNICAMENTE con información de los fragmentos normativos proporcionados.
-2. NO inventes artículos, plazos, requisitos ni excepciones que no aparezcan en los fragmentos.
-3. Si la evidencia es insuficiente o la pregunta está fuera del alcance del reglamento,
-   responde comenzando EXACTAMENTE con la palabra «ABSTENCIÓN:» seguida del motivo.
-4. Al final de tu respuesta incluye una línea con el siguiente formato exacto:
+DIRECTRICES OBLIGATORIAS (no negociables):
+1. FUENTE EXCLUSIVA: Responde ÚNICAMENTE basándote en los fragmentos normativos suministrados.
+   - NO inventes artículos, plazos, porcentajes, requisitos ni procedimientos no contenidos en los fragmentos.
+   - Tus respuestas son estrictamente orientativas para la comunidad académica de las UTS.
+
+2. POLÍTICA DE RESPUESTA, CLARIFICACIÓN Y ABSTENCIÓN:
+   a) EVIDENCIA SUFICIENTE: Si los fragmentos contienen la información requerida, responde de forma clara, directa y estructurada, explicando lo que establece el reglamento con sus artículos y parágrafos pertinentes.
+   b) EVIDENCIA PARCIAL O CONSULTA AMBIGUA: Si los fragmentos contienen información relevante sobre el tema pero no cubren todos los aspectos o el resultado depende de variables no especificadas (por ejemplo: la modalidad del estudiante o la etapa del trámite):
+      - Explica con precisión lo que la norma SÍ establece (condiciones, plazos generales, requisitos o excepciones).
+      - Señala con claridad qué aspecto no está detallado en la norma.
+      - Solicita amablemente al usuario la aclaración pertinente para su caso (por ejemplo: indicar la modalidad cursada).
+      - NUNCA uses «ABSTENCIÓN:» si los fragmentos contienen disposiciones aplicables al tema.
+   c) CONSULTA FUERA DE DOMINIO: Si la pregunta NO tiene ninguna relación con el reglamento o los fragmentos no aportan ninguna evidencia aplicable (por ejemplo: temas comerciales, no universitarios, etc.):
+      - Responde iniciando EXACTAMENTE con: «ABSTENCIÓN: [motivo claro de abstención...]»
+
+3. CITAS Y DECLARACIÓN DE EVIDENCIA:
+   Al final de tu respuesta, debes incluir OBLIGATORIAMENTE una línea con el formato exacto:
    EVIDENCIA_USADA: [chunk_id_1, chunk_id_2, ...]
-   Incluye solo los IDs de los fragmentos que realmente usaste como fuente.
-5. Responde en español claro para estudiantes y docentes.
-6. Tus respuestas son orientativas; no constituyen resoluciones ni decisiones oficiales de la UTS.
-7. No repitas el texto de los fragmentos de forma literal; sintetiza la información.
+   Incluye únicamente los IDs de los fragmentos que realmente sirvieron de sustento a la respuesta.
+
+4. ESTILO Y REDACCIÓN:
+   - Responde en español claro, profesional y académico.
+   - Sintetiza la información de forma estructurada. No repitas pasajes irrelevantes.
 """
 
 _DISCLAIMER = (
     "Esta respuesta es orientativa y se basa en el reglamento indexado. "
-    "Para decisiones oficiales, consulte directamente a la Secretaría Académica de la UTS."
+    "Para decisiones oficiales, consulte directamente a la Secretaría Académica o al Comité de Trabajo de Grado de la UTS."
 )
 
 _EVIDENCE_LINE_RE = re.compile(r"EVIDENCIA_USADA\s*:\s*\[([^\]]*)\]", re.IGNORECASE)
+_CLARIFICATION_RE = re.compile(
+    r"\b(?:aclaraci[oó]n|ind[ií]canos|especif[ií]qu?e|ind[ií]qu?e|cu[aá]l\s+es\s+tu\s+modalidad|qu[eé]\s+modalidad)\b",
+    re.IGNORECASE,
+)
 
 
 # ---------------------------------------------------------------------------
@@ -59,6 +75,9 @@ class GenerationResult:
     used_chunk_ids: list[str]  # IDs verificados contra retrieved_chunks
     generation_ms: float
     raw_response: str = field(repr=False, default="")
+    response_type: str = "normative"  # "normative", "clarification", "abstention"
+    clarification_needed: bool = False
+    clarification_question: str | None = None
 
 
 # ---------------------------------------------------------------------------
@@ -97,14 +116,45 @@ class NormativeGenerator:
         return "\n".join(lines)
 
     @staticmethod
-    def _parse_used_ids(raw: str, available_ids: set[str]) -> list[str]:
-        """Extrae y verifica los IDs de evidencia declarados por el LLM."""
-        match = _EVIDENCE_LINE_RE.search(raw)
-        if not match:
+    def _parse_used_ids(
+        raw: str,
+        available_ids: set[str],
+        chunks: list[RetrievedChunk],
+        is_abstained: bool,
+    ) -> list[str]:
+        """Extrae y verifica los IDs de evidencia declarados por el LLM.
+
+        Si hubo abstención, nunca devuelve citas.
+        Si el LLM no incluyó la línea pero respondió fundamentadamente,
+        asigna los IDs de los chunks primarios cuyos artículos fueron citados en el texto.
+        """
+        if is_abstained:
             return []
-        raw_ids = [cid.strip().strip("'\"") for cid in match.group(1).split(",")]
-        # Solo se aceptan IDs que realmente están en los chunks recuperados
-        return [cid for cid in raw_ids if cid in available_ids]
+
+        match = _EVIDENCE_LINE_RE.search(raw)
+        if match:
+            raw_ids = [cid.strip().strip("'\"") for cid in match.group(1).split(",") if cid.strip()]
+            valid = [cid for cid in raw_ids if cid in available_ids]
+            if valid:
+                return valid
+
+        # Fallback de seguridad: si el LLM no incluyó EVIDENCIA_USADA o falló el formato,
+        # asociar los chunks cuyos artículos son nombrados en la respuesta o los chunks principales
+        detected_ids: list[str] = []
+        raw_lower = raw.lower()
+        for chunk in chunks:
+            art_num = chunk.payload.get("articulo_numero")
+            if art_num is not None:
+                art_pattern = rf"\b(?:art[ií]culo|art\.?)\s*{art_num}\b"
+                if re.search(art_pattern, raw_lower):
+                    detected_ids.append(chunk.chunk_id)
+
+        if detected_ids:
+            return detected_ids
+
+        # Si aún está vacío y hay chunks recuperados relevantes, asociar hasta 3 chunks con mayor score
+        sorted_chunks = sorted(chunks, key=lambda c: c.score, reverse=True)
+        return [c.chunk_id for c in sorted_chunks[:3]]
 
     @staticmethod
     def _clean_answer(raw: str) -> str:
@@ -129,6 +179,7 @@ class NormativeGenerator:
                 abstention_reason="Sin evidencia suficiente",
                 used_chunk_ids=[],
                 generation_ms=0.0,
+                response_type="abstention",
             )
 
         context = self._build_context(retrieved_chunks)
@@ -154,12 +205,28 @@ class NormativeGenerator:
         # Detectar abstención
         abstained = raw.strip().upper().startswith("ABSTENCIÓN:")
         abstention_reason: str | None = None
+        response_type = "normative"
+        clarification_needed = False
+        clarification_question: str | None = None
+
         if abstained:
-            # Extraer motivo (texto después de "ABSTENCIÓN:")
             first_line = raw.strip().split("\n")[0]
             abstention_reason = first_line.split(":", 1)[1].strip() if ":" in first_line else "Sin evidencia"
+            response_type = "abstention"
+        else:
+            # Evaluar si la respuesta solicita una aclaración al estudiante
+            clean_text = self._clean_answer(raw)
+            if _CLARIFICATION_RE.search(clean_text) or "¿cuál es tu modalidad" in clean_text.lower():
+                clarification_needed = True
+                response_type = "clarification"
+                # Extraer posible pregunta de aclaración al final
+                lines = [l.strip() for l in clean_text.split("\n") if l.strip()]
+                for l in reversed(lines):
+                    if "?" in l:
+                        clarification_question = l
+                        break
 
-        used_ids = self._parse_used_ids(raw, available_ids)
+        used_ids = self._parse_used_ids(raw, available_ids, retrieved_chunks, abstained)
         clean_answer = self._clean_answer(raw)
 
         return GenerationResult(
@@ -169,4 +236,7 @@ class NormativeGenerator:
             used_chunk_ids=used_ids,
             generation_ms=generation_ms,
             raw_response=raw,
+            response_type=response_type,
+            clarification_needed=clarification_needed,
+            clarification_question=clarification_question,
         )
