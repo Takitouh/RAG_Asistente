@@ -11,4 +11,6 @@ dist/
 build/
 *.egg-info/
 .bin/
+node_modules/
+frontend/dist/
 
