@@ -46,6 +46,9 @@ class QueryResponse(BaseModel):
     disclaimer: str
     trace_id: str
     latency_ms: float
+    response_type: str = "normative"  # "greeting", "normative", "clarification", "abstention"
+    clarification_needed: bool = False
+    clarification_question: str | None = None
 
 
 # ---------------------------------------------------------------------------
@@ -86,4 +89,7 @@ def query_normativa(
         disclaimer=result.disclaimer,
         trace_id=result.trace_id,
         latency_ms=result.total_ms,
+        response_type=result.response_type,
+        clarification_needed=result.clarification_needed,
+        clarification_question=result.clarification_question,
     )

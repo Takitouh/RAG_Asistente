@@ -1,12 +1,16 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, File, Form, Header, HTTPException, UploadFile, status
+from fastapi import APIRouter, Cookie, Depends, File, Form, Header, HTTPException, Response, UploadFile, status
+from fastapi.responses import FileResponse
+from pydantic import BaseModel, Field
 
 from normativa.config import settings
 from normativa.corpus import db
+from normativa.corpus.models import ProcessingStatus
 from normativa.corpus.service import CorpusService
 
 
@@ -14,9 +18,19 @@ admin_router = APIRouter(prefix="/api/admin", tags=["Administración del Corpus"
 public_versions_router = APIRouter(prefix="/api/versions", tags=["Versiones Normativas"])
 
 
+class AdminLoginRequest(BaseModel):
+    admin_key: str
+
+
+class ReviewVersionRequest(BaseModel):
+    action: str = Field(..., description="'approve' o 'reject'")
+    notes: str | None = None
+
+
 def verify_admin_key(
     x_admin_key: Annotated[str | None, Header(alias="X-Admin-Key")] = None,
     authorization: Annotated[str | None, Header()] = None,
+    admin_session: Annotated[str | None, Cookie()] = None,
 ) -> bool:
     expected_key = settings.ADMIN_API_KEY
     provided_key = None
@@ -25,6 +39,8 @@ def verify_admin_key(
         provided_key = x_admin_key
     elif authorization and authorization.startswith("Bearer "):
         provided_key = authorization.split("Bearer ", 1)[1].strip()
+    elif admin_session:
+        provided_key = admin_session
 
     if not provided_key or provided_key != expected_key:
         raise HTTPException(
@@ -58,7 +74,119 @@ def get_active_version_public(
     }
 
 
+@public_versions_router.get("/{version_id}/pdf")
+def get_version_pdf(
+    version_id: str,
+    service: CorpusService = Depends(get_corpus_service),
+):
+    version = db.get_version(version_id, service.db_path)
+    if version is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"No se encontró la versión con ID '{version_id}'",
+        )
+    doc = db.get_document(version.document_id, service.db_path)
+    if doc is None or not doc.file_path:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Documento no encontrado para esta versión",
+        )
+    file_path = Path(doc.file_path).resolve()
+    base_dir = Path(settings.DATA_DIR).resolve()
+    if not file_path.is_relative_to(base_dir):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Acceso denegado al archivo por política de seguridad",
+        )
+    if not file_path.exists() or not file_path.is_file():
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="El archivo PDF no fue encontrado en el almacenamiento local",
+        )
+    return FileResponse(
+        path=file_path,
+        media_type="application/pdf",
+        filename=doc.filename,
+    )
+
+
 # --- Endpoints Administrativos Protegidos ---
+
+@admin_router.post("/login")
+def admin_login(payload: AdminLoginRequest, response: Response) -> dict:
+    if payload.admin_key != settings.ADMIN_API_KEY:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Clave administrativa incorrecta",
+        )
+    response.set_cookie(
+        key="admin_session",
+        value=settings.ADMIN_API_KEY,
+        httponly=True,
+        samesite="lax",
+        secure=False,
+        max_age=86400,
+        path="/",
+    )
+    return {
+        "success": True,
+        "message": "Autenticación exitosa",
+        "token": settings.ADMIN_API_KEY,
+    }
+
+
+@admin_router.post("/logout")
+def admin_logout(response: Response) -> dict:
+    response.delete_cookie(
+        key="admin_session",
+        path="/",
+        httponly=True,
+        samesite="lax",
+    )
+    return {"success": True, "message": "Sesión administrativa cerrada"}
+
+
+@admin_router.get("/me")
+def admin_me(_: bool = Depends(verify_admin_key)) -> dict:
+    return {"authenticated": True, "role": "admin"}
+
+
+@admin_router.get("/stats")
+def get_admin_stats(
+    _: bool = Depends(verify_admin_key),
+    service: CorpusService = Depends(get_corpus_service),
+) -> dict:
+    versions = db.list_versions(service.db_path)
+    active = service.get_active_version()
+    status_counts = {
+        ProcessingStatus.RECIBIDO.value: 0,
+        ProcessingStatus.EN_PROCESAMIENTO.value: 0,
+        ProcessingStatus.PENDIENTE_REVISION.value: 0,
+        ProcessingStatus.PROCESADO.value: 0,
+        ProcessingStatus.ERROR.value: 0,
+    }
+    total_chunks = 0
+    for v in versions:
+        s = v.status.value if isinstance(v.status, ProcessingStatus) else str(v.status)
+        status_counts[s] = status_counts.get(s, 0) + 1
+        total_chunks += v.chunks_count
+
+    trace_count = 0
+    try:
+        with db.get_connection(service.db_path) as conn:
+            row = conn.execute("SELECT count(*) FROM traces").fetchone()
+            if row:
+                trace_count = row[0]
+    except Exception:
+        pass
+
+    return {
+        "total_versions": len(versions),
+        "status_counts": status_counts,
+        "active_version": active.to_dict() if active else None,
+        "total_chunks": total_chunks,
+        "total_traces": trace_count,
+    }
 
 @admin_router.post("/documents", status_code=status.HTTP_201_CREATED)
 async def upload_document(
@@ -282,6 +410,50 @@ def update_version_metadata_admin(
         }
     except ValueError as exc:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
+
+
+@admin_router.post("/versions/{version_id}/review")
+def review_version_admin(
+    version_id: str,
+    payload: ReviewVersionRequest,
+    _: bool = Depends(verify_admin_key),
+    service: CorpusService = Depends(get_corpus_service),
+) -> dict:
+    version = db.get_version(version_id, service.db_path)
+    if version is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"No se encontró la versión normativa con ID '{version_id}'",
+        )
+    if payload.action == "approve":
+        note_text = f"Revisión humana aprobada. {payload.notes or ''}".strip()
+        db.update_version_status(
+            version_id=version_id,
+            status=ProcessingStatus.PROCESADO,
+            message=note_text,
+            db_path=service.db_path,
+        )
+    elif payload.action == "reject":
+        note_text = f"Revisión humana rechazada. {payload.notes or ''}".strip()
+        db.update_version_status(
+            version_id=version_id,
+            status=ProcessingStatus.ERROR,
+            message=note_text,
+            db_path=service.db_path,
+        )
+    else:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Acción no válida. Se espera 'approve' o 'reject'",
+        )
+
+    updated = db.get_version(version_id, service.db_path)
+    assert updated is not None
+    return {
+        "success": True,
+        "message": f"Versión '{version_id}' actualizada a estado '{updated.status.value}'",
+        "version": updated.to_dict(),
+    }
 
 
 @admin_router.delete("/versions/{version_id}")
