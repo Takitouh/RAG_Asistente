@@ -95,7 +95,9 @@ def init_db(db_path: str | Path | None = None) -> None:
                 total_ms REAL NOT NULL DEFAULT 0.0,
                 execution_status TEXT NOT NULL DEFAULT 'ok',
                 error_message TEXT,
-                latency_ms REAL NOT NULL DEFAULT 0.0
+                latency_ms REAL NOT NULL DEFAULT 0.0,
+                query_type TEXT NOT NULL DEFAULT 'normative',
+                context_chunks_json TEXT NOT NULL DEFAULT '[]'
             );
 
             CREATE INDEX IF NOT EXISTS idx_versions_is_active ON versions(is_active);
@@ -103,6 +105,15 @@ def init_db(db_path: str | Path | None = None) -> None:
             CREATE INDEX IF NOT EXISTS idx_documents_file_hash ON documents(file_hash);
             """
         )
+        # Migraciones controladas e idempotentes
+        try:
+            conn.execute("ALTER TABLE traces ADD COLUMN query_type TEXT NOT NULL DEFAULT 'normative'")
+        except sqlite3.OperationalError:
+            pass
+        try:
+            conn.execute("ALTER TABLE traces ADD COLUMN context_chunks_json TEXT NOT NULL DEFAULT '[]'")
+        except sqlite3.OperationalError:
+            pass
 
 
 def save_document(doc: DocumentMetadata, db_path: str | Path | None = None) -> None:
