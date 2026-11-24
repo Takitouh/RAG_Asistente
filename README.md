@@ -1,7 +1,7 @@
 # NORMATIVA-TG UTS — Asistente Inteligente RAG y Gestión Normativa
 ## Proyecto de Grado: Desarrollo Tecnológico (Formato F-DC-124 / F-DC-125)
 
-Prototipo académico desarrollado para la consulta inteligente, fundamentada y orientativa del **Reglamento de Trabajo de Grado** de las **Unidades Tecnológicas de Santander (UTS)** (Acuerdo del Consejo Directivo No. 01-021 de 2019).
+Prototipo académico desarrollado para la consulta inteligente, fundamentada y orientativa del **Reglamento de Trabajo de Grado** de las **Universitaria Tecnologica de Santander (UTS)** (Acuerdo del Consejo Directivo No. 01-021 de 2019).
 
 El sistema opera de forma **100% local y soberana** (sin consumo de APIs externas ni servicios en la nube), utilizando:
 - **FastAPI** (Python 3.12, tipado con Pydantic v2 y gestor `uv`).
@@ -129,4 +129,4 @@ uv run python scripts/ejecutar_30_preguntas.py
 7. **Cero Dependencias Cloud:** 100% soberano, gratuito y reproducible localmente.
 
 ---
-*Unidades Tecnológicas de Santander (UTS) — 2026*
+*Universitaria Tecnologica de Santander (UTS) — 2026*
