@@ -1,0 +1,92 @@
+[
+  {
+    "id": "2efcf64b-2439-453a-8398-8a374ba0336f",
+    "created_at": "2026-11-24T18:25:15.483845+00:00",
+    "version_id": "uts_tg_2019",
+    "query": "¿En qué situaciones excepcionales puede prorrogarse una práctica?",
+    "response": "Según el Reglamento de Trabajo de Grado de las Unidades Tecnológicas de Santander (UTS), en la Artículo 15, Parágrafo 2, se establecen situaciones excepcionales bajo las cuales puede prorrogarse una práctica:\n\na) Cuando se certifique por parte de una E.P.S. una enfermedad grave del estudiante que le impida continuar con su práctica.\nb) Cuando la Empresa solicita el aplazamiento de la práctica por motivos ajenos al desarrollo de su actividad económica.\n\nEstas son las únicas situaciones excepcionales mencionadas en el reglamento para prorrogar una práctica.",
+    "abstained": 0,
+    "latency_ms": 38394.94554900011
+  },
+  {
+    "id": "079a238d-e65d-49dd-9337-090fdf755eea",
+    "created_at": "2026-11-24T18:24:37.037403+00:00",
+    "version_id": "uts_tg_2019",
+    "query": "¿La modalidad de Seminario admite prórroga?",
+    "response": "ABSTENCIÓN: La pregunta sobre la prórroga del Seminario no tiene relación con el reglamento proporcionado. Los fragmentos normativos únicamente contienen información relativa a las modalidades de Proyecto de Investigación, Desarrollo Tecnológico y Emprendimiento, Práctica, y Seminario, pero no especifican si la modalidad de Seminario admite prórroga.\n\nEVIDENCIA_USADA: ABSTENCIÓN",
+    "abstained": 1,
+    "latency_ms": 27094.191019999926
+  },
+  {
+    "id": "751fc109-bc89-4c30-9f1c-40e93e555317",
+    "created_at": "2026-11-24T18:24:09.915149+00:00",
+    "version_id": "uts_tg_2019",
+    "query": "¿Qué diferencia hay entre presentar una propuesta de Trabajo de Grado y entregar el Informe Final?",
+    "response": "La diferencia entre presentar una propuesta de Trabajo de Grado y entregar el Informe Final se basa en varios aspectos:\n\n1. **Presentación de la Propuesta**: Según el Artículo 30 del Reglamento de Trabajo de Grado, la propuesta debe ser elaborada por el estudiante. Este documento es enviado al Comité de Trabajo de Grado después de que el Director del Trabajo de Grado haya firmado un formato indicando que la propuesta está lista para evaluación.\n\n2. **Entrega del Informe Final**: Según el Artículo 30, Parágrafo 1, el estudiante no puede entregar el Informe Final hasta al menos tres meses después de la aprobación de la Propuesta de Trabajo de Grado. Este informe final es un producto más avanzado que presenta los resultados y conclusiones del trabajo realizado en acuerdo con la propuesta original.\n\n3. **Naturaleza del Documento**: El Artículo 7 define el Informe Final como un documento que consigna los resultados y conclusiones a una problemática acorde a la propuesta de Trabajo de Grado, cumpliendo con los requisitos para optar al título correspondiente a su programa académico.\n\n4. **Revisión y Correcciones**: Según el Artículo 31, si el Informe Final no cumple con todos los objetivos propuestos o presenta falencias significativas, puede ser considerado \"aplazado\" hasta que se realicen las correcciones requeridas.\n\nEn resumen, la propuesta es un primer paso en la redacción y diseño del Trabajo de Grado, mientras que el Informe Final es el producto final que culmina el proceso. Ambos documentos son cruciales para avanzar en el trámite académico correspondiente.",
+    "abstained": 0,
+    "latency_ms": 69535.36708499996
+  },
+  {
+    "id": "e7bd80f8-d4f1-444b-a268-eb0457016126",
+    "created_at": "2026-11-24T18:23:00.352129+00:00",
+    "version_id": "uts_tg_2019",
+    "query": "Si mi Informe Final queda aplazado, ¿qué debo hacer para volver a presentarlo?",
+    "response": "Según el Reglamento de Trabajo de Grado de las Unidades Tecnológicas de Santander, si tu Informe Final queda aplazado, debes realizar las correcciones especificadas por el Evaluador. Una vez que hayas realizado estas correcciones, el director del Trabajo de Grado deberá solicitar nuevamente la evaluación del mismo.\n\nPara más información sobre los pasos detallados y cualquier otra consulta relacionada con tu situación específica, te recomendamos consultar con tu Director o el Comité de Trabajo de Grado correspondiente.",
+    "abstained": 0,
+    "latency_ms": 38823.92292200075
+  },
+  {
+    "id": "0e6423ff-d2f2-4fe2-9d39-be6ca804e663",
+    "created_at": "2026-11-24T18:22:21.496289+00:00",
+    "version_id": "uts_tg_2019",
+    "query": "¿Cómo pasa mi Informe Final desde la entrega hasta la evaluación?",
+    "response": "De acuerdo con el Reglamento de Trabajo de Grado de las Unidades Tecnológicas de Santander (UTS), una vez que el estudiante ha entregado su Informe Final, este pasará por los siguientes procesos:\n\n1. **Entrega al Comité**: El estudiante presenta el Informe Final del Trabajo de Grado al Comité correspondiente del programa académico mediante la plantilla institucional acompañada de los respectivos formatos, tal como se indica en el procedimiento general del Trabajo de Grado (EVIDENCIA_USADA: uts_tg_2019_art_30_par_2).\n\n2. **Aprobación por el Director**: El estudiante debe recibir la aprobación del Director del Trabajo de Grado, quien firmará un formato indicando que el trabajo está listo para ser evaluado (EVIDENCIA_USADA: uts_tg_2019_art_30_cuerpo).\n\n3. **Revisión por el Evaluador**: Una vez entregada la propuesta del Informe Final, el Comité de Trabajo de Grado designará un Evaluador para revisarlo y emitir un juicio cualitativo (EVIDENCIA_USADA: uts_tg_2019_art_31_cuerpo).\n\n4. **Proceso de Evaluación**: El Evaluador realizará la evaluación del Informe Final en el término de cinco días hábiles a partir de su entrega, utilizando la rejilla institucional para la evaluación (EVIDENCIA_USADA: uts_tg_2019_art_21_inc_d).\n\n5. **Juicio emitido**: El Evaluador emitirá un juicio cualitativo sobre el Informe Final, indicando si se trata de un Trabajo de Grado Aprobado, Aplazado o no Aprobado (EVIDENCIA_USADA: uts_tg_2019_art_31_cuerpo).\n\n6. **Consenso con Director**: En caso de que haya discrepancias entre el Evaluador y el Director, se asignará un tercer Evaluador para emitir un concepto final (EVIDENCIA_USADA: uts_tg_2019_art_31_par_único).\n\n7. **Valoración final**: Los resultados del Trabajo de Grado serán divulgados a través de espacios académicos institucionales que promuevan la transferencia de conocimiento (EVIDENCIA_USADA: uts_tg_2019_art_30_par_3).",
+    "abstained": 0,
+    "latency_ms": 111573.89263300048
+  },
+  {
+    "id": "992b61c1-3fd5-4426-8fda-6f36c607e5f3",
+    "created_at": "2026-11-24T18:20:29.891784+00:00",
+    "version_id": "uts_tg_2019",
+    "query": "¿Qué ocurre si no finalizo mi Trabajo de Grado dentro del período establecido y necesito más tiempo?",
+    "response": "Según el Reglamento de Trabajo de Grado de las Unidades Tecnológicas de Santander, si no finalizas tu Trabajo de Grado dentro del período establecido y necesitas más tiempo, podrás solicitar una prórroga. La información relevante se encuentra en los Artículos 14 y 15.\n\nEn primer lugar, según el Artículo 14, tienes un periodo de 180 días calendarios consecutivos para finalizar tu Trabajo de Grado desde que se aprueba la propuesta, excepto si por motivos institucionales no se puede completar a tiempo. Si superas este plazo sin terminar tu trabajo, debes solicitar una prórroga.\n\nEn segundo lugar, el Artículo 15 establece los detalles sobre las prórogas:\n\n- Las modalidades de \"Seminario\" no tienen prórroga (Parágrafo 1).\n- La modalidad de \"Práctica\" solo puede ser prorrogada en dos casos específicos: a) cuando se certifique una enfermedad grave que impida continuar con la práctica; b) cuando la Empresa solicita un aplazamiento por motivos externos (Parágrafo 2).\n- Para todas las demás modalidades, al solicitar prórroga, debes realizar el pago del derecho pecuniario correspondiente. La prórroga debe solicitarse antes de que se vence el plazo original (Parágrafo 3).\n\nAdemás, es importante tener en cuenta que se permiten hasta tres prórrogas sucesivas, aunque cada una requerirá un nuevo pago.",
+    "abstained": 0,
+    "latency_ms": 64498.594744
+  },
+  {
+    "id": "5691fd96-866c-400a-b827-7315bef8e467",
+    "created_at": "2026-11-24T18:19:25.338764+00:00",
+    "version_id": "uts_tg_2019",
+    "query": "Me aprobaron la propuesta de Trabajo de Grado. ¿Qué debo hacer después y cuándo puedo presentar el Informe Final?",
+    "response": "Después de que se aprueba la propuesta de Trabajo de Grado, debes:\n\n1. Estimar la entrega del Informe Final antes de los 180 días calendarios consecutivos desde la aprobación de la propuesta con el visto bueno del director (según [uts_tg_2019_art_14_par_único]). Este plazo es general y puede variar según las circunstancias institucionales.\n\n2. Presentar el Informe Final al Comité de Trabajo de Grado a través del formato firmado por el director, indicando que el trabajo está listo para ser evaluado (según [uts_tg_2019_art_30_par_1]). No puedes entregarlo antes de los 3 meses a partir de la aprobación de la propuesta.\n\nPor favor, ten en cuenta estos plazos y procedimientos para asegurarte de cumplir con todos los requisitos establecidos por el reglamento del Trabajo de Grado de las Unidades Tecnológicas de Santander.",
+    "abstained": 0,
+    "latency_ms": 48417.56291399997
+  },
+  {
+    "id": "42d4cdaf-c295-4984-8b6d-f53b1df41087",
+    "created_at": "2026-11-24T18:18:36.893428+00:00",
+    "version_id": "uts_tg_2019",
+    "query": "¿Qué modalidades de práctica reconoce el reglamento?",
+    "response": "Las modalidades de práctica reconocidas por el reglamento son dos:\n\n1. Práctica Empresarial, que se define como una experiencia académica donde el estudiante interactúa con ambientes empresariales y aplica teorías y conocimientos relacionados con su programa académico, fortaleciendo competencias ciudadanas, personales y profesionales.\n\n2. Práctica Social Comunitaria, que consiste en un proceso de aprendizaje fuera del aula donde el estudiante contribuye al mejoramiento de condiciones de calidad en entes territoriales o gubernamentales, así como en comunidades organizadas, a través del desarrollo de proyectos con impacto social.",
+    "abstained": 0,
+    "latency_ms": 38926.95180299961
+  },
+  {
+    "id": "421ff0fc-03b4-4729-8f1e-fcff26ab1bb8",
+    "created_at": "2026-11-24T18:17:57.938963+00:00",
+    "version_id": "uts_tg_2019",
+    "query": "¿Cuántas horas académicas debe tener como mínimo la modalidad de Seminario?",
+    "response": "La modalidad de Seminario debe tener una intensidad mínima de 160 horas académicas, según establece el Artículo 42, Parágrafo único del Reglamento de Trabajo de Grado de las Unidades Tecnológicas de Santander.",
+    "abstained": 0,
+    "latency_ms": 23866.17206399933
+  },
+  {
+    "id": "567347af-985d-40aa-aadc-b20657442f8b",
+    "created_at": "2026-11-24T18:17:34.040684+00:00",
+    "version_id": "uts_tg_2019",
+    "query": "¿Qué clases de monografía describe el reglamento?",
+    "response": "El reglamento describe tres clases principales de monografía como modalidad del Trabajo de Grado:\n\na) Monografía Teórica: Esta es un ejercicio que aborda una situación teórica; desarrolla ampliamente nociones y conceptos alrededor del constructo de conocimiento seleccionado. Permite la revisión de teorías referentes al ámbito de estudio, trabajar los autores con mayor profundidad y finalizar con una postura personal, con una apuesta teórica y una posición crítica. Esta modalidad requiere al menos la revisión de 25 autores para lograr un documento final que genere un artículo de revisión bibliográfica.\n\nb) Monografía de Análisis: Este ejercicio aborda la explicación y descripción de una situación problemática concreta por medio de la aplicación de un modelo de análisis. Implica explorar modelos existentes y luego seleccionar variables de uno o algunos modelos para lograr un documento descriptivo y explicativo del objeto de estudio definido.\n\nc) Monografía de Sistematización de Experiencias: Este ejercicio aborda la descripción sistemática de experiencias a partir de criterios didácticos, investigativos, pedagógicos; cuyo propósito es lograr un documento de productos que generan conocimiento, procesos y procedimientos que en su aplicación permite mejorar condiciones y crear valor en espacios académicos, empresariales y en comunidades foco.",
+    "abstained": 0,
+    "latency_ms": 50881.26709900007
+  }
+]

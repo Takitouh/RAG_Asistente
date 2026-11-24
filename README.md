@@ -1,46 +1,47 @@
 # NORMATIVA-TG UTS — Asistente Inteligente RAG y Gestión Normativa
+## Proyecto de Grado: Desarrollo Tecnológico (Formato F-DC-124 / F-DC-125)
 
-Prototipo académico basado en el documento **F-DC-124** para la consulta del Reglamento de Trabajo de Grado de las **Unidades Tecnológicas de Santander (UTS)**.
+Prototipo académico desarrollado para la consulta inteligente, fundamentada y orientativa del **Reglamento de Trabajo de Grado** de las **Unidades Tecnológicas de Santander (UTS)** (Acuerdo del Consejo Directivo No. 01-021 de 2019).
 
-El sistema funciona de forma 100% local, utilizando **FastAPI**, **React + Vite + Tailwind CSS**, **Qdrant** (base de datos vectorial), **Ollama** (modelo LLM `qwen2.5:7b` y embeddings `bge-m3`), y **SQLite** (metadatos, chunks y trazas de auditoría).
-
----
-
-## 1. Arquitectura del Repositorio
-
-```text
-FastAPIProject2/
-├── src/normativa/               # Backend FastAPI y lógica RAG
-│   ├── api/                     # Routers públicos y administrativos
-│   ├── corpus/                  # SQLite, modelos y chunker normativo
-│   ├── ingestion/               # Extracción, OCR, limpieza y parseo
-│   ├── retrieval/               # Indexador y recuperador en Qdrant
-│   ├── generation/              # Generador RAG, citas y abstención
-│   └── tracing/                 # Trazabilidad de consultas en SQLite
-├── frontend/                    # Aplicación web React + TypeScript
-│   ├── src/
-│   │   ├── api/                 # Cliente HTTP y contratos
-│   │   ├── components/          # Chat, citas, panel admin, modales
-│   │   ├── hooks/               # useChat, useActiveVersion, useAdminAuth
-│   │   ├── pages/               # ChatPage, AdminLoginPage, AdminDashboardPage
-│   │   └── types/               # Tipos TypeScript compartidos
-│   ├── package.json
-│   ├── vite.config.ts
-│   └── ...
-├── data/                        # Almacenamiento local (PDFs, SQLite, Qdrant)
-├── tests/                       # Pruebas automatizadas pytest backend
-├── pyproject.toml               # Dependencias Python (uv)
-└── README.md
-```
+El sistema opera de forma **100% local y soberana** (sin consumo de APIs externas ni servicios en la nube), utilizando:
+- **FastAPI** (Python 3.12, tipado con Pydantic v2 y gestor `uv`).
+- **React + Vite + Tailwind CSS** (Frontend web interactivo y panel administrativo).
+- **Qdrant** (Base de datos vectorial en Docker con almacenamiento en disco).
+- **Ollama** (Modelos locales: generativo `qwen2.5:7b` y embeddings `bge-m3`).
+- **SQLite** (`data/db/normativa.db`, metadatos, chunks estructurados y trazas de auditoría).
 
 ---
 
-## 2. Requisitos Previos
+## 1. Documentación Final de Entrega Técnica (`docs/entrega_final/`)
 
-- **Python 3.12+** y gestor [`uv`](https://docs.astral.sh/uv/)
-- **Node.js 18+** y `npm`
-- **Docker** y Docker Compose (para Qdrant)
-- **Ollama** instalado localmente con los modelos:
+Todos los entregables técnicos, especificaciones de ingeniería, informes de validación y evidencias visuales exigidos académicamente se encuentran consolidados en la carpeta [`docs/entrega_final/`](docs/entrega_final/):
+
+| Documento | Descripción y Contenido Principal |
+| :--- | :--- |
+| **[01_analisis_y_especificacion.md](docs/entrega_final/01_analisis_y_especificacion.md)** | Análisis normativo, usuarios, RF, RNF, seguridad, casos de uso y matriz de trazabilidad integral. |
+| **[02_paquete_diseno.md](docs/entrega_final/02_paquete_diseno.md)** | Arquitectura completa, diagramas de componentes, modelo relacional SQLite, colección Qdrant y secuencia RAG. |
+| **[03_informe_procesamiento_ocr.md](docs/entrega_final/03_informe_procesamiento_ocr.md)** | Informe definitivo de extracción y OCR (19 págs., 91.71% confianza, 181 chunks, corrección Art. 1). |
+| **[04_informe_validacion_tecnica.md](docs/entrega_final/04_informe_validacion_tecnica.md)** | Evaluación técnica exhaustiva del banco de 30 consultas normativas con Ollama y Qdrant en caliente. |
+| **[05_validacion_versionamiento.md](docs/entrega_final/05_validacion_versionamiento.md)** | Prueba formal de coexistencia, aislamiento de versiones y conmutación en caliente sin mezcla de fuentes. |
+| **[06_pruebas_funcionales_seguridad.md](docs/entrega_final/06_pruebas_funcionales_seguridad.md)** | Auditoría de seguridad (cookies HttpOnly, path traversal) y resultados de 107 pruebas (83 backend / 24 frontend). |
+| **[07_manual_tecnico.md](docs/entrega_final/07_manual_tecnico.md)** | Manual técnico reproducible: requisitos, instalación, endpoints REST, respaldos y recuperación de desastres. |
+| **[08_manual_usuario.md](docs/entrega_final/08_manual_usuario.md)** | Manual para estudiantes, docentes y administradores: uso del chat, interpretación de citas, visor PDF y panel admin. |
+| **[09_documentacion_despliegue.md](docs/entrega_final/09_documentacion_despliegue.md)** | Guía de despliegue local, topología de red, puertos, script de arranque y protocolo de sustentación. |
+| **[10_informe_consolidado_fdc125.md](docs/entrega_final/10_informe_consolidado_fdc125.md)** | Síntesis consolidada según las 4 fases del F-DC-124 como insumo directo para el informe final de grado F-DC-125. |
+| **[resultados_30_preguntas.json](docs/entrega_final/resultados_30_preguntas.json)** | Dataset íntegro con respuestas, chunks, puntuaciones, citas, trazas y juicios evaluativos en JSON. |
+| **[resultados_30_preguntas.csv](docs/entrega_final/resultados_30_preguntas.csv)** | Dataset tabular consolidado para análisis cuantitativo y métricas en hojas de cálculo. |
+| **[evidencias/](docs/entrega_final/evidencias/)** | Carpeta con folios renderizados del PDF oficial a 150 DPI y exportación de trazas de auditoría. |
+
+---
+
+## 2. Requisitos Previos del Sistema
+
+- **Sistema Operativo:** Linux (Ubuntu 22.04 LTS o superior recomendado), macOS o Windows con WSL2.
+- **Python 3.12** y gestor [`uv`](https://docs.astral.sh/uv/) instalado.
+- **Node.js 18+** y `npm`.
+- **Docker Engine y Docker Compose** (para el contenedor de Qdrant).
+- **Tesseract OCR:** Paquetes `tesseract-ocr` y `tesseract-ocr-spa`.
+- **Ollama Local** instalado con los modelos descargados:
   ```bash
   ollama pull qwen2.5:7b
   ollama pull bge-m3
@@ -64,103 +65,68 @@ cd ..
 
 ---
 
-## 4. Variables de Entorno
+## 4. Puesta en Marcha de Servicios Locales
 
-Copie el archivo de ejemplo si no existe `.env`:
+### Paso 1: Iniciar Qdrant Vector DB
 ```bash
-cp .env.example .env
-```
-
-Variables disponibles en `.env`:
-```env
-OLLAMA_BASE_URL=http://localhost:11434
-LLM_MODEL=qwen2.5:7b
-EMBED_MODEL=bge-m3
-QDRANT_URL=http://localhost:6333
-QDRANT_COLLECTION=normativa
-SQLITE_PATH=data/db/normativa.db
-DATA_DIR=data
-ADMIN_API_KEY=dev-admin-secret-key
-OCR_CONFIDENCE_THRESHOLD=75.0
-RAG_TOP_K=5
-```
-
----
-
-## 5. Puesta en Marcha de Servicios
-
-### Paso 1: Iniciar Qdrant y Ollama
-```bash
-# Iniciar base de datos vectorial Qdrant
 docker compose up -d
+```
 
-# Verificar que Ollama esté sirviendo
+### Paso 2: Iniciar Servidor Ollama
+```bash
 ollama serve
 ```
 
-### Paso 2: Iniciar Backend FastAPI
+### Paso 3: Iniciar Backend FastAPI
 ```bash
 uv run uvicorn normativa.api.main:app --host 0.0.0.0 --port 8000 --reload
 ```
-La documentación interactiva OpenAPI estará en `http://localhost:8000/docs`.
+- Documentación OpenAPI interactiva: `http://localhost:8000/docs`
+- Verificación de salud: `http://localhost:8000/health`
 
-### Paso 3: Iniciar Frontend Vite
+### Paso 4: Iniciar Frontend Web (Vite)
 En otra terminal:
 ```bash
 cd frontend
-npm run dev
+npm run dev -- --host 0.0.0.0 --port 5173
 ```
-La interfaz web estará accesible en `http://localhost:5173`.
+- Aplicación web accesible en: `http://localhost:5173`
+- Panel administrativo en: `http://localhost:5173/admin` (Clave: `dev-admin-secret-key`)
 
 ---
 
-## 6. Guía de Uso del Sistema
+## 5. Ejecución de Pruebas Automatizadas
 
-### 6.1. Chat Normativo Público (`http://localhost:5173/`)
-- Muestra el reglamento oficial actualmente activo y los metadatos normativos.
-- Permite formular preguntas en lenguaje natural sobre modalidades de grado, requisitos, causales de reprobación, etc.
-- Presenta citas estructuradas deterministas con el texto oficial del chunk y visor de la página correspondiente del PDF original.
-- Si no hay evidencia suficiente en la versión activa, emite una abstención explícita (`abstained: true`) sin alucinaciones.
+El proyecto cuenta con un 100% de éxito en sus suites de aseguramiento de calidad:
 
-### 6.2. Panel Administrativo (`http://localhost:5173/admin`)
-1. **Autenticación**: Ingrese en `/admin/login` utilizando la clave administrativa (`ADMIN_API_KEY`, por defecto `dev-admin-secret-key`). La sesión se gestiona con cookie segura y token.
-2. **Dashboard**: Consulta de métricas reales (versiones registradas, chunks en Qdrant, trazas de auditoría).
-3. **Cargar Normativa**: Formulario para cargar un nuevo archivo PDF del reglamento, registrando nombre, año, número de acuerdo y activando la extracción/indexación automática.
-4. **Auditoría OCR y Validación**: Revisión de páginas procesadas, herramienta OCR, anomalías estructurales y contraste con el PDF original.
-5. **Aprobación y Activación**: Un administrador puede aprobar versiones pendientes de revisión y activar una versión con un solo clic. El chat pasa a responder exclusivamente con dicha versión activa.
-
----
-
-## 7. Ejecución de Pruebas Automatizadas
-
-### Backend (66 pruebas con pytest)
+### Backend (83 pruebas unitarias y de integración con Pytest):
 ```bash
 uv run pytest -v
 ```
 
-### Frontend (14 pruebas con Vitest)
+### Frontend (24 pruebas de componentes, autenticación y contratos con Vitest):
 ```bash
 cd frontend
 npm test
 cd ..
 ```
 
-### Compilación y Verificación de Tipos Frontend
+### Ejecución Reproducible del Banco de 30 Preguntas RAG:
 ```bash
-cd frontend
-npm run build
-cd ..
+uv run python scripts/ejecutar_30_preguntas.py
 ```
 
 ---
 
-## 8. Resolución de Problemas Comunes
+## 6. Reglas No Negociables del Proyecto (Auditoría Técnica)
 
-- **Backend 503 / "No se pudo conectar con Ollama o Qdrant"**:
-  Verifique que Qdrant esté corriendo en el puerto 6333 (`docker ps`) y Ollama en el puerto 11434 (`curl http://localhost:11434/api/tags`).
-- **"Sin reglamento activo en el chat"**:
-  Ingrese al panel de administración `/admin`, ubique el reglamento deseado y presione **Activar**.
-- **CORS o Proxy**:
-  Vite redirige automáticamente las peticiones `/api` a `http://localhost:8000`. Si consume FastAPI directamente, el middleware CORS permite los puertos 5173 y 3000 con credenciales activas.
-- **Acceso a PDF con Error 403 / 404**:
-  El backend valida que el archivo se encuentre confinado dentro de `data/pdfs/` para impedir cualquier ataque de path traversal.
+1. **Estructura Conservada:** Cada chunk conserva capítulo, artículo, parágrafo, inciso, página, documento y versión.
+2. **Aislamiento Estricto:** Toda búsqueda vectorial filtra obligatoriamente por `version_id`; nunca se mezclan normativas.
+3. **Citas Deterministas:** Las citas se construyen a partir de los metadatos de los chunks recuperados, **nunca** desde texto alucinado por el LLM.
+4. **Abstención Activa:** Si la evidencia es insuficiente o la consulta es ajena al reglamento, el sistema se abstiene (`abstained: true`).
+5. **Trazabilidad Total:** Cada consulta registra una traza persistente en la tabla `traces` de SQLite con UUID y métricas de latencia.
+6. **Carácter Orientativo:** El asistente incluye advertencias de que no emite actos administrativos vinculantes.
+7. **Cero Dependencias Cloud:** 100% soberano, gratuito y reproducible localmente.
+
+---
+*Unidades Tecnológicas de Santander (UTS) — 2026*
