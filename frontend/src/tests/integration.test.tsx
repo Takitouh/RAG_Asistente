@@ -75,9 +75,9 @@ describe('Integration Flow Tests (Chat & Admin)', () => {
       </MemoryRouter>
     );
 
-    // Esperar a que se cargue la versión activa en el banner
+    // Esperar a que se cargue la versión activa en el campo de entrada
     await waitFor(() => {
-      expect(screen.getByText('Reglamento de Trabajo de Grado 2019')).toBeInTheDocument();
+      expect(screen.getByPlaceholderText(/Reglamento de Trabajo de Grado 2019/i)).toBeInTheDocument();
     });
 
     // Enviar pregunta

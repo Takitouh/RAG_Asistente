@@ -101,13 +101,10 @@ export const ChatInput: React.FC<ChatInputProps> = ({
           </div>
         </form>
 
-        <div className="flex items-center justify-between text-[11px] text-slate-400 mt-2 px-1">
+        <div className="flex items-center text-[11px] text-slate-400 mt-2 px-1">
           <div className="flex items-center gap-1 hidden sm:flex">
             <CornerDownLeft className="w-3 h-3 text-slate-400" />
             <span>Presione <strong>Enter</strong> para enviar, <strong>Shift + Enter</strong> para salto de línea</span>
-          </div>
-          <div className="text-right ml-auto">
-            <span>Solo normativa oficial UTS • Respuestas verificables</span>
           </div>
         </div>
       </div>
