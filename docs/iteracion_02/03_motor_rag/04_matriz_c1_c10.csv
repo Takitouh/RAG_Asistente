@@ -1,0 +1,11 @@
+id,estado,resultado_preliminar,fuente_principal,limitacion
+C1,completo,Comité asigna; tercer evaluador emite concepto final,Reglamento 2021 art. 32,Verificar en ejecución final
+C2,completo,Usar F-DC-124 para propuesta de desarrollo tecnológico,P-DC-28/F-DC-124,Verificar en ejecución final
+C3,completo,Enviar liquidación y comprobante a coordinación según evidencia,Reglamento 2021/P-DC-28,Verificar canal exacto
+C4,parcial,Desarrollo tecnológico F-DC-124; práctica F-DC-128,F-DC-124/F-DC-128,Validación académica pendiente
+C5,parcial,Evaluador 5 días; correcciones máximo recomendado 8,P-DC-29,Premisa corregida
+C6,parcial,No determina fecha/hora/salón; P-DC-29 orienta programación,P-DC-29,Consultar Coordinador
+C7,completo,Práctica 600 horas nivel tecnológico,Reglamento 2021 art. 59,Verificar nivel
+C8,completo,Lista modalidades y integración según artículos 8/11,Reglamento 2021 arts. 8/11,Validación académica pendiente
+C9,completo,Evaluador dispone de 5 días hábiles,P-DC-29/Reglamento,Verificar rejilla
+C10,fuera_de_alcance,Remitir a Tesorería/canal de pagos,N/A,No hay información documental

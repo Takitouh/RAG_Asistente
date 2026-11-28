@@ -1,0 +1,34 @@
+HEAD bd07d8370b4626b3184d4573dd0a3be735c60822
+
+git status --short
+ M .env.example
+ M frontend/src/api/client.ts
+ M frontend/src/components/admin/AdminDashboard.tsx
+ M frontend/src/components/admin/VersionList.tsx
+ M frontend/src/components/chat/AbstentionAlert.tsx
+ M frontend/src/components/chat/ChatMessage.tsx
+ M frontend/src/components/citations/CitationCard.tsx
+ M frontend/src/hooks/useChat.ts
+ M frontend/src/tests/chat.test.tsx
+ M frontend/src/types/index.ts
+ M src/normativa/api/admin.py
+ M src/normativa/api/query.py
+ M src/normativa/config.py
+ M src/normativa/corpus/db.py
+ M src/normativa/generation/citations.py
+ M src/normativa/generation/generator.py
+ M src/normativa/generation/intents.py
+ M src/normativa/generation/rag_service.py
+ M src/normativa/retrieval/context_expander.py
+ M src/normativa/retrieval/explicit_matcher.py
+ M src/normativa/retrieval/models.py
+ M src/normativa/retrieval/retriever.py
+ M src/normativa/tracing/db.py
+ M src/normativa/tracing/models.py
+ M tests/test_etapa2_procesamiento.py
+ M tests/test_rag_engine.py
+ M tests/test_rag_fixes.py
+?? docs/iteracion_02/03_motor_rag/
+?? src/normativa/generation/providers.py
+?? tests/test_etapa3_calidad.py
+?? tests/test_etapa3_rag.py
