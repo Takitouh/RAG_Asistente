@@ -40,9 +40,9 @@ def _insert_version(db: Path, version_id: str = "v_test", is_active: int = 1) ->
         """
         INSERT OR REPLACE INTO versions
         (id, document_id, nombre, numero_acuerdo, anio, status, is_active,
-         created_at, updated_at, chunks_count)
+         estado_revision, created_at, updated_at, chunks_count)
         VALUES (?, 'doc_test', 'Reglamento Test', NULL, 2024, 'PROCESADO', ?,
-                '2024-01-01T00:00:00+00:00', '2024-01-01T00:00:00+00:00', 5)
+                'APROBADO', '2024-01-01T00:00:00+00:00', '2024-01-01T00:00:00+00:00', 5)
         """,
         (version_id, is_active),
     )

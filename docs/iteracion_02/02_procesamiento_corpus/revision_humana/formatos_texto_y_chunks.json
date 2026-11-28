@@ -1,0 +1,885 @@
+{
+  "tipo": "Formatos Institucionales UTS",
+  "total_formatos": 9,
+  "total_chunks_formatos": 110,
+  "documentos": [
+    {
+      "codigo": "F-AM-04",
+      "nombre": "F-AM-04 Solicitud de Grado V18",
+      "version_id": "ver_f_am_04_v18",
+      "version_institucional": "18",
+      "paginas": 1,
+      "procedencia": "Suministrado por Directora de Trabajo de Grado",
+      "total_chunks_almacenados": 1,
+      "chunks_almacenados_sqlite": [
+        {
+          "chunk_id": "ver_f_am_04_v18_p1_s1",
+          "location_hint": "F-AM-04, Pág. 1 (ESPACIO PARA SER DILIGENCIADO POR EL ESTUDIANTE)",
+          "texto": "F-AM-04 (Plantilla institucional de trabajo de grado) - ESPACIO PARA SER DILIGENCIADO POR EL ESTUDIANTE:\nESPACIO PARA SER DILIGENCIADO POR EL ESTUDIANTE\nApellidos Nombre(s) Documento de Identificación\nPrograma Académico Campus Correo electrónico\nDirección Teléfono Fecha de la solicitud\nPASOS A REALIZAR ANTES DE LA ENTREGA DE DOCUMENTOS\n1. Ingresar a la página www.graduadoscolombia.edu.co/encuesta/ y diligenciar en línea en la opción “población estudiantil”\n(“encuesta momento cero”). Imprima el pantallazo al final del proceso.\n2. Ingresar a la página de la bolsa de empleo en el link https://www.elempleo.com/co/sitio-empresarial/unidades-tecnologicas-santander.\nSeguidamente, escoger en el menú principal la opción “registrar su Hoja de Vida”, e ingresar con el tipo y número de documento y el correo\nelectrónico. Imprima el pantallazo al final del proceso.\nENTREGAR EN LA COORDINACIÓN ACADÉMICA, DE CAMPUS O VIRTUAL, LOS SIGUIENTES DOCUMENTOS\n1. Solicitud de Grado F–AM–04.\n2. Concepto Final del Trabajo Grado F-DC-130.\n3. Fotocopia del documento de identidad.\n4. Recibo de Pago de los derechos de grado debidamente cancelado y con sello de la entidad bancaria.\n5. Resultado de las pruebas de Estado de calidad de la educación superior correspondiente a su nivel de formación. Cuando en dicho resultado\nno se evidencie el registro de las Unidades Tecnológicas de Santander como Institución de Educación Superior, el estudiante deberá adjuntar,\nademás, el certificado de presentación de la prueba.\nNota: El estudiante declara conocer y cumplir el requisito de puntaje global mínimo en pruebas de Estado para grado, conforme al\nliteral “g” del artículo 90 del Reglamento Estudiantil: Saber TyT mínimo 80 puntos o Saber Pro mínimo 120 puntos, según\ncorresponda.\n6. Certificado de cumplimiento y aprobación de los niveles de una segunda lengua, emitido por el Departamento de Idiomas. (Si se requiere,\nsegún plan de estudio).\n7. Un (1) juego de estampillas departamentales para registro de diploma según lo ordenado por Ley.\n8. Pantallazos de las dos encuestas.\n_____________________________________\nFIRMA DEL ESTUDIANTE\nAl diligenciar este formato, autorizo a las UNIDADES TECNOLÓGICAS DE SANTANDER, ubicada en la Calle de los Estudiantes 9-82 Ciudadela Real de\nMinas de Bucaramanga y con teléfono 607 6917700, para que recolecte, almacene, use, circule y/o suprima mis datos personales, que se capturan en este\nmedio y en sus anexos, incluyendo el tratamiento de datos sensibles aun conociendo que no estoy obligado a autorizarlo, con el fin de gestionar mi solicitud\nde grado, verificar el cumplimiento de los requisitos académicos e institucionales exigidos y mantener actualizada mi información como egresado de la\ninstitución, así como para las demás finalidades establecidas en la Política de Tratamiento de Información disponible en www.uts.edu.co, la cual declaro\nconocer y saber que en esta se especifican cuáles datos son sensibles. Así mismo, conozco que como titular me asisten los derechos a conocer, actualizar,\nrectificar y suprimir mis datos y revocar la autorización.\nESPACIO PARA SER DILIGENCIADO POR EL COORDINADOR(A) ACADÉMICO, DE CAMPUS O VIRTUAL\n Cumplió con los documentos requisitos previos para grado.\n Se verifica el semáforo de calificaciones del aspirante a Grado.\n Se verifica el cumplimento del diligenciamiento de la encuesta momento cero.\n Se verifica el cumplimiento del registro de la hoja de vida en la bolsa de empleo.\n Se verifica el cumplimiento del registro de la hoja de vida en la UTS\n Se verifica la Dirección URL del RI-UTS\n___________________________________________________\nFIRMA COORDINADOR\nELABORADO POR:\nAdmisiones y Matrículas\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA DE APROBACIÓN: junio 2026\nADMISIONES Y MATRÍCULAS PÁGINA 1 DE 1\nF – AM –\n04\nSOLICITUD DE GRADO VERSIÓN: 18.0",
+          "page_start": 1,
+          "page_end": 1
+        }
+      ],
+      "estado_revision_humana": "PENDIENTE_REVISION_HUMANA"
+    },
+    {
+      "codigo": "F-DC-124",
+      "nombre": "F-DC-124 Propuesta de Trabajo de Grado V2",
+      "version_id": "ver_f_dc_124_v2",
+      "version_institucional": "2.0",
+      "paginas": 12,
+      "procedencia": "Suministrado por Directora de Trabajo de Grado",
+      "total_chunks_almacenados": 12,
+      "chunks_almacenados_sqlite": [
+        {
+          "chunk_id": "ver_f_dc_124_v2_p1_s1",
+          "location_hint": "F-DC-124, Pág. 1 (DOCENCIA PÁGINA 1)",
+          "texto": "F-DC-124 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 1:\nDOCENCIA PÁGINA 1\nDE 12\nF-DC-124 PROPUESTA DE TRABAJO DE GRADO\nProyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento VERSIÓN: 2.0\nFicha técnica de la propuesta\nTítulo: (Debe ser preciso y concreto; debe reunir las siguientes condiciones: Precisar el Tema Principal, indicar la especificidad ¿qué busca?, la espacialidad (¿dónde?) y la temporalidad (¿cuándo?). El título del trabajo es una síntesis del objetivo general en máximo de 21 palabras y mínimo 7). Está:\nEjemplo: El subempleo urbano como factor de la pobreza en\nel Área Metropolitana de Bucaramanga 2010 -2019\nFecha:\nDía\ndd\nMes\nmm\nAño\naaaa\nCódigo de la propuesta: (lo asigna la coordinación del programa)\nModalidad del Trabajo de Grado\nProyecto:\nProyecto de\nInvestigación ☐\nDesarrollo Tecnológico:\n☐ Desarrollo de\nSoftware\n☐ Planta Piloto\n☐ Esquema Circuito\nIntegrado\n☐ Signos Distintivos\nMonografía\n☐ Teórica\n☐ Análisis\n☐ Sistematización de\nExperiencias\nEmprendimiento\n☐ Casos de Estudio\n☐ Planes de Negocio\n☐ Fortalecimiento\nEmpresarial\nFacultad: FCNI_____ FCSE_____ Grupo de Investigación: (Indicar el Grupo de Investigación al que\nse asocia el trabajo de grado. Buscar la información del grupo en el link de Investigaciones de la Institución.\nPrograma Académico__________________________________ Ciudad: ____________\nEstudiante 1:\nEmail:\nCédula:\nTeléfono\nPrograma:\nEstudiante 2:\nEmail:\nCédula:\nTeléfono\nPrograma:\nEstudiante 3:\nEmail:\nCédula:\nTeléfono\nPrograma:\nDirector: Cédula:\nTeléfono\nPrograma:\nCodirector: Cédula:\nTeléfono\nPrograma:\nInformación sobre el pago de la modalidad de trabajo de grado\nNúmero del LQ (consignación)______________________Entidad Bancaria ____________________________\nValor ____________________________ Fecha: día/mes/año\nNota: Anexar evidencia de envió de la copia de consignación al correo institucional del programa\nNota: El programa debe disponer de un correo institucional para trabajos de grado y crear un espacio\npara cada uno de ellos con el fin de mantener una base de datos actualizada y disponible en todo momento.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 1,
+          "page_end": 1
+        },
+        {
+          "chunk_id": "ver_f_dc_124_v2_p2_s1",
+          "location_hint": "F-DC-124, Pág. 2 (DOCENCIA PÁGINA 2)",
+          "texto": "F-DC-124 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 2:\nDOCENCIA PÁGINA 2\nDE 12\nF-DC-124 PROPUESTA DE TRABAJO DE GRADO\nProyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento VERSIÓN: 2.0\nCONTENIDO DE LA PROPUESTA\nDescripción del problema\nDescribir claramente, en máximo 20, líneas, cuál es la problemática a resolver. Esta\nproblemática debe estar articulada con el banco de ideas y proyectos de investigaciones.\nLa problemática debe describir de manera general la situación problémica, o caso que desea\nsolucionar con su trabajo de grado. Debe igualmente exponer las causas que la originan.\nFinalmente, para todas las modalidades se debe formular claramente la pregunta que soporta la\nproblemática. Un buen planteamiento de pregunta debe: expresar la relación entre dos o más\nvariables, ser claro y sin ambigüedades en la pregunta. Por ejemplo: ¿Qué efecto? ¿En qué\ncondiciones…? ¿Cuál es la probabilidad de…? ¿Cómo se relaciona una variable con otra?\nentre otras.\nSe debe tener presente que el problema no es la falta o a usencia de…. sino una debilidad o\nuna limitación generada por determinada circunstancia: Ejemplo: Insuficiencia de los sistemas\nde comunicación ……\nJustificación\nLa justificación es la argumentación de la problemática que se pretende resolver, con criterios\nválidos, con el propósito de describir la conveniencia o necesidad, las implicaciones\ntecnológicas, económicas, sociales y ambientales, el valor teórico; así como cuestionarse la\nviabilidad y consecuencias del trabajo de grado.\nBasándose en el planteamiento de la problemática, describa claramente, en máximo 20 líneas)\nla razón por la cual se debe realizar esta propuesta. Para ello, se debe plantear y responder las\nsiguientes preguntas: ¿por qué? y el ¿para qué? se requiere resolver el problema. ¿Qué efectos\nse generan al solucionar el problema formulado? Es importante argumentar por qué la\npropuesta es relevante para las UTS. Ejemplo: porque alimenta X línea de investigación del\ngrupo XX; también se debe justificar la importancia o aplicabilidad a la vida diaria del estudiante\ny el aporte al campo de conocimiento y la sociedad.\nObjetivo General\nLos objetivos son las acciones que se van a desarrollar para obtener el nivel de conocimiento\ndeseado sobre el objeto de estudio y dar solución a la pregunta problema, es decir, deben\ndetallar el ¿Qué se va a hacer? ¿Cómo se va a hacer? y ¿Para qué se va a hacer? Deben ser\ncuantificables y alcanzables o realizables en un contexto.\n¿Qué se va a hacer? Hace referencia al tipo/clase de trabajo que va a realizar el estudiante\npara aportarle a la solución de la problemática identificada.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 2,
+          "page_end": 2
+        },
+        {
+          "chunk_id": "ver_f_dc_124_v2_p3_s1",
+          "location_hint": "F-DC-124, Pág. 3 (DOCENCIA PÁGINA 3)",
+          "texto": "F-DC-124 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 3:\nDOCENCIA PÁGINA 3\nDE 12\nF-DC-124 PROPUESTA DE TRABAJO DE GRADO\nProyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento VERSIÓN: 2.0\n¿Cómo se va a hacer? Hace referencia a los métodos, procedimientos, y/o las herramientas\nque va a utilizar el estudiante para el despliegue del trabajo expresado en la pregunta ¿qué?\n¿Para qué se va a hacer? Hace referencia a los propósitos que se quieren alcanzar con el\ntrabajo del estudiante, así como los productos que se obtendrán con la realización del trabajo\nde grado.\nPara realizar los objetivos es recomendable revisar la taxonomía de Bloom, para ello pueden\nreferenciar: http://www.eduteka.org/TaxonomiaBloomCuadro.php3\nEl objetivo general es el propósito que el estudiante va a cumplir para aportar a la solución de la\nproblemática seleccionada. La problemática y el objetivo general deben estar relacionados entre\nsí.\nObjetivos específicos\nLa estructura de los objetivos específicos es la misma del objetivo general.\nSon acciones que se llevarán a cabo y que presentarán resultados parciales para obtener el\nlogro del objetivo general. Los objetivos específicos se escriben de manera ordenada para\ncumplir con sentido lógico el objetivo general, es decir, son los pasos clasificados en el orden en\nel que se deben cumplir, para alcanzar el objetivo general.\nSe recomienda entre 3 y 5 objetivos específicos, bien enmarcados, Se debe evitar confundir la\nrealización de actividades necesarias o metodológicas del trabajo de grado con el objetivo, por\nejemplo: la recopilación de información, la documentación de resultados o redacción de un artículo no son un objetivo\nEstado del arte\n(Descripción corta sobre el estado actual del problema debidamente referenciada con norma\nAPA)\nEl estado del arte aplica para las modalidades de investigación, desarrollo tecnológico, La\nmonografía y emprendimiento no llevan estado de arte.\nEl estado del arte, representa el primer y más importante insumo para dar comienzo al proceso\ninvestigativo Permite determinar cómo ha sido tratado el tema, el estado de avance de su\nconocimiento y cuáles son las tendencias existentes.\nCada cita del estado del arte debe estar referenciada, siguiendo la norma APA actualizada\n(American Psychological Association).\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 3,
+          "page_end": 3
+        },
+        {
+          "chunk_id": "ver_f_dc_124_v2_p4_s1",
+          "location_hint": "F-DC-124, Pág. 4 (DOCENCIA PÁGINA 4)",
+          "texto": "F-DC-124 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 4:\nDOCENCIA PÁGINA 4\nDE 12\nF-DC-124 PROPUESTA DE TRABAJO DE GRADO\nProyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento VERSIÓN: 2.0\nFundamento Teórico\nEl director del trabajo de grado indicará los componentes que considere pertinentes (ideas que\nestán relacionadas con el tema de manera particular) plantear en esta sección, de acuerdo con\nel área disciplinar y el tipo de trabajo a desarrollar. (Solo mencionarlos)\n1. Fundamento teórico 1\n2. Fundamento teórico 2\n3. Fundamento teórico 3\n4. Fundamento teórico 4\n5. Fundamento teórico 5\nResultados esperados\nCorresponden a los entregables que se esperan obtener con el desarrollo del trabajo de grado\nde acuerdo con lo definido institucionalmente respecto a los productos según modalidad de\ntrabajo de grado y el nivel de formación.\nSon productos que se espera obtener del desarrollo de los objetivos planteados. Dichos productos, deben ser verificables y medibles de acuerdo a lo establecido en el documento caracterización de productos disponible en la base documental de la institución\nPlan de actividades\nEjemplo:\nActividad (Semanal)\nFase 1 Fase 2 Fase 3 Fase 4 Fase 5\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22\nRevisión bibliográfica\nActividad A\nActividad b\nActividad c\nActividad d\nActividad e\nEntrega del documento Final\npara evaluación\nSustentación del trabajo de\ngrado\nEntrega final\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 4,
+          "page_end": 4
+        },
+        {
+          "chunk_id": "ver_f_dc_124_v2_p5_s1",
+          "location_hint": "F-DC-124, Pág. 5 (DOCENCIA PÁGINA 5)",
+          "texto": "F-DC-124 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 5:\nDOCENCIA PÁGINA 5\nDE 12\nF-DC-124 PROPUESTA DE TRABAJO DE GRADO\nProyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento VERSIÓN: 2.0\nPresupuesto\nEjemplo:\nRUBRO CANTIDAD TIEMPO\nVALOR RESPONSABLE DE\nLA FINANCIACIÓN\nO GASTO\nEFECTIVO TOTAL\nRecurso humano (Describa todo el personal (estudiantes, docentes o externos que\ncontribuyen directa o indirectamente en el desarrollo del proyecto)\nRecursos para la ejecución del proyecto (Describa todo recurso (laboratorios, computadores,\nsoftware, maquinaria etc.) utilizado para el desarrollo del proyecto)\nMateriales e insumos (Describa todos los materiales o insumos (laboratorios, computadores,\nsoftware, maquinaria etc.) utilizado para el desarrollo del proyecto)\nOtros servicios (Relacione todos los servicios (proveedores internos o externos que apoyan\ndirecta o indirectamente el desarrollo del proyecto)\nSUBTOTAL\nIMPREVISTOS (10%)\nTOTAL\nConsideraciones Éticas\n(Indicar en este espacio si el proyecto que va a desarrollar incluye:\ni) Uso o manejo de recurso vivo, agentes o muestras biológicas,\nii) Datos personales, entrevistas o encuestas,\niii) Representación de algún riesgo sobre la vida, el ambiente o los derechos humanos.\nSi cumple, debe indicarse cómo se garantizará el cumplimiento de los principios de\nbeneficencia, no maleficencia, autonomía y justicia y sus respectivos.\nReferencias Bibliográficas\nEs la relación de libros de texto, artículos indexados, revistas académicas y/o científicas,\npáginas Web y demás medios consultados para la elaboración de la propuesta. Todas las\nreferencias presentadas deben estar citadas el texto de la propuesta, y se deben documentar\ncumpliendo la Norma APA (American Psychological Association) de edición vigente, para la\npresentación de referencias. Igualmente se debe incluir la bibliografía consultada.\nEs conveniente utilizar el gestor de referencias bibliográficas del procesador de texto en el que\nse desarrolla el documento, para realizar correctamente la citación cumpliendo la norma APA.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 5,
+          "page_end": 5
+        },
+        {
+          "chunk_id": "ver_f_dc_124_v2_p6_s1",
+          "location_hint": "F-DC-124, Pág. 6 (DOCENCIA PÁGINA 6)",
+          "texto": "F-DC-124 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 6:\nDOCENCIA PÁGINA 6\nDE 12\nF-DC-124 PROPUESTA DE TRABAJO DE GRADO\nProyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento VERSIÓN: 2.0\nREJILLA DE EVALUACIÓN\nLas UTS agradecen al docente evaluador por su participación en los procesos académicos. Por favor diligencie el siguiente formato para la evaluación de la propuesta de trabajo de grado. En la rejilla de evaluación establezca el cumplimiento de los indicadores marcando con una “x” en cada ítem de acuerdo al resultado de la revisión que realizó. Al\nfinalizar encontrará una sección para relacionar las observaciones. Es importante aclarar que para emitir el concepto\nde “Aprobado”, se deben cumplir todos los criterios que aplican para la modalidad que se está evaluando.\nINFORMACIÓN GENERAL DE LA PROPUESTA DE TRABAJO DE GRADO\nFecha día/mes/año Código de la\npropuesta\nModalidad ☐ Proyecto de Investigación ☐ Monografía ☐ Desarrollo Tecnológico ☐ Seminario\n☐ Emprendimiento\nModalidad Específica\n(Describa de forma precisa el sub tipo de la modalidad utilizado, como se describe en la\nFicha Técnica de la Propuesta)\nTitulo\nEstudiantes\n1. Cédula:\nTeléfono: Programa:\n2. Cédula:\nTeléfono: Programa:\n3. Cédula:\nTeléfono: Programa:\nFacultad ☐ FCNI ☐ FCSE Programa(s)\nDATOS DEL EVALUADOR\nNombre\nFacultad ☐ FCNI ☐ FCSE Programa\nREJILLA DE EVALUACION DE LA PROPUESTA DE TRABAJO DE GRADO\nCRITERIOS INDICADORES Cumple\nSI NO\nFicha técnica ¿La ficha técnica relaciona toda la información requerida?\nDescripción del problema\n¿Cumple el máximo de 20 líneas?\n¿Describe claramente la problemática a resolver?\n¿Se evidencia la pregunta concreta de investigación? (expresa la\nrelación entre dos o más variables)\n¿Se ilustran citas bibliográficas en la redacción texto relevantes con\nrespecto a la problemática?\nJustificación\n¿Se evidencia por qué se debe realizar este trabajo de grado?\n¿Se argumenta la necesidad, la conveniencia, las implicaciones tecnológicas, sociales, económicas, entre otras?, es decir el para qué\ndel trabajo a desarrollar?\n¿Genera un aporte al desarrollo de la investigación o al DTeI, del\ngrupo de investigación o de las UTS?\nObjetivos ¿El objetivo general plantea una solución clara la problemática?\nEn el objetivo general y los específicos se evidencia: el ¿qué? ¿Cómo? y el ¿Para qué?\n¿El objetivo general tiene relación con el título de la propuesta de\ntrabajo de grado?\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_f_dc_124_v2_p7_s1",
+          "location_hint": "F-DC-124, Pág. 7 (DOCENCIA PÁGINA 7)",
+          "texto": "F-DC-124 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 7:\nDOCENCIA PÁGINA 7\nDE 12\nF-DC-124 PROPUESTA DE TRABAJO DE GRADO\nProyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento VERSIÓN: 2.0\nREJILLA DE EVALUACION DE LA PROPUESTA DE TRABAJO DE GRADO\nCRITERIOS INDICADORES Cumple\nSI NO\n¿Hay relación entre el cómo del objetivo general y los objetivos específicos?\n¿Se mantiene un orden cronológico en los objetivos específicos?\nEstado del arte\n¿Se referencian otros casos o estudios a nivel nacional e internacional relacionados con el tema?\n¿Se manejan las citas de acuerdo a la norma APA vigente?\nFundamento Teórico\n¿Se evidencian los diferentes fundamentos teóricos, en el desarrollo\nde la propuesta de trabajo de grado?\n¿Los fundamentos teóricos son coherentes con la solución de la\nproblemática?\nResultados esperados ¿Se definen los resultados que se quieren obtener de acuerdo a la\nmetodología planteada?\nPlan de actividades\n¿El tiempo de duración total del trabajo de grado está acorde con lo\nestipulado en el Reglamento de Trabajo de Grado?\n¿La duración planteada para cada actividad es razonable?\n¿Las actividades planteadas son las necesarias para cumplir con el\nobjetivo general del trabajo de grado?\nPresupuesto\n¿El presupuesto estipula claramente los costos en recurso humano?\n¿El presupuesto estipula los costos en recursos tecnológicos?\n¿El presupuesto estipula los costos en materiales requeridos?\n¿Se discrimina en el presupuesto el aporte realizado por los autores, las UTS y otras instituciones patrocinadoras, en cada uno de\nlos rubros costeados?\nConsideraciones éticas ¿Se evidencia dentro del informe el detalle de las consideraciones\néticas que se pueden presentar en su desarrollo?\nReferencias bibliográficas ¿Las referencias aplican el estándar APA de la edición vigente?\nResumen de similitud El resultado del informe de similitud evidencia un porcentaje de similitud entre el 0 y 10% (VER ANEXO A)\nOBSERVACIONES GENERALES\nCONCEPTO FINAL (Aprobado, No Aprobado o Aplazado).\nNOMBRE\nFIRMA DEL DIRECTOR\nNOMBRE\nFIRMA DEL EVALUADOR\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 7,
+          "page_end": 7
+        },
+        {
+          "chunk_id": "ver_f_dc_124_v2_p8_s1",
+          "location_hint": "F-DC-124, Pág. 8 (DOCENCIA PÁGINA 8)",
+          "texto": "F-DC-124 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 8:\nDOCENCIA PÁGINA 8\nDE 12\nF-DC-124 PROPUESTA DE TRABAJO DE GRADO\nProyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento VERSIÓN: 2.0\nFECHA DE RECIBIDO COMITÉ DE TRABAJOS DE\nGRADO\ndía/mes/año\nFECHA DE EMISIÓN DEL CONCEPTO COMITÉ DE\nTRABAJOS DE GRADO:\ndía/mes/año\nESPACIO DILIGENCIADO POR EL COMITÉ DE TRABAJO DE GRADO\nConcepto Emitido: ____Aprobado ___No Aprobado ___Aplazado\nObservaciones:\n_____________________________________________________________\nFecha de aprobación: día/mes/año/ Acta No. ____\nFirma Estudiante1 ____________________________\nFirma Estudiante2 ____________________________\nFirma Estudiante 3 ____________________________\nDirector: ___________________________________\nCoordinador del programa académico: ______________________________________\nFecha de notificación al estudiante:\nFecha de inicio: día/mes/año Fecha de finalización del TG: día/mes/año (180 días\na partir de la notificación de la aprobación al estudiante)\nPrórroga 1: día/mes/año Prórroga 2: día/mes/año Prórroga 3: día/mes/año\nAl diligenciar este documento, autorizo de manera previa, expresa e inequívoca a las UNIDADES TECNOLÓGICAS\nDE SANTANDER a dar tratamiento de mis datos personales (y/o de los datos del menor de edad o persona en\ncondición de discapacidad cognitiva que represento) aquí consignados, incluyendo el consentimiento explícito para\ntratar datos sensibles aun conociendo la posibilidad de oponerme a ello, conforme a las finalidades incorporadas en\nla Política de Tratamiento de Información publicada en www.uts.edu.co y/o en Calle de los estudiantes 9-82\nCiudadela Real de Minas, que declaro conocer y estar informado que en ella se presentan los derechos que me\nasisten como titular y los canales de atención donde ejercerlos.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 8,
+          "page_end": 8
+        },
+        {
+          "chunk_id": "ver_f_dc_124_v2_p9_s1",
+          "location_hint": "F-DC-124, Pág. 9 (DOCENCIA PÁGINA 9)",
+          "texto": "F-DC-124 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 9:\nDOCENCIA PÁGINA 9\nDE 12\nF-DC-124 PROPUESTA DE TRABAJO DE GRADO\nProyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento VERSIÓN: 2.0\nANEXO A.\nINFORME DE SIMILITUD GENERADO POR LA HERRAMIENTA ANTIPLAGIO\nINSTITUCIONAL\nEjemplo de Resumen de Similitud\nNota: tener en cuenta que los índices arrojados por la herramienta no determinan exactamente si\nun trabajo fue plagiado o no. Los reportes de similitud simplemente son una herramienta que\nayuda al director del TG a encontrar fuentes que contienen texto similar a los trabajos entregados\ndisponibles en la web. La decisión de considerar si un trabajo contiene plagio debe tomarse con\ncuidado y solo después de un examen minucioso tanto del trabajo entregado como de las fuentes\nque indican esos niveles de coincidencia. El porcentaje máximo de similitud admitido debe ser\nmenor o igual al 10%.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 9,
+          "page_end": 9
+        },
+        {
+          "chunk_id": "ver_f_dc_124_v2_p10_s1",
+          "location_hint": "F-DC-124, Pág. 10 (DOCENCIA PÁGINA 10)",
+          "texto": "F-DC-124 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 10:\nDOCENCIA PÁGINA 10\nDE 12\nF-DC-124 PROPUESTA DE TRABAJO DE GRADO\nProyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento VERSIÓN: 2.0\nANEXO B.\nSi aplica, se anexan: formato de encuestas entrevistas, chek list, en general las herramientas o\ninstrumentos utilizados en la investigación. Se enumeran con letras mayúsculas de la A - Z, si la\ncantidad es mayor se enumeran con números arábigos. Fuente y títulos en Normas APA.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 10,
+          "page_end": 10
+        },
+        {
+          "chunk_id": "ver_f_dc_124_v2_p11_s1",
+          "location_hint": "F-DC-124, Pág. 11 (DOCENCIA PÁGINA 11)",
+          "texto": "F-DC-124 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 11:\nDOCENCIA PÁGINA 11\nDE 12\nF-DC-124 PROPUESTA DE TRABAJO DE GRADO\nProyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento VERSIÓN: 2.0\nANEXO C.\nEste instructivo es una guía general de como se presenta el informe de la propuesta, se debe\neliminar después de diligenciada.\nInstructivo General para diligenciar la propuesta\nFormato de la página:\nMárgenes: iguales: todos a 2.5 cm.\nTítulos en Mayúsculas y minúsculas, color negro, centrado\nSubtítulos: Mayúsculas y minúsculas. Color negro, alineados a la izquierda, letra arial 12 pts.\nCitas y referencias: en formato APA vigente\nNumeración de páginas en la parte superior derecha (ya la trae el formato institucional)\nTexto:\nTipo de letra: Arial en 12 pts.\nInterlineado: 1.5 líneas. Justificado\nNota: el formato ya tiene los márgenes establecidos. Solo debe verificar que estén correctos.\nFormato de tablas: Apa, vigente\nLas tablas deben llevar: Título y nombre de la tabla, alineado a la izquierda, letra color negro,\ncon fondo blanco. Inicia con el número y termina con el título. Igual, las columnas deben estar\ndebidamente identificadas: títulos centrados, letra color negro; letra: Arial 10, fondo blanco. Interlineado sencillo. Ver ejemplo tomado de la norma APA.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 11,
+          "page_end": 11
+        },
+        {
+          "chunk_id": "ver_f_dc_124_v2_p12_s1",
+          "location_hint": "F-DC-124, Pág. 12 (DOCENCIA PÁGINA 12)",
+          "texto": "F-DC-124 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 12:\nDOCENCIA PÁGINA 12\nDE 12\nF-DC-124 PROPUESTA DE TRABAJO DE GRADO\nProyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento VERSIÓN: 2.0\nFormato de las imágenes:\nLas imágenes, fotografías, diagramas y figuras en general, deben estar identificadas con un\nnúmero y el nombre de la figura. Ej. Figura 1 Participación de los estudiantes de III y IV nivel de\nformación. Se debe incluir en la parte inferior la fuente de la figura, en formato APA vigente,\ncon estilo de una referencia.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 12,
+          "page_end": 12
+        }
+      ],
+      "estado_revision_humana": "PENDIENTE_REVISION_HUMANA"
+    },
+    {
+      "codigo": "F-DC-125",
+      "nombre": "F-DC-125 Informe Final de Trabajo de Grado V2",
+      "version_id": "ver_f_dc_125_v2",
+      "version_institucional": "2.0",
+      "paginas": 28,
+      "procedencia": "Suministrado por Directora de Trabajo de Grado",
+      "total_chunks_almacenados": 48,
+      "chunks_almacenados_sqlite": [
+        {
+          "chunk_id": "ver_f_dc_125_v2_p1_s1",
+          "location_hint": "F-DC-125, Pág. 1 (DOCENCIA PÁGINA 1)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 1:\nDOCENCIA PÁGINA 1\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE PROYECTO\nDE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO, MONOGRAFÍA,\nEMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\nNombre completo del trabajo de grado\nModalidad:\nNombre completo Autor 1.\nCC\nNombre completo autor 2\nCC\nUNIDADES TECNOLÓGICAS DE SANTANDER\nFacultad a la que pertenece el programa académico\nPrograma académico\nCiudad y fecha (día, mes y año)\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 1,
+          "page_end": 1
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p2_s1",
+          "location_hint": "F-DC-125, Pág. 2 (DOCENCIA PÁGINA 2)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 2:\nDOCENCIA PÁGINA 2\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE PROYECTO\nDE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO, MONOGRAFÍA,\nEMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\nTítulo del trabajo de grado\nModalidad\nNombre completo autor 1\nCC\nNombre completo autor 2\nCC\nTrabajo de Grado para optar al título de\nTítulo al que optan los autores\nDIRECTOR\nNombre completo del director\nGrupo de investigación – SIGLA\nUNIDADES TECNOLÓGICAS DE SANTANDER\nFacultad a la que pertenece el programa académico\nPrograma de académico\nCiudad y fecha de presentación: día-mes-año\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 2,
+          "page_end": 2
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p3_s1",
+          "location_hint": "F-DC-125, Pág. 3 (DOCENCIA PÁGINA 3)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 3:\nDOCENCIA PÁGINA 3\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE PROYECTO\nDE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO, MONOGRAFÍA,\nEMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\nNota de Aceptación\n___________________________________\n___________________________________\n___________________________________\n___________________________________\n__________________________________\nFirma del Evaluador\n__________________________________\nFirma del Director\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 3,
+          "page_end": 3
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p4_s1",
+          "location_hint": "F-DC-125, Pág. 4 (DOCENCIA PÁGINA 4)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 4:\nDOCENCIA PÁGINA 4\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\nDEDICATORIA\nNota mediante la cual los autores ofrecen su trabajo, en forma especial, a personas\no entidades. Su presentación es opcional. Si se incluye no debe ser mayor a un\npárrafo por cada autor (máximo 14 líneas).\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 4,
+          "page_end": 4
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p5_s1",
+          "location_hint": "F-DC-125, Pág. 5 (DOCENCIA PÁGINA 5)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 5:\nDOCENCIA PÁGINA 5\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\nAGRADECIMIENTOS\nLos autores expresan el reconocimiento hacia las personas y entidades que\nasesoran técnicamente, suministraron datos, financiaron total o parcialmente la\ninvestigación o contribuyeron significativamente al desarrollo del trabajo de grado.\nEs opcional y debe contener, además de la nota correspondiente, los nombres de\nlas personas con sus respectivos cargos y nombres completos de las instituciones y\nsu aporte al trabajo.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 5,
+          "page_end": 5
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p6_s1",
+          "location_hint": "F-DC-125, Pág. 6 (DOCENCIA PÁGINA 6)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 6:\nDOCENCIA PÁGINA 6\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\nTABLA DE CONTENIDO\nRESUMEN EJECUTIVO ....................................................................................................... 9\nINTRODUCCIÓN ................................................................................................................ 10",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p6_s2",
+          "location_hint": "F-DC-125, Pág. 6 (1. DESCRIPCIÓN DEL TRABAJO DE INVESTIGACIÓN ................)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 1. DESCRIPCIÓN DEL TRABAJO DE INVESTIGACIÓN ................:\n1. DESCRIPCIÓN DEL TRABAJO DE INVESTIGACIÓN .......................................... 11\n1.1. PLANTEAMIENTO DEL PROBLEMA....................................................................11\n1.2. JUSTIFICACIÓN......................................................................................................12\n1.3. OBJETIVOS.............................................................................................................12\n1.3.1. OBJETIVO GENERAL..........................................................................................12\n1.3.2. OBJETIVOS ESPECÍFICOS................................................................................13\n1.4. ESTADO DEL ARTE...............................................................................................13",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p6_s3",
+          "location_hint": "F-DC-125, Pág. 6 (2. MARCO REFERENCIAL .......................................)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 2. MARCO REFERENCIAL .......................................:\n2. MARCO REFERENCIAL ......................................................................................... 14",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p6_s4",
+          "location_hint": "F-DC-125, Pág. 6 (3. DISEÑO DE LA INVESTIGACION ..............................)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 3. DISEÑO DE LA INVESTIGACION ..............................:\n3. DISEÑO DE LA INVESTIGACION .......................................................................... 15",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p6_s5",
+          "location_hint": "F-DC-125, Pág. 6 (4. DESARROLLO DEL TRABAJO DE GRADO .........................)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 4. DESARROLLO DEL TRABAJO DE GRADO .........................:\n4. DESARROLLO DEL TRABAJO DE GRADO ......................................................... 16",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p6_s6",
+          "location_hint": "F-DC-125, Pág. 6 (5. RESULTADOS ..............................................)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 5. RESULTADOS ..............................................:\n5. RESULTADOS ......................................................................................................... 18",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p6_s7",
+          "location_hint": "F-DC-125, Pág. 6 (6. CONCLUSIONES ............................................)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 6. CONCLUSIONES ............................................:\n6. CONCLUSIONES .................................................................................................... 19",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p6_s8",
+          "location_hint": "F-DC-125, Pág. 6 (7. RECOMENDACIONES .........................................)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 7. RECOMENDACIONES .........................................:\n7. RECOMENDACIONES ............................................................................................ 20",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p6_s9",
+          "location_hint": "F-DC-125, Pág. 6 (8. REFERENCIAS BIBLIOGRÁFICAS ..............................)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 8. REFERENCIAS BIBLIOGRÁFICAS ..............................:\n8. REFERENCIAS BIBLIOGRÁFICAS ....................................................................... 21",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p6_s10",
+          "location_hint": "F-DC-125, Pág. 6 (9. APENDICES ...............................................)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 9. APENDICES ...............................................:\n9. APENDICES ............................................................................................................ 22",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p6_s11",
+          "location_hint": "F-DC-125, Pág. 6 (10. ANEXOS .................................................)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 10. ANEXOS .................................................:\n10. ANEXOS .................................................................................................................. 23\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p7_s1",
+          "location_hint": "F-DC-125, Pág. 7 (DOCENCIA PÁGINA 7)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 7:\nDOCENCIA PÁGINA 7\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\nLISTA DE FIGURAS\nFigura 1. Tipos de Investigación.............................................................................19\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 7,
+          "page_end": 7
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p8_s1",
+          "location_hint": "F-DC-125, Pág. 8 (DOCENCIA PÁGINA 8)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 8:\nDOCENCIA PÁGINA 8\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\nLISTA DE TABLAS\nTabla 1. Fase 1.....................................................................................................20\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 8,
+          "page_end": 8
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p9_s1",
+          "location_hint": "F-DC-125, Pág. 9 (DOCENCIA PÁGINA 9)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 9:\nDOCENCIA PÁGINA 9\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\nRESUMEN EJECUTIVO\nSe describe en máximo 300 palabras y debe contener una descripción de los\nobjetivos, la metodología, los resultados y las conclusiones del trabajo desarrollado.\nPALABRAS CLAVE. Se deben presentar máximo 5 palabras clave.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 9,
+          "page_end": 9
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p10_s1",
+          "location_hint": "F-DC-125, Pág. 10 (DOCENCIA PÁGINA 10)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 10:\nDOCENCIA PÁGINA 10\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\nINTRODUCCIÓN\nEn la sección de introducción, los autores deben proporcionar al lector(a) los\nantecedentes suficientes que le permitan ubicar el tema y el informe en el contexto\nde la literatura pasada y presente, empleando correctamente las normas APA\n(American Psychological Association) para la citación de referencias. Es importante\nseleccionar adecuadamente la literatura a citar en esta sección y se deberá dejar en\nclaro porqué, existiendo toda esa información disponible, el trabajo presentado\nrepresenta un aporte importante a la comunidad.\nEn la Introducción también se debe dejar en claro el método empleado para la\nsolución del problema, sea este de tipo experimental, teórico, o computacional, la\ncual debe ser explicada con mayor detalle en la sección 3 de desarrollo del trabajo\nde grado.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 10,
+          "page_end": 10
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p11_s1",
+          "location_hint": "F-DC-125, Pág. 11 (DOCENCIA PÁGINA 11)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 11:\nDOCENCIA PÁGINA 11\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0",
+          "page_start": 11,
+          "page_end": 11
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p11_s2",
+          "location_hint": "F-DC-125, Pág. 11 (1. DESCRIPCIÓN DEL TRABAJO DE INVESTIGACIÓN)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 1. DESCRIPCIÓN DEL TRABAJO DE INVESTIGACIÓN:\n1. DESCRIPCIÓN DEL TRABAJO DE INVESTIGACIÓN\n1.1. PLANTEAMIENTO DEL PROBLEMA\nLos autores deben describir claramente cuál es la problemática a resolver. Esta\nproblemática debe estar articulada con el banco de ideas y proyectos de\ninvestigaciones, planteada por el docente director, una empresa, organización o\nentidad (para el caso de la modalidad de práctica).\nLa problemática debe describir de manera general el análisis de involucrados,\ncuáles son las causas primarias y secundarias que lo ocasionan, los efectos que se\ngeneran al no resolverla. Esto facilitará al evaluador entenderla e identificar el aporte\nque se genera con la solución.\nFinalmente, para todas las modalidades se debe formular claramente la pregunta\nque soporta la problemática. Un buen planteamiento de pregunta debe: expresar la\nrelación entre dos o más variables, ser claro y sin ambigüedades en la pregunta. Por\nejemplo: ¿Qué efecto? ¿En qué condiciones? ¿Cuál es la probabilidad de…?\n¿Cómo se relaciona una variable con otra? entre otras.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 11,
+          "page_end": 11
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p12_s1",
+          "location_hint": "F-DC-125, Pág. 12 (DOCENCIA PÁGINA 12)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 12:\nDOCENCIA PÁGINA 12\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\n1.2. JUSTIFICACIÓN\nLa justificación es la argumentación de la problemática que se pretende resolver,\ncon criterios válidos, con el propósito de presentar la conveniencia o necesidad, las\nimplicaciones tecnológicas, económicas, sociales y ambientales, el valor teórico; así\ncomo cuestionarse la viabilidad y consecuencias del trabajo de grado.\nBasándose en el planteamiento de la problemática, describa claramente la razón por\nla cual se debe realizar esta propuesta. Para facilitar esto se debe plantear ¿qué\nefectos se generan al solucionar el problema formulado? Es importante argumentar\nporqué la propuesta es relevante para las UTS. Ejemplo: porque alimenta X línea de\ninvestigación del grupo XX. También se debe justificar la importancia o aplicabilidad\na la vida diaria del estudiante y el aporte al campo de conocimiento y la sociedad.\n1.3. OBJETIVOS\nTranscribir los objetivos, general y específicos planteados en la propuesta. Debe\ntener presente que, si su investigación es de enfoque cuantitativo, no los puede\ncambiar. Si es de enfoque cualitativo, los puede ajustar dependiendo del proceso y\nanálisis desarrollado durante el proceso (Hernández, 2014). Como esta es una\ninstrucción, léala, escriba los objetivos, general y específicos en lo0s numerales\n1.3.1 y 1.3.2 respectivamente. Luego elimine esta instrucción.\n1.3.1. OBJETIVO GENERAL\nEscriba el objetivo, de acuerdo con la instrucción anterior.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 12,
+          "page_end": 12
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p13_s1",
+          "location_hint": "F-DC-125, Pág. 13 (DOCENCIA PÁGINA 13)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 13:\nDOCENCIA PÁGINA 13\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\n1.3.2. OBJETIVOS ESPECÍFICOS\nEscriba los objetivos específicos, de acuerdo con la instrucción anterior.\n1.4. ESTADO DEL ARTE\nEl estado del arte aplica para las modalidades de trabajo de grado de proyecto de\ninvestigación y desarrollo tecnológico. Para el caso de la modalidad monografía, en\nla propuesta no se requiere estado del arte. Cada cita del estado del\narte/antecedentes debe estar referenciada, siguiendo la norma APA actualizada\n(American Psychological Association).\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 13,
+          "page_end": 13
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p14_s1",
+          "location_hint": "F-DC-125, Pág. 14 (DOCENCIA PÁGINA 14)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 14:\nDOCENCIA PÁGINA 14\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0",
+          "page_start": 14,
+          "page_end": 14
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p14_s2",
+          "location_hint": "F-DC-125, Pág. 14 (2. MARCO REFERENCIAL)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 2. MARCO REFERENCIAL:\n2. MARCO REFERENCIAL\nEn el marco referencial aplican todos los marcos que puedan existir en la realización\ndel trabajo como el marco teórico, marco legal, marco conceptual, marco ambiental,\nentre otros. El marco teórico hace referencia a la descripción de las doctrinas,\npostulados o teorías que ya son de conocimiento universal, y que fundamentan la\nsolución de la problemática planteada. El marco legal hace referencia a las normas y\nleyes que estén directamente relacionadas con el desarrollo del trabajo propuesto.\nSe debe tener en cuenta la normatividad Colombiana Vigente. El marco conceptual\nhace referencia a la identificación de conceptos relevantes del tema de trabajo, sin\nconfundirlo con un glosario.\nEl marco ambiental obedece a los requerimientos que debe tener el trabajo de grado\npara que este sea consecuente con el medio ambiente. Se analiza si se afectan los\nrecursos naturales tales como el aire, el agua, el suelo y la biodiversidad con sus\nrespectivos ecosistemas. Este debe estar relacionado con la normatividad\nambiental vigente. Finalmente, el marco histórico hace referencia a la información\ncronológicamente relacionada previa a la presentación de la propuesta.\nEl director del trabajo de grado indicará los componentes que considere pertinentes\npara plantear en esta sección, de acuerdo con el área disciplinar y el tipo de trabajo\na desarrollar.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 14,
+          "page_end": 14
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p15_s1",
+          "location_hint": "F-DC-125, Pág. 15 (DOCENCIA PÁGINA 15)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 15:\nDOCENCIA PÁGINA 15\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0",
+          "page_start": 15,
+          "page_end": 15
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p15_s2",
+          "location_hint": "F-DC-125, Pág. 15 (3. DISEÑO DE LA INVESTIGACIÓN)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 3. DISEÑO DE LA INVESTIGACIÓN:\n3. DISEÑO DE LA INVESTIGACIÓN\nLa metodología debe describir el tipo de investigación (exploratoria, descriptiva,\ncorrelacional o explicativa), el enfoque (cuantitativa o cualitativa), el método\n(observación, inductivo, deductivo o análisis), las técnicas (experimentos,\nencuestas, entre otros) y el procedimiento o fases que se van a emplear para\ndesarrollar adecuadamente los objetivos planteados.\nDependiendo del área disciplinar, esta metodología puede plantearse de diferentes\nformas. Por ejemplo, para las Ingenierías puede incluir el diseño experimental en el\nque se define el entorno, las condiciones, los materiales, muestreo, cartografía, los\ntipos de observación y demás actividades necesarias para validar los resultados del\nproyecto. Para las Ciencias Socioeconómicas, la metodología puede describir el\nmétodo de investigación, la técnica (aplicación de instrumentos de recolección de\ninformación), las tecnologías y la definición de la muestra poblacional para aplicar la\ntécnica basada en formulación estadística.\nPara la modalidad de emprendimiento, no aplica el diseño por cuanto se trata\nespecíficamente del plan de negocio de la empresa que se pretende crear. Se pasa\ndirectamente al desarrollo del trabajo.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 15,
+          "page_end": 15
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p16_s1",
+          "location_hint": "F-DC-125, Pág. 16 (DOCENCIA PÁGINA 16)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 16:\nDOCENCIA PÁGINA 16\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0",
+          "page_start": 16,
+          "page_end": 16
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p16_s2",
+          "location_hint": "F-DC-125, Pág. 16 (4. DESARROLLO DEL TRABAJO DE GRADO)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 4. DESARROLLO DEL TRABAJO DE GRADO:\n4. DESARROLLO DEL TRABAJO DE GRADO\nEn esta sección, los estudiantes deben detallar cada una de las etapas realizadas\npara cumplir con los objetivos del trabajo de grado. Se puede presentar de varias\nformas, y estas dependen de la orientación del director. Una de las formas posibles\nes separar el desarrollo por secciones de diseño, como diseño de hardware, diseño\nde mecanismos, diseño de entornos, diseño de software y otra sección de\nimplementación de las técnicas empleadas para la solución de la problemática. Otra\nforma es la de basarse en el diseño del experimento que se planteó para resolver el\nproblema, describiendo cada una de las etapas de ese diseño.\nEn algunos casos, en esta sección se plantea el diseño metodológico de la\ninvestigación, en el que se especifica cuál es el tipo de investigación que se realizó y\nel enfoque; se describe cuál es la población y cuál es la muestra seleccionada, entre\notros.\nPara el caso de proyectos de emprendimiento, en esta sección, de acuerdo con el\nReglamento de Trabajo de Grado, se incluye los siguientes contenidos: en el nivel\ntecnológico se plantea la formulación del plan de negocios para desarrollar la idea\nde negocio. El plan debe contener el estudio de mercado, la evaluación técnica,\nevaluación administrativa, evaluación económica-financiera, evaluación ambiental y\nposibles fuentes de financiación. El estudiante firma un acuerdo en el que se\ncompromete a continuar con la ejecución del plan de negocios en el nivel\nuniversitario o sede los derechos para que el plan sea dispuesto en el banco de\nproyectos de emprendimiento.\nEn el nivel universitario se formula el plan de negocios completo, es decir, evidenELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 16,
+          "page_end": 16
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p17_s1",
+          "location_hint": "F-DC-125, Pág. 17 (DOCENCIA PÁGINA 17)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 17:\nDOCENCIA PÁGINA 17\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\ncia que este se ha presentado a una convocatoria para aplicar a la consecución\nde recursos para el financiamiento del mismo. Cuando la idea no surge del nivel\ntecnológico sino del nivel universitario, debe desarrollarse la formulación del plan y\nejecución del mismo, es decir que en el nivel universitario se tiene como resultado\nempresa en marcha o participación en convocatoria.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 17,
+          "page_end": 17
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p18_s1",
+          "location_hint": "F-DC-125, Pág. 18 (DOCENCIA PÁGINA 18)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 18:\nDOCENCIA PÁGINA 18\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0",
+          "page_start": 18,
+          "page_end": 18
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p18_s2",
+          "location_hint": "F-DC-125, Pág. 18 (5. RESULTADOS)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 5. RESULTADOS:\n5. RESULTADOS\nEn esta sección se detallan específicamente cuales fueron los resultados obtenidos\nen la ejecución del trabajo de grado, documentando cada una de las pruebas y\ntabulando o graficando si es necesario, los datos obtenidos como respuesta a la\nsolución de la problemática. Además de documentar los resultados, se debe realizar\nun análisis de los mismos planteando cualitativa o cuantitativamente el éxito del\ntrabajo realizado.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 18,
+          "page_end": 18
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p19_s1",
+          "location_hint": "F-DC-125, Pág. 19 (DOCENCIA PÁGINA 19)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 19:\nDOCENCIA PÁGINA 19\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0",
+          "page_start": 19,
+          "page_end": 19
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p19_s2",
+          "location_hint": "F-DC-125, Pág. 19 (6. CONCLUSIONES)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 6. CONCLUSIONES:\n6. CONCLUSIONES\nLas conclusiones deben indicar claramente cuáles fueron los resultados obtenidos\ndurante el desarrollo del trabajo de grado, sin especificar valores numéricos, pero\nargumentando la razón de los resultados. Deben documentar con el rigor adecuado\ncuales fueron los problemas que se obtuvieron y cuál fue la solución empleada para\nsuperarlo. En las conclusiones no se debe recapitular el trabajo en forma\ncondensada (eso va en la sección Resumen), ni se deben presentar resultados (eso\nva en la sección Resultados).\nEs importante no confundir las conclusiones con el cumplimiento de los objetivos, de\nmanera que una conclusión que diga que “se cumplieron los objetivos” no es\nadecuada. Tampoco es adecuado expresar ideas de conocimiento general como\nuna conclusión, por ejemplo, “se comprobó que el software X es ideal para resolver\nproblemas como el planteado en este proyecto”.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 19,
+          "page_end": 19
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p20_s1",
+          "location_hint": "F-DC-125, Pág. 20 (DOCENCIA PÁGINA 20)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 20:\nDOCENCIA PÁGINA 20\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0",
+          "page_start": 20,
+          "page_end": 20
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p20_s2",
+          "location_hint": "F-DC-125, Pág. 20 (7. RECOMENDACIONES)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 7. RECOMENDACIONES:\n7. RECOMENDACIONES\nEn esta sección se realizan todos los comentarios pertinentes para la realización de\ntrabajos futuros relacionados con el tema del trabajo de grado, ya sea tomando\ncomo base el trabajo presentado para mejorarlo, o aplicando otras estrategias para\nla solución del mismo. También se pueden realizar recomendaciones requeridas\npara la apropiación del conocimiento generado con este trabajo de grado, por\nejemplo, la implementación de laboratorios acreditados, compra de equipos y\nsoftware, adecuación de infraestructura, entre otros.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 20,
+          "page_end": 20
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p21_s1",
+          "location_hint": "F-DC-125, Pág. 21 (DOCENCIA PÁGINA 21)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 21:\nDOCENCIA PÁGINA 21\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0",
+          "page_start": 21,
+          "page_end": 21
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p21_s2",
+          "location_hint": "F-DC-125, Pág. 21 (8. REFERENCIAS BIBLIOGRÁFICAS)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 8. REFERENCIAS BIBLIOGRÁFICAS:\n8. REFERENCIAS BIBLIOGRÁFICAS\nEs la relación de libros de texto, artículos indexados, revistas académicas y/o\ncientíficas, páginas Web y demás medios consultados para la elaboración de la\npropuesta. Todas las referencias presentadas se deben mencionar en el texto, y se\ndeben documentar cumpliendo la Norma APA (American Psychological Association)\nde edición vigente, para la presentación de referencias.\nSe recomienda utilizar un gestor de referencias bibliográficas del procesador de\ntexto en el que se desarrolla el documento, para realizar correctamente la citación\ncumpliendo la norma APA.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 21,
+          "page_end": 21
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p22_s1",
+          "location_hint": "F-DC-125, Pág. 22 (DOCENCIA PÁGINA 22)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 22:\nDOCENCIA PÁGINA 22\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0",
+          "page_start": 22,
+          "page_end": 22
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p22_s2",
+          "location_hint": "F-DC-125, Pág. 22 (9. APÉNDICES)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 9. APÉNDICES:\n9. APÉNDICES\nSi aplica, se anexan: formato de encuestas entrevistas, chek list, en general las\nherramientas o instrumentos utilizados en la investigación. Se enumeran con letras\nmayúsculas de la A - Z, si la cantidad es mayor se enumeran con números arábigos.\nFuente y títulos en Normas APA.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 22,
+          "page_end": 22
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p23_s1",
+          "location_hint": "F-DC-125, Pág. 23 (DOCENCIA PÁGINA 23)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 23:\nDOCENCIA PÁGINA 23\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0",
+          "page_start": 23,
+          "page_end": 23
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p23_s2",
+          "location_hint": "F-DC-125, Pág. 23 (10. ANEXOS)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - 10. ANEXOS:\n10. ANEXOS\nLa sección de anexos será usada para presentar información que los autores y el\ndirector consideren importante, como el caso de: manuales de usuario, hojas de\ndatos, guías de laboratorio, demostraciones matemáticas, diseños esquemáticos,\ncartografía, entre otros.\nCada Anexo debe estar identificado por una letra (A –Z), la cual será usada para\ndiferenciar las figuras, tablas y ecuaciones que se encuentren en estas secciones.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 23,
+          "page_end": 23
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p24_s1",
+          "location_hint": "F-DC-125, Pág. 24 (DOCENCIA PÁGINA 24)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 24:\nDOCENCIA PÁGINA 24\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\nInstructivo General1\nApreciado Estudiante: Lea cuidadosamente este instructivo general y elimínelo una\nvez termine de elaborar el informe final.\nEstilo: APA, 6ta edición, como se describe a continuación\nTamaño del papel: Carta (letter) / papel 21.59 cm x 27.94 cm (8 1/2” x 11”).\nMárgenes: 2.54 en cada borde. El formato ya está configurado con\nestos márgenes. Por favor no los modifique.\nSangría: Cinco (5) o 0,5cm desde la pestaña diseño de Word, solo\nal inicio de cada párrafo y al inicio de las notas al pie de\npágina.\nImportante que en todas las páginas quede igual la sang\nría, para ello se sugiere usar tabulador. No lleva sangría:\n• El texto correspondiente al resumen,\n• El texto del Abstract\n• Las citas en bloque\n• Los títulos y encabezados\n• Los títulos y notas de tablas\n• Los pies de figuras o gráficas, ilustraciones, mapas\nFuente: Arial, tamaño: 12, en todo el documento, desde la portada hasta las referencias bibliográficas y los anexos.\nNumeración de páginas\n(Paginación): La paginación se inicia desde la portada, en forma consecutiva hasta el final. Se incluye en la esquina superior de\nrecha de la hoja. La plantilla ya está numerada, no la mo\ndifique.\nTexto: Justificado (APA sugiere alineado a la izquierda, pero se\nadopta justificado).\nInterlineado: 1.5 en párrafos (APA sugiere 2.0, pero se adopta 1.5).\nListas especiales: Tablas: La American Psychological Association (p. 130),\nsugiere cuando sea conveniente diseñar tablas para in1\nInformación tomada del Manual APA 6ª (sexta) Edición. Para complementar información se recomienda\nconsultar en la página de la organización http://www.apastyle.org/\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 24,
+          "page_end": 24
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p25_s1",
+          "location_hint": "F-DC-125, Pág. 25 (DOCENCIA PÁGINA 25)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 25:\nDOCENCIA PÁGINA 25\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\ncluir en el documento, es importante definir y estructurar\nlos datos que los interesados en el tema, requerirán para\ncomprender la explicación.\nFiguras: “se pueden utilizar muchos tipos de figuras”\n(Manual de la APA, 2010, p. 153). Los más comunes son:\ngráficas, diagramas, Mapas. Dibujos y fotografías. Se incluyen, cada figura, en una página separada, al final del\ndocumento, después de las tablas o después de las referencias ( https://apastyle.apa.org/manual/new-7thedition)).\nLas tablas, imágenes y figuras: Todas elaboradas, bajo\nAPA\nApéndice: Los apéndices son una sección opcional del trabajo en\ndonde se incluye información o documentación que permite complementar y que no se puede incorporar en el\ncuerpo del trabajo. Esta sección se ubica al final de del\nmanuscrito antes de los anexos.\nAnexos: Los anexos serán usados para presentar información\nque los autores y el director consideren importante, como\nel caso de: manuales de usuario, hojas de datos, guías\nde laboratorio, demostraciones matemáticas, diseños\nesquemáticos, cartografía, entre otros. Esta sección se\nubica al final de todo el manuscrito y es allí donde se\npueden incorporar materiales de estímulo, tablas y/o\nfiguras (Manual APA 6ª (sexta) edición. Disponible en\nhttp://www.apastyle.org/ y https://normasapa.net/tablasfiguras-y-apendices/\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 25,
+          "page_end": 25
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p26_s1",
+          "location_hint": "F-DC-125, Pág. 26 (DOCENCIA PÁGINA 26)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 26:\nDOCENCIA PÁGINA 26\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\nTextos escritos en gris: Se sobre escribe sobre éste en color negro la información\nsolicitada, cuando se refirieren al título o datos de la portada o contraportada. Si se trata de una instrucción se eli\nmina y se escribe el contenido que corresponda.\nTexto escrito en negro\n(en la plantilla): No se modifica. Se dejan como están.\nPáginas de Dedicatoria y\nAgradecimientos: Son opcionales.\nHoja de Aceptación: Se debe diligenciar completamente por los jurados (evaluadores, directores).\nRecomendación: Por favor no modificar el formato de la plantilla y aplicar\ncorrectamente la norma APA.\nReferencias\nAmerican Psychological Association. APA Style. Recuperado de\nhttp://www.apastyle.org/.\nAmerican Psychological Association (2010). Manual de Publicaciones (3a. ed.).\nMéxico:\nNota: No olvide eliminar este instructivo y entregar solo el informe en la plantilla inicial de este documento\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 26,
+          "page_end": 26
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p27_s1",
+          "location_hint": "F-DC-125, Pág. 27 (DOCENCIA PÁGINA 27)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 27:\nDOCENCIA PÁGINA 27\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\nAYUDAS PARA LA PRESENTACIÓN DEL DOCUMENTO\nEsta sección del documento es de orientación para la elaboración del documento,\ndebe eliminarla cuando genere la versión final. De igual manera, debe eliminar\ntodas las instrucciones que contiene esta plantilla, que por lo general las encontrará\ncomo texto en color gris.\nRecuerde que se debe tener especial cuidado en la redacción del texto del\ndocumento, este se debe redactar de manera formal en tercera persona y no en\nprimera persona o de manera informal, no se permiten textos como: \"nosotros\nesperamos que\", en su lugar se debe usar: “se espera por parte de los autores\nque…”, igualmente sebe evitar el uso de gerundios, por ejemplo: estudiando el\ntema, en su lugar: estudiado el tema.\nLas tablas, figuras, gráficas, esquemas, entre otros, deben tener nombre y fuente, a\ncontinuación, se presenta el ejemplo:\nEjemplo de imagen\nFigura 1. Tipos de Investigación\nFuente: Autor\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 27,
+          "page_end": 27
+        },
+        {
+          "chunk_id": "ver_f_dc_125_v2_p28_s1",
+          "location_hint": "F-DC-125, Pág. 28 (DOCENCIA PÁGINA 28)",
+          "texto": "F-DC-125 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 28:\nDOCENCIA PÁGINA 28\nDE 28\nF-DC-125\nINFORME FINAL DE TRABAJO DE GRADO EN MODALIDAD DE\nPROYECTO DE INVESTIGACIÓN, DESARROLLO TECNOLÓGICO,\nMONOGRAFÍA, EMPRENDIMIENTO Y SEMINARIO\nVERSIÓN: 2.0\nEjemplo de tabla\nPara el texto en el interior de la tabla deberá utilizarse fuente tipo Arial a 10 puntos\ncon interlineado sencillo. Utilice el mismo formato para todas las tablas para dar\nuniformidad al documento.\nTabla 1.\nDescripción de la primera fase del estudio metodológico para construir un software en lenguaje\nJava\nTipo Elementos\nActividades\n Actividad 1\n Actividad 2\n Actividad 3\n Actividad 4\nRecursos\n Sitio de trabajo\nConexión a internet\n Computador\n Programas del computador\n Navegador Web\n Word\n Excel\nResultados\nConocimiento y fortalecimiento del paradigma de la programación orientada a\nobjetos, sus características, alcance, técnicas de desarrollo, métodos y funciones\nentre otros campos vinculados con esta misma.\nNota: Tabla elaborada por el autor a partir de análisis sobre diseño de software.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 28,
+          "page_end": 28
+        }
+      ],
+      "estado_revision_humana": "PENDIENTE_REVISION_HUMANA"
+    },
+    {
+      "codigo": "F-DC-126",
+      "nombre": "F-DC-126 Requerimiento de Empresa para Practicantes V2",
+      "version_id": "ver_f_dc_126_v2",
+      "version_institucional": "2.0",
+      "paginas": 3,
+      "procedencia": "Suministrado por Directora de Trabajo de Grado",
+      "total_chunks_almacenados": 3,
+      "chunks_almacenados_sqlite": [
+        {
+          "chunk_id": "ver_f_dc_126_v2_p1_s1",
+          "location_hint": "F-DC-126, Pág. 1 (DOCENCIA PÁGINA: 1)",
+          "texto": "F-DC-126 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA: 1:\nDOCENCIA PÁGINA: 1\nDE: 2\nF-DC-126 REQUERIMIENTO DE LA EMPRESA PARA SOLICITAR PRACTICANTES VERSIÓN: 2.0\nPara las Unidades Tecnológicas de Santander es muy grato saber que su empresa está interesada en contar con\nestudiantes de la institución en calidad de practicantes, es por ello que se requiere diligenciar la siguiente ficha.\nINFORMACIÓN SOBRE LA EMPRESA O ENTIDAD\nNOMBRE DE LA\nEMPRESA O ENTIDAD\nSECTOR PÚBLICO PRIVADO\nNOMBRE DEL\nREPRESENTANTE LEGAL\nDIRECCIÓN DE LA\nEMPRESA O ENTIDAD\nTELÉFONO PAGINA WEB\nINSTITUCIONAL\nCORREO ELECTRÓNICO\nINFORMACIÓN SOBRE LA PRÁCTICA\nNOMBRE DEL\nPROGRAMA DE LAS\nUTS QUE REQUIERE\nESTUDIANTE\nNOMBRE CÉDULA\nCORREO No. CELULAR\nSUPERVISOR POR\nPARTE DE LA\nEMPRESA O\nENTIDAD\nNOMBRE CARGO\nCORREO No CELULAR\nLUGAR DE LA\nPRÁCTICA\nREMUNERACIÓN SI NO VALOR\nOBJETIVO DE LA\nPRÁCTICA\nACTIVIDADES QUE\nDEBE REALIZAR EL\nPRACTICANTE\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 1,
+          "page_end": 1
+        },
+        {
+          "chunk_id": "ver_f_dc_126_v2_p2_s1",
+          "location_hint": "F-DC-126, Pág. 2 (DOCENCIA PÁGINA: 2)",
+          "texto": "F-DC-126 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA: 2:\nDOCENCIA PÁGINA: 2\nDE: 2\nF-DC-126 REQUERIMIENTO DE LA EMPRESA PARA SOLICITAR PRACTICANTES VERSIÓN: 2.0\nPRODUCTOS QUE\nEVIDENCIEN EL\nDESARROLLO DE\nLA PRÁCTICA\nES OBLIGATORIO QUE EL ESTUDIANTE PRESENTE UN INFORME SOBRE LA PRÁCTICA DESARROLLADA Y SE ACOJA\nAL REGLAMENTO DE TRABAJO DE GRADO VIGENTE.\nFECHA DE SOLICITUD: DD: ____ MM: ____ AAAA: ________\n_______________________________________________________________\nSUPERVISOR DE LA PRACTICA POR PARTE DE LA EMPRESA O ENTIDAD\nESPACIO PARA SER DILIGENCIADO POR EL COMITÉ DE TRABAJO DE GRADO\nACTA No. ___________________ FECHA: DD: ____ MM: ____ AAAA: ________\nCONCEPTO: PERTINENTE Y VIABLE: SI NO\nOBSERVACIONES:\n________________________________________________________________________________________\n_______________________________________________________________________________________________________\n_\n_______________________________________________________________________________________________________\n_\nCÓDIGO ASIGNADO POR EL COMITÉ PARA LA PRÁCTICA: ________________\n________________________________________\nFIRMA DEL COORDINADOR ACADÉMICO\nOBSERVACIONES: El practicante debe cumplir con lo estipulado en el Reglamento de Trabajo de Grado, el cual manifiesta que “el\ntiempo de práctica es de 600 horas para los programas por ciclos propedéuticos en cada uno de sus niveles Tecnológico\ny Universitario; mientras que el tiempo de la práctica para los programas del nivel Técnico Profesional, es de 400 horas.\nLas horas de práctica inician a partir de la fecha en que se da la aprobación de la Propuesta de trabajo de grado en\nmodalidad de Práctica y se firme el acuerdo de Práctica por ambas partes, previa revisión de los aspectos legales por\nparte de la Oficina de Relaciones Interinstitucionales e Internacionales”.\nAl diligenciar este documento, autorizo de manera previa, expresa e inequívoca a las UNIDADES TECNOLÓGICAS DE SANTANDER\na dar tratamiento de mis datos personales (y/o de los datos del menor de edad o persona en condición de discapacidad cognitiva que\nrepresento) aquí consignados, incluyendo el consentimiento explícito para tratar datos sensibles aun conociendo la posibilidad de\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 2,
+          "page_end": 2
+        },
+        {
+          "chunk_id": "ver_f_dc_126_v2_p3_s1",
+          "location_hint": "F-DC-126, Pág. 3 (DOCENCIA PÁGINA: 3)",
+          "texto": "F-DC-126 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA: 3:\nDOCENCIA PÁGINA: 3\nDE: 2\nF-DC-126 REQUERIMIENTO DE LA EMPRESA PARA SOLICITAR PRACTICANTES VERSIÓN: 2.0\noponerme a ello, conforme a las finalidades incorporadas en la Política de Tratamiento de Información publicada en www.uts.edu.co\ny/o en Calle de los estudiantes 9-82 Ciudadela Real de Minas, que declaro conocer y estar informado que en ella se presentan los\nderechos que me asisten como titular y los canales de atención donde ejercerlos.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 3,
+          "page_end": 3
+        }
+      ],
+      "estado_revision_humana": "PENDIENTE_REVISION_HUMANA"
+    },
+    {
+      "codigo": "F-DC-127",
+      "nombre": "F-DC-127 Propuesta Modalidad Práctica V2",
+      "version_id": "ver_f_dc_127_v2",
+      "version_institucional": "2.0",
+      "paginas": 11,
+      "procedencia": "Suministrado por Directora de Trabajo de Grado",
+      "total_chunks_almacenados": 11,
+      "chunks_almacenados_sqlite": [
+        {
+          "chunk_id": "ver_f_dc_127_v2_p1_s1",
+          "location_hint": "F-DC-127, Pág. 1 (DOCENCIA PÁGINA 1)",
+          "texto": "F-DC-127 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 1:\nDOCENCIA PÁGINA 1\nDE 11\nF-DC-127 REGISTRO DE PROPUESTA DE TRABAJO DE GRADO\nModalidad Práctica VERSIÓN: 2.0\nFicha técnica de la propuesta\nTítulo: (Debe ser preciso y concreto; debe reunir las siguientes condiciones: Precisar el Tema Principal, indicar\nla especificidad ¿qué busca?, la espacialidad (¿dónde?) y\nla temporalidad (¿cuándo?). El título del trabajo es una\nsíntesis del objetivo general en máximo de 21palabras y\nmínimo 7). Está: Ejemplo: El subempleo urbano como factor de la pobreza en el Área Metropolitana de Bucaramanga 2010 -2019\nFecha:\nDía\ndd\nMes\nmm\nAño\naaaa\nCódigo de la propuesta: (lo asigna la coordinación del programa)\nModalidad del Trabajo de Grado\n☐ Práctica Empresarial ☐ Práctica Social\nFacultad: FCNI_____FCSE____ Programa Académico: _______________________________\nCiudad o Municipio: ____________\nEstudiante:\nEmail:\nCédula:\nTeléfono:\nDirector: Programa\nCodirector: Programa\nInformación sobre el pago de los derechos Pecuniarios\nNúmero del LQ (consignación)______________________Entidad Bancaria ____________________________\nValor ____________________________ Fecha: día/mes/año\nNota: Anexar evidencia de envió de la copia de consignación al correo institucional del programa\nDatos de la empresa o entidad\nNombre de la Empresa o comunidad: ____________________________________________________\nDirección completa: __________________________________________________________________\nCiudad o Municipio / Departamento______________________________________________________\nTeléfonos / Fax / Celular __________________Correo electrónico______________________________\nDelegado de la empresa: _______________________________________________\nNúmero del acuerdo de práctica: ________________________________________\nNota: El programa debe disponer de un correo institucional para trabajos de grado y crear un espacio por\ncada trabajo de grado con el fin de mantener una base de datos actualizada y disponible en todo momenELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 1,
+          "page_end": 1
+        },
+        {
+          "chunk_id": "ver_f_dc_127_v2_p2_s1",
+          "location_hint": "F-DC-127, Pág. 2 (DOCENCIA PÁGINA 2)",
+          "texto": "F-DC-127 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 2:\nDOCENCIA PÁGINA 2\nDE 11\nF-DC-127 REGISTRO DE PROPUESTA DE TRABAJO DE GRADO\nModalidad Práctica VERSIÓN: 2.0\nto.\nCONTENIDO DE LA PROPUESTA\nIdentificación de la empresa o entidad\nHacer una breve descripción general de la empresa o entidad, a nivel funcional y\norganizacional. No usar más de media cuartilla.\nDescripción del problema\nDescribir claramente, en máximo 20, líneas, cuál es la problemática a resolver. La problemática\ndebe responder a la necesidad de una empresa, organización o entidad.\nLa problemática debe describir de manera general la situación problémica, o caso que desea\nsolucionar con su trabajo de grado. Debe igualmente exponer las causas que la originan.\nFinalmente, se debe formular claramente la pregunta que soporta la problemática. Un buen\nplanteamiento de pregunta debe: expresar la relación entre dos o más variables, ser claro y sin\nambigüedades en la pregunta. Por ejemplo: ¿Qué efecto? ¿En qué condiciones…? ¿Cuál es la\nprobabilidad de…? ¿Cómo se relaciona una variable con otra? entre otras.\nSe debe tener presente que el problema no es la falta o a usencia de…. sino una debilidad o\nuna limitación generada por determina circunstancia: Ejemplo: Insuficiencia de los sistemas de\ncomunicación …….\nJustificación\nLa justificación es la argumentación de la problemática que se pretende resolver, con criterios\nválidos, con el propósito de describir la conveniencia o necesidad, las implicaciones\ntecnológicas, económicas, sociales y ambientales, el valor teórico; así como cuestionarse la\nviabilidad y consecuencias del trabajo de grado.\nBasándose en el planteamiento de la problemática, describa claramente, (máximo 20 líneas) la\nrazón por la cual se debe realizar esta propuesta. Para ello, se debe plantear y responder las\nsiguientes preguntas: ¿por qué? y el ¿para qué? se requiere resolver el problema. ¿Qué efectos\nse generan al solucionar el problema formulado? Es importante argumentar por qué la\npropuesta es relevante para las UTS. Ejemplo: si el problema ser refiere al área de facturación,\nexplicar por qué se requiere mejorar el proceso de facturación de la empresa xxx; también se\ndebe justificar la importancia o aplicabilidad a la vida diaria del estudiante y el aporte al campo\nde conocimiento y la sociedad.\nObjetivo General\nLos objetivos son las acciones que se van a desarrollar para obtener el nivel de conocimiento\ndeseado sobre el objeto de estudio y dar solución a la pregunta problema, es decir, deben\ndetallar el ¿Qué se va a hacer? ¿Cómo se va a hacer? y ¿Para qué se va a hacer? Deben ser\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 2,
+          "page_end": 2
+        },
+        {
+          "chunk_id": "ver_f_dc_127_v2_p3_s1",
+          "location_hint": "F-DC-127, Pág. 3 (DOCENCIA PÁGINA 3)",
+          "texto": "F-DC-127 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 3:\nDOCENCIA PÁGINA 3\nDE 11\nF-DC-127 REGISTRO DE PROPUESTA DE TRABAJO DE GRADO\nModalidad Práctica VERSIÓN: 2.0\ncuantificables y alcanzables o realizables en un contexto.\n¿Qué se va a hacer? Hace referencia al tipo/clase de trabajo que va a realizar el estudiante\npara aportarle a la solución de la problemática identificada.\n¿Cómo se va a hacer? Hace referencia a los métodos, procedimientos, y/o las herramientas\nque va a utilizar el estudiante para el despliegue del trabajo expresado en la pregunta ¿qué?\n¿Para qué se va a hacer? Hace referencia a los propósitos que se quieren alcanzar con el\ntrabajo del estudiante, así como los productos que se obtendrán con la realización del trabajo\nde grado.\nPara realizar los objetivos es recomendable revisar la taxonomía de Bloom, para ello pueden\nreferenciar: http://www.eduteka.org/TaxonomiaBloomCuadro.php3\nEl objetivo general es el propósito que el estudiante va a cumplir para aportar a la solución de la\nproblemática seleccionada. La problemática y el objetivo general deben estar relacionados entre\nsí.\nObjetivos específicos\nLa estructura de los objetivos específicos es la misma del objetivo general.\nSon acciones que se llevarán a cabo y que presentarán resultados parciales para obtener el\nlogro del objetivo general. Los objetivos específicos se escriben de manera ordenada para\ncumplir con sentido lógico el objetivo general, es decir, son los pasos clasificados en el orden en\nel que se deben cumplir, para alcanzar el objetivo general.\nSe recomienda entre 3 y 5 objetivos específicos, bien enmarcados, Se debe evitar confundir la\nrealización de actividades necesarias o metodológicas del trabajo de grado con el objetivo, por\nejemplo: la recopilación de información, la documentación de resultados o redacción de un artículo no son un objetivo\nAntecedentes de la empresa\nDescribir en forma concreta los antecedentes relacionados con el objeto social de la empresa y\nlas actividades objeto de la práctica.\nCada cita de los antecedentes debe estar referenciada, siguiendo la norma APA actualizada\n(American Psychological Association).\nFundamento Teórico\nEl director del trabajo de grado indicará los componentes que considere pertinentes plantear en\nesta sección (ideas que están relacionadas con el tema de manera particular), de acuerdo con\nel área disciplinar y el tipo de trabajo a desarrollar.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 3,
+          "page_end": 3
+        },
+        {
+          "chunk_id": "ver_f_dc_127_v2_p4_s1",
+          "location_hint": "F-DC-127, Pág. 4 (DOCENCIA PÁGINA 4)",
+          "texto": "F-DC-127 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 4:\nDOCENCIA PÁGINA 4\nDE 11\nF-DC-127 REGISTRO DE PROPUESTA DE TRABAJO DE GRADO\nModalidad Práctica VERSIÓN: 2.0\n(Solo mencionarlos)\n1. Fundamento teórico 1\n2. Fundamento teórico 2\n3. Fundamento teórico 3\n4. Fundamento teórico 4\n5. Fundamento teórico 5\nPlan de actividades\nEjemplo:\nActividad (Semanal)\nFase 1 Fase 2 Fase 3 Fase 4 Fase 5\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22\nRevisión bibliográfica\nActividad A\nActividad b\nActividad c\nActividad d\nActividad e\nEntrega del documento Final para evaluación\nSustentación del trabajo\nde grado\nEntrega final\nConsideraciones Éticas\n(Indicar en este espacio si la práctica que va a desarrollar incluye:\ni) Uso o manejo de recurso vivo, agentes o muestras biológicas,\nii) Datos personales, entrevistas o encuestas,\niii) Representación de algún riesgo sobre la vida, el ambiente o los derechos humanos.\nSi cumple, debe indicarse cómo se garantizará el cumplimiento de los principios de beneficencia, no maleficencia, autonomía y justicia y sus respectivos.\nReferencias Bibliográficas\nEs la relación de libros de texto, artículos indexados, revistas académicas y/o científicas,\npáginas Web y demás medios consultados para la elaboración de la propuesta. Todas las\nreferencias presentadas deben estar citadas el texto de la propuesta, y se deben documentar\ncumpliendo la Norma APA (American Psychological Association) de edición vigente, para la\npresentación de referencias. Igualmente se debe incluir la bibliografía consultada.\nEs conveniente utilizar el gestor de referencias bibliográficas del procesador de texto en el que\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 4,
+          "page_end": 4
+        },
+        {
+          "chunk_id": "ver_f_dc_127_v2_p5_s1",
+          "location_hint": "F-DC-127, Pág. 5 (DOCENCIA PÁGINA 5)",
+          "texto": "F-DC-127 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 5:\nDOCENCIA PÁGINA 5\nDE 11\nF-DC-127 REGISTRO DE PROPUESTA DE TRABAJO DE GRADO\nModalidad Práctica VERSIÓN: 2.0\nse desarrolla el documento, para realizar correctamente la citación cumpliendo la norma APA.\nREJILLA DE EVALUACIÓN\nLas UTS agradecen al docente evaluador por su participación en los procesos académico. Por favor diligencie el siguiente formato para la evaluación de la propuesta de trabajo de grado. En la rejilla de evaluación establezca el cumplimiento de los indicadores marcando con una “x” en cada ítem de acuerdo al resultado de la revisión que realizó. Al\nfinalizar encontrará una sección para relacionar las observaciones. Es importante aclarar que para emitir el concepto\nde “Aprobado”, se deben cumplir todos los criterios que aplican para la modalidad que se está evaluando.\nINFORMACIÓN GENERAL DE LA PROPUESTA DE TRABAJO DE GRADO\nFecha día/mes/año Código de la\npropuesta\nModalidad ☐ Práctica empresarial ☐ Práctica social\nTitulo\nEstudiante\nFacultad ☐ FCNI ☐ FCSE Programa\nDATOS DEL EVALUADOR\nNombre\nFacultad ☐ FCNI ☐ FCSE Programa\nREJILLA DE EVALUACION DE PROPUESTA DE TRABAJO DE GRADO\nCRITERIOS INDICADORES Cumple\nSI NO\nFicha técnica ¿La ficha técnica relaciona toda la información requerida?\nIdentificación de la\nempresa o comunidad: ¿Describe claramente la empresa o la entidad a nivel de su trayectoria y objeto social?\nDescripción del problema\n¿Describe claramente la situación problémica, o caso que desea solucionar con su trabajo de grado, expone las causas que la originan,\nasí como las consecuencias o efectos generados al no resolver el\nproblema?\n¿Se ilustran citas bibliográficas en la redacción texto relevantes con\nrespecto a la problemática?\n¿Se evidencia la pregunta problema en forma concreta?\nJustificación\n¿Se evidencia por qué se debe realizar la práctica?\n¿Se argumenta la necesidad, la conveniencia, las implicaciones tecnológicas, sociales, económicas, entre otras?\n¿Genera un aporte al desarrollo de empresa o para la generación\nde productos de investigación en las UTS?\nObjetivos\n¿El objetivo general plantea una solución clara la problemática?\nEn el objetivo general y los específicos se evidencia: el ¿qué? ¿Cómo? y el ¿Para qué?\n¿El objetivo general tiene relación con el título de la propuesta de\ntrabajo de grado?\n¿Hay relación entre el cómo del objetivo general y los objetivos específicos?\n¿Se mantiene un orden cronológico en los objetivos específicos?\nAntecedentes. ¿Se referencian los antecedentes de la actividad o cargo para la\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 5,
+          "page_end": 5
+        },
+        {
+          "chunk_id": "ver_f_dc_127_v2_p6_s1",
+          "location_hint": "F-DC-127, Pág. 6 (DOCENCIA PÁGINA 6)",
+          "texto": "F-DC-127 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 6:\nDOCENCIA PÁGINA 6\nDE 11\nF-DC-127 REGISTRO DE PROPUESTA DE TRABAJO DE GRADO\nModalidad Práctica VERSIÓN: 2.0\nREJILLA DE EVALUACION DE PROPUESTA DE TRABAJO DE GRADO\nCRITERIOS INDICADORES Cumple\nSI NO\ncual fue requerido el practicante?\n¿Se manejan las citas de acuerdo a la norma APA vigente?\nFundamento Teórico\n¿Se evidencian los diferentes marcos que aplican (teórico, histórico,\nconceptual, legal y ambiental), en el desarrollo de la propuesta de\ntrabajo de grado?\n¿Los marcos de referencia son coherentes con la solución de la problemática?\nPlan de actividades\n¿El tiempo de duración total de la práctica, está acorde con lo estipulado en el Reglamento de Trabajo de Grado?\n¿La duración planteada para cada actividad es razonable?\n¿Las actividades planteadas son las necesarias para cumplir con el\nobjetivo general de la práctica?\nConsideraciones éticas ¿Se evidencia dentro del informe el detalle de las consideraciones\néticas que se pueden presentar en el desarrollo de la práctica?\nReferencias bibliográficas ¿Las referencias aplican el estándar APA de la edición vigente?\nResumen de similitud El resultado del informe de similitud evidencia un porcentaje de similitud entre el 0 y 10%\nOBSERVACIONES GENERALES\nCONCEPTO FINAL (Aprobado, No Aprobado o Aplazado).\nNOMBRE\nFIRMA DEL DIRECTOR\nNOMBRE\nFIRMA DEL EVALUADOR\nFECHA DE RECIBIDO COMITÉ DE TRABAJOS DE\nGRADO\ndía/mes/año\nFECHA DE EMISIÓN DEL CONCEPTO COMITÉ DE\nTRABAJOS DE GRADO:\ndía/mes/año\nESPACIO PARA SER DILIGENCIADO POR EL COMITÉ DE TRABAJO DE GRADO\nConcepto Emitido: ____Aprobada ___Aplazada ___Rechazada\nObservaciones:\n_____________________________________________________________\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_f_dc_127_v2_p7_s1",
+          "location_hint": "F-DC-127, Pág. 7 (DOCENCIA PÁGINA 7)",
+          "texto": "F-DC-127 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 7:\nDOCENCIA PÁGINA 7\nDE 11\nF-DC-127 REGISTRO DE PROPUESTA DE TRABAJO DE GRADO\nModalidad Práctica VERSIÓN: 2.0\nFecha de aprobación: día/mes/año/ Acta No ____\nFirma Estudiante ____________________________\nDirector: ___________________________________\nCoordinador del programa académico: ______________________________________\nFecha de notificación al estudiante:\nFecha de inicio: día/mes/año Fecha de finalización de la práctica: día/mes/año\n(600 o 400 horas a partir de la notificación de la aprobación al estudiante, Artículo 51 Reglamento de trabajo de Grado)\nPrórroga 1: día/mes/año (Solo para un caso excepcional Art 15, parágrafo 2 RTG)\nAl diligenciar este documento, autorizo de manera previa, expresa e inequívoca a las UNIDADES TECNOLÓGICAS\nDE SANTANDER a dar tratamiento de mis datos personales (y/o de los datos del menor de edad o persona en\ncondición de discapacidad cognitiva que represento) aquí consignados, incluyendo el consentimiento explícito para\ntratar datos sensibles aun conociendo la posibilidad de oponerme a ello, conforme a las finalidades incorporadas en\nla Política de Tratamiento de Información publicada en www.uts.edu.co y/o en Calle de los estudiantes 9-82\nCiudadela Real de Minas, que declaro conocer y estar informado que en ella se presentan los derechos que me\nasisten como titular y los canales de atención donde ejercerlos.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 7,
+          "page_end": 7
+        },
+        {
+          "chunk_id": "ver_f_dc_127_v2_p8_s1",
+          "location_hint": "F-DC-127, Pág. 8 (DOCENCIA PÁGINA 8)",
+          "texto": "F-DC-127 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 8:\nDOCENCIA PÁGINA 8\nDE 11\nF-DC-127 REGISTRO DE PROPUESTA DE TRABAJO DE GRADO\nModalidad Práctica VERSIÓN: 2.0\nAnexo A.\nInforme de Similitud Generado por la Herramienta Antiplagio Institucional\nEjemplo de resumen de similitud\nNota: tener en cuenta que los índices arrojados por la herramienta no determinan exactamente si\nun trabajo fue plagiado o no. Los reportes de similitud simplemente son una herramienta que\nayuda al director del TG a encontrar fuentes que contienen texto similar a los trabajos entregados\ndisponibles en la web. La decisión de considerar si un trabajo contiene plagio debe tomarse con\ncuidado y solo después de un examen minucioso tanto del trabajo entregado como de las fuentes\nque indican esos niveles de coincidencia. El porcentaje máximo de similitud admitido debe ser\nmenor o igual al 10%.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 8,
+          "page_end": 8
+        },
+        {
+          "chunk_id": "ver_f_dc_127_v2_p9_s1",
+          "location_hint": "F-DC-127, Pág. 9 (DOCENCIA PÁGINA 9)",
+          "texto": "F-DC-127 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 9:\nDOCENCIA PÁGINA 9\nDE 11\nF-DC-127 REGISTRO DE PROPUESTA DE TRABAJO DE GRADO\nModalidad Práctica VERSIÓN: 2.0\nAnexo B.\nNombre o Título del Anexo\nSi aplica, se anexan: formato de encuestas entrevistas, chek list, en general las herramientas o\ninstrumentos utilizados en la investigación. Se enumeran con letras mayúsculas de la A - Z, si la\ncantidad es mayor se enumeran con números arábigos. Fuente y títulos en Normas APA.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 9,
+          "page_end": 9
+        },
+        {
+          "chunk_id": "ver_f_dc_127_v2_p10_s1",
+          "location_hint": "F-DC-127, Pág. 10 (DOCENCIA PÁGINA 10)",
+          "texto": "F-DC-127 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 10:\nDOCENCIA PÁGINA 10\nDE 11\nF-DC-127 REGISTRO DE PROPUESTA DE TRABAJO DE GRADO\nModalidad Práctica VERSIÓN: 2.0\nAnexo C.\nEste instructivo es una guía general de como se presenta el informe de la propuesta, se\ndebe eliminar después de diligenciada.\nInstructivo General\nFormato de la página:\nMárgenes: iguales: todos a 2.5 cm.\nTítulos en Mayúsculas y minúsculas, color negro, centrado\nSubtítulos: Mayúsculas y minúsculas. Color negro, alineados a la izquierda, letra arial 12 pts.\nCitas y referencias: en formato APA vigente\nNumeración de páginas en la parte superior derecha (viene incluida en el formato institucional)\nTexto:\nTipo de letra: Arial en 12 pts\nInterlineado: 1.5 líneas. Justificado\nNota: el formato ya tiene los márgenes establecidos. Solo debe verificar que estén correctos.\nFormato de tablas: Apa, vigente\nLas tablas deben llevar: Título y nombre de la tabla, alineado a la izquierda, letra color negro,\ncon fondo blanco. Inicia con el número y termina con el título. Igual, las columnas deben estar\ndebidamente identificadas: títulos centrados, letra color negro; letra: Arial 10, fondo blanco. Interlineado sencillo. Ver ejemplo tomado de la norma APA.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 10,
+          "page_end": 10
+        },
+        {
+          "chunk_id": "ver_f_dc_127_v2_p11_s1",
+          "location_hint": "F-DC-127, Pág. 11 (DOCENCIA PÁGINA 11)",
+          "texto": "F-DC-127 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA 11:\nDOCENCIA PÁGINA 11\nDE 11\nF-DC-127 REGISTRO DE PROPUESTA DE TRABAJO DE GRADO\nModalidad Práctica VERSIÓN: 2.0\nFormato de las imágenes:\nLas imágenes, fotografías, diagramas y figuras en general, deben estar identificadas con un\nnúmero y el nombre de la figura. Ej: Figura 1 Participación de los estudiantes de III y IV nivel de\nformación. Se debe incluir en la parte inferior la fuente de la figura, en formato APA vigente,\ncon estilo de una referencia.\nLos contenidos que se encuentran en letra color gris, son instrucciones guía, que se deben\nreemplazar o eliminar.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Septiembre de 2023",
+          "page_start": 11,
+          "page_end": 11
+        }
+      ],
+      "estado_revision_humana": "PENDIENTE_REVISION_HUMANA"
+    },
+    {
+      "codigo": "F-DC-128",
+      "nombre": "F-DC-128 Informe Final Modalidad Práctica V2",
+      "version_id": "ver_f_dc_128_v2",
+      "version_institucional": "2.0",
+      "paginas": 24,
+      "procedencia": "Suministrado por Directora de Trabajo de Grado",
+      "total_chunks_almacenados": 28,
+      "chunks_almacenados_sqlite": [
+        {
+          "chunk_id": "ver_f_dc_128_v2_p1_s1",
+          "location_hint": "F-DC-128, Pág. 1 (PÁGINA 1)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 1:\nPÁGINA 1\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\nTítulo del informe de práctica.\nModalidad: Práctica Empresarial o Práctica Social Comunitaria\nNombre completo del autor\nCC\nUNIDADES TECNOLÓGICAS DE SANTANDER\nFacultad a la que pertenece el programa académico\nPrograma académico\nCiudad y fecha (día, mes y año)\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 1,
+          "page_end": 1
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p2_s1",
+          "location_hint": "F-DC-128, Pág. 2 (PÁGINA 2)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 2:\nPÁGINA 2\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\nTítulo del informe práctica.\nModalidad: Práctica Empresarial o social\nNombre completo autor\nCC\nInforme de práctica para optar al título de\nTítulo al que opta el autor\nDIRECTOR\nNombre completo del director\nNombre completo del delegado de la empresa\nCargo del delegado:\nGrupo de investigación – SIGLA\nUNIDADES TECNOLÓGICAS DE SANTANDER\nFacultad a la que pertenece el programa académico\nPrograma de académico\nCiudad y fecha de presentación: día-mes-año\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 2,
+          "page_end": 2
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p3_s1",
+          "location_hint": "F-DC-128, Pág. 3 (PÁGINA 3)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 3:\nPÁGINA 3\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\nNota de Aceptación\n___________________________________\n___________________________________\n___________________________________\n___________________________________\n__________________________________\nFirma del Evaluador\n__________________________________\nFirma del Director\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 3,
+          "page_end": 3
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p4_s1",
+          "location_hint": "F-DC-128, Pág. 4 (PÁGINA 4)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 4:\nPÁGINA 4\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\nDEDICATORIA\nNota mediante la cual los autores ofrecen su trabajo, en forma especial, a personas\no entidades. Su presentación es opcional. Si se incluye no debe ser mayor a un\npárrafo por cada autor (máximo 14 líneas).\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 4,
+          "page_end": 4
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p5_s1",
+          "location_hint": "F-DC-128, Pág. 5 (PÁGINA 5)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 5:\nPÁGINA 5\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\nAGRADECIMIENTOS\nEl autor expresa el reconocimiento hacia las personas y entidades que asesoran\ntécnicamente, suministraron datos, financiaron total o parcialmente la práctica o\ncontribuyeron significativamente al desarrollo del trabajo de grado. Es opcional y\ndebe contener, además de la nota correspondiente, los nombres de las personas\ncon sus respectivos cargos y nombres completos de las instituciones y su aporte al\ntrabajo.\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 5,
+          "page_end": 5
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p6_s1",
+          "location_hint": "F-DC-128, Pág. 6 (PÁGINA 6)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 6:\nPÁGINA 6\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\nTABLA DE CONTENIDO\nINTRODUCCIÓN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p6_s2",
+          "location_hint": "F-DC-128, Pág. 6 (1. IDENTIFICACIÓN DE LA EMPRESA O COMUNIDAD . . . . . . . . )",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - 1. IDENTIFICACIÓN DE LA EMPRESA O COMUNIDAD . . . . . . . . :\n1. IDENTIFICACIÓN DE LA EMPRESA O COMUNIDAD . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p6_s3",
+          "location_hint": "F-DC-128, Pág. 6 (2. PLANTEAMIENTO DEL PROBLEMA . . . . . . . . . . . . . . . )",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - 2. PLANTEAMIENTO DEL PROBLEMA . . . . . . . . . . . . . . . :\n2. PLANTEAMIENTO DEL PROBLEMA . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12\n2.1. DESCRIPCIÓN DE LA PROBLEMÁTICA..........................................................................12\n2.2. JUSTIFICACIÓN DE LA PRÁCTICA.................................................................................12\n2.3. OBJETIVOS................................................................................................................13\n2.3.1 OBJETIVO GENERAL................................................................................................13\n2.3.2 OBJETIVOS ESPECÍFICOS........................................................................................13\n2.4 ANTECEDENTES DE LA EMPRESA................................................................................13\n3 MARCO REFERENCIAL . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13\n4 DESARROLLO DE LA PRÁCTICA . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14\n5 RESULTADOS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14\n6 CONSIDERACIONES ÉTICAS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14\n7 CONCLUSIONES . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15\n8 RECOMENDACIONES . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15\n9 REFERENCIAS BIBLIOGRÁFICAS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16\n10 APENDICES . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17\n11 ANEXOS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p7_s1",
+          "location_hint": "F-DC-128, Pág. 7 (PÁGINA 7)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 7:\nPÁGINA 7\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\nLISTA DE FIGURAS\nFigura 1. Tipos de Investigación......................................................................................19\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 7,
+          "page_end": 7
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p8_s1",
+          "location_hint": "F-DC-128, Pág. 8 (PÁGINA 8)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 8:\nPÁGINA 8\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\nLISTA DE TABLAS\nTabla 1. Fase 1....................................................................................................................20\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 8,
+          "page_end": 8
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p9_s1",
+          "location_hint": "F-DC-128, Pág. 9 (PÁGINA 9)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 9:\nPÁGINA 9\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\nINTRODUCCIÓN\nEn la sección de introducción, se debe proporcionar al lector(a) los antecedentes\nsuficientes que le permitan ubicar el tema y el informe en el contexto de la literatura\npasada y presente, empleando correctamente las normas APA (American\nPsychological Association) para la citación de referencias. Es importante\nseleccionar adecuadamente la literatura a citar en esta sección y se deberá dejar en\nclaro porqué, existiendo toda esa información disponible, el trabajo presentado\nrepresenta un aporte importante a la comunidad.\nEn la Introducción también se debe dejar en claro el procedimiento utilizado para el\ndesarrollo de los objetivos de la práctica, junto con una descripción breve de las\nconclusiones y recomendaciones finales.\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 9,
+          "page_end": 9
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p10_s1",
+          "location_hint": "F-DC-128, Pág. 10 (PÁGINA 10)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 10:\nPÁGINA 10\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA",
+          "page_start": 10,
+          "page_end": 10
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p10_s2",
+          "location_hint": "F-DC-128, Pág. 10 (1. IDENTIFICACIÓN DE LA EMPRESA O COMUNIDAD)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - 1. IDENTIFICACIÓN DE LA EMPRESA O COMUNIDAD:\n1. IDENTIFICACIÓN DE LA EMPRESA O COMUNIDAD\nHacer una breve descripción general de la empresa o comunidad, a nivel funcional y\norganizacional. No usar más de media cuartilla\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 10,
+          "page_end": 10
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p11_s1",
+          "location_hint": "F-DC-128, Pág. 11 (PÁGINA 11)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 11:\nPÁGINA 11\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA",
+          "page_start": 11,
+          "page_end": 11
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p11_s2",
+          "location_hint": "F-DC-128, Pág. 11 (2. PLANTEAMIENTO DEL PROBLEMA)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - 2. PLANTEAMIENTO DEL PROBLEMA:\n2. PLANTEAMIENTO DEL PROBLEMA\n2.1. Descripción de la Problemática\nDescribir claramente, en máximo 20, líneas, cuál es la problemática a resolver. La\nproblemática debe responder a la necesidad de una empresa, organización o\nentidad.\nLa problemática debe describir de manera general la situación problema, o caso que\ndesea solucionar con su trabajo de grado. Debe igualmente exponer las causas que\nla originan.\nFinalmente, se debe formular claramente la pregunta que soporta la problemática.\nUn buen planteamiento de pregunta debe: expresar la relación entre dos o más\nvariables, ser claro y sin ambigüedades en la pregunta. Por ejemplo: ¿Qué efecto?\n¿En qué condiciones…? ¿Cuál es la probabilidad de…? ¿Cómo se relaciona una\nvariable con otra? entre otras.\nSe debe tener presente que el problema no es la falta o a usencia de…. sino una\ndebilidad o una limitación generada por determina circunstancia: Ejemplo:\nInsuficiencia de los sistemas de comunicación ….\n2.2. Justificación de la Práctica\nLa justificación es la argumentación de la problemática que se pretende resolver,\ncon criterios válidos, y tiene el propósito de presentar la conveniencia o necesidad,\nlas implicaciones tecnológicas, económicas, sociales y ambientales, el valor teórico;\nasí como cuestionarse la viabilidad y consecuencias de la práctica.\nBasándose en el planteamiento de la problemática, describa claramente la razón por\nla cual se debe realizar la práctica. Para facilitar esto se debe plantear ¿qué efectos\nse generan con el desarrollo de la práctica. Es importante argumentar porqué es\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 11,
+          "page_end": 11
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p12_s1",
+          "location_hint": "F-DC-128, Pág. 12 (PÁGINA 12)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 12:\nPÁGINA 12\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\nrelevante para las UTS. Ejemplo: Porque articula las funciones misionales y\ncontribuye al desarrollo de productos de innovación y desarrollo tecnológico.\nPara el desarrollo de este ítem, utilice máximo media cuartilla.\n2.3. Objetivos\nTranscribir los objetivos, general y específicos planteados en la propuesta. Debe\ntener presente que, si su investigación es de enfoque cuantitativo, no los puede\ncambiar. Si es de enfoque cualitativo, los puede ajustar dependiendo del proceso y\nanálisis desarrollado durante el proceso (Hernández, 2014). Como esta es una\ninstrucción, léala, escriba los objetivos, general y específicos en lo0s numerales\n1.3.1 y 1.3.2 respectivamente. Luego elimine esta instrucción.\n2.3.1 Objetivo General\nEscriba el objetivo, de acuerdo con la instrucción anterior.\n2.3.2 Objetivos Específicos\nEscriba los objetivos específicos, de acuerdo con la instrucción anterior.\n2.4 Antecedentes de la Empresa\nDescribir en forma concreta los antecedentes relacionados con el objeto social de la\nempresa y las actividades objeto de la práctica.\nCada cita de los antecedentes debe estar referenciada, siguiendo la norma APA ac-\ntualizada (American Psychological Association).\n3 MARCO REFERENCIAL\nEl estudiante debe identificar las teorías que dan soporte al desarrollo de la práctica.\nDebe tener cuidado en citar y referenciar las fuentes consultadas, bajo normas APA\núltima versión.\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 12,
+          "page_end": 12
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p13_s1",
+          "location_hint": "F-DC-128, Pág. 13 (PÁGINA 13)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 13:\nPÁGINA 13\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\n4 DESARROLLO DE LA PRÁCTICA\nEn esta sección, el estudiante debe detallar cada una de las etapas realizadas para\ncumplir con los objetivos del trabajo de grado, de acuerdo con el plan de práctica\n(cronograma) elaborado inicialmente, Se puede presentar de varias formas, y estas\ndependen de la orientación del director y el delegado de la empresa.\n5 RESULTADOS\nEn esta sección se detallan específicamente cuales fueron los resultados obtenidos\nen la ejecución del trabajo de práctica, documentando cada uno con evidencias\nsobre los lograos alcanzados, a través imágenes, anexos o soportes, y demás que\nconsidere pertinente de conformidad con las orientaciones del director y el delegado\nde la empresa.\nLos resultados de práctica son considerados insumos para el desarrollo de\nproductos como consultorías, innovaciones y demás.\n6 CONSIDERACIONES ÉTICAS\nIndicar en este espacio si el proyecto desarrollado incluyó alguna de las siguientes\nconsideraciones:\ni) Uso o manejo de recurso vivo, agentes o muestras biológicas\nii) Datos personales, entrevistas o encuestas\niii) Representación de algún riesgo sobre la vida, el ambiente o los derechos\nhumanos. Si fue así, debe indicar cómo se garantizó el cumplimiento de\nlos principios de beneficencia, no maleficencia, autonomía y justicia y sus\nrespectivos anexos (ver Procedimiento Comité de Ético y formato en BD,\npara que de ser necesario el comité de ética CEI_UTS pueda emitir su\nconcepto.\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 13,
+          "page_end": 13
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p14_s1",
+          "location_hint": "F-DC-128, Pág. 14 (PÁGINA 14)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 14:\nPÁGINA 14\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\n7 CONCLUSIONES\nLas conclusiones deben indicar claramente cuáles fueron los resultados obtenidos\ndurante el desarrollo del trabajo de grado, sin especificar valores numéricos, pero\nargumentando la razón de los resultados. Deben documentar con el rigor adecuado\ncuales fueron los problemas que se obtuvieron y cuál fue la solución empleada para\nsuperarlo. En las conclusiones no se debe recapitular el trabajo en forma\ncondensada, ni se deben presentar resultados (eso va en la sección Resultados).\nEs importante no confundir las conclusiones con el cumplimiento de los objetivos, de\nmanera que una conclusión que diga que “se cumplieron los objetivos” no es\nadecuada. Tampoco es adecuado expresar ideas de conocimiento general como\nuna conclusión, por ejemplo, “se comprobó que el software X es ideal para resolver\nproblemas como el planteado en este proyecto”.\n8 RECOMENDACIONES\nEn esta sección se realizan todos los comentarios pertinentes para la realización de\ntrabajos futuros relacionados con el tema la práctica, ya sea tomando como base el\ntrabajo presentado para mejorarlo, o aplicando otras estrategias para la solución del\nmismo. También se pueden realizar recomendaciones requeridas para la\napropiación del conocimiento generado con este trabajo de grado, por ejemplo, la\nimplementación de laboratorios acreditados, compra de equipos y software,\nadecuación de infraestructura, entre otros.\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 14,
+          "page_end": 14
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p15_s1",
+          "location_hint": "F-DC-128, Pág. 15 (PÁGINA 15)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 15:\nPÁGINA 15\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\n9 REFERENCIAS BIBLIOGRÁFICAS\nEs la relación de libros de texto, artículos indexados, revistas académicas y/o\ncientíficas, páginas Web y demás medios consultados para la elaboración de la\npropuesta. Todas las referencias presentadas se deben mencionar en el texto, y se\ndeben documentar cumpliendo la Norma APA (American Psychological Association)\nde edición vigente, para la presentación de referencias.\nSe recomienda utilizar un gestor de referencias bibliográficas del procesador de\ntexto en el que se desarrolla el documento, para realizar correctamente la citación\ncumpliendo la norma APA.\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 15,
+          "page_end": 15
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p16_s1",
+          "location_hint": "F-DC-128, Pág. 16 (PÁGINA 16)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 16:\nPÁGINA 16\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\n10 APENDICES\nSi aplica, se anexan: formato de encuestas entrevistas, chek list, en general las he-\nrramientas o instrumentos utilizados en la investigación. Se enumeran con letras\nmayúsculas de la A - Z, si la cantidad es mayor se enumeran con números arábigos.\nFuente y títulos en Normas APA\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 16,
+          "page_end": 16
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p17_s1",
+          "location_hint": "F-DC-128, Pág. 17 (PÁGINA 17)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 17:\nPÁGINA 17\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\n11 ANEXOS\nLa sección de anexos será usada para presentar información que los autores y el\ndirector consideren importante, como el caso de: manuales de usuario, hojas de\ndatos, guías de laboratorio, demostraciones matemáticas, diseños esquemáticos,\ncartografía, entre otros.\nCada Anexo debe estar identificado por una letra (A-Z), la cual será usada para\ndiferenciar las figuras, tablas y ecuaciones que se encuentren en estas secciones.\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 17,
+          "page_end": 17
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p18_s1",
+          "location_hint": "F-DC-128, Pág. 18 (PÁGINA 18)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 18:\nPÁGINA 18\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\nInstructivo General1\nApreciado Estudiante: Lea cuidadosamente este instructivo general y elimínelo una\nvez termine de elaborar el informe final.\nEstilo: APA, última edición, como se describe a continuación\nTamaño del papel: Carta (letter) / papel 21.59 cm x 27.94 cm (8 1/2” x 11”).\nMárgenes: 2.54 en cada borde. El formato ya está configurado con\nestos márgenes. Por favor no los modifique.\nSangría: Cinco (5) o 0,5cm desde la pestaña diseño de Word, solo\nal inicio de cada párrafo y al inicio de las notas al pie de\npágina.\nImportante que en todas las páginas quede igual la sang\nría, para ello se sugiere usar tabulador. No lleva sangría:\n• El texto correspondiente al resumen,\n• El texto del Abstract\n• Las citas en bloque\n• Los títulos y encabezados\n• Los títulos y notas de tablas\n• Los pies de figuras o gráficas, ilustraciones, mapas\nFuente: Arial, tamaño: 12, en todo el documento, desde la porta-\nda hasta las referencias bibliográficas y los anexos.\nNumeración de páginas\n(Paginación): La paginación se inicia desde la portada, en forma conse-\ncutiva hasta el final. Se incluye en la esquina superior de\nrecha de la hoja. La plantilla ya está numerada, no la mo\ndifique.\nTexto: Justificado (APA sugiere alineado a la izquierda, pero se\nadopta justificado).\nInterlineado: 1.5 en párrafos (APA sugiere 2.0, pero se adopta 1.5).\nListas especiales: Tablas: La American Psychological Association (p. 130),\nsugiere cuando sea conveniente diseñar tablas para in-\n1 Información tomada del Manual APA última Edición. Para complementar información se recomienda\nconsultar en la página de la organización http://www.apastyle.org/\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 18,
+          "page_end": 18
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p19_s1",
+          "location_hint": "F-DC-128, Pág. 19 (PÁGINA 19)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 19:\nPÁGINA 19\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\ncluir en el documento, es importante definir y estructurar\nlos datos que los interesados en el tema, requerirán para\ncomprender la explicación. Nombre y autor en Arial 10\nFiguras: “se pueden utilizar muchos tipos de figuras” (Manual de la APA, 2010, p.\n153). Los más comunes son: gráficas, diagramas, Ma-\npas. Dibujos y fotografías. Se incluyen, cada figura, en\nuna página separada, al final del documento, después de\nlas tablas o después de las referencias (\nhttps://apastyle.apa.org/manual/new-7th-edition)). Nom-\nbre y autor en Arial 10\nLas tablas, imágenes y figuras: Todas elaboradas, bajo\nAPA\nApéndice: Los apéndices son una sección opcional del trabajo en\ndonde se incluye información o documentación que per-\nmite complementar y que no se puede incorporar en el\ncuerpo del trabajo. Esta sección se ubica al final de todo\nel manuscrito antes de los anexos.\nAnexos: Los anexos serán usados para presentar información\nque los autores y el director consideren importante, como\nel caso de: manuales de usuario, hojas de datos, guías\nde laboratorio, demostraciones matemáticas, diseños\nesquemáticos, cartografía, entre otros.\nEsta sección se ubica al final de todo el manuscrito y es\nallí donde se pueden incorporar materiales de estímulo,\ntablas y/o figuras. (Manual APA última edición.\nDisponible en http://www.apastyle.org/ y\nhttps://normasapa.net/tablas-figuras-y-apendices/\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 19,
+          "page_end": 19
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p20_s1",
+          "location_hint": "F-DC-128, Pág. 20 (PÁGINA 20)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 20:\nPÁGINA 20\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\nTextos escritos en gris: Se sobre escribe en color negro sobre éste la información\nsolicitada, cuando se refirieren al título o datos de la por-\ntada o contraportada, Si se trata de una instrucción se eli\nmina y se escribe el contenido que corresponda.\nTexto escrito en negro\n(En la plantilla): No se modifica. Se dejan como están.\nPáginas de Dedicatoria y\nAgradecimientos: Son opcionales.\nHoja de Aceptación: Se debe diligenciar completamente por los jurados (eva-\nluadores, directores).\nRecomendación: Por favor no modificar el formato de la plantilla y aplicar\ncorrectamente la norma APA.\nReferencias\nAmerican Psychological Association. APA Style. Recuperado de\nhttp://www.apastyle.org/.\nAmerican Psychological Association (2010). Manual de Publicaciones (3a. ed.).\nMéxico:\nNota: No olvide eliminar este instructivo y entregar solo el informe en la plantilla ini-\ncial de este documento\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 20,
+          "page_end": 20
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p21_s1",
+          "location_hint": "F-DC-128, Pág. 21 (PÁGINA 21)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 21:\nPÁGINA 21\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\nAYUDAS PARA LA PRESENTACIÓN DEL DOCUMENTO\nEsta sección del documento es de orientación para la elaboración del documento,\ndebe eliminarla cuando genere la versión final. De igual manera, debe eliminar\ntodas las instrucciones que contiene esta plantilla, que por lo general las encontrará\ncomo texto en color gris.\nRecuerde que se debe tener especial cuidado en la redacción del texto del\ndocumento, este se debe redactar de manera formal en tercera persona y no en\nprimera persona o de manera informal, no se permiten textos como: \"nosotros\nesperamos que\", en su lugar se debe usar: “se espera por parte de los autores\nque…”, igualmente sebe evitar el uso de gerundios, por ejemplo: estudiando el\ntema, en su lugar: estudiado el tema.\nLas tablas, figuras, gráficas, esquemas, entre otros, deben tener nombre y fuente, a\ncontinuación, se presenta el ejemplo:\nEjemplo de imagen\nFigura 1. Tipos de Investigación\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 21,
+          "page_end": 21
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p22_s1",
+          "location_hint": "F-DC-128, Pág. 22 (PÁGINA 22)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 22:\nPÁGINA 22\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\nFuente: Autor\nEjemplo de tabla\nPara el texto en el interior de la tabla deberá utilizarse fuente tipo Arial a 10 puntos\ncon interlineado sencillo. Utilice el mismo formato para todas las tablas para dar\nuniformidad al documento.\nTabla 1.\nDescripción de la primera fase del estudio metodológico para construir un software en lenguaje\nJava\nTipo Elementos\n Actividad 1\n Actividad 2\nActividades\n Actividad 3\n Actividad 4\n Sitio de trabajo\nConexión a internet\n Computador\nRecursos  Programas del computador\n Navegador Web\n Word\n Excel\nConocimiento y fortalecimiento del paradigma de la programación orientada a\nResultados objetos, sus características, alcance, técnicas de desarrollo, métodos y funciones\nentre otros campos vinculados con esta misma.\nNota: Tabla elaborada por el autor a partir de análisis sobre diseño de software.\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 22,
+          "page_end": 22
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p23_s1",
+          "location_hint": "F-DC-128, Pág. 23 (PÁGINA 23)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 23:\nPÁGINA 23\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\nAYUDAS PARA LA PRESENTACIÓN DEL DOCUMENTO\nEsta sección del documento es de orientación para la elaboración del documento, debe\neliminarla cuando genere la versión final. De igual manera, debe eliminar todas las\ninstrucciones que contiene esta plantilla, que por lo general las encontrará como texto en\ncolor gris.\nRecuerde que se debe tener especial cuidado en la redacción del texto del documento, este\nse debe redactar de manera formal en tercera persona y no en primera persona o de\nmanera informal, no se permiten textos como: \"nosotros esperamos que\", en su lugar se\ndebe usar: “se espera por parte de los autores que…”, igualmente sebe evitar el uso de\ngerundios, por ejemplo: estudiando el tema, en su lugar: estudiado el tema.\nLas tablas, figuras, gráficas, esquemas, entre otros, deben tener nombre y fuente, a\ncontinuación, se presenta el ejemplo:\nEjemplo de imagen\nFigura 2. Tipos de Investigación\nFuente: Autor\nEjemplo de tabla\nPara el texto en el interior de la tabla deberá utilizarse fuente tipo Arial a 10 puntos\ncon interlineado sencillo. Utilice el mismo formato para todas las tablas para dar\nuniformidad al documento.\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 23,
+          "page_end": 23
+        },
+        {
+          "chunk_id": "ver_f_dc_128_v2_p24_s1",
+          "location_hint": "F-DC-128, Pág. 24 (PÁGINA 24)",
+          "texto": "F-DC-128 (Plantilla institucional de trabajo de grado) - PÁGINA 24:\nPÁGINA 24\nDOCENCIA\nDE 24\nINFORME FINAL DE TRABAJO DE GRADO\nF-DC-128 VERSIÓN: 2.0\nEN MODALIDAD DE PRÁCTICA\nTabla 2. Descripción de la primera fase del estudio metodológico para construir un software en\nlenguaje Java.\nTipo Elementos\n Actividad 1\n Actividad 2\nActividades\n Actividad 3\n Actividad 4\n Sitio de trabajo\nConexión a internet\n Computador\nRecursos  Programas del computador\n Navegador Web\n Word\n Excel\nConocimiento y fortalecimiento del paradigma de la programación orientada a\nResultados objetos, sus características, alcance, técnicas de desarrollo, métodos y funciones\nentre otros campos vinculados con esta misma.\nFuente: Tabla elaborada por el autor a partir de análisis sobre diseño de software.\nAl diligenciar este documento, autorizo de manera previa, expresa e inequívoca a las UNIDADES\nTECNOLÓGICAS DE SANTANDER a dar tratamiento de mis datos personales (y/o de los datos del menor de\nedad o persona en condición de discapacidad cognitiva que represento) aquí consignados, incluyendo el\nconsentimiento explícito para tratar datos sensibles aun conociendo la posibilidad de oponerme a ello, conforme\na las finalidades incorporadas en la Política de Tratamiento de Información publicada en www.uts.edu.co y/o en\nCalle de los estudiantes 9-82 Ciudadela Real de Minas, que declaro conocer y estar informado que en ella se\npresentan los derechos que me asisten como titular y los canales de atención donde ejercerlos.\nELABORADO POR: REVISADO POR: APROBADO POR: Líder del Sistema Integrado de Gestión\nDocencia Sistema Integrado de Gestión FECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 24,
+          "page_end": 24
+        }
+      ],
+      "estado_revision_humana": "PENDIENTE_REVISION_HUMANA"
+    },
+    {
+      "codigo": "F-DC-129",
+      "nombre": "F-DC-129 Rejilla de Evaluación Informe Final V2",
+      "version_id": "ver_f_dc_129_v2",
+      "version_institucional": "2.0",
+      "paginas": 3,
+      "procedencia": "Suministrado por Directora de Trabajo de Grado",
+      "total_chunks_almacenados": 3,
+      "chunks_almacenados_sqlite": [
+        {
+          "chunk_id": "ver_f_dc_129_v2_p1_s1",
+          "location_hint": "F-DC-129, Pág. 1 (DOCENCIA PÁGINA: 1)",
+          "texto": "F-DC-129 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA: 1:\nDOCENCIA PÁGINA: 1\nDE: 3\nF - DC -129 REJILLA DE EVALUACIÓN INFORME FINAL DE TRABAJO DE GRADO VERSIÓN: 2.0\nLas Unidades Tecnológicas de Santander agradecen al docente evaluador por su participación en los procesos\nacadémicos. Por favor diligencie el siguiente formato para la evaluación del informe final del trabajo de grado. En\nla rejilla de evaluación establezca el cumplimiento de los indicadores marcando con una “x” en cada ítem de\nacuerdo al resultado de la revisión del trabajo de grado. Al finalizar encontrará una sección para relacionar las\nobservaciones. Tener en cuenta que si algún ítem no aplica dependiendo de la modalidad se debe marcar\ncon N/A. Es importante aclarar que para emitir el concepto de “Aprobado”, todos los ítems a evaluar que aplican\ndeben ser cumplidos.\nINFORMACIÓN GENERAL DEL TRABAJO DE GRADO\nFecha Código\nModalidad ☐ Proyecto de investigación ☐ Desarrollo tecnológico ☐ Práctica ☐ Monografía\n☐ Emprendimiento\nCategoría de la\nModalidad\nDescriba exactamente la categoría de la modalidad seleccionada (Ej.: Desarrollo de Software,\nPráctica social, Plan de negocio etc.)\nTitulo\nEstudiantes\nFacultad ☐ FCNI ☐ FCSE Programa\nDATOS DEL EVALUADOR\nNombre\nFacultad ☐ FCNI ☐ FCSE Programa\nRESULTADOS DE LA INVESTIGACIÓN\nIndique con X si el trabajo de grado realizado genera productos de investigación como:\nConsultorías Prototipos Software Planta piloto otro\nIG/IPP Secreto Empresarial\nREJILLA DE EVALUACIÓN DEL INFORME FINAL DE TRABAJO DE GRADO\nCRITERIOS INDICADORES Cumple\nSI NO\nFormato\n¿El documento cumple con la plantilla establecida?\n¿La portada y la contraportada cumplen con la totalidad de la información solicitada\nen el formato?\n¿Tiene Tabla de contenido, lista de Figuras y lista de Tablas correctamente\ndiligenciada?\n¿Se cita y referencia las fuentes consultadas para el desarrollo de todos los\ncomponentes del documento, de acuerdo con la norma APA?\n¿La redacción del documento se ajusta a las normas sobre escritura de documentos\ntécnicos?\nResumen\n¿Se cumple con el máximo de 300 palabras?\n¿Presenta un máximo de 5 palabras clave correctas?\n¿El resumen describe claramente: ¿los objetivos, la metodología los resultados y las\nconclusiones más relevantes del trabajo de grado?\nIntroducción ¿El documento establece los antecedentes suficientes para cubrir el tema?\n¿Se deja claro el método y la técnica empleados para la solución de la problemática?\nPlanteamiento de la\nproblemática\n¿Se describe las causas que lo ocasionan y los efectos que se generan al no resolver\nla problemática?\n¿Se evidencia la pregunta concreta que soporta la problemática?\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 1,
+          "page_end": 1
+        },
+        {
+          "chunk_id": "ver_f_dc_129_v2_p2_s1",
+          "location_hint": "F-DC-129, Pág. 2 (DOCENCIA PÁGINA: 2)",
+          "texto": "F-DC-129 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA: 2:\nDOCENCIA PÁGINA: 2\nDE: 3\nF - DC -129 REJILLA DE EVALUACIÓN INFORME FINAL DE TRABAJO DE GRADO VERSIÓN: 2.0\nREJILLA DE EVALUACIÓN DEL INFORME FINAL DE TRABAJO DE GRADO\nCRITERIOS INDICADORES Cumple\nSI NO\nJustificación\n¿Se evidencia por qué se debe realizar este trabajo de grado?\n¿Se argumenta la necesidad, la conveniencia, las implicaciones tecnológicas,\nsociales, económicas, entre otras?\nObjetivos\n¿Los objetivos generales y específicos son coherentes con el planteamiento del\nproblema y la justificación descrita en el documento?\nSe encuentran formulados de manera adecuada, inician con un verbo en infinitivo y\nresponden las preguntas ¿qué?, ¿cómo? y ¿para qué?\n¿Cumple con la ejecución o desarrollo total de los objetivos?\nEstado del arte o\nAntecedentes\n¿Se referencian otros casos o estudios a nivel nacional e internacional relacionados\ncon el tema?\n¿Se manejan las citas de acuerdo a la norma APA vigente?\nMarcos referenciales\n¿Se evidencian los diferentes marcos que aplican (teórico, histórico, conceptual, legal\ny ambiental), en el desarrollo de la propuesta de trabajo de grado?\n¿Los marcos referenciales se soportan en una amplia búsqueda de información?\n¿Los marcos de referencia son coherentes con la solución de la problemática?\nDesarrollo del trabajo\nde grado\n¿Describe cronológicamente todas las fases que se requirieron para ejecutar\ncorrectamente el trabajo de grado?\n¿Se consigna la totalidad de información necesaria para que otro estudiante realice el\ntrabajo de grado obteniendo los mismos resultados?\n¿Se detallan todas las pruebas que fueren requeridas para ejecutar el trabajo de\ngrado?\nResultados\n¿Se evidencian claramente los resultados obtenidos durante la ejecución del trabajo\nde grado, mediante tablas, ecuaciones, tabulaciones, entre otros?\n¿Se documentan los resultados cuantitativa y cualitativamente?\nAl leer la sección de resultados ¿se aprecia claramente el cumplimiento de todos los\nobjetivos que requieren validación?\nConclusiones y\nrecomendaciones\n¿Se describen claramente cuáles fueron los resultados más relevantes del trabajo de\ngrado?\n¿Se indica claramente los resultados obtenidos sin las indicaciones numéricas?\n¿Las conclusiones aportan al lector, conocimiento que solo se obtiene con la\nrealización de ese trabajo de grado?\n¿Se plantean recomendaciones con respecto a trabajos futuros, temas de\ninvestigación, aplicación de estrategias, etc.?\nConsideraciones\néticas\nEl documento incluye de forma detallada los anexos correspondientes a las\nconsideraciones éticas (de no ser necesario indicar con N/A)\nReferencias\nBibliográficas\n¿Las referencias citadas cumplen la norma de citación APA vigente?\n¿Las referencias corresponden a la totalidad de las citas incluidas en el documento?\n¿Emplea un gestor de referencias?\nAnexos (en caso de\naplicar)\n¿Presenta todos los anexos que se consideren pertinentes para el entendimiento o\naclaración del trabajo de grado?\nCertificados\n¿Presenta los certificados propios del producto de investigación asociado al trabajo\nde grado (Acta de conformidad de la empresa, cámara de comercio, etc.)? Si no\npresenta productos como resultado de la investigación marcar N/A\nSustentación ¿Se cumple con los requerimientos establecidos por el evaluador y director?\nÍndice de similitud El documento incluye el informe arrojado por la herramienta institucional anti plagio,\ncon un porcentaje de similitud menor o igual al 10%.\nOBSERVACIONES GENERALES\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 2,
+          "page_end": 2
+        },
+        {
+          "chunk_id": "ver_f_dc_129_v2_p3_s1",
+          "location_hint": "F-DC-129, Pág. 3 (DOCENCIA PÁGINA: 3)",
+          "texto": "F-DC-129 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA: 3:\nDOCENCIA PÁGINA: 3\nDE: 3\nF - DC -129 REJILLA DE EVALUACIÓN INFORME FINAL DE TRABAJO DE GRADO VERSIÓN: 2.0\nCONCEPTO FINAL (Aprobado, No Aprobado o Aplazado)\nSE RECOMIENDA RECONOCIMIENTO DE DISTINCIÓN AL TRABAJO DE GRADO: Si No\nFIRMA DEL EVALUADOR RECIBIDO COMITÉ DE TRABAJOS DE GRADO\nAl diligenciar este documento, autorizo de manera previa, expresa e inequívoca a las UNIDADES TECNOLÓGICAS DE\nSANTANDER a dar tratamiento de mis datos personales (y/o de los datos del menor de edad o persona en condición de\ndiscapacidad cognitiva que represento) aquí consignados, incluyendo el consentimiento explícito para tratar datos sensibles\naun conociendo la posibilidad de oponerme a ello, conforme a las finalidades incorporadas en la Política de Tratamiento de\nInformación publicada en www.uts.edu.co y/o en Calle de los estudiantes 9-82 Ciudadela Real de Minas, que declaro conocer y\nestar informado que en ella se presentan los derechos que me asisten como titular y los canales de atención donde ejercerlos.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Octubre de 2023",
+          "page_start": 3,
+          "page_end": 3
+        }
+      ],
+      "estado_revision_humana": "PENDIENTE_REVISION_HUMANA"
+    },
+    {
+      "codigo": "F-DC-130",
+      "nombre": "F-DC-130 Concepto Final del Trabajo de Grado V4",
+      "version_id": "ver_f_dc_130_v4",
+      "version_institucional": "4.0",
+      "paginas": 1,
+      "procedencia": "Suministrado por Directora de Trabajo de Grado",
+      "total_chunks_almacenados": 1,
+      "chunks_almacenados_sqlite": [
+        {
+          "chunk_id": "ver_f_dc_130_v4_p1_s1",
+          "location_hint": "F-DC-130, Pág. 1 (DOCENCIA Página 1 de 1)",
+          "texto": "F-DC-130 (Plantilla institucional de trabajo de grado) - DOCENCIA Página 1 de 1:\nDOCENCIA Página 1 de 1\nF-DC-130 CONCEPTO FINAL DEL TRABAJO DE GRADO VERSIÓN: 4.0\nESPACIO PARA SER DILIGENCIADO POR EL ESTUDIANTE\nAPELLIDOS: NOMBRE (S): NÚMERO DE IDENTIFICACIÓN:\nPROGRAMA ACADÉMICO: MODALIDAD PRESENCIAL: ___ JORNADA\nDiurna ___ Nocturna ___\nMODALIDAD VIRTUAL: ___\nTITULO DEL TRABAJO DE GRADO: FECHA DE ENTREGA\ndd /mm/ aaaa\nESPACIO PARA SER DILIGENCIADO POR LOS CALIFICADORES\nModalidad del Trabajo de Grado: (Marque con una X la modalidad del Trabajo de Grado)\nInforme final como requisito de grado\nEvaluación por consenso (cualitativa): _________________________\n_______________________________ _______________________________ _______________________________\nNombre Director Nombre Evaluador 1 Nombre Evaluador 2 (si se requiere)\n_______________________________ _______________________________ _______________________________\nFirma Director Firma Evaluador 1 Firma Evaluador 2 (si se requiere)\nSeminario de Grado II ó IV en el plan de estudios\nSeminario de grado II Seminario de grado IV Evaluación (cuantitativa): _______ Letras _________________________\n__________________________________ ________________________________\nNombre Docente Firma Docente\nDirección URL del RI-UTS: __________________________________________________________________________________\nESPACIO PARA SER DILIGENCIADO POR EL COORDINADOR ACADÉMICO\nConcepto según reglamento de estímulos y distinciones (si aplica)\n(Presentación en original del resultado de las pruebas Saber TyT o Saber Pro, al Director o Docente de la Modalidad del Trabajo de Grado)\nSe exime de la entrega del informe final de trabajo de grado.\nSe exonera de la realización del espacio académico acreditable: Seminario de grado II Seminario de grado IV.\nSe recomienda reconocimiento de Distinción de Trabajo de Grado, Si No\nFirma del Coordinador del Programa Académico o Campus\nAl diligenciar este documento, autorizo de manera previa, expresa e inequívoca a las UNIDADES TECNOLÓGICAS DE SANTANDER a dar tratamiento\nde mis datos personales (y/o de los datos del menor de edad o persona en condición de discapacidad cognitiva que represento) aquí consignados,\nincluyendo el consentimiento explícito para tratar datos sensibles aun conociendo la posibilidad de oponerme a ello, conforme a las finalidades\nincorporadas en la Política de Tratamiento de Información publicada en www.uts.edu.co y/o en Calle de los estudiantes 9-82 Ciudadela Real de Minas,\nque declaro conocer y estar informado que en ella se presentan los derechos que me asisten como titular y los canales de atención donde ejercerlos.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Líder del Sistema Integrado de Gestión\nFECHA APROBACIÓN: Noviembre de 2025\nProyecto de investigación Desarrollo Tecnológico Monografía\nEmprendimiento Seminario Práctica\nNombre del Coordinador Programa Académico: Campus:",
+          "page_start": 1,
+          "page_end": 1
+        }
+      ],
+      "estado_revision_humana": "PENDIENTE_REVISION_HUMANA"
+    },
+    {
+      "codigo": "F-DC-196",
+      "nombre": "F-DC-196 Acta Terminación y Recibo a Satisfacción V2",
+      "version_id": "ver_f_dc_196_v2",
+      "version_institucional": "2.0",
+      "paginas": 3,
+      "procedencia": "Suministrado por Directora de Trabajo de Grado",
+      "total_chunks_almacenados": 3,
+      "chunks_almacenados_sqlite": [
+        {
+          "chunk_id": "ver_f_dc_196_v2_p1_s1",
+          "location_hint": "F-DC-196, Pág. 1 (DOCENCIA PÁGINA: 1)",
+          "texto": "F-DC-196 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA: 1:\nDOCENCIA PÁGINA: 1\nDE: 3\nF – DC – 196 ACTA DE TERMINACIÓN Y RECIBO A SATISFACIÓN DE\nPRÁCTICAS\nVERSIÓN:\n2.0\nOBJETO\nEMPRESA O ENTIDAD\nFECHA DE INICIO DE\nPRÁCTICA\nFECHA DE TERMINACIÓN\nDE PRÁCTICA\nPLAZO DEL ACUERDO\nESTUDIANTE\nSUPERVISOR\nINFORME DE LA EMPRESA O ENTIDAD actividades realizadas respecto a la ejecución y terminación\ndel acuerdo), Este informe debe señalar de la forma más completa posible el seguimiento hecho\nrespecto de la ejecución y del cumplimiento del mismo\nEn Bucaramanga a los _______ (_) días del mes de _______ de 20__, en las instalaciones de las\nUnidades Tecnológicas de Santander, se reunieron las siguientes personas (NOMBRE DEL\nREPRESENTANTE LEGAL en calidad de Empresario, (NOMBRE DEL SUPERVISOR en calidad de\nSupervisor(a) y/o Interventor(a), y (NOMBRE DEL ESTUDIANTE) en calidad de practicante, para dejar\nconstancia por medio de la presente acta de la terminación y recibo a satisfacción conforme al siguiente\ndetalle:\nACTAS SUSCRITAS\nACTA FECHA DE SUSCRIPCIÓN\nACTA DE INICIACIÓN\nACTA DE TEMINACIÓN\nINFORME DEL SUPERVISOR:\nINFORME DE SUPERVISIÓN: (nombre del supervisor que suscribe el informe)\nSe establece el informe por parte del supervisor del acuerdo respecto al objeto (actividades realizadas\nrespecto a la ejecución y terminación del acuerdo), Este informe debe señalar de la forma más completa\nposible el seguimiento hecho respecto de la ejecución y del cumplimiento del mismo\nCONSTANCIAS\nLas partes firmantes manifestamos estar totalmente de acuerdo con la presente acta de terminación y\nrecibo a satisfacción y dejamos las siguientes constancias:\nQue, entre las Unidades Tecnológicas de Santander y __________ (Nombre de la empresa o entidad), se\ncelebró el acuerdo de prácticas, cuyo objeto es _______ (escribir el objeto del Acuerdo de prácticas).\nQue, por voluntad de las partes hemos acordado realizar la terminación y recibo a satisfacción del\nacuerdo referido.\nQue las Unidades Tecnológicas de Santander manifiestan que el estudiante de Nombre: ______\ncumplió con todas sus obligaciones derivadas de la práctica realizada con la empresa: _____________\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Lider del Sistema Integrado de Gestión\nFECHA DE APROBACION: octubre de 2023",
+          "page_start": 1,
+          "page_end": 1
+        },
+        {
+          "chunk_id": "ver_f_dc_196_v2_p2_s1",
+          "location_hint": "F-DC-196, Pág. 2 (DOCENCIA PÁGINA: 2)",
+          "texto": "F-DC-196 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA: 2:\nDOCENCIA PÁGINA: 2\nDE: 3\nF – DC – 196 ACTA DE TERMINACIÓN Y RECIBO A SATISFACIÓN DE\nPRÁCTICAS\nVERSIÓN:\n2.0\nA continuación, en nombre de la Empresa o Entidad (Nombre empresa o entidad) evalúa\ncuantitativamente el desempeño del practicante. Marque con una X la calificación teniendo en cuenta que\n1 es el desempeño más bajo y 10 es excelente.\n1. ¿Asistió en los horarios establecidos por la empresa?\n2. ¿Participó activamente de los objetivos y actividades planteadas en su propuesta de trabajo de grado?\n3. ¿Presentó responsablemente los informes sugeridos por la empresa o entidad?\n4. ¿Considera que el practicante posee las competencias necesarias para el cumplimiento de las\nfunciones siguiendo la estructura organizacional establecida por la empresa o entidad?\n5. ¿Recomiendo los estudiantes de las UTS para futuras prácticas?\nSi No\nObservaciones (opcional):_________________________________________________________________\n____________________________________________________________________________________\n____________________________________________________________________________________\n____________________________________________________________________________________\nPara constancia de lo anterior, se firma la presente acta, por los que en ella intervinieron:\n______________________________ ___________________________________\nNombre del Estudiante Nombre del supervisor de la empresa o\nentidad\n_________________________________\nNombre del Supervisor UTS\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Lider del Sistema Integrado de Gestión\nFECHA DE APROBACION: octubre de 2023",
+          "page_start": 2,
+          "page_end": 2
+        },
+        {
+          "chunk_id": "ver_f_dc_196_v2_p3_s1",
+          "location_hint": "F-DC-196, Pág. 3 (DOCENCIA PÁGINA: 3)",
+          "texto": "F-DC-196 (Plantilla institucional de trabajo de grado) - DOCENCIA PÁGINA: 3:\nDOCENCIA PÁGINA: 3\nDE: 3\nF – DC – 196 ACTA DE TERMINACIÓN Y RECIBO A SATISFACIÓN DE\nPRÁCTICAS\nVERSIÓN:\n2.0\nAl diligenciar este documento, autorizo de manera previa, expresa e inequívoca a las UNIDADES TECNOLÓGICAS\nDE SANTANDER a dar tratamiento de mis datos personales (y/o de los datos del menor de edad o persona en\ncondición de discapacidad cognitiva que represento) aquí consignados, incluyendo el consentimiento explícito para\ntratar datos sensibles aun conociendo la posibilidad de oponerme a ello, conforme a las finalidades incorporadas en\nla Política de Tratamiento de Información publicada en www.uts.edu.co y/o en Calle de los estudiantes 9-82\nCiudadela Real de Minas, que declaro conocer y estar informado que en ella se presentan los derechos que me\nasisten como titular y los canales de atención donde ejercerlos.\nELABORADO POR:\nDocencia\nREVISADO POR:\nSistema Integrado de Gestión\nAPROBADO POR: Lider del Sistema Integrado de Gestión\nFECHA DE APROBACION: octubre de 2023",
+          "page_start": 3,
+          "page_end": 3
+        }
+      ],
+      "estado_revision_humana": "PENDIENTE_REVISION_HUMANA"
+    }
+  ]
+}

@@ -70,6 +70,7 @@ def test_db(tmp_path: Path) -> Path:
         created_at="2026-01-01T00:00:00Z",
         updated_at="2026-01-01T00:00:00Z",
         chunks_count=10,
+        estado_revision="APROBADO",
     )
     db.save_version(ver1, db_file)
 

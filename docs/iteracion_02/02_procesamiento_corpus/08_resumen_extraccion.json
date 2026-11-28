@@ -1,0 +1,23 @@
+{
+  "fecha": "2026-11-27T17:00:31.560938",
+  "reglamento_2021": {
+    "paginas": 27,
+    "metodo_predominante": "text_layer",
+    "paginas_text_layer": 27,
+    "paginas_ocr": 0
+  },
+  "procedimientos": {
+    "P-DC-28": {
+      "paginas": 10,
+      "metodo_predominante": "text_layer"
+    },
+    "P-DC-29": {
+      "paginas": 9,
+      "metodo_predominante": "text_layer"
+    }
+  },
+  "formatos": {
+    "total_archivos": 9,
+    "total_paginas": 86
+  }
+}

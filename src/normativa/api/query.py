@@ -49,6 +49,7 @@ class QueryResponse(BaseModel):
     response_type: str = "normative"  # "greeting", "normative", "clarification", "abstention"
     clarification_needed: bool = False
     clarification_question: str | None = None
+    authorized_versions: list[str] = Field(default_factory=list)
 
 
 # ---------------------------------------------------------------------------
@@ -92,4 +93,5 @@ def query_normativa(
         response_type=result.response_type,
         clarification_needed=result.clarification_needed,
         clarification_question=result.clarification_question,
+        authorized_versions=result.authorized_versions,
     )

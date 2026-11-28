@@ -1,0 +1,981 @@
+{
+  "tipo": "Procedimientos Institucionales UTS",
+  "documentos": [
+    {
+      "codigo": "P-DC-28",
+      "nombre": "Presentación de la Propuesta de Trabajo de Grado",
+      "version_id": "ver_p_dc_28_v3",
+      "version_institucional": "3.0",
+      "paginas": 10,
+      "secciones_numerales": [
+        {
+          "numeral": 1,
+          "titulo": "OBJETIVO"
+        },
+        {
+          "numeral": 2,
+          "titulo": "ALCANCE"
+        },
+        {
+          "numeral": 3,
+          "titulo": "DEFINICIONES Y/O ABREVIATURAS"
+        },
+        {
+          "numeral": 4,
+          "titulo": "RESPONSABLE"
+        },
+        {
+          "numeral": 5,
+          "titulo": "GENERALIDADES"
+        },
+        {
+          "numeral": 6,
+          "titulo": "DOCUMENTOS DE REFERENCIA"
+        },
+        {
+          "numeral": 7,
+          "titulo": "DESARROLLO Y/O DESCRIPCIÓN"
+        },
+        {
+          "numeral": 8,
+          "titulo": "CONTROLES OPERACIONALES"
+        },
+        {
+          "numeral": 9,
+          "titulo": "ANEXOS"
+        }
+      ],
+      "actividades": [
+        {
+          "subnumeral": "7.1",
+          "subnumeral_titulo": "Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento",
+          "numero": 1,
+          "nombre": "Elección de la modalidad de Trabajo de Grado.",
+          "descripcion": "El estudiante o persona natural selecciona la modalidad de Trabajo de Grado enviando al correo electrónico exclusivo para trabajos de grado de cada programa académico, de Campus y de Educación Virtual, la información donde especifica su elección.",
+          "responsable": "Estudiante o persona natural Coordinador del Programa Académico, de Campus y de Educación Virtual",
+          "registro": "Correo Electrónico",
+          "pagina": 5
+        },
+        {
+          "subnumeral": "7.1",
+          "subnumeral_titulo": "Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento",
+          "numero": 2,
+          "nombre": "Pago del derecho pecuniario de la modalidad de Trabajo de Grado en periodo vigente.",
+          "descripcion": "El estudiante o persona natural realiza el pago del derecho pecuniario correspondiente a la modalidad de Trabajo de Grado elegido, hasta la octava (8ª) semana después del inicio de clases de cada periodo académico vigente. Luego de realizar el respectivo pago debe enviar a la coordinación del Programa Académico, de Campus y de Educación Virtual, la liquidación de la modalidad de Trabajo de Grado y el comprobante de pago emitido por la entidad bancaria.",
+          "responsable": "Estudiante persona natural",
+          "registro": "Correo Electrónico con: 1. Liquidación de la modalidad de Trabajo de Grado 2. Comprobante de pago emitido por la entidad bancaria",
+          "pagina": 5
+        },
+        {
+          "subnumeral": "7.1",
+          "subnumeral_titulo": "Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento",
+          "numero": 3,
+          "nombre": "Asignación del director de Trabajo de Grado.",
+          "descripcion": "El coordinador del Programa Académico, de Campus y de Educación Virtual, asigna un director para orientar la propuesta y desarrollo del Trabajo de Grado del estudiante, a quien le comunica mediante correo electrónico.",
+          "responsable": "Coordinador del Programa Académico, de Campus y de Educación Virtual",
+          "registro": "Correo Electrónico",
+          "pagina": 5
+        },
+        {
+          "subnumeral": "7.1",
+          "subnumeral_titulo": "Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento",
+          "numero": 4,
+          "nombre": "Orientación y acompañamiento de la propuesta de Trabajo de Grado.",
+          "descripcion": "El director encargado orienta y acompaña al estudiante para la formulación de la propuesta de Trabajo de Grado.",
+          "responsable": "Director, Estudiante",
+          "registro": "F-DC-124 “Propuesta de Trabajo de Grado. Proyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento” F-DC-209 “Seguimiento Control de Trabajo de Grado”",
+          "pagina": 5
+        },
+        {
+          "subnumeral": "7.1",
+          "subnumeral_titulo": "Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento",
+          "numero": 5,
+          "nombre": "Asignación del evaluador y presentación de la propuesta de Trabajo de Grado.",
+          "descripcion": "Asignación del evaluador de la propuesta de Trabajo de Grado por el Coordinador del Programa Académico, de Campus y de Educación Virtual y ratificado por el Comité de Trabajo de Grado. Presentación de la propuesta al comité de Trabajo de Grado por parte del estudiante a través del director.",
+          "responsable": "Estudiante, Director, Evaluador, Coordinador del Programa Académico, de Campus y de Educación Virtual, Comité de Trabajo de Grado",
+          "registro": "F-DC-124 “Propuesta de Trabajo de Grado. Proyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento” F-SIG-08 “Acta Reunión”",
+          "pagina": 6
+        },
+        {
+          "subnumeral": "7.1",
+          "subnumeral_titulo": "Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento",
+          "numero": 6,
+          "nombre": "Concepto evaluativo de la propuesta de Trabajo de Grado.",
+          "descripcion": "El Coordinador del Programa Académico, de Campus y de Educación Virtual informa el concepto evaluativo de la propuesta Trabajo de Grado emitido por el evaluador al Comité de Trabajo de Grado. Este Comité aprueba o no la modalidad de Trabajo de Grado. El tiempo para la aprobación de la propuesta por parte del Comité de Trabajo de Grado es hasta la décimo segunda (12) semana después del inicio de clases de cada periodo académico.",
+          "responsable": "Coordinador del Programa Académico, de Campus y de Educación Virtual, Comité de Trabajo de Grado",
+          "registro": "F-DC-124 “Propuesta de Trabajo de Grado. Proyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento” F-SIG-08 “Acta Reunión”",
+          "pagina": 6
+        },
+        {
+          "subnumeral": "7.1",
+          "subnumeral_titulo": "Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento",
+          "numero": 7,
+          "nombre": "Notificación de la evaluación de la propuesta de Trabajo de Grado.",
+          "descripcion": "Se informa al estudiante sobre el resultado de la evaluación de la propuesta presentada al Comité de Trabajo de Grado.",
+          "responsable": "Estudiante, Director, Comité de Trabajo de Grado",
+          "registro": "Correo Electrónico",
+          "pagina": 6
+        },
+        {
+          "subnumeral": "7.1",
+          "subnumeral_titulo": "Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento",
+          "numero": 8,
+          "nombre": "Inicio de la Modalidad de Trabajo de Grado",
+          "descripcion": "El estudiante inicia el desarrollo de la modalidad de Trabajo de Grado elegida.",
+          "responsable": "Estudiante",
+          "registro": "Correo Electrónico",
+          "pagina": 6
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma",
+          "numero": 1,
+          "nombre": "Elección de la modalidad de Trabajo de Grado.",
+          "descripcion": "El estudiante selecciona la modalidad de Trabajo de Grado para la modalidad de práctica e informa al coordinador del Programa Académico, de Campus y Educación Virtual, a través de correo electrónico exclusivo para Trabajos de Grados de cada Programa Académico.",
+          "responsable": "Estudiante, Coordinador Programa Académico, de Campus y de Educación Virtual",
+          "registro": "Correo Electrónico",
+          "pagina": 6
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma",
+          "numero": 2,
+          "nombre": "Requerimiento de la empresa o entidad para solicitar practicante.",
+          "descripcion": "Presentación ante la coordinación del Programa Académico, de Campus y de Educación Virtual de los requerimientos de la empresa o entidad para solicitar practicantes.",
+          "responsable": "Empresa o Entidad Interesada",
+          "registro": "F-DC-126 “Requerimiento de la Empresa para Solicitar Practicante”",
+          "pagina": 7
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma",
+          "numero": 3,
+          "nombre": "Estudio de la solicitud presentada por la empresa o entidad.",
+          "descripcion": "Evaluación de la pertinencia y viabilidad de la práctica en concordancia con los perfiles de formación del programa académico; gestión de la convocatoria y selección de practicantes. Si la empresa o entidad interesada desea elegir a su practicante, no se requiere convocatoria.",
+          "responsable": "Coordinador Programa Académico, de Campus y de Educación Virtual",
+          "registro": "Correo Electrónico",
+          "pagina": 7
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma",
+          "numero": 4,
+          "nombre": "Celebración del Acuerdo o Convenio de Práctica.",
+          "descripcion": "La coordinación del Programa Académico, de Campus y de Educación Virtual en conjunto con la Oficina de Relaciones Interinstitucionales gestiona la celebración de un Acuerdo o Convenio de Práctica.",
+          "responsable": "Jefe de Oficina de Relaciones Interinstitucionales",
+          "registro": "F-RI-07 Modelo Específico de Acuerdo Académico de Prácticas Empresariales para Estudiantes F-RI-08 Formato de Acuerdo de Prácticas Profesionales",
+          "pagina": 7
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma",
+          "numero": 5,
+          "nombre": "Pago del derecho pecuniario de la modalidad de Trabajo de Grado.",
+          "descripcion": "El estudiante realiza el pago del derecho pecuniario correspondiente a la modalidad de Práctica, hasta la octava (8ª) semana después del inicio de clases de cada periodo académico.",
+          "responsable": "Estudiante o persona natural",
+          "registro": "Correo Electrónico con: 1. Liquidación de la modalidad de Trabajo de Grado 2. Recibo de pago emitido por la Entidad Bancaria",
+          "pagina": 7
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma",
+          "numero": 6,
+          "nombre": "Asignación del director de Trabajo de Grado.",
+          "descripcion": "El Coordinador Programa Académico, de Campus y de Educación Virtual asigna un director para orientar la propuesta y desarrollo del Trabajo de Grado del estudiante.",
+          "responsable": "Coordinador Programa Académico, de Campus y de Educación Virtual",
+          "registro": "Correo Electrónico",
+          "pagina": 7
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma",
+          "numero": 7,
+          "nombre": "Orientación y acompañamiento de la propuesta de Trabajo de Grado.",
+          "descripcion": "Formulación de la propuesta con orientación de un docente director encargado por el Coordinador Programa Académico, de Campus y de Educación Virtual, con fundamento en el requerimiento de la empresa establecido en el formato F-DC-126 Requerimiento de la Empresa para Solicitar Practicantes.",
+          "responsable": "Estudiante, Docente Director",
+          "registro": "F-DC-127 “Registro Propuesta Trabajo Grado Modalidad Práctica” F-DC-209 “Seguimiento Control de Trabajo de Grado”",
+          "pagina": 7
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma",
+          "numero": 8,
+          "nombre": "Asignación del evaluador y presentación de la propuesta de Trabajo de Grado.",
+          "descripcion": "Asignación del evaluador de la propuesta de Trabajo de Grado por el Coordinador Programa Académico, de Campus y de Educación Virtual y ratificado por el Comité de Trabajo de Grado. Presentación de la propuesta al comité de Trabajo de Grado por parte del estudiante a través del director.",
+          "responsable": "Estudiante, Director, Coordinador Programa Académico, de Campus y de Educación Virtual",
+          "registro": "F-DC-127 “Registro Propuesta Trabajo Grado Modalidad Práctica” F-SIG-08 “Acta Reunión”",
+          "pagina": 8
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma",
+          "numero": 9,
+          "nombre": "Concepto evaluativo de la propuesta de Trabajo de Grado.",
+          "descripcion": "El Coordinador Programa Académico, de Campus y de Educación Virtual informa el concepto evaluativo de la propuesta Trabajo de Grado emitido por el evaluador al Comité de Trabajo de Grado. Este Comité aprueba o no la modalidad de Trabajo de Grado. El tiempo para la aprobación de la propuesta por parte del Comité de Trabajo de Grado es hasta la décimo segunda (12) semana después del inicio de clases de cada periodo académico.",
+          "responsable": "Coordinador Programa Académico, de Campus y de Educación Virtual, Comité de Trabajo de Grado",
+          "registro": "F-DC-127 “Registro Propuesta Trabajo Grado Modalidad Práctica” F-SIG-08 “Acta Reunión”",
+          "pagina": 8
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma",
+          "numero": 10,
+          "nombre": "Notificación de la evaluación de la propuesta de Trabajo de Grado.",
+          "descripcion": "Informar al estudiante sobre el resultado de la evaluación de la propuesta presentada al Comité de Trabajo de Grado.",
+          "responsable": "Comité de Trabajo de Grado",
+          "registro": "F-SIG-08 “Acta Reunión”",
+          "pagina": 8
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma",
+          "numero": 11,
+          "nombre": "Inicio de la modalidad de Práctica",
+          "descripcion": "El estudiante inicia práctica previas firmas del acta de inicio. El acta de inicio se firma cuando haya cumplimiento de lo reglamentado y de lo establecido en el convenio, además del previo conocimiento y aceptación de los objetivos de la propuesta de Trabajo de Grado por parte de la empresa o entidad.",
+          "responsable": "Empresa o entidad, Coordinador Programa Académico, de Campus y de Educación Virtual, Estudiante Jefe de Oficina de Relaciones Interinstitucionales",
+          "registro": "F-DC-127 “Registro Propuesta Trabajo Grado Modalidad Práctica” F-DC-195: Acta Inicio de Prácticas Certificado de Afiliación ARL",
+          "pagina": 8
+        },
+        {
+          "subnumeral": "7.3",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario",
+          "numero": 1,
+          "nombre": "Presentación del tema del Seminario de grado",
+          "descripcion": "El tema del Seminario será propuesto por el docente a cargo ante el comité de Trabajo de Grado para solicitar su aval. La temática deberá aportar a Proyectos Institucionales con ideas validadas o proyectos formulados.",
+          "responsable": "Docente encargado, Comité Trabajo de Grado",
+          "registro": "F-SIG-08 “Acta Reunión”",
+          "pagina": 8
+        },
+        {
+          "subnumeral": "7.3",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario",
+          "numero": 2,
+          "nombre": "Concepto evaluativo de la propuesta de Seminario de grado.",
+          "descripcion": "La aprobación o no aprobación de la propuesta del seminario de Trabajo de Grado es emitida por el Comité de Trabajo de Grado.",
+          "responsable": "Comité de Trabajo de Grado",
+          "registro": "F-SIG-08 “Acta Reunión”",
+          "pagina": 9
+        },
+        {
+          "subnumeral": "7.3",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario",
+          "numero": 3,
+          "nombre": "Presentación de la propuesta del Seminario de grado",
+          "descripcion": "El Comité de Trabajo de Grado presenta por medio del Coordinador Programa Académico, de Campus y de Educación Virtual, la propuesta al Consejo de Facultad para el nivel tecnológico y al Consejo Académico para el nivel universitario; para su estudio y formalización de resultados.",
+          "responsable": "Comité de Trabajo de Grado, Coordinador Programa Académico, de Campus y de Educación Virtual, Consejo de Facultad o Consejo Académico",
+          "registro": "F-SIG-08 “Acta Reunión”",
+          "pagina": 9
+        },
+        {
+          "subnumeral": "7.3",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario",
+          "numero": 4,
+          "nombre": "Concepto evaluativo de la propuesta de Seminario de grado.",
+          "descripcion": "La aprobación o no aprobación de la propuesta del seminario de Trabajo de Grado es emitida por el Consejo de Facultad para el nivel tecnológico o el Consejo Académico para el nivel universitario.",
+          "responsable": "Consejo de Facultad o Consejo Académico",
+          "registro": "F-SIG-08 “Acta Reunión”",
+          "pagina": 9
+        },
+        {
+          "subnumeral": "7.3",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario",
+          "numero": 5,
+          "nombre": "Oferta del Seminario de grado",
+          "descripcion": "La coordinación del Programa Académico, de Campus y de Educación Virtual, oferta el seminario aprobado como modalidad de Trabajo de Grado.",
+          "responsable": "Coordinador Programa Académico, de Campus y de Educación Virtual.",
+          "registro": "Página Web Institucional",
+          "pagina": 9
+        },
+        {
+          "subnumeral": "7.3",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario",
+          "numero": 6,
+          "nombre": "Pago del derecho pecuniario de la modalidad de Seminario de grado.",
+          "descripcion": "Para la modalidad de Seminario el pago del respectivo derecho pecuniario debe hacerse antes del inicio del correspondiente seminario.",
+          "responsable": "Estudiante o persona natural",
+          "registro": "Correo Electrónico con: 1. Liquidación de la modalidad de Trabajo de Grado 2. Recibo de pago emitido por la Entidad Bancaria",
+          "pagina": 9
+        },
+        {
+          "subnumeral": "7.3",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario",
+          "numero": 7,
+          "nombre": "Matrícula al Seminario de grado.",
+          "descripcion": "El estudiante se matricula en el Seminario, de acuerdo con la oferta publicada por el programa académico a cargo del Seminario, mediante el pago de los derechos pecuniarios respectivos.",
+          "responsable": "Estudiante",
+          "registro": "Formulario de registro al Seminario",
+          "pagina": 9
+        },
+        {
+          "subnumeral": "7.3",
+          "subnumeral_titulo": "Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario",
+          "numero": 8,
+          "nombre": "Inicio de la modalidad de Seminario de grado",
+          "descripcion": "El estudiante inicia el desarrollo de la modalidad de Trabajo de Grado seminario. La modalidad de Seminario solo dispone del periodo académico en el cual se desarrolla el seminario, excepto que por motivos institucionales no se alcance a terminar.",
+          "responsable": "Estudiante",
+          "registro": "Plataforma Académica",
+          "pagina": 9
+        }
+      ],
+      "total_chunks_almacenados": 39,
+      "chunks_almacenados_sqlite": [
+        {
+          "chunk_id": "ver_p_dc_28_v3_numeral_1",
+          "location_hint": "P-DC-28.pdf, Numeral 1: OBJETIVO (págs. 1-1)",
+          "texto": "P-DC-28.pdf - Numeral 1. OBJETIVO:\nEste documento proporciona las instrucciones para la presentación de la propuesta de\nTrabajo de Grado en todas sus modalidades.",
+          "page_start": 1,
+          "page_end": 1
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_numeral_2",
+          "location_hint": "P-DC-28.pdf, Numeral 2: ALCANCE (págs. 1-1)",
+          "texto": "P-DC-28.pdf - Numeral 2. ALCANCE:\nEste procedimiento aplica a toda persona natural que opta al título de un programa\nacadémico de las Unidades Tecnológicas de Santander, e inicia con la elección de la\nmodalidad de Trabajo de Grado y culmina con el inicio de la modalidad de Trabajo de Grado\nelegida.",
+          "page_start": 1,
+          "page_end": 1
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_numeral_3_p1",
+          "location_hint": "P-DC-28.pdf, Numeral 3: DEFINICIONES Y/O ABREVIATURAS (Parte 1) (págs. 1-4)",
+          "texto": "P-DC-28.pdf - Numeral 3. DEFINICIONES Y/O ABREVIATURAS (Parte 1):\na. Trabajo de Grado: Se denomina Trabajo de Grado a las actividades vinculadas con los\nprocesos de Docencia, Investigación y Extensión que todo estudiante de un programa\nacadémico adscrito a las Unidades Tecnológicas de Santander debe realizar y presentar\ncomo uno de los requisitos para optar al título en el respectivo programa.\nb. Comité de Trabajo de Grado del programa académico: El Comité de Trabajo de\nGrado del programa está conformado como mínimo por el Coordinador del Programa\nAcadémico (quien convoca y preside), el docente líder del grupo de investigación del\nprograma, el docente líder del semillero de investigación y un docente por cada eje de\nformación del programa académico. En las demás regionales el coordinador del\nprograma académico es reemplazado por el coordinador de la regional, quien convoca y\npreside.\nEl Comité de Trabajo de Grado de cada programa sesionará de forma ordinaria\nsemanalmente durante el periodo académico y extraordinaria cuando las condiciones\nacadémicas así lo requieran; para todos los casos se deben elaborar actas de las\nsesiones realizadas. El calendario de sesiones deberá ser publicado al inicio del\nperiodo académico correspondiente.\nLas decisiones que tome el Comité de Trabajo de Grado se adoptarán con la\nparticipación de al menos tres (3) de sus miembros.\nLas decisiones que tome el Comité de Trabajo de Grado de cada programa académico\nsobre las solicitudes presentadas deben ser notificadas al director del Trabajo de Grado,\ny a los estudiantes interesados; para esto, la coordinación del programa dispone de\nmáximo dos (2) días hábiles contados a partir de la fecha de realización del Comité de\nTrabajo de Grado. Y en general es deber del Comité de Trabajo de Grado publicar o\ndivulgar en los estudiantes del programa académico los resultados de todas sus\nsesiones en el cumplimiento de sus funciones.\nc. Modalidad de Trabajo de Grado: el estudiante de las Unidades Tecnológicas de\nSantander puede desarrollar alguna de las siguientes modalidades de Trabajo de Grado:\n Modalidad proyecto de investigación: posibilita al estudiante generar por medio de\nla aplicación del método científico o procedimientos con rigor metodológico; el\ndesarrollo de temáticas que generen impacto en ámbitos académicos, empresariales,\nP-DC-28 PRESENTACIÓN DE LA PROPUESTA DE TRABAJO DE GRADO VERSIÓN: 3.0\nSistema Integrado de Gestión",
+          "page_start": 1,
+          "page_end": 4
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_numeral_3_p2",
+          "location_hint": "P-DC-28.pdf, Numeral 3: DEFINICIONES Y/O ABREVIATURAS (Parte 2) (págs. 1-4)",
+          "texto": "P-DC-28.pdf - Numeral 3. DEFINICIONES Y/O ABREVIATURAS (Parte 2):\nFECHA APROBACIÓN: Abril de 2024\nsociales, y culturales, entre otros; capaces de generar soluciones científicas; y que a\nsu vez generen productos de nuevo conocimiento acorde al Modelo de Medición de\nMINCIENCIAS vigente.\n Modalidad desarrollo tecnológico: se concibe como el compendio de actividades\nque resultan de ejercicios de desarrollo tecnológico e innovación como lo son los\nproductos tecnológicos certificados o validados y los productos empresariales.\nIgualmente, el estudiante podrá participar con un tema seleccionado a partir de un\nproyecto de desarrollo tecnológico relacionado a un docente investigador adscrito al\nGrupo de Investigación avalado por la Institución. Este proyecto liderado por el\nDocente Investigador sirve en la misma manera, cuando se trata de proyectos de\nciencia, tecnología e innovación avalados por recursos externos en convocatorias\nnacionales e internacionales.\n Desarrollo de Software: opción de desarrollo de software que genere impacto y/o\nmejoras en procesos o procedimientos al interior de la Institución o en\norganizaciones de la región acorde a la prospección del programa académico y de\nlos grupos de investigación relacionados. Al finalizar el Trabajo de Grado, el\nestudiante debe someter por medio de la Institución su desarrollo a la Dirección\nNacional de Derechos de Autor a fin de lograr el registro de derechos de autor de\nsoporte lógico.\n Planta Piloto: opción de realizar una planta de proceso a escala reducida a partir de\nun ejercicio con rigor procedimental, metodológico y teórico a fin de establecer los\nparámetros de operación óptimos para el proceso definido. Igualmente, este producto\ngenera equipamiento científico para apoyar los procesos de enseñanza y aprendizaje\nen los programas académicos propios al desarrollo de la planta.\n Prototipo Industrial: opción de construir un modelo original contemplando las\ncaracterísticas técnicas y de funcionamiento del producto nuevo. Este ejercicio\nrequiere de ensayos y este proceso de creación correspondiente a una acción de\ninvestigación y desarrollo pertinente para el desarrollo de competencias en el\nestudiante.\n Signos Distintivos: opción de construir un proceso de registro y protección en\ntérminos de marca, lemas y nombres comerciales. Este conjunto de signos genera\nidentidad, originalidad e idoneidad propia al ejercicio empresarial de productos o\nservicios específicos\n Esquema de Circuito Integrado: opción de desarrollar circuitos eléctricos a escala\nreducida que realizan operaciones electrónicas.\n Modalidad monografía: monografía como Trabajo de Grado es un documento\nredactado en forma analítica, sistemática y crítica sobre un tema determinado de una\nciencia o campo del conocimiento; el tema puede presentarse en forma exploratoria\no descriptiva. Nace el interés del estudiante para profundizar en alguno de los temas\nrevisados en su proceso de formación disciplinar. El trabajo de Monografía es un\nejercicio que se concibe desde varias denominaciones: teórica, de análisis y de\nsistematización de experiencias.\nP-DC-28 PRESENTACIÓN DE LA PROPUESTA DE TRABAJO DE GRADO VERSIÓN: 3.0\nSistema Integrado de Gestión",
+          "page_start": 1,
+          "page_end": 4
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_numeral_3_p3",
+          "location_hint": "P-DC-28.pdf, Numeral 3: DEFINICIONES Y/O ABREVIATURAS (Parte 3) (págs. 1-4)",
+          "texto": "P-DC-28.pdf - Numeral 3. DEFINICIONES Y/O ABREVIATURAS (Parte 3):\nFECHA APROBACIÓN: Abril de 2024\n Monografía Teórica: ejercicio que aborda una situación teórica; para ello desarrolla\nampliamente nociones y conceptos alrededor del constructo de conocimiento\nseleccionado. Permite el dominio de teorías referentes al ámbito de estudio, trabajar\nlos autores con mayor profundidad y finalizar con una postura personal, con una\napuesta teórica y una posición crítica. Esta modalidad requiere al menos la revisión\n25 autores para lograr un documento final que genere un artículo de revisión\nbibliográfica.\n Monografía de Análisis: ejercicio que aborda la explicación y descripción de una\nsituación problemática concreta por medio de la aplicación de un modelo de análisis.\nEste trabajo implica explorar modelos existentes y luego seleccionar variables de uno\no de algunos modelos para lograr un documento descriptivo y explicativo del objeto\nde estudio definido.\n Monografía de Sistematización de Experiencias: ejercicio que aborda la\ndescripción sistemática de experiencias a partir de criterios didácticos, investigativos,\npedagógicos; cuyo propósito es lograr un documento de productos que generan\nconocimiento, procesos y procedimientos que en su aplicación permite mejorar\ncondiciones y crear valor en espacios académicos, empresariales y en comunidades\nfoco.\n Seminario: es un espacio de formación ofrecido por las UTS a los estudiantes del\nnivel tecnológico y universitario, como modalidad de Trabajo de Grado, en el cual se\npresenta una temática específica inherente al área disciplinar del programa\nacadémico del estudiante. En este seminario, los estudiantes se familiarizan con los\nconceptos, las herramientas y los métodos necesarios para profundizar en el\nconocimiento científico y tecnológico relacionado con los programas académicos.\n Práctica Empresarial: es una experiencia académica cuyo proceso de aprendizaje\nse realiza fuera del aula de clase por cuanto el estudiante entra en contacto con\nambientes empresariales que a partir de proyectos o actividades específicas el\nestudiante interactúa con realidades propias al entorno donde se desenvuelve la\norganización objeto de la práctica. El estudiante cuenta con la posibilidad de aplicar\nteorías y conocimientos estrechamente relacionados con el currículo del programa\nacadémico al que pertenece y fortalecer competencias ciudadanas, personales y\nprofesionales durante el transcurso de su práctica.\n Práctica Social Comunitaria: es una experiencia académica cuyo proceso de\naprendizaje se realiza fuera del aula de clase, por cuanto el estudiante entra en\ncontacto con las necesidades de entes territoriales y gubernamentales o\ncomunidades organizadas en la región y en el país, con el propósito de contribuir con\nsu saber profesional al mejoramiento de condiciones con criterios de calidad al\ninterior del ente territorial o a partir de su participación en el desarrollo de proyectos\ncon impacto en poblaciones foco.\n Modalidad emprendimiento: posibilita al estudiante generar rutas de conocimiento y\nrutas de aplicación de dicho conocimiento a favor de procesos de innovación y\nemprendimiento capaces de complementar la formación académica con valores y\nhabilidades propias a la disciplina encaminadas hacia el aprendizaje activo,\nconvergencia de disciplinas y profundidad en teorías y conocimientos específicos\npara lograr pensamiento sistémico, pensamiento estratégico, pensamiento creativo,\npensamiento de diseño y espíritu emprendedor.\nP-DC-28 PRESENTACIÓN DE LA PROPUESTA DE TRABAJO DE GRADO VERSIÓN: 3.0\nSistema Integrado de Gestión",
+          "page_start": 1,
+          "page_end": 4
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_numeral_3_p4",
+          "location_hint": "P-DC-28.pdf, Numeral 3: DEFINICIONES Y/O ABREVIATURAS (Parte 4) (págs. 1-4)",
+          "texto": "P-DC-28.pdf - Numeral 3. DEFINICIONES Y/O ABREVIATURAS (Parte 4):\nFECHA APROBACIÓN: Abril de 2024\n Uso de la metodología de Casos de Estudio: para fomentar el pensamiento de\ndiseño, el pensamiento sistémico y el pensamiento estratégico, es fundamental la\nmetodología de los casos de estudio. Es por ello que este mecanismo permite al\nestudiante elaborar un caso de estudio a partir de contextos empresariales logrando\ninterpretaciones, argumentos, posiciones críticas y análisis de situaciones\nproblemáticas de organizaciones. De acuerdo con lo anterior, el estudio de caso se\nconcibe como una narración histórica y descriptiva de contextos con sentido\nempresarial y organizacional.\n Planes de Negocio: para fomentar el pensamiento de diseño, el pensamiento\ncreativo y el espíritu emprendedor, es fundamental la metodología para la\nelaboración de planes de negocio, el estudio de caso se abordó como una narración\nhistórica y descriptiva de contextos con sentido empresarial y organizacional a partir\ndel uso de la metodología para lograr un documento con rigor procedimental e\nhilvanado con respecto a la concepción de una idea de negocio y su hoja de ruta\npara el éxito de la misma en su ejecución y generación de resultados financieros\npositivos durante una línea de tiempo definida.\n Fortalecimiento empresarial: El entendimiento de las razones de fracaso o éxito\npara negocios específicos y/o emprendimientos es fundamental para el estudiante en\nsu proceso de emprender acciones que conlleven a la materialización de proyectos,\nideas y negocios. Es por ello por lo que este mecanismo posibilita al estudiante el\nejercicio de aplicación de conocimientos y teorías adquiridas y la puesta en escena\nde sus competencias y habilidades para lograr planes de acción y de mejora en\norganizaciones objeto de estudio de manera sistemática y evidenciada. Esto genera\nla preparación de material para la enseñanza y propagación del virus del\nemprendimiento en la comunidad académica.",
+          "page_start": 1,
+          "page_end": 4
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_numeral_4",
+          "location_hint": "P-DC-28.pdf, Numeral 4: RESPONSABLE (págs. 4-4)",
+          "texto": "P-DC-28.pdf - Numeral 4. RESPONSABLE:\nCoordinaciones de los Programas Académicos, de Campus y de Educación Virtual.",
+          "page_start": 4,
+          "page_end": 4
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_numeral_5",
+          "location_hint": "P-DC-28.pdf, Numeral 5: GENERALIDADES (págs. 4-4)",
+          "texto": "P-DC-28.pdf - Numeral 5. GENERALIDADES:\nToda persona natural debe realizar el pago del derecho pecuniario correspondiente a la\nmodalidad de Trabajo de Grado que eligió con la finalidad de iniciar la actividad académica\ncorrespondiente.\nEl Trabajo de Grado puede ser realizado en forma individual o en equipo; este podrá estar\nintegrado hasta por dos (2) estudiantes. Todo lo anterior, en el marco de la normativa\ninstitucional del Reglamento de Trabajo de Grado.",
+          "page_start": 4,
+          "page_end": 4
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_numeral_6",
+          "location_hint": "P-DC-28.pdf, Numeral 6: DOCUMENTOS DE REFERENCIA (págs. 4-5)",
+          "texto": "P-DC-28.pdf - Numeral 6. DOCUMENTOS DE REFERENCIA:\n F-DC-209: Seguimiento Control de Trabajo de Grado\n F-DC-124: Propuesta de Trabajo de Grado. Proyecto de: Investigación, Desarrollo\nTecnológico, Monografía y Emprendimiento.\n F-DC-126: Requerimiento de la Empresa para Solicitar Practicantes\n F-DC-127: Registro Propuesta Trabajo Grado Modalidad Práctica\n F-DC-195: Acta Inicio de Prácticas\nP-DC-28 PRESENTACIÓN DE LA PROPUESTA DE TRABAJO DE GRADO VERSIÓN: 3.0\nSistema Integrado de Gestión\nFECHA APROBACIÓN: Abril de 2024\n F-RI-07: Modelo Específico de Acuerdo Académico de Prácticas Empresariales para\nEstudiantes\n F-RI-08: Formato de Acuerdo de Prácticas Profesionales\n F-SIG-08: Acta Reunión\n Reglamento de Trabajo de Grado de las Unidades Tecnológicas de Santander",
+          "page_start": 4,
+          "page_end": 5
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_numeral_7_intro",
+          "location_hint": "P-DC-28.pdf, Numeral 7: DESARROLLO Y/O DESCRIPCIÓN (pág. 5-10)",
+          "texto": "P-DC-28.pdf - Numeral 7. DESARROLLO Y/O DESCRIPCIÓN:\nEste numeral contiene 27 actividades distribuidas en 3 subnumeral(es):\n  - 7.1. Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento: 8 actividad(es)\n  - 7.2. Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma: 11 actividad(es)\n  - 7.3. Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario: 8 actividad(es)",
+          "page_start": 5,
+          "page_end": 10
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_1_act_1",
+          "location_hint": "P-DC-28.pdf, 7.1 Actividad 1 - Elección de la modalidad de Trabajo de Grado. (pág. 5)",
+          "texto": "P-DC-28.pdf - 7.1. Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento: Actividad 1. Elección de la modalidad de Trabajo de Grado.\n- Descripción: El estudiante o persona natural selecciona la modalidad de Trabajo de Grado enviando al correo electrónico exclusivo para trabajos de grado de cada programa académico, de Campus y de Educación Virtual, la información donde especifica su elección.\n- Responsable: Estudiante o persona natural Coordinador del Programa Académico, de Campus y de Educación Virtual\n- Registro: Correo Electrónico",
+          "page_start": 5,
+          "page_end": 5
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_1_act_2",
+          "location_hint": "P-DC-28.pdf, 7.1 Actividad 2 - Pago del derecho pecuniario de la modalidad de Trabajo de Grado en periodo vigente. (pág. 5)",
+          "texto": "P-DC-28.pdf - 7.1. Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento: Actividad 2. Pago del derecho pecuniario de la modalidad de Trabajo de Grado en periodo vigente.\n- Descripción: El estudiante o persona natural realiza el pago del derecho pecuniario correspondiente a la modalidad de Trabajo de Grado elegido, hasta la octava (8ª) semana después del inicio de clases de cada periodo académico vigente. Luego de realizar el respectivo pago debe enviar a la coordinación del Programa Académico, de Campus y de Educación Virtual, la liquidación de la modalidad de Trabajo de Grado y el comprobante de pago emitido por la entidad bancaria.\n- Responsable: Estudiante persona natural\n- Registro: Correo Electrónico con: 1. Liquidación de la modalidad de Trabajo de Grado 2. Comprobante de pago emitido por la entidad bancaria",
+          "page_start": 5,
+          "page_end": 5
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_1_act_3",
+          "location_hint": "P-DC-28.pdf, 7.1 Actividad 3 - Asignación del director de Trabajo de Grado. (pág. 5)",
+          "texto": "P-DC-28.pdf - 7.1. Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento: Actividad 3. Asignación del director de Trabajo de Grado.\n- Descripción: El coordinador del Programa Académico, de Campus y de Educación Virtual, asigna un director para orientar la propuesta y desarrollo del Trabajo de Grado del estudiante, a quien le comunica mediante correo electrónico.\n- Responsable: Coordinador del Programa Académico, de Campus y de Educación Virtual\n- Registro: Correo Electrónico",
+          "page_start": 5,
+          "page_end": 5
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_1_act_4",
+          "location_hint": "P-DC-28.pdf, 7.1 Actividad 4 - Orientación y acompañamiento de la propuesta de Trabajo de Grado. (pág. 5)",
+          "texto": "P-DC-28.pdf - 7.1. Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento: Actividad 4. Orientación y acompañamiento de la propuesta de Trabajo de Grado.\n- Descripción: El director encargado orienta y acompaña al estudiante para la formulación de la propuesta de Trabajo de Grado.\n- Responsable: Director, Estudiante\n- Registro: F-DC-124 “Propuesta de Trabajo de Grado. Proyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento” F-DC-209 “Seguimiento Control de Trabajo de Grado”",
+          "page_start": 5,
+          "page_end": 5
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_1_act_5",
+          "location_hint": "P-DC-28.pdf, 7.1 Actividad 5 - Asignación del evaluador y presentación de la propuesta de Trabajo de Grado. (pág. 6)",
+          "texto": "P-DC-28.pdf - 7.1. Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento: Actividad 5. Asignación del evaluador y presentación de la propuesta de Trabajo de Grado.\n- Descripción: Asignación del evaluador de la propuesta de Trabajo de Grado por el Coordinador del Programa Académico, de Campus y de Educación Virtual y ratificado por el Comité de Trabajo de Grado. Presentación de la propuesta al comité de Trabajo de Grado por parte del estudiante a través del director.\n- Responsable: Estudiante, Director, Evaluador, Coordinador del Programa Académico, de Campus y de Educación Virtual, Comité de Trabajo de Grado\n- Registro: F-DC-124 “Propuesta de Trabajo de Grado. Proyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento” F-SIG-08 “Acta Reunión”",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_1_act_6",
+          "location_hint": "P-DC-28.pdf, 7.1 Actividad 6 - Concepto evaluativo de la propuesta de Trabajo de Grado. (pág. 6)",
+          "texto": "P-DC-28.pdf - 7.1. Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento: Actividad 6. Concepto evaluativo de la propuesta de Trabajo de Grado.\n- Descripción: El Coordinador del Programa Académico, de Campus y de Educación Virtual informa el concepto evaluativo de la propuesta Trabajo de Grado emitido por el evaluador al Comité de Trabajo de Grado. Este Comité aprueba o no la modalidad de Trabajo de Grado. El tiempo para la aprobación de la propuesta por parte del Comité de Trabajo de Grado es hasta la décimo segunda (12) semana después del inicio de clases de cada periodo académico.\n- Responsable: Coordinador del Programa Académico, de Campus y de Educación Virtual, Comité de Trabajo de Grado\n- Registro: F-DC-124 “Propuesta de Trabajo de Grado. Proyecto de: Investigación, Desarrollo Tecnológico, Monografía y Emprendimiento” F-SIG-08 “Acta Reunión”",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_1_act_7",
+          "location_hint": "P-DC-28.pdf, 7.1 Actividad 7 - Notificación de la evaluación de la propuesta de Trabajo de Grado. (pág. 6)",
+          "texto": "P-DC-28.pdf - 7.1. Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento: Actividad 7. Notificación de la evaluación de la propuesta de Trabajo de Grado.\n- Descripción: Se informa al estudiante sobre el resultado de la evaluación de la propuesta presentada al Comité de Trabajo de Grado.\n- Responsable: Estudiante, Director, Comité de Trabajo de Grado\n- Registro: Correo Electrónico",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_1_act_8",
+          "location_hint": "P-DC-28.pdf, 7.1 Actividad 8 - Inicio de la Modalidad de Trabajo de Grado (pág. 6)",
+          "texto": "P-DC-28.pdf - 7.1. Presentación de la propuesta de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía y emprendimiento: Actividad 8. Inicio de la Modalidad de Trabajo de Grado\n- Descripción: El estudiante inicia el desarrollo de la modalidad de Trabajo de Grado elegida.\n- Responsable: Estudiante\n- Registro: Correo Electrónico",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_2_act_1",
+          "location_hint": "P-DC-28.pdf, 7.2 Actividad 1 - Elección de la modalidad de Trabajo de Grado. (pág. 6)",
+          "texto": "P-DC-28.pdf - 7.2. Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma: Actividad 1. Elección de la modalidad de Trabajo de Grado.\n- Descripción: El estudiante selecciona la modalidad de Trabajo de Grado para la modalidad de práctica e informa al coordinador del Programa Académico, de Campus y Educación Virtual, a través de correo electrónico exclusivo para Trabajos de Grados de cada Programa Académico.\n- Responsable: Estudiante, Coordinador Programa Académico, de Campus y de Educación Virtual\n- Registro: Correo Electrónico",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_2_act_2",
+          "location_hint": "P-DC-28.pdf, 7.2 Actividad 2 - Requerimiento de la empresa o entidad para solicitar practicante. (pág. 7)",
+          "texto": "P-DC-28.pdf - 7.2. Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma: Actividad 2. Requerimiento de la empresa o entidad para solicitar practicante.\n- Descripción: Presentación ante la coordinación del Programa Académico, de Campus y de Educación Virtual de los requerimientos de la empresa o entidad para solicitar practicantes.\n- Responsable: Empresa o Entidad Interesada\n- Registro: F-DC-126 “Requerimiento de la Empresa para Solicitar Practicante”",
+          "page_start": 7,
+          "page_end": 7
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_2_act_3",
+          "location_hint": "P-DC-28.pdf, 7.2 Actividad 3 - Estudio de la solicitud presentada por la empresa o entidad. (pág. 7)",
+          "texto": "P-DC-28.pdf - 7.2. Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma: Actividad 3. Estudio de la solicitud presentada por la empresa o entidad.\n- Descripción: Evaluación de la pertinencia y viabilidad de la práctica en concordancia con los perfiles de formación del programa académico; gestión de la convocatoria y selección de practicantes. Si la empresa o entidad interesada desea elegir a su practicante, no se requiere convocatoria.\n- Responsable: Coordinador Programa Académico, de Campus y de Educación Virtual\n- Registro: Correo Electrónico",
+          "page_start": 7,
+          "page_end": 7
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_2_act_4",
+          "location_hint": "P-DC-28.pdf, 7.2 Actividad 4 - Celebración del Acuerdo o Convenio de Práctica. (pág. 7)",
+          "texto": "P-DC-28.pdf - 7.2. Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma: Actividad 4. Celebración del Acuerdo o Convenio de Práctica.\n- Descripción: La coordinación del Programa Académico, de Campus y de Educación Virtual en conjunto con la Oficina de Relaciones Interinstitucionales gestiona la celebración de un Acuerdo o Convenio de Práctica.\n- Responsable: Jefe de Oficina de Relaciones Interinstitucionales\n- Registro: F-RI-07 Modelo Específico de Acuerdo Académico de Prácticas Empresariales para Estudiantes F-RI-08 Formato de Acuerdo de Prácticas Profesionales",
+          "page_start": 7,
+          "page_end": 7
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_2_act_5",
+          "location_hint": "P-DC-28.pdf, 7.2 Actividad 5 - Pago del derecho pecuniario de la modalidad de Trabajo de Grado. (pág. 7)",
+          "texto": "P-DC-28.pdf - 7.2. Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma: Actividad 5. Pago del derecho pecuniario de la modalidad de Trabajo de Grado.\n- Descripción: El estudiante realiza el pago del derecho pecuniario correspondiente a la modalidad de Práctica, hasta la octava (8ª) semana después del inicio de clases de cada periodo académico.\n- Responsable: Estudiante o persona natural\n- Registro: Correo Electrónico con: 1. Liquidación de la modalidad de Trabajo de Grado 2. Recibo de pago emitido por la Entidad Bancaria",
+          "page_start": 7,
+          "page_end": 7
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_2_act_6",
+          "location_hint": "P-DC-28.pdf, 7.2 Actividad 6 - Asignación del director de Trabajo de Grado. (pág. 7)",
+          "texto": "P-DC-28.pdf - 7.2. Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma: Actividad 6. Asignación del director de Trabajo de Grado.\n- Descripción: El Coordinador Programa Académico, de Campus y de Educación Virtual asigna un director para orientar la propuesta y desarrollo del Trabajo de Grado del estudiante.\n- Responsable: Coordinador Programa Académico, de Campus y de Educación Virtual\n- Registro: Correo Electrónico",
+          "page_start": 7,
+          "page_end": 7
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_2_act_7",
+          "location_hint": "P-DC-28.pdf, 7.2 Actividad 7 - Orientación y acompañamiento de la propuesta de Trabajo de Grado. (pág. 7)",
+          "texto": "P-DC-28.pdf - 7.2. Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma: Actividad 7. Orientación y acompañamiento de la propuesta de Trabajo de Grado.\n- Descripción: Formulación de la propuesta con orientación de un docente director encargado por el Coordinador Programa Académico, de Campus y de Educación Virtual, con fundamento en el requerimiento de la empresa establecido en el formato F-DC-126 Requerimiento de la Empresa para Solicitar Practicantes.\n- Responsable: Estudiante, Docente Director\n- Registro: F-DC-127 “Registro Propuesta Trabajo Grado Modalidad Práctica” F-DC-209 “Seguimiento Control de Trabajo de Grado”",
+          "page_start": 7,
+          "page_end": 7
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_2_act_8",
+          "location_hint": "P-DC-28.pdf, 7.2 Actividad 8 - Asignación del evaluador y presentación de la propuesta de Trabajo de Grado. (pág. 8)",
+          "texto": "P-DC-28.pdf - 7.2. Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma: Actividad 8. Asignación del evaluador y presentación de la propuesta de Trabajo de Grado.\n- Descripción: Asignación del evaluador de la propuesta de Trabajo de Grado por el Coordinador Programa Académico, de Campus y de Educación Virtual y ratificado por el Comité de Trabajo de Grado. Presentación de la propuesta al comité de Trabajo de Grado por parte del estudiante a través del director.\n- Responsable: Estudiante, Director, Coordinador Programa Académico, de Campus y de Educación Virtual\n- Registro: F-DC-127 “Registro Propuesta Trabajo Grado Modalidad Práctica” F-SIG-08 “Acta Reunión”",
+          "page_start": 8,
+          "page_end": 8
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_2_act_9",
+          "location_hint": "P-DC-28.pdf, 7.2 Actividad 9 - Concepto evaluativo de la propuesta de Trabajo de Grado. (pág. 8)",
+          "texto": "P-DC-28.pdf - 7.2. Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma: Actividad 9. Concepto evaluativo de la propuesta de Trabajo de Grado.\n- Descripción: El Coordinador Programa Académico, de Campus y de Educación Virtual informa el concepto evaluativo de la propuesta Trabajo de Grado emitido por el evaluador al Comité de Trabajo de Grado. Este Comité aprueba o no la modalidad de Trabajo de Grado. El tiempo para la aprobación de la propuesta por parte del Comité de Trabajo de Grado es hasta la décimo segunda (12) semana después del inicio de clases de cada periodo académico.\n- Responsable: Coordinador Programa Académico, de Campus y de Educación Virtual, Comité de Trabajo de Grado\n- Registro: F-DC-127 “Registro Propuesta Trabajo Grado Modalidad Práctica” F-SIG-08 “Acta Reunión”",
+          "page_start": 8,
+          "page_end": 8
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_2_act_10",
+          "location_hint": "P-DC-28.pdf, 7.2 Actividad 10 - Notificación de la evaluación de la propuesta de Trabajo de Grado. (pág. 8)",
+          "texto": "P-DC-28.pdf - 7.2. Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma: Actividad 10. Notificación de la evaluación de la propuesta de Trabajo de Grado.\n- Descripción: Informar al estudiante sobre el resultado de la evaluación de la propuesta presentada al Comité de Trabajo de Grado.\n- Responsable: Comité de Trabajo de Grado\n- Registro: F-SIG-08 “Acta Reunión”",
+          "page_start": 8,
+          "page_end": 8
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_2_act_11",
+          "location_hint": "P-DC-28.pdf, 7.2 Actividad 11 - Inicio de la modalidad de Práctica (pág. 8)",
+          "texto": "P-DC-28.pdf - 7.2. Presentación de la propuesta de Trabajo de Grado para la modalidad de práctica e inicio de la misma: Actividad 11. Inicio de la modalidad de Práctica\n- Descripción: El estudiante inicia práctica previas firmas del acta de inicio. El acta de inicio se firma cuando haya cumplimiento de lo reglamentado y de lo establecido en el convenio, además del previo conocimiento y aceptación de los objetivos de la propuesta de Trabajo de Grado por parte de la empresa o entidad.\n- Responsable: Empresa o entidad, Coordinador Programa Académico, de Campus y de Educación Virtual, Estudiante Jefe de Oficina de Relaciones Interinstitucionales\n- Registro: F-DC-127 “Registro Propuesta Trabajo Grado Modalidad Práctica” F-DC-195: Acta Inicio de Prácticas Certificado de Afiliación ARL",
+          "page_start": 8,
+          "page_end": 8
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_3_act_1",
+          "location_hint": "P-DC-28.pdf, 7.3 Actividad 1 - Presentación del tema del Seminario de grado (pág. 8)",
+          "texto": "P-DC-28.pdf - 7.3. Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario: Actividad 1. Presentación del tema del Seminario de grado\n- Descripción: El tema del Seminario será propuesto por el docente a cargo ante el comité de Trabajo de Grado para solicitar su aval. La temática deberá aportar a Proyectos Institucionales con ideas validadas o proyectos formulados.\n- Responsable: Docente encargado, Comité Trabajo de Grado\n- Registro: F-SIG-08 “Acta Reunión”",
+          "page_start": 8,
+          "page_end": 8
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_3_act_2",
+          "location_hint": "P-DC-28.pdf, 7.3 Actividad 2 - Concepto evaluativo de la propuesta de Seminario de grado. (pág. 9)",
+          "texto": "P-DC-28.pdf - 7.3. Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario: Actividad 2. Concepto evaluativo de la propuesta de Seminario de grado.\n- Descripción: La aprobación o no aprobación de la propuesta del seminario de Trabajo de Grado es emitida por el Comité de Trabajo de Grado.\n- Responsable: Comité de Trabajo de Grado\n- Registro: F-SIG-08 “Acta Reunión”",
+          "page_start": 9,
+          "page_end": 9
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_3_act_3",
+          "location_hint": "P-DC-28.pdf, 7.3 Actividad 3 - Presentación de la propuesta del Seminario de grado (pág. 9)",
+          "texto": "P-DC-28.pdf - 7.3. Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario: Actividad 3. Presentación de la propuesta del Seminario de grado\n- Descripción: El Comité de Trabajo de Grado presenta por medio del Coordinador Programa Académico, de Campus y de Educación Virtual, la propuesta al Consejo de Facultad para el nivel tecnológico y al Consejo Académico para el nivel universitario; para su estudio y formalización de resultados.\n- Responsable: Comité de Trabajo de Grado, Coordinador Programa Académico, de Campus y de Educación Virtual, Consejo de Facultad o Consejo Académico\n- Registro: F-SIG-08 “Acta Reunión”",
+          "page_start": 9,
+          "page_end": 9
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_3_act_4",
+          "location_hint": "P-DC-28.pdf, 7.3 Actividad 4 - Concepto evaluativo de la propuesta de Seminario de grado. (pág. 9)",
+          "texto": "P-DC-28.pdf - 7.3. Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario: Actividad 4. Concepto evaluativo de la propuesta de Seminario de grado.\n- Descripción: La aprobación o no aprobación de la propuesta del seminario de Trabajo de Grado es emitida por el Consejo de Facultad para el nivel tecnológico o el Consejo Académico para el nivel universitario.\n- Responsable: Consejo de Facultad o Consejo Académico\n- Registro: F-SIG-08 “Acta Reunión”",
+          "page_start": 9,
+          "page_end": 9
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_3_act_5",
+          "location_hint": "P-DC-28.pdf, 7.3 Actividad 5 - Oferta del Seminario de grado (pág. 9)",
+          "texto": "P-DC-28.pdf - 7.3. Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario: Actividad 5. Oferta del Seminario de grado\n- Descripción: La coordinación del Programa Académico, de Campus y de Educación Virtual, oferta el seminario aprobado como modalidad de Trabajo de Grado.\n- Responsable: Coordinador Programa Académico, de Campus y de Educación Virtual.\n- Registro: Página Web Institucional",
+          "page_start": 9,
+          "page_end": 9
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_3_act_6",
+          "location_hint": "P-DC-28.pdf, 7.3 Actividad 6 - Pago del derecho pecuniario de la modalidad de Seminario de grado. (pág. 9)",
+          "texto": "P-DC-28.pdf - 7.3. Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario: Actividad 6. Pago del derecho pecuniario de la modalidad de Seminario de grado.\n- Descripción: Para la modalidad de Seminario el pago del respectivo derecho pecuniario debe hacerse antes del inicio del correspondiente seminario.\n- Responsable: Estudiante o persona natural\n- Registro: Correo Electrónico con: 1. Liquidación de la modalidad de Trabajo de Grado 2. Recibo de pago emitido por la Entidad Bancaria",
+          "page_start": 9,
+          "page_end": 9
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_3_act_7",
+          "location_hint": "P-DC-28.pdf, 7.3 Actividad 7 - Matrícula al Seminario de grado. (pág. 9)",
+          "texto": "P-DC-28.pdf - 7.3. Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario: Actividad 7. Matrícula al Seminario de grado.\n- Descripción: El estudiante se matricula en el Seminario, de acuerdo con la oferta publicada por el programa académico a cargo del Seminario, mediante el pago de los derechos pecuniarios respectivos.\n- Responsable: Estudiante\n- Registro: Formulario de registro al Seminario",
+          "page_start": 9,
+          "page_end": 9
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_subnum_7_3_act_8",
+          "location_hint": "P-DC-28.pdf, 7.3 Actividad 8 - Inicio de la modalidad de Seminario de grado (pág. 9)",
+          "texto": "P-DC-28.pdf - 7.3. Presentación de la propuesta de Trabajo de Grado en la modalidad de seminario: Actividad 8. Inicio de la modalidad de Seminario de grado\n- Descripción: El estudiante inicia el desarrollo de la modalidad de Trabajo de Grado seminario. La modalidad de Seminario solo dispone del periodo académico en el cual se desarrolla el seminario, excepto que por motivos institucionales no se alcance a terminar.\n- Responsable: Estudiante\n- Registro: Plataforma Académica",
+          "page_start": 9,
+          "page_end": 9
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_numeral_8",
+          "location_hint": "P-DC-28.pdf, Numeral 8: CONTROLES OPERACIONALES (págs. 10-10)",
+          "texto": "P-DC-28.pdf - Numeral 8. CONTROLES OPERACIONALES:\nSe incluyen los controles determinados para realizar seguimiento a las actividades propias\ndel proceso, mediante registros, acciones, herramientas o técnicas, orientadas en asegurar\nla mejora continua de los procesos.\nMÉTODO DE CONTROL FRECUENCIA RESPONSABLE\nEVIDENCIA\n(Formatos,\ndocumentos, etc.).\nReuniones periódicas del Comité\nde Trabajo de Grado.\nSemanal\nCoordinador Programa\nAcadémico, de Campus y\nde Educación Virtual,\nComité de Trabajo de\nGrado\nF-SIG-08\n“Acta Reunión”",
+          "page_start": 10,
+          "page_end": 10
+        },
+        {
+          "chunk_id": "ver_p_dc_28_v3_numeral_9",
+          "location_hint": "P-DC-28.pdf, Numeral 9: ANEXOS (págs. 10-10)",
+          "texto": "P-DC-28.pdf - Numeral 9. ANEXOS:\nNo Aplica.\n10. HISTORIAL DE CAMBIOS\nVERSIÓN DESCRIPCIÓN\nNÚMERO DE\nSOLICITUD DE\nCAMBIO\nFECHA\n1.0 Emisión inicial 727 Noviembre de\n2019\n2.0\nAjuste del procedimiento por actualización\nde las actividades y por cambios en el\nformato del procedimiento.\n074 Octubre de 2023\n3.0 Eliminación del Flujograma 023 Abril de 2024",
+          "page_start": 10,
+          "page_end": 10
+        }
+      ],
+      "estado_revision_humana": "PENDIENTE_REVISION_HUMANA"
+    },
+    {
+      "codigo": "P-DC-29",
+      "nombre": "Presentación del Informe Final de Trabajo de Grado",
+      "version_id": "ver_p_dc_29_v3",
+      "version_institucional": "3.0",
+      "paginas": 9,
+      "secciones_numerales": [
+        {
+          "numeral": 1,
+          "titulo": "OBJETIVO"
+        },
+        {
+          "numeral": 2,
+          "titulo": "ALCANCE"
+        },
+        {
+          "numeral": 3,
+          "titulo": "DEFINICIONES Y/O ABREVIATURAS"
+        },
+        {
+          "numeral": 4,
+          "titulo": "RESPONSABLE"
+        },
+        {
+          "numeral": 5,
+          "titulo": "GENERALIDADES"
+        },
+        {
+          "numeral": 6,
+          "titulo": "DOCUMENTOS DE REFERENCIA"
+        },
+        {
+          "numeral": 7,
+          "titulo": "DESARROLLO Y/O DESCRIPCIÓN"
+        },
+        {
+          "numeral": 8,
+          "titulo": "CONTROLES OPERACIONALES"
+        }
+      ],
+      "actividades": [
+        {
+          "subnumeral": "7.1",
+          "subnumeral_titulo": "Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario",
+          "numero": 1,
+          "nombre": "Acompañamiento en el desarrollo del Informe Final",
+          "descripcion": "Después de la aprobación de la propuesta de trabajo de grado, el estudiante debe presentarse ante el director para que se haga como mínimo dos revisiones o seguimientos al informe final antes de su entrega al comité de trabajo de grado.",
+          "responsable": "Estudiante Director",
+          "registro": "F-DC-209: Seguimiento Control de Trabajo de Grado F-DC-125 Informe final de Trabajo de Grado en modalidad de proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario",
+          "pagina": 3
+        },
+        {
+          "subnumeral": "7.1",
+          "subnumeral_titulo": "Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario",
+          "numero": 2,
+          "nombre": "Entrega del Informe Final del Trabajo de Grado",
+          "descripcion": "Entrega del informe final mediante la plantilla institucional (F-DC-125) al director del trabajo de grado para revisión conjunta con el estudiante, a través del correo electrónico exclusivo para trabajos de grado de cada programa académico. El director del trabajo de grado previa revisión y dando cumplimiento a la rejilla de evaluación, da su aval y entrega en la coordinación del programa académico, de campus y de Educación Virtual, el informe final con la nota de aceptación firmada para que el coordinador del programa académico, de Campus y de Educación Virtual le notifique al evaluador. Nota: El director debe adjuntar al informe final, el reporte de similitud generado por la herramienta anti plagio institucional.",
+          "responsable": "Estudiante Director Evaluador Coordinador del Programa Académico, de Campus y de Educación Virtual",
+          "registro": "F-DC-125 Informe final de Trabajo de Grado en modalidad de proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario Reporte de Similitud generado por la herramienta antiplagio institucional F-SIG-08 “Acta Reunión”",
+          "pagina": 3
+        },
+        {
+          "subnumeral": "7.1",
+          "subnumeral_titulo": "Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario",
+          "numero": 3,
+          "nombre": "Revisión del Trabajo de Grado por el evaluador",
+          "descripcion": "El evaluador dispone de cinco días hábiles para emitir el concepto teniendo en cuenta la rejilla de evaluación y hace entrega a la coordinación del programa académico, de Campus y de Educación Virtual. Si se requieren ajustes, la coordinación entrega al estudiante el informe final para que éste realice las correcciones solicitadas, recomendablemente en un tiempo máximo de 8 días hábiles.",
+          "responsable": "Evaluador Coordinador del Programa Académico, de Campus y de Educación Virtual",
+          "registro": "F-DC-125 Informe final de Trabajo de Grado en modalidad de proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado”",
+          "pagina": 4
+        },
+        {
+          "subnumeral": "7.1",
+          "subnumeral_titulo": "Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario",
+          "numero": 4,
+          "nombre": "Notificación concepto evaluativo",
+          "descripcion": "El coordinador del programa académico, de campus y de Educación Virtual, informa el concepto evaluativo del informe final de trabajo de grado emitido por el evaluador al comité de trabajo de grado. En comité aprueba o no el informe final de la modalidad de trabajo de grado.",
+          "responsable": "Evaluador Coordinador del Programa Académico, de Campus y Educación Virtual Comité de Trabajo de Grado",
+          "registro": "F-DC-125 Informe final de Trabajo de Grado en modalidad de proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado” Correo Electrónico y/o publicación en la cartelera del programa",
+          "pagina": 4
+        },
+        {
+          "subnumeral": "7.1",
+          "subnumeral_titulo": "Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario",
+          "numero": 5,
+          "nombre": "Fecha de sustentación del Informe Final del Trabajo de Grado",
+          "descripcion": "Una vez el evaluador emita el visto bueno del informe final, mediante el diligenciamiento de la nota de aceptación que se encuentra dentro del F-DC- 129 rejilla evaluación informe final trabajo grado, se fija la fecha de sustentación. Se recomienda sea dentro de los 8 días hábiles siguientes, y el coordinador del programa académico, de Campus y de Educación Virtual, notifica al estudiante.",
+          "responsable": "Director Evaluador de Trabajo Grado Coordinador del Programa Académico, de Campus y de Educación Virtual",
+          "registro": "F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado” F-SIG-08 “Acta Reunión” Correo Electrónico y/o publicación en la cartelera del programa",
+          "pagina": 4
+        },
+        {
+          "subnumeral": "7.1",
+          "subnumeral_titulo": "Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario",
+          "numero": 6,
+          "nombre": "Presentación y evaluación de la sustentación del Informe Final del Trabajo de Grado",
+          "descripcion": "Realización de la sustentación del trabajo de grado al docente evaluador y director, y si es el caso a invitados. Es responsabilidad de los estudiantes presentar la sustentación, en caso de no hacerla su evaluación del trabajo de grado será “aplazado”. Emisión del concepto final mediante evaluación cualitativa (aprobado o no aprobado) por parte del evaluador y remisión al comité de trabajo de grado del informe final evaluado junto con la correspondiente rejilla.",
+          "responsable": "Estudiante Evaluador Director de trabajo grado",
+          "registro": "F-DC-125 “Informe final de Trabajo de Grado en modalidad de proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario” F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado”",
+          "pagina": 5
+        },
+        {
+          "subnumeral": "7.1",
+          "subnumeral_titulo": "Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario",
+          "numero": 7,
+          "nombre": "Notificación de la evaluación Informe Final del Trabajo de Grado.",
+          "descripcion": "El comité de trabajo de grado recibe la rejilla de evaluación para consignar en el acta el resultado del informe final. El coordinador notifica al estudiante sobre la decisión del comité de trabajo de grado. El director del trabajo de grado debe subir al RI-UTS el informe final y la licencia de autorización.",
+          "responsable": "Coordinador Programa Académico, de Campus y Educación Virtual, Comité de Trabajo de Grado, Director de Trabajo de Grado",
+          "registro": "F-SIG-08 “Acta Reunión”, F- DC-129, “Rejilla Evaluación Informe Final Trabajo Grado”, F-IN-13 “Licencia y Autorización Publicación Obras en el RI-UTS”",
+          "pagina": 5
+        },
+        {
+          "subnumeral": "7.1",
+          "subnumeral_titulo": "Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario",
+          "numero": 8,
+          "nombre": "Entrega final de documentos de Trabajo de Grado finales",
+          "descripcion": "Una vez sea notificado el estudiante de la evaluación y sustentación de su informe final de trabajo de grado este debe recopilar todos los documentos finales para formalizar cierre del proceso de requisito de la modalidad de trabajo de grado ante la coordinación del programa a través del correo electrónico exclusivo para trabajos de grado de cada programa académico.",
+          "responsable": "Estudiante, Coordinación del Programa Académico, de Campus y Educación Virtual",
+          "registro": "F-DC-125 “Informe final de Trabajo de Grado en modalidad de proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario”, F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado”, F-IN-13 “Licencia y Autorización para la Publicación de Obras en el Repositorio Institucional”, F-DC- 130 “Concepto Final Trabajo de Grado”, F- SIG-08 “Acta Reunión”, Correo Electrónico",
+          "pagina": 5
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación del informe final del Trabajo de Grado para la modalidad de práctica",
+          "numero": 1,
+          "nombre": "Acompañamiento en el desarrollo del Informe Final",
+          "descripcion": "Después de la aprobación de la propuesta de trabajo de grado, el estudiante debe presentarse ante el director para que se haga como mínimo dos revisiones o seguimientos al informe final antes de su entrega.",
+          "responsable": "Estudiante Director Supervisor de la empresa (Para la modalidad de práctica)",
+          "registro": "F-DC-209: Seguimiento Control de Trabajo de Grado F-DC-128 “Informe Final Trabajo Grado Modalidad Práctica”",
+          "pagina": 6
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación del informe final del Trabajo de Grado para la modalidad de práctica",
+          "numero": 2,
+          "nombre": "Entrega del Informe Final del Trabajo de Grado",
+          "descripcion": "Entrega del Informe Final mediante la plantilla institucional al director del trabajo de grado para revisión conjunta con el estudiante, a través del correo electrónico exclusivo para trabajos de grado de cada programa académico. El director del trabajo de grado previa revisión y dando cumplimiento a la rejilla de evaluación da su aval y entrega en la coordinación el informe final con la nota de aceptación firmada para que el coordinador académico le notifique al evaluador. Nota: El director debe adjuntar al Informe final, el reporte de similitud generado por la herramienta antiplagio institucional.",
+          "responsable": "Estudiante, Director y Evaluador Coordinación del Programa Académico, de Campus y Educación Virtual",
+          "registro": "F-DC-128 “Informe Final Trabajo Grado Modalidad Práctica” F-DC-196 Acta de Terminación y Recibo a Satisfacción de Prácticas F-SIG-08 “Acta Reunión” F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado”",
+          "pagina": 6
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación del informe final del Trabajo de Grado para la modalidad de práctica",
+          "numero": 3,
+          "nombre": "Revisión del Trabajo de Grado por el evaluador",
+          "descripcion": "El evaluador dispone de cinco días hábiles para emitir el concepto teniendo en cuenta la rejilla de evaluación y hace entrega a la coordinación del programa. Si se requieren ajustes, la coordinación entrega al estudiante el informe final para que éste realice las correcciones solicitadas, recomendablemente en un tiempo máximo de 8 días hábiles.",
+          "responsable": "Evaluador Coordinación del Programa Académico, de Campus y Educación Virtual",
+          "registro": "F-DC-128 “Informe Final Trabajo Grado Modalidad Práctica” F-DC-196 Acta de Terminación y Recibo a Satisfacción de Prácticas F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado”",
+          "pagina": 6
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación del informe final del Trabajo de Grado para la modalidad de práctica",
+          "numero": 4,
+          "nombre": "Notificación concepto evaluativo",
+          "descripcion": "El coordinador informa el concepto evaluativo del informe final de trabajo de grado emitido por el evaluador al comité de trabajo de grado. En comité se formaliza la evaluación del informe final de la modalidad de trabajo de grado.",
+          "responsable": "Evaluador Coordinador del Programa Académico, de Campus y Educación Virtual Comité de Trabajo de Grado",
+          "registro": "F-DC-128 “Informe Final Trabajo Grado Modalidad Práctica” F-DC-196 Acta de Terminación y Recibo a Satisfacción de Prácticas F-SIG-08 “Acta Reunión” F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado” Correo Electrónico y/o publicación en la cartelera del programa",
+          "pagina": 7
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación del informe final del Trabajo de Grado para la modalidad de práctica",
+          "numero": 5,
+          "nombre": "Fecha de sustentación del Informe Final del Trabajo de Grado",
+          "descripcion": "Una vez el evaluador emita el visto bueno para sustentar el informe final, se fija la fecha. Se recomienda sea dentro de los 8 días hábiles siguientes, y se notifica al estudiante.",
+          "responsable": "Director Evaluador de Trabajo Grado Coordinador del Programa Académico, de Campus y Educación Virtual",
+          "registro": "F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado”, F-SIG-08 “Acta Reunión” Correo Electrónico y/o publicación en la cartelera del programa",
+          "pagina": 7
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación del informe final del Trabajo de Grado para la modalidad de práctica",
+          "numero": 6,
+          "nombre": "Presentación y evaluación de la sustentación del Informe Final del Trabajo de Grado",
+          "descripcion": "Realización de la sustentación del Trabajo de grado al docente evaluador y director, y si es el caso a invitados. Es responsabilidad de los estudiantes presentar la sustentación, en caso de no hacerla su evaluación del trabajo de grado será “aplazado”. Emisión del concepto final mediante evaluación cualitativa (aprobado o no aprobado) por parte del evaluador y remisión al comité de trabajo de grado del informe final evaluado junto con la correspondiente rejilla.",
+          "responsable": "Estudiante Evaluador Director de trabajo grado",
+          "registro": "F-DC-128 “Informe Final Trabajo Grado Modalidad Práctica” F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado”",
+          "pagina": 7
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación del informe final del Trabajo de Grado para la modalidad de práctica",
+          "numero": 7,
+          "nombre": "Notificación de la evaluación Informe Final del Trabajo de Grado.",
+          "descripcion": "El comité de trabajo de grado recibe la rejilla de evaluación para consignar en el acta el resultado del informe final. El coordinador notifica al estudiante sobre la decisión del comité de trabajo de grado. El director del trabajo de grado debe subir al RI-UTS el informe final y la licencia de autorización.",
+          "responsable": "Coordinador del Programa Académico, de Campus y Educación Virtual Comité de Trabajo de Grado Director de Trabajo de Grado",
+          "registro": "F-SIG-08 “Acta Reunión” F-IN-13 “Licencia y Autorización Publicación Obras en el RI-UTS” F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado”",
+          "pagina": 8
+        },
+        {
+          "subnumeral": "7.2",
+          "subnumeral_titulo": "Presentación del informe final del Trabajo de Grado para la modalidad de práctica",
+          "numero": 8,
+          "nombre": "Entrega de documentos de Trabajo de Grado finales.",
+          "descripcion": "Una vez sea notificado el estudiante de la evaluación y sustentación de su Informe Final, este debe recopilar todos los documentos finales para formalizar cierre del proceso de requisito de la modalidad de Trabajo de Grado ante la coordinación del programa a través del correo electrónico exclusivo para trabajos de grado de cada programa académico.",
+          "responsable": "Estudiante Coordinación del Programa Académico, de Campus y Educación Virtual",
+          "registro": "F-SIG-08 “Acta Reunión” F-DC-128 “Informe Final Trabajo Grado Modalidad Práctica” F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado” F-IN-13 “Licencia y Autorización Publicación Obras en el RI-UTS” F-DC-130 “Concepto Final Trabajo de Grado” Correo Electrónico",
+          "pagina": 8
+        }
+      ],
+      "total_chunks_almacenados": 25,
+      "chunks_almacenados_sqlite": [
+        {
+          "chunk_id": "ver_p_dc_29_v3_numeral_1",
+          "location_hint": "P-DC-29.pdf, Numeral 1: OBJETIVO (págs. 1-1)",
+          "texto": "P-DC-29.pdf - Numeral 1. OBJETIVO:\nEstablecer el procedimiento a seguir para la presentación del informe final de Trabajo de\nGrado en todas sus modalidades.",
+          "page_start": 1,
+          "page_end": 1
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_numeral_2",
+          "location_hint": "P-DC-29.pdf, Numeral 2: ALCANCE (págs. 1-1)",
+          "texto": "P-DC-29.pdf - Numeral 2. ALCANCE:\nEste documento aplica a todos los estudiantes que optan al título de un programa\nacadémico de las Unidades Tecnológicas de Santander, inicia con el acompañamiento en el\ndesarrollo del Informe Final y culmina con la entrega de los documentos de Trabajo de\nGrado finales.",
+          "page_start": 1,
+          "page_end": 1
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_numeral_3_p1",
+          "location_hint": "P-DC-29.pdf, Numeral 3: DEFINICIONES Y/O ABREVIATURAS (Parte 1) (págs. 1-2)",
+          "texto": "P-DC-29.pdf - Numeral 3. DEFINICIONES Y/O ABREVIATURAS (Parte 1):\na. Informe Final de Trabajo de Grado: Se denomina Informe Final de Trabajo de Grado al\ndocumento que consigna los resultados y conclusiones a una problemática acorde a la\npropuesta de Trabajo de Grado, en el área y nivel de formación, según lineamientos\ninstitucionales, cumpliendo un requisito para optar al título correspondiente a su\nprograma académico.\nb. Evaluación del Informe de Trabajo de Grado: Para todas las modalidades de trabajos\nde grado el estudiante elabora el Informe Final y una vez hayan cumplido los objetivos\nde la propuesta, hace su entrega al Comité de Trabajo de Grado mediante formato\nfirmado por el director del Trabajo de Grado indicando que el trabajo está listo para ser\nevaluado.\nTodo Trabajo de Grado debe someterse al proceso de evaluación con el aval del\ndirector y codirectores involucrados.\nEl Comité de Trabajo de Grado del programa académico correspondiente a la disciplina\nprincipal realiza el procedimiento de evaluación del Informe Final y solicita un evaluador\na cada Comité de Trabajo de Grado de los programas académicos complementarios.\nLa evaluación del Informe Final del Trabajo de Grado puede dar como resultado uno de\nlos siguientes conceptos:\n Trabajo de Grado Aplazado. El Trabajo de Grado se considera aplazado, cuando a\ncriterio del Evaluador, no cumple con todos los objetivos propuestos y presenta\nfalencias de forma y de fondo en el Informe final. El evaluador especifica las acciones\nrequeridas para mejorar el Informe final y recomienda el plazo máximo para\nrealizarlas. Una vez realizadas las correcciones el director solicita nuevamente la\nevaluación del Trabajo de Grado.\n Trabajo de Grado Aprobado. El Trabajo de Grado se considera aprobado, cuando a\ncriterio del Evaluador, cumple con los objetivos propuestos y los criterios estipulados\nen la rejilla institucional para la evaluación final de trabajos de grado.\n Trabajo de Grado no Aprobado. El Trabajo de Grado se considera no aprobado,\ncuando a criterio del Evaluador no cumple con los objetivos propuestos, no evidencia\nP-DC-29 PRESENTACIÓN DEL INFORME FINAL DE TRABAJO DE GRADO VERSIÓN: 3.0\nSistema Integrado de Gestión",
+          "page_start": 1,
+          "page_end": 2
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_numeral_3_p2",
+          "location_hint": "P-DC-29.pdf, Numeral 3: DEFINICIONES Y/O ABREVIATURAS (Parte 2) (págs. 1-2)",
+          "texto": "P-DC-29.pdf - Numeral 3. DEFINICIONES Y/O ABREVIATURAS (Parte 2):\nFECHA APROBACIÓN: Abril de 2024\navance significativo y el tiempo de entrega del documento de trabajo final no es\nsuficiente para completar el trabajo o realizar las correcciones requeridas.\nAdicionalmente es causa de no aprobación si se comprueba plagio parcial o total\ndentro del documento final entregado para evaluación, en cuyo caso se aplica la\nregulación establecida en el reglamento estudiantil.\nLos documentos finales de los Trabajos de Grado aprobados, dado su carácter de obras de\nnuevo conocimiento, serán publicados en el Repositorio Institucional (RI-UTS) y el director\nde Trabajo de Grado es la persona autorizada de este proceso de publicación.\nc. RI-UTS: Se le denomina al Repositorio Institucional. RI-UTS es un mecanismo para la\ngestión de contenidos, que facilita la conservación, recuperación, visibilidad, uso de los\nrecursos y administración de los archivos en forma digital.",
+          "page_start": 1,
+          "page_end": 2
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_numeral_4",
+          "location_hint": "P-DC-29.pdf, Numeral 4: RESPONSABLE (págs. 2-2)",
+          "texto": "P-DC-29.pdf - Numeral 4. RESPONSABLE:\nCoordinaciones de los Programas Académicos, de Campus y Educación Virtual.",
+          "page_start": 2,
+          "page_end": 2
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_numeral_5",
+          "location_hint": "P-DC-29.pdf, Numeral 5: GENERALIDADES (págs. 2-2)",
+          "texto": "P-DC-29.pdf - Numeral 5. GENERALIDADES:\nEl Informe Final de Trabajo de Grado no puede ser entregado por el estudiante antes de los\ntres (3) meses a partir de la aprobación de la Propuesta de Trabajo de Grado.\nEl informe final de Trabajo de Grado se presenta al Comité de Trabajo de Grado del\nprograma académico, mediante la plantilla institucional para su evaluación, asignación de\nfecha de sustentación y notificación al estudiante de la decisión del Comité de Trabajo de\nGrado.",
+          "page_start": 2,
+          "page_end": 2
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_numeral_6",
+          "location_hint": "P-DC-29.pdf, Numeral 6: DOCUMENTOS DE REFERENCIA (págs. 2-2)",
+          "texto": "P-DC-29.pdf - Numeral 6. DOCUMENTOS DE REFERENCIA:\nF-DC-209: Seguimiento Control de Trabajo de Grado.\nF-DC-125: Informe final de Trabajo de Grado en modalidad de proyecto de investigación,\ndesarrollo tecnológico, monografía, emprendimiento y seminario.\nF-DC-128: Informe Final Trabajo Grado Modalidad Práctica.\nF-DC-129: Rejilla Evaluación Informe Final Trabajo Grado.\nF-DC-130: Concepto Final Trabajo de Grado.\nF-DC-196 Acta de Terminación y Recibo a Satisfacción de Prácticas.\nF-SIG-08: Acta Reunión.\nF-IN-13 Licencia y Autorización para la Publicación de Obras en el Repositorio Institucional\nReglamento de Trabajo de Grado de las Unidades Tecnológicas de Santander.",
+          "page_start": 2,
+          "page_end": 2
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_numeral_7_intro",
+          "location_hint": "P-DC-29.pdf, Numeral 7: DESARROLLO Y/O DESCRIPCIÓN (pág. 2-9)",
+          "texto": "P-DC-29.pdf - Numeral 7. DESARROLLO Y/O DESCRIPCIÓN:\nEste numeral contiene 16 actividades distribuidas en 2 subnumeral(es):\n  - 7.1. Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario: 8 actividad(es)\n  - 7.2. Presentación del informe final del Trabajo de Grado para la modalidad de práctica: 8 actividad(es)",
+          "page_start": 2,
+          "page_end": 9
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_subnum_7_1_act_1",
+          "location_hint": "P-DC-29.pdf, 7.1 Actividad 1 - Acompañamiento en el desarrollo del Informe Final (pág. 3)",
+          "texto": "P-DC-29.pdf - 7.1. Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario: Actividad 1. Acompañamiento en el desarrollo del Informe Final\n- Descripción: Después de la aprobación de la propuesta de trabajo de grado, el estudiante debe presentarse ante el director para que se haga como mínimo dos revisiones o seguimientos al informe final antes de su entrega al comité de trabajo de grado.\n- Responsable: Estudiante Director\n- Registro: F-DC-209: Seguimiento Control de Trabajo de Grado F-DC-125 Informe final de Trabajo de Grado en modalidad de proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario",
+          "page_start": 3,
+          "page_end": 3
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_subnum_7_1_act_2",
+          "location_hint": "P-DC-29.pdf, 7.1 Actividad 2 - Entrega del Informe Final del Trabajo de Grado (pág. 3)",
+          "texto": "P-DC-29.pdf - 7.1. Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario: Actividad 2. Entrega del Informe Final del Trabajo de Grado\n- Descripción: Entrega del informe final mediante la plantilla institucional (F-DC-125) al director del trabajo de grado para revisión conjunta con el estudiante, a través del correo electrónico exclusivo para trabajos de grado de cada programa académico. El director del trabajo de grado previa revisión y dando cumplimiento a la rejilla de evaluación, da su aval y entrega en la coordinación del programa académico, de campus y de Educación Virtual, el informe final con la nota de aceptación firmada para que el coordinador del programa académico, de Campus y de Educación Virtual le notifique al evaluador. Nota: El director debe adjuntar al informe final, el reporte de similitud generado por la herramienta anti plagio institucional.\n- Responsable: Estudiante Director Evaluador Coordinador del Programa Académico, de Campus y de Educación Virtual\n- Registro: F-DC-125 Informe final de Trabajo de Grado en modalidad de proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario Reporte de Similitud generado por la herramienta antiplagio institucional F-SIG-08 “Acta Reunión”",
+          "page_start": 3,
+          "page_end": 3
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_subnum_7_1_act_3",
+          "location_hint": "P-DC-29.pdf, 7.1 Actividad 3 - Revisión del Trabajo de Grado por el evaluador (pág. 4)",
+          "texto": "P-DC-29.pdf - 7.1. Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario: Actividad 3. Revisión del Trabajo de Grado por el evaluador\n- Descripción: El evaluador dispone de cinco días hábiles para emitir el concepto teniendo en cuenta la rejilla de evaluación y hace entrega a la coordinación del programa académico, de Campus y de Educación Virtual. Si se requieren ajustes, la coordinación entrega al estudiante el informe final para que éste realice las correcciones solicitadas, recomendablemente en un tiempo máximo de 8 días hábiles.\n- Responsable: Evaluador Coordinador del Programa Académico, de Campus y de Educación Virtual\n- Registro: F-DC-125 Informe final de Trabajo de Grado en modalidad de proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado”",
+          "page_start": 4,
+          "page_end": 4
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_subnum_7_1_act_4",
+          "location_hint": "P-DC-29.pdf, 7.1 Actividad 4 - Notificación concepto evaluativo (pág. 4)",
+          "texto": "P-DC-29.pdf - 7.1. Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario: Actividad 4. Notificación concepto evaluativo\n- Descripción: El coordinador del programa académico, de campus y de Educación Virtual, informa el concepto evaluativo del informe final de trabajo de grado emitido por el evaluador al comité de trabajo de grado. En comité aprueba o no el informe final de la modalidad de trabajo de grado.\n- Responsable: Evaluador Coordinador del Programa Académico, de Campus y Educación Virtual Comité de Trabajo de Grado\n- Registro: F-DC-125 Informe final de Trabajo de Grado en modalidad de proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado” Correo Electrónico y/o publicación en la cartelera del programa",
+          "page_start": 4,
+          "page_end": 4
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_subnum_7_1_act_5",
+          "location_hint": "P-DC-29.pdf, 7.1 Actividad 5 - Fecha de sustentación del Informe Final del Trabajo de Grado (pág. 4)",
+          "texto": "P-DC-29.pdf - 7.1. Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario: Actividad 5. Fecha de sustentación del Informe Final del Trabajo de Grado\n- Descripción: Una vez el evaluador emita el visto bueno del informe final, mediante el diligenciamiento de la nota de aceptación que se encuentra dentro del F-DC- 129 rejilla evaluación informe final trabajo grado, se fija la fecha de sustentación. Se recomienda sea dentro de los 8 días hábiles siguientes, y el coordinador del programa académico, de Campus y de Educación Virtual, notifica al estudiante.\n- Responsable: Director Evaluador de Trabajo Grado Coordinador del Programa Académico, de Campus y de Educación Virtual\n- Registro: F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado” F-SIG-08 “Acta Reunión” Correo Electrónico y/o publicación en la cartelera del programa",
+          "page_start": 4,
+          "page_end": 4
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_subnum_7_1_act_6",
+          "location_hint": "P-DC-29.pdf, 7.1 Actividad 6 - Presentación y evaluación de la sustentación del Informe Final del Trabajo de Grado (pág. 5)",
+          "texto": "P-DC-29.pdf - 7.1. Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario: Actividad 6. Presentación y evaluación de la sustentación del Informe Final del Trabajo de Grado\n- Descripción: Realización de la sustentación del trabajo de grado al docente evaluador y director, y si es el caso a invitados. Es responsabilidad de los estudiantes presentar la sustentación, en caso de no hacerla su evaluación del trabajo de grado será “aplazado”. Emisión del concepto final mediante evaluación cualitativa (aprobado o no aprobado) por parte del evaluador y remisión al comité de trabajo de grado del informe final evaluado junto con la correspondiente rejilla.\n- Responsable: Estudiante Evaluador Director de trabajo grado\n- Registro: F-DC-125 “Informe final de Trabajo de Grado en modalidad de proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario” F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado”",
+          "page_start": 5,
+          "page_end": 5
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_subnum_7_1_act_7",
+          "location_hint": "P-DC-29.pdf, 7.1 Actividad 7 - Notificación de la evaluación Informe Final del Trabajo de Grado. (pág. 5)",
+          "texto": "P-DC-29.pdf - 7.1. Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario: Actividad 7. Notificación de la evaluación Informe Final del Trabajo de Grado.\n- Descripción: El comité de trabajo de grado recibe la rejilla de evaluación para consignar en el acta el resultado del informe final. El coordinador notifica al estudiante sobre la decisión del comité de trabajo de grado. El director del trabajo de grado debe subir al RI-UTS el informe final y la licencia de autorización.\n- Responsable: Coordinador Programa Académico, de Campus y Educación Virtual, Comité de Trabajo de Grado, Director de Trabajo de Grado\n- Registro: F-SIG-08 “Acta Reunión”, F- DC-129, “Rejilla Evaluación Informe Final Trabajo Grado”, F-IN-13 “Licencia y Autorización Publicación Obras en el RI-UTS”",
+          "page_start": 5,
+          "page_end": 5
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_subnum_7_1_act_8",
+          "location_hint": "P-DC-29.pdf, 7.1 Actividad 8 - Entrega final de documentos de Trabajo de Grado finales (pág. 5)",
+          "texto": "P-DC-29.pdf - 7.1. Presentación del Informe Final de las modalidades de Trabajo de Grado para proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario: Actividad 8. Entrega final de documentos de Trabajo de Grado finales\n- Descripción: Una vez sea notificado el estudiante de la evaluación y sustentación de su informe final de trabajo de grado este debe recopilar todos los documentos finales para formalizar cierre del proceso de requisito de la modalidad de trabajo de grado ante la coordinación del programa a través del correo electrónico exclusivo para trabajos de grado de cada programa académico.\n- Responsable: Estudiante, Coordinación del Programa Académico, de Campus y Educación Virtual\n- Registro: F-DC-125 “Informe final de Trabajo de Grado en modalidad de proyecto de investigación, desarrollo tecnológico, monografía, emprendimiento y seminario”, F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado”, F-IN-13 “Licencia y Autorización para la Publicación de Obras en el Repositorio Institucional”, F-DC- 130 “Concepto Final Trabajo de Grado”, F- SIG-08 “Acta Reunión”, Correo Electrónico",
+          "page_start": 5,
+          "page_end": 5
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_subnum_7_2_act_1",
+          "location_hint": "P-DC-29.pdf, 7.2 Actividad 1 - Acompañamiento en el desarrollo del Informe Final (pág. 6)",
+          "texto": "P-DC-29.pdf - 7.2. Presentación del informe final del Trabajo de Grado para la modalidad de práctica: Actividad 1. Acompañamiento en el desarrollo del Informe Final\n- Descripción: Después de la aprobación de la propuesta de trabajo de grado, el estudiante debe presentarse ante el director para que se haga como mínimo dos revisiones o seguimientos al informe final antes de su entrega.\n- Responsable: Estudiante Director Supervisor de la empresa (Para la modalidad de práctica)\n- Registro: F-DC-209: Seguimiento Control de Trabajo de Grado F-DC-128 “Informe Final Trabajo Grado Modalidad Práctica”",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_subnum_7_2_act_2",
+          "location_hint": "P-DC-29.pdf, 7.2 Actividad 2 - Entrega del Informe Final del Trabajo de Grado (pág. 6)",
+          "texto": "P-DC-29.pdf - 7.2. Presentación del informe final del Trabajo de Grado para la modalidad de práctica: Actividad 2. Entrega del Informe Final del Trabajo de Grado\n- Descripción: Entrega del Informe Final mediante la plantilla institucional al director del trabajo de grado para revisión conjunta con el estudiante, a través del correo electrónico exclusivo para trabajos de grado de cada programa académico. El director del trabajo de grado previa revisión y dando cumplimiento a la rejilla de evaluación da su aval y entrega en la coordinación el informe final con la nota de aceptación firmada para que el coordinador académico le notifique al evaluador. Nota: El director debe adjuntar al Informe final, el reporte de similitud generado por la herramienta antiplagio institucional.\n- Responsable: Estudiante, Director y Evaluador Coordinación del Programa Académico, de Campus y Educación Virtual\n- Registro: F-DC-128 “Informe Final Trabajo Grado Modalidad Práctica” F-DC-196 Acta de Terminación y Recibo a Satisfacción de Prácticas F-SIG-08 “Acta Reunión” F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado”",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_subnum_7_2_act_3",
+          "location_hint": "P-DC-29.pdf, 7.2 Actividad 3 - Revisión del Trabajo de Grado por el evaluador (pág. 6)",
+          "texto": "P-DC-29.pdf - 7.2. Presentación del informe final del Trabajo de Grado para la modalidad de práctica: Actividad 3. Revisión del Trabajo de Grado por el evaluador\n- Descripción: El evaluador dispone de cinco días hábiles para emitir el concepto teniendo en cuenta la rejilla de evaluación y hace entrega a la coordinación del programa. Si se requieren ajustes, la coordinación entrega al estudiante el informe final para que éste realice las correcciones solicitadas, recomendablemente en un tiempo máximo de 8 días hábiles.\n- Responsable: Evaluador Coordinación del Programa Académico, de Campus y Educación Virtual\n- Registro: F-DC-128 “Informe Final Trabajo Grado Modalidad Práctica” F-DC-196 Acta de Terminación y Recibo a Satisfacción de Prácticas F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado”",
+          "page_start": 6,
+          "page_end": 6
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_subnum_7_2_act_4",
+          "location_hint": "P-DC-29.pdf, 7.2 Actividad 4 - Notificación concepto evaluativo (pág. 7)",
+          "texto": "P-DC-29.pdf - 7.2. Presentación del informe final del Trabajo de Grado para la modalidad de práctica: Actividad 4. Notificación concepto evaluativo\n- Descripción: El coordinador informa el concepto evaluativo del informe final de trabajo de grado emitido por el evaluador al comité de trabajo de grado. En comité se formaliza la evaluación del informe final de la modalidad de trabajo de grado.\n- Responsable: Evaluador Coordinador del Programa Académico, de Campus y Educación Virtual Comité de Trabajo de Grado\n- Registro: F-DC-128 “Informe Final Trabajo Grado Modalidad Práctica” F-DC-196 Acta de Terminación y Recibo a Satisfacción de Prácticas F-SIG-08 “Acta Reunión” F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado” Correo Electrónico y/o publicación en la cartelera del programa",
+          "page_start": 7,
+          "page_end": 7
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_subnum_7_2_act_5",
+          "location_hint": "P-DC-29.pdf, 7.2 Actividad 5 - Fecha de sustentación del Informe Final del Trabajo de Grado (pág. 7)",
+          "texto": "P-DC-29.pdf - 7.2. Presentación del informe final del Trabajo de Grado para la modalidad de práctica: Actividad 5. Fecha de sustentación del Informe Final del Trabajo de Grado\n- Descripción: Una vez el evaluador emita el visto bueno para sustentar el informe final, se fija la fecha. Se recomienda sea dentro de los 8 días hábiles siguientes, y se notifica al estudiante.\n- Responsable: Director Evaluador de Trabajo Grado Coordinador del Programa Académico, de Campus y Educación Virtual\n- Registro: F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado”, F-SIG-08 “Acta Reunión” Correo Electrónico y/o publicación en la cartelera del programa",
+          "page_start": 7,
+          "page_end": 7
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_subnum_7_2_act_6",
+          "location_hint": "P-DC-29.pdf, 7.2 Actividad 6 - Presentación y evaluación de la sustentación del Informe Final del Trabajo de Grado (pág. 7)",
+          "texto": "P-DC-29.pdf - 7.2. Presentación del informe final del Trabajo de Grado para la modalidad de práctica: Actividad 6. Presentación y evaluación de la sustentación del Informe Final del Trabajo de Grado\n- Descripción: Realización de la sustentación del Trabajo de grado al docente evaluador y director, y si es el caso a invitados. Es responsabilidad de los estudiantes presentar la sustentación, en caso de no hacerla su evaluación del trabajo de grado será “aplazado”. Emisión del concepto final mediante evaluación cualitativa (aprobado o no aprobado) por parte del evaluador y remisión al comité de trabajo de grado del informe final evaluado junto con la correspondiente rejilla.\n- Responsable: Estudiante Evaluador Director de trabajo grado\n- Registro: F-DC-128 “Informe Final Trabajo Grado Modalidad Práctica” F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado”",
+          "page_start": 7,
+          "page_end": 7
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_subnum_7_2_act_7",
+          "location_hint": "P-DC-29.pdf, 7.2 Actividad 7 - Notificación de la evaluación Informe Final del Trabajo de Grado. (pág. 8)",
+          "texto": "P-DC-29.pdf - 7.2. Presentación del informe final del Trabajo de Grado para la modalidad de práctica: Actividad 7. Notificación de la evaluación Informe Final del Trabajo de Grado.\n- Descripción: El comité de trabajo de grado recibe la rejilla de evaluación para consignar en el acta el resultado del informe final. El coordinador notifica al estudiante sobre la decisión del comité de trabajo de grado. El director del trabajo de grado debe subir al RI-UTS el informe final y la licencia de autorización.\n- Responsable: Coordinador del Programa Académico, de Campus y Educación Virtual Comité de Trabajo de Grado Director de Trabajo de Grado\n- Registro: F-SIG-08 “Acta Reunión” F-IN-13 “Licencia y Autorización Publicación Obras en el RI-UTS” F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado”",
+          "page_start": 8,
+          "page_end": 8
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_subnum_7_2_act_8",
+          "location_hint": "P-DC-29.pdf, 7.2 Actividad 8 - Entrega de documentos de Trabajo de Grado finales. (pág. 8)",
+          "texto": "P-DC-29.pdf - 7.2. Presentación del informe final del Trabajo de Grado para la modalidad de práctica: Actividad 8. Entrega de documentos de Trabajo de Grado finales.\n- Descripción: Una vez sea notificado el estudiante de la evaluación y sustentación de su Informe Final, este debe recopilar todos los documentos finales para formalizar cierre del proceso de requisito de la modalidad de Trabajo de Grado ante la coordinación del programa a través del correo electrónico exclusivo para trabajos de grado de cada programa académico.\n- Responsable: Estudiante Coordinación del Programa Académico, de Campus y Educación Virtual\n- Registro: F-SIG-08 “Acta Reunión” F-DC-128 “Informe Final Trabajo Grado Modalidad Práctica” F-DC-129 “Rejilla Evaluación Informe Final Trabajo Grado” F-IN-13 “Licencia y Autorización Publicación Obras en el RI-UTS” F-DC-130 “Concepto Final Trabajo de Grado” Correo Electrónico",
+          "page_start": 8,
+          "page_end": 8
+        },
+        {
+          "chunk_id": "ver_p_dc_29_v3_numeral_8",
+          "location_hint": "P-DC-29.pdf, Numeral 8: CONTROLES OPERACIONALES (págs. 9-9)",
+          "texto": "P-DC-29.pdf - Numeral 8. CONTROLES OPERACIONALES:\n9.ANEXOS\nNo Aplica.\n10. HISTORIAL DE CAMBIOS\nVERSIÓN DESCRIPCIÓN\nNÚMERO DE\nSOLICITUD DE\nCAMBIO\nFECHA\n1.0 Emisión inicial 727 Noviembre de\n2019\n2.0 Se hace ajuste a las actividades y se incluye\nflujograma al procedimiento 074 Octubre de 2023\n3.0 Eliminación del Flujograma 023 Abril de 2024\nMÉTODO DE CONTROL FRECUENCIA RESPONSABLE\nEVIDENCIA\n(Formatos,\ndocumentos,\netc.).\nReuniones periódicas del Comité de\nTrabajo de Grado Semanal\nCoordinador del\nPrograma\nAcadémico, de\nCampus y\nEducación\nVirtual,\nComité de\nTrabajo de\nGrado.\nF-SIG-08 Acta\nde reunión",
+          "page_start": 9,
+          "page_end": 9
+        }
+      ],
+      "estado_revision_humana": "PENDIENTE_REVISION_HUMANA"
+    }
+  ]
+}

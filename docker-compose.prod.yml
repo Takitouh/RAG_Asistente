@@ -1,0 +1,87 @@
+# ============================================================
+# NORMATIVA-TG UTS — Docker Compose de Producción (AWS)
+# ============================================================
+# Levanta los 3 servicios: app (FastAPI+React), Qdrant y Ollama.
+#
+# Uso:
+#   docker compose -f docker-compose.prod.yml up -d
+#
+# Después del primer arranque, descargar los modelos de Ollama:
+#   docker compose -f docker-compose.prod.yml exec ollama ollama pull qwen2.5:7b
+#   docker compose -f docker-compose.prod.yml exec ollama ollama pull bge-m3
+# ============================================================
+
+services:
+  # ---------- App monolítica (FastAPI + React) ----------
+  app:
+    image: asistenterag:1.0
+    container_name: normativa-app
+    ports:
+      - "8000:8000"
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - LLM_MODEL=${LLM_MODEL:-qwen2.5:7b}
+      - EMBED_MODEL=${EMBED_MODEL:-bge-m3}
+      - QDRANT_URL=http://qdrant:6333
+      - QDRANT_COLLECTION=${QDRANT_COLLECTION:-normativa}
+      - SQLITE_PATH=/app/data/db/normativa.db
+      - DATA_DIR=/app/data
+      - ADMIN_API_KEY=${ADMIN_API_KEY:-cambiar-en-produccion}
+    volumes:
+      - app_data:/app/data
+    depends_on:
+      qdrant:
+        condition: service_healthy
+      ollama:
+        condition: service_started
+    restart: unless-stopped
+    networks:
+      - normativa-net
+
+  # ---------- Qdrant (Base de datos vectorial) ----------
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: normativa-qdrant
+    volumes:
+      - qdrant_data:/qdrant/storage
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:6333/readyz"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - normativa-net
+    # No exponemos puertos al host; solo accesible internamente.
+
+  # ---------- Ollama (LLM y Embeddings locales) ----------
+  ollama:
+    image: ollama/ollama:latest
+    container_name: normativa-ollama
+    volumes:
+      - ollama_data:/root/.ollama
+    # Descomentar si la instancia AWS tiene GPU NVIDIA:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+    restart: unless-stopped
+    networks:
+      - normativa-net
+    # No exponemos puertos al host; solo accesible internamente.
+
+volumes:
+  app_data:
+    driver: local
+  qdrant_data:
+    driver: local
+  ollama_data:
+    driver: local
+
+networks:
+  normativa-net:
+    driver: bridge

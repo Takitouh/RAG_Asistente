@@ -5,6 +5,34 @@ export type ProcessingStatus =
   | 'PROCESADO'
   | 'ERROR';
 
+export type ReviewStatus =
+  | 'PENDIENTE'
+  | 'APROBADO'
+  | 'RECHAZADO'
+  | 'CON_DISCREPANCIAS';
+
+export interface DocumentCategory {
+  id: string;
+  nombre: string;
+  descripcion: string | null;
+  estado: 'ACTIVO' | 'INACTIVO';
+  created_at: string;
+  updated_at: string;
+}
+
+export interface DocumentFamily {
+  id: string;
+  categoria_id: string;
+  codigo: string;
+  nombre: string;
+  descripcion: string | null;
+  perfil_procesamiento?: string;
+  estado: 'ACTIVO' | 'INACTIVO';
+  created_at: string;
+  updated_at: string;
+  categoria_nombre?: string | null;
+}
+
 export interface Citation {
   chunk_id: string;
   version_id: string;
@@ -36,38 +64,55 @@ export interface QueryResponse {
   response_type?: 'greeting' | 'normative' | 'clarification' | 'abstention';
   clarification_needed?: boolean;
   clarification_question?: string | null;
+  authorized_versions?: string[];
 }
 
 export interface NormativeVersion {
   id: string;
   document_id: string;
+  family_id?: string;
   nombre: string;
+  numero_version_institucional?: string | null;
   numero_acuerdo: string | null;
   anio: number | null;
   fecha_expedicion: string | null;
+  procedencia?: string | null;
   estado_vigencia: string | null;
   status: ProcessingStatus;
   status_message: string | null;
+  estado_revision?: ReviewStatus;
+  fecha_revision?: string | null;
+  observaciones_revision?: string | null;
+  inconsistencia_identidad?: boolean;
   is_active: boolean;
   created_at: string;
   updated_at: string;
   activated_at: string | null;
   report_json: string | null;
   chunks_count: number;
+  file_hash?: string | null;
+  family_name?: string | null;
+  categoria_id?: string | null;
+  categoria_nombre?: string | null;
 }
 
 export interface ActiveVersionResponse {
   active_version: NormativeVersion | null;
   has_active_version: boolean;
+  active_corpus?: NormativeVersion[];
   message: string;
 }
 
 export interface AdminStats {
+  total_categories?: number;
+  total_families?: number;
   total_versions: number;
   status_counts: Record<ProcessingStatus, number>;
   active_version: NormativeVersion | null;
+  active_corpus?: NormativeVersion[];
   total_chunks: number;
   total_traces: number;
+  inconsistent_versions_count?: number;
 }
 
 export interface ExtractionReport {

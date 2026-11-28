@@ -17,6 +17,7 @@ export const AdminDashboardPage: React.FC = () => {
   const [stats, setStats] = useState<AdminStats | null>(null);
   const [versions, setVersions] = useState<NormativeVersion[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [activeTab, setActiveTab] = useState<'versions' | 'hierarchy' | 'active_corpus'>('versions');
 
   // Estados de modales
   const [isUploadOpen, setIsUploadOpen] = useState(false);
@@ -24,14 +25,11 @@ export const AdminDashboardPage: React.FC = () => {
   const [selectedVersionForEdit, setSelectedVersionForEdit] = useState<NormativeVersion | null>(null);
 
   const handleLogout = useCallback(async () => {
-    // 1. Invalida inmediatamente el estado de autenticación compartido y la cookie
     await logout();
-    // 2. Limpia inmediatamente los datos administrativos sensibles de la memoria
     setStats(null);
     setVersions([]);
     setSelectedVersionForDetail(null);
     setSelectedVersionForEdit(null);
-    // 3. Redirige inmediatamente a la pantalla de login con replace
     navigate('/admin/login', { replace: true });
   }, [logout, navigate]);
 
@@ -49,7 +47,6 @@ export const AdminDashboardPage: React.FC = () => {
         await handleLogout();
         return;
       }
-      // Manejar error en UI
     } finally {
       setIsLoading(false);
     }
@@ -61,34 +58,38 @@ export const AdminDashboardPage: React.FC = () => {
 
   return (
     <div className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-      {/* Resumen y Acciones */}
+      {/* Resumen y Navegación de Pestañas */}
       <AdminDashboard
         stats={stats}
         isLoading={isLoading}
         onRefresh={loadData}
         onOpenUploadModal={() => setIsUploadOpen(true)}
         onLogout={handleLogout}
+        activeTab={activeTab}
+        onTabChange={(tab) => setActiveTab(tab)}
       />
 
-      {/* Lista de Versiones */}
-      <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-bold text-slate-800">
-            Reglamentos y Versiones Normativas
-          </h2>
-          <span className="text-xs text-slate-500">
-            {versions.length} reglamentos en base de datos
-          </span>
-        </div>
+      {/* Vista de Versiones Normativas */}
+      {activeTab === 'versions' && (
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-bold text-slate-800">
+              Reglamentos y Versiones Normativas
+            </h2>
+            <span className="text-xs text-slate-500">
+              {versions.length} reglamentos en base de datos
+            </span>
+          </div>
 
-        <VersionList
-          versions={versions}
-          isLoading={isLoading}
-          onRefresh={loadData}
-          onOpenDetail={(v) => setSelectedVersionForDetail(v)}
-          onOpenEditMetadata={(v) => setSelectedVersionForEdit(v)}
-        />
-      </div>
+          <VersionList
+            versions={versions}
+            isLoading={isLoading}
+            onRefresh={loadData}
+            onOpenDetail={(v) => setSelectedVersionForDetail(v)}
+            onOpenEditMetadata={(v) => setSelectedVersionForEdit(v)}
+          />
+        </div>
+      )}
 
       {/* Modal de Carga de Documento */}
       <DocumentUploadModal
@@ -99,7 +100,7 @@ export const AdminDashboardPage: React.FC = () => {
 
       {/* Modal de Detalle y Auditoría OCR */}
       <DocumentDetailModal
-        isOpen={Boolean(selectedVersionForDetail)}
+        isOpen={!!selectedVersionForDetail}
         onClose={() => setSelectedVersionForDetail(null)}
         version={selectedVersionForDetail}
         onVersionUpdated={() => {
@@ -109,7 +110,7 @@ export const AdminDashboardPage: React.FC = () => {
 
       {/* Modal de Edición de Metadatos */}
       <MetadataEditModal
-        isOpen={Boolean(selectedVersionForEdit)}
+        isOpen={!!selectedVersionForEdit}
         onClose={() => setSelectedVersionForEdit(null)}
         version={selectedVersionForEdit}
         onSuccess={loadData}

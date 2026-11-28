@@ -39,7 +39,7 @@ ORDINALS = {
 ARTICLE_MARKER_RE = re.compile(r"^\s*(ART[ÍI]CULO|ARTICULO)\b", re.IGNORECASE)
 CHAPTER_MARKER_RE = re.compile(r"^\s*(CAP[ÍI]TULO|CAPITULO)\b", re.IGNORECASE)
 PARAGRAPH_MARKER_RE = re.compile(r"^\s*(PAR[ÁA]GRAFO|PARAGRAFO)\b", re.IGNORECASE)
-PUBLISH_RE = re.compile(r"^\s*PUBLI[QC].*", re.IGNORECASE)
+PUBLISH_RE = re.compile(r"^\s*PUBL[IÍ]QUESE\b", re.IGNORECASE)
 NUMBER_TOKEN_RE = re.compile(r"^[\dOolI|!SBZ]+[\.\,:;\-]*$")
 ROMAN_TOKEN_RE = re.compile(r"^[IVXLCDM|l!]+$", re.IGNORECASE)
 INCISO_TOKEN_RE = re.compile(r"^\s*([A-Za-z0-9|!]{1,3})\s*([.)]{1,2})\s*(.*)$")
@@ -151,8 +151,8 @@ def _is_paragraph_heading(text: str) -> bool:
 
 
 def _is_publish_line(text: str) -> bool:
-    normalized = _strip_accents(text).upper()
-    return normalized.startswith("PUBLI")
+    normalized = _strip_accents(text).upper().strip()
+    return bool(re.match(r"^PUBL[IÍ]QUESE\b", normalized, re.IGNORECASE))
 
 
 def _normalize_number_token(token: str) -> str:
@@ -301,6 +301,17 @@ def _capture_lines(clean_pages: list[CleanPage]) -> tuple[list[_LineRecord], dic
     return records, page_confidences
 
 
+def _clean_trailing_margin_noise(text: str) -> str:
+    """Elimina caracteres aislados o artefactos de margen al final de una línea o título."""
+    while True:
+        cleaned = re.sub(r"\s+([A-Za-zÁÉÍÓÚÜÑáéíóúüñ]{1,2})$", "", text.strip())
+        if cleaned != text.strip():
+            text = cleaned
+        else:
+            break
+    return text.strip()
+
+
 def _parse_chapter_header(line: str, expected: int) -> tuple[int | None, str | None, str | None]:
     if not _is_chapter_heading(line):
         return None, None, None
@@ -310,7 +321,10 @@ def _parse_chapter_header(line: str, expected: int) -> tuple[int | None, str | N
     raw_numeral = parts[1]
     numeral = _roman_to_int(raw_numeral)
     roman_clean = _strip_accents(raw_numeral).upper().translate(str.maketrans({"|": "I", "1": "I", "L": "I", "!": "I"}))
+    roman_clean = re.sub(r"[^IVXLCDM]", "", roman_clean)
     title = " ".join(parts[2:]).strip()
+    if title:
+        title = _clean_trailing_margin_noise(title)
     if numeral is None:
         numeral = expected
     return numeral, roman_clean or None, title
@@ -370,6 +384,11 @@ def _parse_inciso_header(line: str, expected: str | int | None, expected_kind: s
         if marker != expected:
             if marker in {"l", "i"} and expected in {"l", "i"}:
                 marker = expected
+            elif marker == "a" and len(expected) == 1 and ord(expected) > ord("a"):
+                # Literal 'a' repetido después de otra letra (ej: Artículo 4 tras 'f').
+                # Se acepta para preservar la anomalía documental original; el chunker
+                # asignará sufijo _bis para evitar colisión de IDs.
+                pass  # marker permanece 'a'
             else:
                 return None
     elif expected_kind == "digit" and isinstance(expected, int):
@@ -467,7 +486,7 @@ def parse_document(clean_pages: list[CleanPage], source_file: str) -> ParsedDocu
 
         if _is_chapter_heading(text):
             finish_current_article()
-            chapter_num, chapter_roman, _ = _parse_chapter_header(text, chapter_expected)
+            chapter_num, chapter_roman, inline_title = _parse_chapter_header(text, chapter_expected)
             if chapter_num is None:
                 anomalies.append(f"Capítulo no reconocido en página {record.page_number}: {text}")
                 i += 1
@@ -482,7 +501,12 @@ def parse_document(clean_pages: list[CleanPage], source_file: str) -> ParsedDocu
                     anomalies.append(f"Capítulo fuera de secuencia en página {record.page_number}: {text}")
             current_chapter_num = chapter_num
             current_chapter_roman = chapter_roman or str(chapter_num)
+
             title_lines: list[str] = []
+            cleaned_inline = _clean_trailing_margin_noise(inline_title or "")
+            if cleaned_inline and len(cleaned_inline) > 2:
+                title_lines.append(cleaned_inline)
+
             j = i + 1
             while j < len(records):
                 candidate = records[j].text.strip()
@@ -491,12 +515,31 @@ def parse_document(clean_pages: list[CleanPage], source_file: str) -> ParsedDocu
                     continue
                 if _is_article_heading(candidate) or _is_chapter_heading(candidate) or _is_paragraph_heading(candidate) or _is_publish_line(candidate):
                     break
-                if _line_is_upperish(candidate) and len(title_lines) < 2:
-                    title_lines.append(candidate)
+                # Ignorar líneas residuales o de ruido de margen sin interrumpir la búsqueda del título
+                if len(candidate) <= 3 or (len([c for c in candidate if c.isalpha()]) <= 3 and len(candidate) <= 5):
+                    j += 1
+                    continue
+                if _line_is_upperish(candidate):
+                    cleaned_candidate = _clean_trailing_margin_noise(candidate)
+                    if cleaned_candidate:
+                        title_lines.append(cleaned_candidate)
+                        j += 1
+                        if len(title_lines) >= 3:
+                            break
+                        continue
+                # Si no es mayúscula ni ruido, terminar la búsqueda del título
+                break
+
+            # Avanzar sobre posibles artefactos residuales de margen entre el título y el primer artículo
+            while j < len(records):
+                candidate = records[j].text.strip()
+                if candidate and (len(candidate) <= 3 or (len([c for c in candidate if c.isalpha()]) <= 3 and len(candidate) <= 5)):
                     j += 1
                     continue
                 break
-            current_chapter_title = _clean_content_text(_reflow_lines(title_lines)) or None
+
+            raw_title = _clean_content_text(_reflow_lines(title_lines))
+            current_chapter_title = _clean_trailing_margin_noise(raw_title) or None
             chapter_expected = chapter_num + 1
             i = j
             continue
@@ -576,9 +619,12 @@ def parse_document(clean_pages: list[CleanPage], source_file: str) -> ParsedDocu
                 if marker.isdigit():
                     current_context_paragraph._expected_kind = "digit"  # type: ignore[attr-defined]
                     current_context_paragraph._expected_value = int(marker) + 1  # type: ignore[attr-defined]
-                else:
+                elif len(marker) == 1:
                     current_context_paragraph._expected_kind = "letter"  # type: ignore[attr-defined]
                     current_context_paragraph._expected_value = chr(ord(marker) + 1)  # type: ignore[attr-defined]
+                else:
+                    current_context_paragraph._expected_kind = None  # type: ignore[attr-defined]
+                    current_context_paragraph._expected_value = None  # type: ignore[attr-defined]
                 i += 1
                 continue
             if current_article.current_inciso is not None:
@@ -590,12 +636,27 @@ def parse_document(clean_pages: list[CleanPage], source_file: str) -> ParsedDocu
             if remainder:
                 new_inciso.lines.append(remainder)
             current_article.current_inciso = new_inciso
-            if marker.isdigit():
+            # Detectar literal repetido (anomalía documental): marker == 'a' pero expected era > 'a'.
+            if not marker.isdigit() and expected_kind == "letter" and isinstance(expected_value, str) and len(expected_value) == 1 and marker == "a" and ord(expected_value) > ord("a"):
+                art_num = current_article.numero or "?"
+                anomalies.append(
+                    f"Artículo {art_num}: Literal '{marker}' repetido en el documento original tras el literal '{chr(ord(expected_value) - 1)}'. "
+                    f"Se conserva el orden original del PDF."
+                )
+                if "literal_repetido_fuente" not in current_article.flags:
+                    current_article.flags.append("literal_repetido_fuente")
+                # Mantener expected en 'b' para que el chunker detecte el duplicado por marker != expected.
+                current_article._expected_kind = "letter"  # type: ignore[attr-defined]
+                current_article._expected_value = "b"  # type: ignore[attr-defined]
+            elif marker.isdigit():
                 current_article._expected_kind = "digit"  # type: ignore[attr-defined]
                 current_article._expected_value = int(marker) + 1  # type: ignore[attr-defined]
-            else:
+            elif len(marker) == 1:
                 current_article._expected_kind = "letter"  # type: ignore[attr-defined]
                 current_article._expected_value = chr(ord(marker) + 1)  # type: ignore[attr-defined]
+            else:
+                current_article._expected_kind = None  # type: ignore[attr-defined]
+                current_article._expected_value = None  # type: ignore[attr-defined]
             i += 1
             continue
 

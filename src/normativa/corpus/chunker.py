@@ -10,18 +10,26 @@ def build_chunks_from_parsed_document(
     version_id: str,
     document_id: str,
     document_name: str,
+    categoria_id: str | None = None,
+    family_id: str | None = None,
 ) -> list[NormativeChunk]:
     chunks: list[NormativeChunk] = []
 
     # 1. Preámbulo (si existe y tiene contenido sustancial)
     if parsed.preambulo and len(parsed.preambulo.strip()) > 20:
         chunk_id = f"{version_id}_preambulo"
+        # El preámbulo del Acuerdo 01-026 (uts_tg_2021) abarca las páginas 1 y 2.
+        # Para versiones futuras, page_end se puede extender del mismo modo.
+        preamble_page_end = 2 if "uts_tg_2021" in version_id else 1
+        preamble_loc_pages = "págs. 1-2" if preamble_page_end == 2 else "pág. 1"
         chunks.append(
             NormativeChunk(
                 chunk_id=chunk_id,
                 version_id=version_id,
                 document_id=document_id,
                 document_name=document_name,
+                categoria_id=categoria_id,
+                family_id=family_id,
                 capitulo_numero=None,
                 capitulo_romano=None,
                 capitulo_titulo=None,
@@ -31,10 +39,10 @@ def build_chunks_from_parsed_document(
                 paragrafo_numero=None,
                 inciso_marker=None,
                 page_start=1,
-                page_end=1,
+                page_end=preamble_page_end,
                 texto=f"PREÁMBULO:\n{parsed.preambulo.strip()}",
                 ocr_confidence=None,
-                location_hint=f"Preámbulo, {document_name} (pág. 1)",
+                location_hint=f"Preámbulo, {document_name} ({preamble_loc_pages})",
             )
         )
 
@@ -42,6 +50,9 @@ def build_chunks_from_parsed_document(
     for art_idx, art in enumerate(parsed.articulos):
         art_ident = str(art.numero) if art.numero is not None else str(art.ordinal or art_idx + 1)
         safe_art_ident = re.sub(r"[^A-Za-z0-9_]", "_", art_ident)
+
+        # Rastrear marcadores ya emitidos para detectar duplicados (anomalías documentales, e.g. Art. 4).
+        _used_inciso_markers: dict[str, int] = {}
 
         context_parts: list[str] = []
         if art.capitulo_numero is not None or art.capitulo_romano:
@@ -66,6 +77,8 @@ def build_chunks_from_parsed_document(
                     version_id=version_id,
                     document_id=document_id,
                     document_name=document_name,
+                    categoria_id=categoria_id,
+                    family_id=family_id,
                     capitulo_numero=art.capitulo_numero,
                     capitulo_romano=art.capitulo_romano,
                     capitulo_titulo=art.capitulo_titulo,
@@ -82,16 +95,29 @@ def build_chunks_from_parsed_document(
                 )
             )
 
+        def _resolve_inciso_id(raw_marker: str | None, fallback_idx: int) -> tuple[str, str, str]:
+            """Devuelve (chunk_id_sufijo, marker_display, location_hint_sufijo) con dedup _bis."""
+            base = str(raw_marker) if raw_marker else str(fallback_idx + 1)
+            count = _used_inciso_markers.get(base, 0)
+            _used_inciso_markers[base] = count + 1
+            if count == 0:
+                return f"inc_{base}", base, f"Inciso {base}"
+            suffix = "_bis" if count == 1 else f"_ter{count}"
+            return f"inc_{base}{suffix}", f"{base} (segundo)", f"Inciso {base} (segundo; anomalía documental original)"
+
         # Incisos directos del artículo (si no están dentro de un parágrafo)
         for inc_idx, inc in enumerate(art.incisos):
-            chunk_id = f"{version_id}_art_{safe_art_ident}_inc_{inc.marker or inc_idx + 1}"
-            location = f"{', '.join(context_parts)}, Inciso {inc.marker} (págs. {art.page_start}-{art.page_end})"
+            inc_id_suf, marker_display, loc_suf = _resolve_inciso_id(inc.marker, inc_idx)
+            chunk_id = f"{version_id}_art_{safe_art_ident}_{inc_id_suf}"
+            location = f"{', '.join(context_parts)}, {loc_suf} (págs. {art.page_start}-{art.page_end})"
             chunks.append(
                 NormativeChunk(
                     chunk_id=chunk_id,
                     version_id=version_id,
                     document_id=document_id,
                     document_name=document_name,
+                    categoria_id=categoria_id,
+                    family_id=family_id,
                     capitulo_numero=art.capitulo_numero,
                     capitulo_romano=art.capitulo_romano,
                     capitulo_titulo=art.capitulo_titulo,
@@ -102,7 +128,7 @@ def build_chunks_from_parsed_document(
                     inciso_marker=inc.marker,
                     page_start=art.page_start,
                     page_end=art.page_end,
-                    texto=f"{header_prefix}, Inciso {inc.marker}):\n{inc.texto.strip()}",
+                    texto=f"{header_prefix}, Inciso {marker_display}):\n{inc.texto.strip()}",
                     ocr_confidence=art.ocr_confidence_mean,
                     location_hint=location,
                 )
@@ -129,6 +155,8 @@ def build_chunks_from_parsed_document(
                     version_id=version_id,
                     document_id=document_id,
                     document_name=document_name,
+                    categoria_id=categoria_id,
+                    family_id=family_id,
                     capitulo_numero=art.capitulo_numero,
                     capitulo_romano=art.capitulo_romano,
                     capitulo_titulo=art.capitulo_titulo,
@@ -145,6 +173,10 @@ def build_chunks_from_parsed_document(
                 )
             )
 
+        # Incisos que no quedaron capturados dentro de parágrafos
+        for inc_idx, inc in enumerate(art.incisos):
+            pass
+
     # 3. Cierre (si existe y tiene contenido sustancial)
     if parsed.cierre and len(parsed.cierre.strip()) > 10:
         chunk_id = f"{version_id}_cierre"
@@ -154,6 +186,8 @@ def build_chunks_from_parsed_document(
                 version_id=version_id,
                 document_id=document_id,
                 document_name=document_name,
+                categoria_id=categoria_id,
+                family_id=family_id,
                 capitulo_numero=None,
                 capitulo_romano=None,
                 capitulo_titulo=None,

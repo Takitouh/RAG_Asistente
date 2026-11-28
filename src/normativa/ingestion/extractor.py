@@ -44,6 +44,63 @@ def _normalize(value: float, total: float) -> float:
     return ratio
 
 
+def _extract_text_layer_lines_pdfium(page: pdfium.PdfPage) -> tuple[list[LineInfo], str]:
+    tp = page.get_textpage()
+    width, height = page.get_size()
+    full_text = tp.get_text_range()
+
+    lines: list[LineInfo] = []
+    clean_lines_text: list[str] = []
+    curr_idx = 0
+    total_chars = tp.count_chars()
+
+    for raw_line in full_text.splitlines():
+        line_str = raw_line.strip()
+        idx_in_full = full_text.find(raw_line, curr_idx)
+        if idx_in_full != -1:
+            curr_idx = idx_in_full + len(raw_line)
+        if not line_str:
+            continue
+
+        start_char = idx_in_full if idx_in_full != -1 else 0
+        while start_char < curr_idx and start_char < len(full_text) and full_text[start_char].isspace():
+            start_char += 1
+        end_char = curr_idx - 1
+        while end_char > start_char and end_char < len(full_text) and full_text[end_char].isspace():
+            end_char -= 1
+
+        b_start = tp.get_charbox(start_char) if start_char < total_chars else (0.0, 0.0, 0.0, 0.0)
+        b_end = tp.get_charbox(end_char) if end_char < total_chars else b_start
+
+        left = min(b_start[0], b_end[0])
+        bottom = min(b_start[1], b_end[1])
+        right = max(b_start[2], b_end[2])
+        top = max(b_start[3], b_end[3])
+
+        # Exclusión de texto vertical o ubicado en margen derecho institucional (supervisión MEN)
+        if (left > width * 0.91 and right > width * 0.94) or "VIGILADO" in line_str or "Ministerio de Educación" in line_str:
+            continue
+
+        # Limpieza de caracteres de corte de palabra / guiones suaves de Word/LibreOffice
+        line_str = line_str.replace("\ufffe", "").replace("\xad", "").strip()
+        if not line_str:
+            continue
+
+        y_top_norm = _normalize(height - top, height)
+        y_bottom_norm = _normalize(height - bottom, height)
+
+        lines.append(
+            LineInfo(
+                text=line_str,
+                y_top_norm=y_top_norm,
+                y_bottom_norm=y_bottom_norm,
+            )
+        )
+        clean_lines_text.append(line_str)
+
+    return lines, "\n".join(clean_lines_text)
+
+
 def _extract_text_layer_lines(page: pdfplumber.page.Page) -> list[LineInfo]:
     lines = page.extract_text_lines(strip=True, return_chars=False) or []
     page_height = float(page.height or 1.0)
@@ -126,61 +183,56 @@ def _ocr_page(page: pdfium.PdfPage, ocr_dpi: int) -> tuple[list[LineInfo], str, 
 
 def extract_pages(pdf_path: Path, min_chars: int = 50, ocr_dpi: int = 300, force_ocr: bool = False) -> list[PageText]:
     results: list[PageText] = []
-    with pdfplumber.open(pdf_path) as plumber_pdf:
-        pdfium_doc = pdfium.PdfDocument(str(pdf_path))
-        try:
-            total_pages = len(plumber_pdf.pages)
-            for index, page in enumerate(plumber_pdf.pages, start=1):
-                try:
-                    text_layer_text = page.extract_text() or ""
-                except Exception as exc:  # noqa: BLE001
-                    print(f"Página {index}/{total_pages} [text_layer] ERROR: {exc}")
-                    text_layer_text = ""
+    pdfium_doc = pdfium.PdfDocument(str(pdf_path))
+    try:
+        total_pages = len(pdfium_doc)
+        for index in range(1, total_pages + 1):
+            pdfium_page = pdfium_doc[index - 1]
+            try:
+                lines, text_layer_text = _extract_text_layer_lines_pdfium(pdfium_page)
+            except Exception as exc:  # noqa: BLE001
+                print(f"Página {index}/{total_pages} [text_layer] ERROR: {exc}")
+                text_layer_text = ""
+                lines = []
 
-                if should_use_text_layer(text_layer_text, min_chars=min_chars, force_ocr=force_ocr):
-                    try:
-                        lines = _extract_text_layer_lines(page)
-                    except Exception as exc:  # noqa: BLE001
-                        print(f"Página {index}/{total_pages} [text_layer] ERROR: {exc}")
-                        text_layer_text = ""
-                    else:
-                        print(f"Página {index}/{total_pages} [text_layer] ...")
-                        results.append(
-                            PageText(
-                                page_number=index,
-                                text=text_layer_text,
-                                method="text_layer",
-                                ocr_confidence=None,
-                                lines=lines,
-                            )
-                        )
-                        continue
+            if should_use_text_layer(text_layer_text, min_chars=min_chars, force_ocr=force_ocr):
+                print(f"Página {index}/{total_pages} [text_layer] ...")
+                results.append(
+                    PageText(
+                        page_number=index,
+                        text=text_layer_text,
+                        method="text_layer",
+                        ocr_confidence=None,
+                        lines=lines,
+                    )
+                )
+                continue
 
-                try:
-                    lines, text, confidence = _ocr_page(pdfium_doc[index - 1], ocr_dpi)
-                    print(f"Página {index}/{total_pages} [ocr] ...")
-                    results.append(
-                        PageText(
-                            page_number=index,
-                            text=text,
-                            method="ocr",
-                            ocr_confidence=confidence,
-                            lines=lines,
-                        )
+            try:
+                lines, text, confidence = _ocr_page(pdfium_page, ocr_dpi)
+                print(f"Página {index}/{total_pages} [ocr] ...")
+                results.append(
+                    PageText(
+                        page_number=index,
+                        text=text,
+                        method="ocr",
+                        ocr_confidence=confidence,
+                        lines=lines,
                     )
-                except Exception as exc:  # noqa: BLE001
-                    print(f"Página {index}/{total_pages} [ocr] ERROR: {exc}")
-                    results.append(
-                        PageText(
-                            page_number=index,
-                            text="",
-                            method="ocr",
-                            ocr_confidence=None,
-                            lines=[],
-                        )
+                )
+            except Exception as exc:  # noqa: BLE001
+                print(f"Página {index}/{total_pages} [ocr] ERROR: {exc}")
+                results.append(
+                    PageText(
+                        page_number=index,
+                        text="",
+                        method="ocr",
+                        ocr_confidence=None,
+                        lines=[],
                     )
-        finally:
-            pdfium_doc.close()
+                )
+    finally:
+        pdfium_doc.close()
     return results
 
 

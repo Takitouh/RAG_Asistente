@@ -1,13 +1,13 @@
 """Módulo de recuperación normativa híbrida y contextual.
 
 Responsabilidades:
-- Identificar la versión activa en el momento de la consulta.
+- Identificar las versiones activas autorizadas en el momento de la consulta.
 - Detectar referencias normativas explícitas (artículos, parágrafos, acuerdos).
 - Generar el embedding de la pregunta usando Ollama (bge-m3).
-- Buscar en Qdrant filtrando OBLIGATORIAMENTE por ``version_id``.
+- Buscar en Qdrant filtrando OBLIGATORIAMENTE por ``version_id`` autorizado.
 - Enriquecer la recuperación con búsqueda léxica y contextual (artículo, cuerpo, incisos).
-- Verificar que cada resultado pertenezca a la versión correcta (doble seguro).
-- Gestionar la abstención cuando no hay versión activa o no hay resultados relevantes.
+- Verificar que cada resultado pertenezca a las versiones autorizadas (doble seguro).
+- Gestionar la abstención cuando no hay versiones activas o no hay resultados relevantes.
 """
 from __future__ import annotations
 
@@ -23,7 +23,8 @@ from qdrant_client.http import models as qdrant_models
 
 from normativa.config import settings
 from normativa.corpus import db
-from normativa.corpus.db import get_active_version
+from normativa.corpus.db import get_active_versions
+from normativa.corpus.models import ProcessingStatus
 from normativa.retrieval.context_expander import expand_normative_context
 from normativa.retrieval.explicit_matcher import fetch_explicit_chunks, match_explicit_reference
 from normativa.retrieval.models import RetrievalResult, RetrievedChunk
@@ -57,7 +58,7 @@ _KEYWORD_PATTERNS = [
 
 
 class NormativeRetriever:
-    """Recupera fragmentos normativos de Qdrant y SQLite, aislados por version_id."""
+    """Recupera fragmentos normativos de Qdrant y SQLite, aislados por version_id autorizado."""
 
     def __init__(
         self,
@@ -91,34 +92,36 @@ class NormativeRetriever:
             )
         return self._embed_model.get_text_embedding
 
-    def _lexical_search(self, query: str, version_id: str) -> list[RetrievedChunk]:
-        """Búsqueda complementaria por palabras clave en SQLite."""
+    def _lexical_search(self, query: str, authorized_version_ids: list[str]) -> list[RetrievedChunk]:
+        """Búsqueda complementaria por palabras clave en SQLite limitada a versiones autorizadas."""
         matches = []
         for pat in _KEYWORD_PATTERNS:
             if re.search(pat, query, re.IGNORECASE):
-                # Extraer raíz de palabra clave
                 clean_term = re.sub(r"[^\w\s]", "", pat).replace("\\b", "").strip()
                 if clean_term:
                     matches.append(clean_term)
 
-        if not matches:
+        if not matches or not authorized_version_ids:
             return []
 
         chunks: list[RetrievedChunk] = []
         seen_ids: set[str] = set()
+        placeholders = ",".join("?" for _ in authorized_version_ids)
 
         try:
             with db.get_connection(self.db_path) as conn:
                 for term in matches[:2]:  # máximo 2 términos
+                    params: list[Any] = list(authorized_version_ids)
+                    params.extend([f"%{term}%", f"%{term}%"])
                     cursor = conn.execute(
-                        """
+                        f"""
                         SELECT id, version_id, document_id, document_name,
                                capitulo_numero, capitulo_romano, capitulo_titulo,
                                articulo_numero, articulo_ordinal, articulo_tipo,
                                paragrafo_numero, inciso_marker, page_start, page_end,
                                texto, ocr_confidence, location_hint
                         FROM chunks
-                        WHERE version_id = ?
+                        WHERE version_id IN ({placeholders})
                           AND (texto LIKE ? OR location_hint LIKE ?)
                         ORDER BY
                           CASE
@@ -129,7 +132,7 @@ class NormativeRetriever:
                           id
                         LIMIT 5
                         """,
-                        (version_id, f"%{term}%", f"%{term}%"),
+                        params,
                     )
                     rows = cursor.fetchall()
                     for r in rows:
@@ -142,7 +145,7 @@ class NormativeRetriever:
                             chunks.append(
                                 RetrievedChunk(
                                     chunk_id=cid,
-                                    version_id=version_id,
+                                    version_id=r["version_id"],
                                     score=0.75,
                                     payload=payload,
                                     text=r["texto"],
@@ -154,21 +157,43 @@ class NormativeRetriever:
 
         return chunks
 
-    def retrieve(self, query: str) -> RetrievalResult:
-        """Ejecuta una búsqueda híbrida y contextual contra la versión activa.
+    def retrieve(
+        self,
+        query: str,
+        authorized_version_ids: list[str] | None = None,
+    ) -> RetrievalResult:
+        """Ejecuta una búsqueda híbrida y contextual contra el conjunto de versiones autorizadas.
 
-        1. Verifica la versión activa (aislamiento total).
+        1. Verifica las versiones autorizadas (aislamiento de corpus activo).
         2. Búsqueda exacta si se menciona un artículo explícito.
-        3. Búsqueda vectorial en Qdrant con filtro por version_id.
+        3. Búsqueda vectorial en Qdrant con filtro obligatorio por version_id.
         4. Búsqueda léxica complementaria en SQLite.
-        5. Expansión contextual jerárquica (cuerpo, incisos, parágrafos).
+        5. Expansión contextual jerárquica por versión (cuerpo, incisos, parágrafos).
         6. Verificación de seguridad en payload.
         """
         t0 = time.perf_counter()
 
-        # 1. Determinar versión activa
-        active = get_active_version(self.db_path)
-        if active is None:
+        # 1. Determinar versiones autorizadas (corpus activo)
+        active_docs: list[Any] = []
+        if authorized_version_ids is None:
+            active_list = get_active_versions(self.db_path)
+            # Reglas 10 y 11: Solo versiones PROCESADO, explícitamente APROBADAS y sin inconsistencias
+            # Debe ser consistente con las condiciones de activación en db.activate_version
+            valid_actives = [
+                v for v in active_list
+                if not v.inconsistencia_identidad
+                and v.status == ProcessingStatus.PROCESADO
+                and v.estado_revision == "APROBADO"
+            ]
+            authorized_version_ids = [v.id for v in valid_actives]
+            active_docs = valid_actives
+        else:
+            for vid in authorized_version_ids:
+                v = db.get_version(vid, self.db_path)
+                if v:
+                    active_docs.append(v)
+
+        if not authorized_version_ids:
             return RetrievalResult(
                 version_id=None,
                 document_name=None,
@@ -177,16 +202,21 @@ class NormativeRetriever:
                 retrieval_ms=(time.perf_counter() - t0) * 1000,
             )
 
-        version_id = active.id
-        document_name = active.nombre
+        if len(authorized_version_ids) == 1:
+            primary_version_id = authorized_version_ids[0]
+            document_name = active_docs[0].nombre if active_docs else primary_version_id
+        else:
+            primary_version_id = authorized_version_ids[0]
+            document_name = f"Corpus activo ({len(authorized_version_ids)} documentos)"
 
         # 2. Búsqueda por referencia explícita (e.g. ¿Qué establece el artículo 15?)
         explicit_chunks: list[RetrievedChunk] = []
         explicit_match = match_explicit_reference(query)
         if explicit_match is not None:
-            explicit_chunks = fetch_explicit_chunks(self.db_path, version_id, explicit_match)
+            for vid in authorized_version_ids:
+                explicit_chunks.extend(fetch_explicit_chunks(self.db_path, vid, explicit_match))
 
-        # 3. Búsqueda semántica en Qdrant
+        # 3. Búsqueda semántica en Qdrant con filtro estricto
         semantic_chunks: list[RetrievedChunk] = []
         try:
             embed_fn = self._get_embed_fn()
@@ -195,19 +225,30 @@ class NormativeRetriever:
             raise RuntimeError(f"Error generando embedding para la consulta: {exc}") from exc
 
         try:
-            # Asegurar limit suficiente para candidatos
             search_limit = max(self.top_k, 10)
-            results = self._client.query_points(
-                collection_name=self.collection_name,
-                query=vector,
-                query_filter=qdrant_models.Filter(
+            if len(authorized_version_ids) == 1:
+                qfilter = qdrant_models.Filter(
                     must=[
                         qdrant_models.FieldCondition(
                             key="version_id",
-                            match=qdrant_models.MatchValue(value=version_id),
+                            match=qdrant_models.MatchValue(value=authorized_version_ids[0]),
                         )
                     ]
-                ),
+                )
+            else:
+                qfilter = qdrant_models.Filter(
+                    must=[
+                        qdrant_models.FieldCondition(
+                            key="version_id",
+                            match=qdrant_models.MatchAny(any=authorized_version_ids),
+                        )
+                    ]
+                )
+
+            results = self._client.query_points(
+                collection_name=self.collection_name,
+                query=vector,
+                query_filter=qfilter,
                 limit=search_limit,
             )
         except Exception as exc:
@@ -215,7 +256,8 @@ class NormativeRetriever:
 
         for point in results.points:
             payload = point.payload or {}
-            if payload.get("version_id") != version_id:
+            point_version_id = payload.get("version_id")
+            if point_version_id not in authorized_version_ids:
                 continue
             score = point.score if hasattr(point, "score") else 0.0
             if score < self.min_score:
@@ -223,7 +265,7 @@ class NormativeRetriever:
             semantic_chunks.append(
                 RetrievedChunk(
                     chunk_id=payload.get("chunk_id", str(point.id)),
-                    version_id=version_id,
+                    version_id=point_version_id,
                     score=score,
                     payload=payload,
                     text=payload.get("text", ""),
@@ -232,7 +274,7 @@ class NormativeRetriever:
             )
 
         # 4. Búsqueda léxica complementaria
-        lexical_chunks = self._lexical_search(query, version_id)
+        lexical_chunks = self._lexical_search(query, authorized_version_ids)
 
         # 5. Fusión de candidatos priorizando coincidencias explícitas
         combined_chunks: list[RetrievedChunk] = []
@@ -253,21 +295,25 @@ class NormativeRetriever:
                 seen_ids.add(c.chunk_id)
                 combined_chunks.append(c)
 
-        # 6. Expansión contextual jerárquica (conecta parágrafos con cuerpos y recupera incisos)
-        final_chunks = expand_normative_context(
-            combined_chunks,
-            self.db_path,
-            version_id,
-            query,
-        )
+        # 6. Expansión contextual jerárquica por cada versión (aislamiento total entre versiones)
+        final_chunks: list[RetrievedChunk] = []
+        for vid in authorized_version_ids:
+            vid_chunks = [c for c in combined_chunks if c.version_id == vid]
+            if vid_chunks:
+                expanded = expand_normative_context(
+                    vid_chunks,
+                    self.db_path,
+                    vid,
+                    query,
+                )
+                final_chunks.extend(expanded)
 
         retrieval_ms = (time.perf_counter() - t0) * 1000
 
         # 7. Evaluación de abstención en recuperación:
-        # Si no hay ningún chunk o si el score semántico es extremadamente bajo (< 0.35) sin coincidencias explícitas
         if not final_chunks:
             return RetrievalResult(
-                version_id=version_id,
+                version_id=primary_version_id,
                 document_name=document_name,
                 abstained=True,
                 abstention_reason="No se encontraron fragmentos normativos relevantes para la consulta.",
@@ -278,7 +324,7 @@ class NormativeRetriever:
         has_explicit = bool(explicit_chunks)
         if not has_explicit and max_semantic_score < 0.35 and not lexical_chunks:
             return RetrievalResult(
-                version_id=version_id,
+                version_id=primary_version_id,
                 document_name=document_name,
                 abstained=True,
                 abstention_reason="La pregunta está fuera del alcance del reglamento de trabajo de grado.",
@@ -286,7 +332,7 @@ class NormativeRetriever:
             )
 
         return RetrievalResult(
-            version_id=version_id,
+            version_id=primary_version_id,
             document_name=document_name,
             chunks=final_chunks,
             abstained=False,

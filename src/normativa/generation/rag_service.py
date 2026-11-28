@@ -11,7 +11,8 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 
-from normativa.corpus.db import get_active_version
+from normativa.corpus.db import get_active_version, get_active_versions
+from normativa.corpus.models import ProcessingStatus
 from normativa.generation.citations import Citation, build_citations
 from normativa.generation.generator import GenerationResult, NormativeGenerator, _DISCLAIMER
 from normativa.generation.intents import is_greeting_or_social
@@ -42,6 +43,7 @@ class RAGResponse:
     response_type: str = "normative"  # "greeting", "normative", "clarification", "abstention"
     clarification_needed: bool = False
     clarification_question: str | None = None
+    authorized_versions: list[str] = field(default_factory=list)
 
 
 class RAGService:
@@ -68,13 +70,14 @@ class RAGService:
 
         Flujo:
         1. Validar la consulta.
-        2. Detección de intenciones sociales (saludos/cortesía).
-        3. Recuperación normativa contextual (versión activa obligatoria).
-        4. Verificar condiciones de abstención.
-        5. Generar respuesta fundamentada (completa, parcial o aclaratoria).
-        6. Construir citas deterministas verificadas.
-        7. Registrar traza completa en SQLite.
-        8. Devolver RAGResponse.
+        2. Capturar instantánea de versiones activas autorizadas (aislamiento ante concurrencia).
+        3. Detección de intenciones sociales (saludos/cortesía).
+        4. Recuperación normativa contextual (versiones autorizadas obligatorias).
+        5. Verificar condiciones de abstención.
+        6. Generar respuesta fundamentada (completa, parcial o aclaratoria).
+        7. Construir citas deterministas verificadas.
+        8. Registrar traza completa en SQLite.
+        9. Devolver RAGResponse.
         """
         t0 = time.perf_counter()
         trace_id = str(uuid.uuid4())
@@ -86,16 +89,31 @@ class RAGService:
         if len(query_text) > _MAX_QUERY_LEN:
             raise ValueError(f"La consulta no puede superar {_MAX_QUERY_LEN} caracteres.")
 
-        # --- 2. Detección de saludo / cortesía social rápida ---
-        active = get_active_version(self._db_path)
-        active_name = active.nombre if active else None
+        # --- 2. Captura inmutable de versiones autorizadas al inicio de la consulta (Regla 14) ---
+        active_versions = get_active_versions(self._db_path)
+        valid_actives = [
+            v for v in active_versions
+            if not v.inconsistencia_identidad
+            and v.status == ProcessingStatus.PROCESADO
+            and v.estado_revision != "RECHAZADO"
+        ]
+        authorized_version_ids = [v.id for v in valid_actives]
+        snapshot_metadata = [
+            {"id": v.id, "family_id": v.family_id, "nombre": v.nombre}
+            for v in valid_actives
+        ]
+        authorized_snapshot_json = json.dumps(snapshot_metadata)
+
+        # --- 3. Detección de saludo / cortesía social rápida ---
+        primary_active = valid_actives[0] if valid_actives else get_active_version(self._db_path)
+        active_name = primary_active.nombre if primary_active else None
         is_social, social_msg, social_type = is_greeting_or_social(query_text, active_name)
         if is_social and social_msg is not None:
             total_ms = (time.perf_counter() - t0) * 1000
             self._save_trace(
                 trace_id=trace_id,
                 query=query_text,
-                version_id=active.id if active else None,
+                version_id=primary_active.id if primary_active else None,
                 retrieved_chunks_json="[]",
                 response=social_msg,
                 citations=[],
@@ -108,11 +126,12 @@ class RAGService:
                 error_message=None,
                 query_type=social_type or "greeting",
                 context_chunks_json="[]",
+                authorized_versions_json=authorized_snapshot_json,
             )
             return RAGResponse(
                 answer=social_msg,
-                version_id=active.id if active else None,
-                document_name=active.nombre if active else None,
+                version_id=primary_active.id if primary_active else None,
+                document_name=primary_active.nombre if primary_active else None,
                 citations=[],
                 abstained=False,
                 abstention_reason=None,
@@ -124,10 +143,11 @@ class RAGService:
                 response_type="greeting",
                 clarification_needed=False,
                 clarification_question=None,
+                authorized_versions=authorized_version_ids,
             )
 
-        # --- 3. Recuperación (la versión se bloquea y filtra aquí) ---
-        retrieval_result = self._retriever.retrieve(query_text)
+        # --- 4. Recuperación (limitada al conjunto de versiones autorizadas) ---
+        retrieval_result = self._retriever.retrieve(query_text, authorized_version_ids=authorized_version_ids)
 
         citations: list[Citation] = []
         gen_result: GenerationResult | None = None
@@ -136,14 +156,14 @@ class RAGService:
         clarification_question: str | None = None
 
         if retrieval_result.abstained:
-            # --- 4a. Abstención por recuperación ---
+            # --- 5a. Abstención por recuperación ---
             abstained = True
             abstention_reason = retrieval_result.abstention_reason
             answer = f"ABSTENCIÓN: {abstention_reason}"
             generation_ms = 0.0
             response_type = "abstention"
         else:
-            # --- 5. Generación ---
+            # --- 6. Generación ---
             try:
                 gen_result = self._generator.generate(
                     query=query_text,
@@ -170,6 +190,7 @@ class RAGService:
                     error_message=str(exc),
                     query_type="error",
                     context_chunks_json="[]",
+                    authorized_versions_json=authorized_snapshot_json,
                 )
                 raise
 
@@ -181,7 +202,7 @@ class RAGService:
             clarification_needed = gen_result.clarification_needed
             clarification_question = gen_result.clarification_question
 
-            # --- 6. Citas verificadas ---
+            # --- 7. Citas verificadas ---
             citations = build_citations(
                 retrieved_chunks=retrieval_result.chunks,
                 used_chunk_ids=gen_result.used_chunk_ids,
@@ -189,7 +210,7 @@ class RAGService:
 
         total_ms = (time.perf_counter() - t0) * 1000
 
-        # --- 7. Traza en SQLite ---
+        # --- 8. Traza en SQLite ---
         retrieved_json = json.dumps(
             [{"chunk_id": c.chunk_id, "score": c.score} for c in retrieval_result.chunks]
         )
@@ -221,6 +242,7 @@ class RAGService:
             error_message=None,
             query_type=response_type,
             context_chunks_json=context_chunks_json,
+            authorized_versions_json=authorized_snapshot_json,
         )
 
         return RAGResponse(
@@ -238,6 +260,7 @@ class RAGService:
             response_type=response_type,
             clarification_needed=clarification_needed,
             clarification_question=clarification_question,
+            authorized_versions=authorized_version_ids,
         )
 
     def _save_trace(
@@ -258,6 +281,7 @@ class RAGService:
         error_message: str | None,
         query_type: str = "normative",
         context_chunks_json: str = "[]",
+        authorized_versions_json: str = "[]",
     ) -> None:
         citations_json = json.dumps([c.to_dict() for c in citations])
         trace = QueryTrace(
@@ -277,6 +301,7 @@ class RAGService:
             error_message=error_message,
             query_type=query_type,
             context_chunks_json=context_chunks_json,
+            authorized_versions_json=authorized_versions_json,
         )
         try:
             insert_trace(trace, db_path=self._db_path)

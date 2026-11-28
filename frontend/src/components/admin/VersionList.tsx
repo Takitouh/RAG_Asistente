@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import {
   CheckCircle2,
   AlertCircle,
+  AlertTriangle,
   FileSearch,
   Power,
   Trash2,
   Edit,
   Play,
   Loader2,
+  ShieldCheck,
+  ShieldAlert,
 } from 'lucide-react';
 import { NormativeVersion } from '../../types';
 import { Badge } from '../ui/Badge';
@@ -34,7 +37,13 @@ export const VersionList: React.FC<VersionListProps> = ({
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const handleActivate = async (version: NormativeVersion) => {
-    if (!window.confirm(`¿Está seguro de activar "${version.nombre}" (${version.id}) como la normativa oficial activa para las consultas? Las demás versiones quedarán inactivas.`)) {
+    const familyName = version.family_name || version.family_id;
+    const confirmText =
+      `¿Está seguro de activar "${version.nombre}" (${version.id}) para la familia "${familyName}"?\n\n` +
+      `Regla de negocio: Esta acción desactivará la versión anterior de esta misma familia documental, ` +
+      `manteniendo activas las versiones de las demás familias en el corpus.`;
+
+    if (!window.confirm(confirmText)) {
       return;
     }
 
@@ -54,7 +63,7 @@ export const VersionList: React.FC<VersionListProps> = ({
   };
 
   const handleDeactivate = async (version: NormativeVersion) => {
-    if (!window.confirm(`¿Desea desactivar "${version.nombre}"? Si la desactiva, el asistente quedará sin normativa activa hasta que se active otra.`)) {
+    if (!window.confirm(`¿Desea desactivar "${version.nombre}" de la familia "${version.family_name || version.family_id}"?`)) {
       return;
     }
 
@@ -142,35 +151,40 @@ export const VersionList: React.FC<VersionListProps> = ({
           <table className="w-full text-left border-collapse text-xs sm:text-sm">
             <thead>
               <tr className="bg-slate-50/80 border-b border-slate-200 text-slate-500 font-semibold uppercase text-[11px] tracking-wider">
-                <th className="py-3 px-4">Versión / Nombre</th>
+                <th className="py-3 px-4">Versión / Familia</th>
+                <th className="py-3 px-3">Categoría</th>
                 <th className="py-3 px-3">Año / Acuerdo</th>
                 <th className="py-3 px-3">Estado Ingestión</th>
-                <th className="py-3 px-3">Vigencia</th>
+                <th className="py-3 px-3">Revisión / Identidad</th>
                 <th className="py-3 px-3">Chunks</th>
-                <th className="py-3 px-3">Activa</th>
+                <th className="py-3 px-3">Estado Corpus</th>
                 <th className="py-3 px-4 text-right">Acciones</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {isLoading ? (
                 <tr>
-                  <td colSpan={7} className="py-12 text-center text-slate-400">
+                  <td colSpan={8} className="py-12 text-center text-slate-400">
                     <Loader2 className="w-6 h-6 animate-spin mx-auto mb-2 text-uts-green-700" />
-                    <span>Cargando reglamentos registrados...</span>
+                    <span>Cargando versiones documentales registradas...</span>
                   </td>
                 </tr>
               ) : versions.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="py-12 text-center text-slate-500">
+                  <td colSpan={8} className="py-12 text-center text-slate-500">
                     <AlertCircle className="w-8 h-8 text-slate-300 mx-auto mb-2" />
-                    <p className="font-medium text-slate-700">No hay reglamentos registrados</p>
-                    <p className="text-xs text-slate-400 mt-1">Utilice el botón superior para cargar el primer PDF normativo.</p>
+                    <p className="font-medium text-slate-700">No hay versiones documentales registradas</p>
+                    <p className="text-xs text-slate-400 mt-1">Utilice el botón superior para cargar el primer PDF institucional.</p>
                   </td>
                 </tr>
               ) : (
                 versions.map((ver) => {
                   const isBusy = actionLoadingId === ver.id;
-                  const canActivate = ver.status === 'PROCESADO' && !ver.is_active;
+                  const canActivate =
+                    ver.status === 'PROCESADO' &&
+                    !ver.is_active &&
+                    !ver.inconsistencia_identidad &&
+                    ver.estado_revision !== 'RECHAZADO';
 
                   return (
                     <tr
@@ -179,30 +193,70 @@ export const VersionList: React.FC<VersionListProps> = ({
                         ver.is_active ? 'bg-uts-green-50/30' : ''
                       }`}
                     >
+                      {/* Versión y Familia */}
                       <td className="py-3.5 px-4">
                         <div className="font-semibold text-slate-900">{ver.nombre}</div>
-                        <div className="text-[11px] font-mono text-slate-400 mt-0.5">{ver.id}</div>
+                        <div className="text-[11px] font-mono text-slate-400 mt-0.5">
+                          {ver.id} • <span className="font-sans text-slate-600 font-medium">{ver.family_name || ver.family_id}</span>
+                        </div>
                       </td>
 
+                      {/* Categoría */}
+                      <td className="py-3.5 px-3 text-slate-600 text-xs">
+                        <span className="px-2 py-0.5 bg-slate-100 text-slate-700 rounded-md border border-slate-200">
+                          {ver.categoria_nombre || ver.categoria_id || 'Reglamentos'}
+                        </span>
+                      </td>
+
+                      {/* Año y Acuerdo */}
                       <td className="py-3.5 px-3 text-slate-700">
                         <div>{ver.anio || 'N/A'}</div>
                         {ver.numero_acuerdo && (
                           <div className="text-[11px] text-slate-400">{ver.numero_acuerdo}</div>
                         )}
+                        {ver.numero_version_institucional && (
+                          <div className="text-[10px] text-uts-green-700 font-semibold">
+                            v{ver.numero_version_institucional}
+                          </div>
+                        )}
                       </td>
 
+                      {/* Estado Ingestión */}
                       <td className="py-3.5 px-3">
                         <Badge status={ver.status} />
                       </td>
 
-                      <td className="py-3.5 px-3 text-slate-600">
-                        {ver.estado_vigencia || '—'}
+                      {/* Revisión e Identidad */}
+                      <td className="py-3.5 px-3">
+                        {ver.inconsistencia_identidad ? (
+                          <div className="flex items-center gap-1.5 text-rose-700 text-xs font-semibold bg-rose-50 px-2 py-1 rounded border border-rose-200" title={ver.status_message || 'Discrepancia SHA-256 detectada'}>
+                            <ShieldAlert className="w-3.5 h-3.5 text-rose-600 shrink-0" />
+                            <span>Discrepancia</span>
+                          </div>
+                        ) : ver.estado_revision === 'APROBADO' ? (
+                          <div className="flex items-center gap-1.5 text-emerald-700 text-xs font-medium">
+                            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                            <span>Aprobado</span>
+                          </div>
+                        ) : ver.estado_revision === 'RECHAZADO' ? (
+                          <div className="flex items-center gap-1.5 text-rose-600 text-xs font-medium">
+                            <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" />
+                            <span>Rechazado</span>
+                          </div>
+                        ) : (
+                          <div className="flex items-center gap-1.5 text-amber-700 text-xs font-medium">
+                            <AlertTriangle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                            <span>Pendiente</span>
+                          </div>
+                        )}
                       </td>
 
+                      {/* Chunks */}
                       <td className="py-3.5 px-3 font-mono font-medium text-slate-700">
                         {ver.chunks_count}
                       </td>
 
+                      {/* Estado Corpus */}
                       <td className="py-3.5 px-3">
                         {ver.is_active ? (
                           <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300 shadow-2xs">
@@ -214,6 +268,7 @@ export const VersionList: React.FC<VersionListProps> = ({
                         )}
                       </td>
 
+                      {/* Acciones */}
                       <td className="py-3.5 px-4 text-right">
                         <div className="inline-flex items-center gap-1">
                           {/* Botón Detalles y Auditoría OCR */}
@@ -258,6 +313,7 @@ export const VersionList: React.FC<VersionListProps> = ({
                               isLoading={isBusy}
                               onClick={() => handleActivate(ver)}
                               className="text-xs py-1 px-2.5 ml-1"
+                              title="Activar en su familia documental"
                             >
                               Activar
                             </Button>

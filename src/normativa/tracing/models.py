@@ -24,3 +24,4 @@ class QueryTrace:
     error_message: str | None = None
     query_type: str = "normative"  # "normative" | "explicit_article" | "greeting" | "clarification"
     context_chunks_json: str = "[]"
+    authorized_versions_json: str = "[]"

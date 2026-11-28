@@ -46,16 +46,16 @@ class QdrantCorpusIndexer:
                     distance=qdrant_models.Distance.COSINE,
                 ),
             )
-        # Asegurar índice de filtrado para version_id
-        try:
-            self._client.create_payload_index(
-                collection_name=self.collection_name,
-                field_name="version_id",
-                field_schema=qdrant_models.PayloadSchemaType.KEYWORD,
-            )
-        except Exception:
-            # Índice ya existe o la versión del servidor no lo requiere duplicado
-            pass
+        # Asegurar índices de filtrado para version_id, family_id, categoria_id
+        for field in ("version_id", "family_id", "categoria_id"):
+            try:
+                self._client.create_payload_index(
+                    collection_name=self.collection_name,
+                    field_name=field,
+                    field_schema=qdrant_models.PayloadSchemaType.KEYWORD,
+                )
+            except Exception:
+                pass
 
     @staticmethod
     def generate_point_id(version_id: str, chunk_id: str) -> str:
@@ -74,24 +74,63 @@ class QdrantCorpusIndexer:
 
         self.ensure_collection()
 
-        # Si no se proporciona función de embedding personalizada, se usa Ollama
-        if embed_fn is None:
-            embedder = self._get_embed_model()
-            embed_fn = lambda text: embedder.get_text_embedding(text)
-
         points: list[qdrant_models.PointStruct] = []
         try:
-            for chunk in chunks:
-                vector = embed_fn(chunk.texto)
-                point_id = self.generate_point_id(version_id, chunk.chunk_id)
-                payload = chunk.to_payload()
-                points.append(
-                    qdrant_models.PointStruct(
-                        id=point_id,
-                        vector=vector,
-                        payload=payload,
+            if embed_fn is None:
+                # Intentar llamada batch nativa de Ollama para alta eficiencia y rendimiento local
+                try:
+                    import httpx
+                    batch_texts = [chunk.texto for chunk in chunks]
+                    all_vectors: list[list[float]] = []
+                    sub_batch = 16
+                    for s in range(0, len(batch_texts), sub_batch):
+                        chunk_slice = batch_texts[s : s + sub_batch]
+                        res = httpx.post(
+                            f"{self.ollama_base_url.rstrip('/')}/api/embed",
+                            json={"model": self.embed_model_name, "input": chunk_slice},
+                            timeout=120.0,
+                        )
+                        if res.status_code == 200:
+                            all_vectors.extend(res.json().get("embeddings", []))
+                        else:
+                            raise RuntimeError(f"Ollama /api/embed returned status {res.status_code}")
+
+                    if len(all_vectors) == len(chunks):
+                        for chunk, vector in zip(chunks, all_vectors):
+                            point_id = self.generate_point_id(version_id, chunk.chunk_id)
+                            points.append(
+                                qdrant_models.PointStruct(
+                                    id=point_id,
+                                    vector=vector,
+                                    payload=chunk.to_payload(),
+                                )
+                            )
+                    else:
+                        raise RuntimeError(f"Vector count mismatch: got {len(all_vectors)}, expected {len(chunks)}")
+                except Exception:
+                    embedder = self._get_embed_model()
+                    embed_fn = lambda text: embedder.get_text_embedding(text)
+                    for chunk in chunks:
+                        vector = embed_fn(chunk.texto)
+                        point_id = self.generate_point_id(version_id, chunk.chunk_id)
+                        points.append(
+                            qdrant_models.PointStruct(
+                                id=point_id,
+                                vector=vector,
+                                payload=chunk.to_payload(),
+                            )
+                        )
+            else:
+                for chunk in chunks:
+                    vector = embed_fn(chunk.texto)
+                    point_id = self.generate_point_id(version_id, chunk.chunk_id)
+                    points.append(
+                        qdrant_models.PointStruct(
+                            id=point_id,
+                            vector=vector,
+                            payload=chunk.to_payload(),
+                        )
                     )
-                )
 
             # Inserción en lotes
             for i in range(0, len(points), batch_size):

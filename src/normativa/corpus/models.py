@@ -14,6 +14,40 @@ class ProcessingStatus(str, Enum):
 
 
 @dataclass(frozen=True, slots=True)
+class DocumentCategory:
+    """Categoría o tipo documental (ej. Reglamentos, Procedimientos, Formatos)."""
+
+    id: str
+    nombre: str
+    descripcion: str | None
+    estado: str = "ACTIVO"  # "ACTIVO" | "INACTIVO"
+    created_at: str = ""
+    updated_at: str = ""
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass(frozen=True, slots=True)
+class DocumentFamily:
+    """Familia documental institucional (ej. RTG, P-DC-28, P-DC-29, F-DC-124)."""
+
+    id: str
+    categoria_id: str
+    codigo: str
+    nombre: str
+    descripcion: str | None
+    estado: str = "ACTIVO"  # "ACTIVO" | "INACTIVO"
+    perfil_procesamiento: str = "reglamento_estructurado"
+    created_at: str = ""
+    updated_at: str = ""
+    categoria_nombre: str | None = None
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass(frozen=True, slots=True)
 class DocumentMetadata:
     id: str
     filename: str
@@ -40,9 +74,21 @@ class NormativeVersion:
     is_active: bool
     created_at: str
     updated_at: str
+    family_id: str = "fam_reglamento_tg"
+    perfil_procesamiento: str = "reglamento_estructurado"
+    numero_version_institucional: str | None = None
+    procedencia: str | None = None
+    estado_revision: str = "PENDIENTE"  # "PENDIENTE" | "APROBADO" | "RECHAZADO" | "CON_DISCREPANCIAS"
+    fecha_revision: str | None = None
+    observaciones_revision: str | None = None
+    inconsistencia_identidad: bool = False
     activated_at: str | None = None
     report_json: str | None = None
     chunks_count: int = 0
+    file_hash: str | None = None
+    family_name: str | None = None
+    categoria_id: str | None = None
+    categoria_nombre: str | None = None
 
     def to_dict(self) -> dict[str, Any]:
         data = asdict(self)
@@ -70,6 +116,8 @@ class NormativeChunk:
     ocr_confidence: float | None
     location_hint: str
     extra_metadata: dict[str, Any] = field(default_factory=dict)
+    categoria_id: str | None = None
+    family_id: str | None = None
 
     def to_payload(self) -> dict[str, Any]:
         return {
@@ -90,6 +138,8 @@ class NormativeChunk:
             "text": self.texto,
             "ocr_confidence": self.ocr_confidence,
             "location_hint": self.location_hint,
+            "categoria_id": self.categoria_id,
+            "family_id": self.family_id,
             **self.extra_metadata,
         }
 

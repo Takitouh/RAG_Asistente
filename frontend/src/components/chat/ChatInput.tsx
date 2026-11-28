@@ -101,10 +101,13 @@ export const ChatInput: React.FC<ChatInputProps> = ({
           </div>
         </form>
 
-        <div className="flex items-center text-[11px] text-slate-400 mt-2 px-1">
-          <div className="flex items-center gap-1 hidden sm:flex">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-[11px] text-slate-500 mt-2 px-1">
+          <p className="leading-tight text-slate-500">
+            <strong>Aviso institucional:</strong> Este asistente brinda orientación académica. Sus respuestas no sustituyen el Reglamento de Trabajo de Grado ni la interpretación de las autoridades académicas. Para decisiones sobre tu caso, consulta al Comité de Trabajo de Grado de tu programa.
+          </p>
+          <div className="flex items-center gap-1 shrink-0 text-slate-400 hidden lg:flex">
             <CornerDownLeft className="w-3 h-3 text-slate-400" />
-            <span>Presione <strong>Enter</strong> para enviar, <strong>Shift + Enter</strong> para salto de línea</span>
+            <span><strong>Enter</strong> para enviar</span>
           </div>
         </div>
       </div>

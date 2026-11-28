@@ -1,6 +1,8 @@
 import { apiClient } from './client';
 import {
   AdminStats,
+  DocumentCategory,
+  DocumentFamily,
   NormativeVersion,
   VersionReportResponse,
 } from '../types';
@@ -26,8 +28,98 @@ export async function getAdminStats(): Promise<AdminStats> {
   return apiClient<AdminStats>('/api/admin/stats');
 }
 
-export async function listAdminVersions(): Promise<NormativeVersion[]> {
-  return apiClient<NormativeVersion[]>('/api/admin/versions');
+// --- Categorías Documentales ---
+
+export async function listCategories(includeInactive: boolean = true): Promise<DocumentCategory[]> {
+  return apiClient<DocumentCategory[]>(`/api/admin/categories?include_inactive=${includeInactive}`);
+}
+
+export async function createCategory(data: {
+  id: string;
+  nombre: string;
+  descripcion?: string;
+  estado?: string;
+}): Promise<DocumentCategory> {
+  return apiClient<DocumentCategory>('/api/admin/categories', {
+    method: 'POST',
+    body: JSON.stringify(data),
+  });
+}
+
+export async function updateCategory(
+  id: string,
+  data: { nombre?: string; descripcion?: string; estado?: string }
+): Promise<DocumentCategory> {
+  return apiClient<DocumentCategory>(`/api/admin/categories/${encodeURIComponent(id)}`, {
+    method: 'PUT',
+    body: JSON.stringify(data),
+  });
+}
+
+export async function deleteCategory(id: string): Promise<{ success: boolean; message: string }> {
+  return apiClient(`/api/admin/categories/${encodeURIComponent(id)}`, {
+    method: 'DELETE',
+  });
+}
+
+// --- Familias Documentales ---
+
+export async function listFamilies(categoriaId?: string, includeInactive: boolean = true): Promise<DocumentFamily[]> {
+  const params = new URLSearchParams();
+  if (categoriaId) params.append('categoria_id', categoriaId);
+  params.append('include_inactive', String(includeInactive));
+  return apiClient<DocumentFamily[]>(`/api/admin/families?${params.toString()}`);
+}
+
+export async function createFamily(data: {
+  id: string;
+  categoria_id: string;
+  codigo: string;
+  nombre: string;
+  descripcion?: string;
+  perfil_procesamiento?: string;
+  estado?: string;
+}): Promise<DocumentFamily> {
+  return apiClient<DocumentFamily>('/api/admin/families', {
+    method: 'POST',
+    body: JSON.stringify(data),
+  });
+}
+
+export async function updateFamily(
+  id: string,
+  data: {
+    categoria_id?: string;
+    codigo?: string;
+    nombre?: string;
+    descripcion?: string;
+    perfil_procesamiento?: string;
+    estado?: string;
+  }
+): Promise<DocumentFamily> {
+  return apiClient<DocumentFamily>(`/api/admin/families/${encodeURIComponent(id)}`, {
+    method: 'PUT',
+    body: JSON.stringify(data),
+  });
+}
+
+export async function deleteFamily(id: string): Promise<{ success: boolean; message: string }> {
+  return apiClient(`/api/admin/families/${encodeURIComponent(id)}`, {
+    method: 'DELETE',
+  });
+}
+
+// --- Versiones Documentales ---
+
+export async function listAdminVersions(familyId?: string): Promise<NormativeVersion[]> {
+  const url = familyId
+    ? `/api/admin/versions?family_id=${encodeURIComponent(familyId)}`
+    : '/api/admin/versions';
+  return apiClient<NormativeVersion[]>(url);
+}
+
+export async function listActiveCorpus(): Promise<NormativeVersion[]> {
+  return apiClient<NormativeVersion[]>('/api/admin/active-corpus');
 }
 
 export async function getAdminVersion(versionId: string): Promise<NormativeVersion> {
@@ -86,6 +178,11 @@ export async function updateVersionMetadata(
     anio?: number;
     fecha_expedicion?: string;
     estado_vigencia?: string;
+    family_id?: string;
+    numero_version_institucional?: string;
+    procedencia?: string;
+    estado_revision?: string;
+    observaciones_revision?: string;
   }
 ): Promise<{ success: boolean; message: string; version: NormativeVersion }> {
   const params = new URLSearchParams();
@@ -94,6 +191,11 @@ export async function updateVersionMetadata(
   if (metadata.anio !== undefined) params.append('anio', String(metadata.anio));
   if (metadata.fecha_expedicion !== undefined) params.append('fecha_expedicion', metadata.fecha_expedicion);
   if (metadata.estado_vigencia !== undefined) params.append('estado_vigencia', metadata.estado_vigencia);
+  if (metadata.family_id !== undefined) params.append('family_id', metadata.family_id);
+  if (metadata.numero_version_institucional !== undefined) params.append('numero_version_institucional', metadata.numero_version_institucional);
+  if (metadata.procedencia !== undefined) params.append('procedencia', metadata.procedencia);
+  if (metadata.estado_revision !== undefined) params.append('estado_revision', metadata.estado_revision);
+  if (metadata.observaciones_revision !== undefined) params.append('observaciones_revision', metadata.observaciones_revision);
 
   return apiClient(`/api/admin/versions/${encodeURIComponent(versionId)}/metadata?${params.toString()}`, {
     method: 'PATCH',

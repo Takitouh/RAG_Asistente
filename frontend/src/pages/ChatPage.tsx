@@ -17,6 +17,7 @@ export const ChatPage: React.FC = () => {
 
   const handleSelectPrompt = (prompt: string) => {
     setSelectedPrompt(prompt);
+    sendMessage(prompt);
   };
 
   return (

@@ -48,6 +48,7 @@ GROUP_REPEAT_THRESHOLD = 0.40
 MIN_REPEAT_PAGES = 3
 
 STRUCTURAL_LINE_RE = re.compile(r"^(ART[ÍI]CULO|ARTICULO|CAP[ÍI]TULO|CAPITULO|PAR[ÁA]GRAFO|PARAGRAFO)\b", re.IGNORECASE)
+INCISO_LINE_RE = re.compile(r"^\s*([A-Za-z0-9]{1,3})\s*([.)]{1,2})\s*(.*)$")
 INDEX_CHAPTER_RE = re.compile(r"^CAP[ÍI]TULO\s+[IVXLCDMIlV0-9|]+\s*-\s+.+$", re.IGNORECASE)
 INDEX_START_RE = re.compile(r"^í?ndice(?:\s+general)?$", re.IGNORECASE)
 LETTER_SEQ_RE = re.compile(r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]{3,}")

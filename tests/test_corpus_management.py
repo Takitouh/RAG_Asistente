@@ -263,6 +263,7 @@ def _create_test_version(
     anio: int,
     status: ProcessingStatus = ProcessingStatus.PROCESADO,
     is_active: bool = False,
+    estado_revision: str = "APROBADO",
     db_path: Path | None = None,
 ) -> NormativeVersion:
     doc_id = f"doc_{version_id}"
@@ -288,6 +289,7 @@ def _create_test_version(
         is_active=is_active,
         created_at="2026-01-01T00:00:00Z",
         updated_at="2026-01-01T00:00:00Z",
+        estado_revision=estado_revision,
     )
     db.save_version(ver, db_path=db_path)
     return ver
