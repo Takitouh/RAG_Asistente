@@ -220,6 +220,7 @@ def get_admin_stats(
         ProcessingStatus.ERROR.value: 0,
     }
     total_chunks = 0
+    active_chunks = sum(v.chunks_count for v in active_corpus)
     inconsistent_count = 0
     for v in versions:
         s = v.status.value if isinstance(v.status, ProcessingStatus) else str(v.status)
@@ -245,6 +246,7 @@ def get_admin_stats(
         "active_version": active.to_dict() if active else None,
         "active_corpus": [v.to_dict() for v in active_corpus],
         "total_chunks": total_chunks,
+        "active_chunks": active_chunks,
         "total_traces": trace_count,
         "inconsistent_versions_count": inconsistent_count,
     }

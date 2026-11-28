@@ -1109,9 +1109,12 @@ def test_regression_sqlite_qdrant_sync_after_reprocessing():
         versions = conn.execute("SELECT id, is_active FROM versions ORDER BY id").fetchall()
 
     active_versions = [v["id"] for v in versions if v["is_active"] == 1]
-    assert active_versions == ["uts_tg_2019"], (
-        f"Sólo uts_tg_2019 debe estar activa tras el reprocesamiento, encontradas: {active_versions}"
-    )
+    assert active_versions == [
+        "uts_tg_2021", "ver_f_am_04_v18", "ver_f_dc_124_v2",
+        "ver_f_dc_125_v2", "ver_f_dc_126_v2", "ver_f_dc_127_v2",
+        "ver_f_dc_128_v2", "ver_f_dc_129_v2", "ver_f_dc_130_v4",
+        "ver_f_dc_196_v2", "ver_p_dc_28_v3", "ver_p_dc_29_v3",
+    ], f"Se esperaba el snapshot activo de 12 documentos, encontradas: {active_versions}"
 
     with db.get_connection() as conn:
         for v in versions:

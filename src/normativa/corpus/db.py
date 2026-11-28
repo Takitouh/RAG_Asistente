@@ -139,7 +139,8 @@ def init_db(db_path: str | Path | None = None) -> None:
                 latency_ms REAL NOT NULL DEFAULT 0.0,
                 query_type TEXT NOT NULL DEFAULT 'normative',
                 context_chunks_json TEXT NOT NULL DEFAULT '[]',
-                authorized_versions_json TEXT NOT NULL DEFAULT '[]'
+                authorized_versions_json TEXT NOT NULL DEFAULT '[]',
+                diagnostics_json TEXT NOT NULL DEFAULT '{}'
             );
 
             CREATE INDEX IF NOT EXISTS idx_versions_is_active ON versions(is_active);
@@ -189,6 +190,7 @@ def init_db(db_path: str | Path | None = None) -> None:
             ("query_type", "TEXT NOT NULL DEFAULT 'normative'"),
             ("context_chunks_json", "TEXT NOT NULL DEFAULT '[]'"),
             ("authorized_versions_json", "TEXT NOT NULL DEFAULT '[]'"),
+            ("diagnostics_json", "TEXT NOT NULL DEFAULT '{}'"),
         ]:
             try:
                 conn.execute(f"ALTER TABLE traces ADD COLUMN {col} {col_type}")
@@ -222,27 +224,71 @@ def init_db(db_path: str | Path | None = None) -> None:
             ("fam_reglamento_tg", "cat_reglamentos", "RTG", "Reglamento de Trabajo de Grado", "Reglamento general de trabajo de grado de las UTS", "reglamento_estructurado", "ACTIVO"),
             ("fam_p_dc_28", "cat_procedimientos", "P-DC-28", "Presentación de la Propuesta de Trabajo de Grado", "Procedimiento para postulación y aprobación de propuestas de grado", "procedimiento_institucional", "ACTIVO"),
             ("fam_p_dc_29", "cat_procedimientos", "P-DC-29", "Presentación del Informe Final de Trabajo de Grado", "Procedimiento para entrega, evaluación y sustentación del informe final", "procedimiento_institucional", "ACTIVO"),
-            ("fam_f_am_04", "cat_formatos", "F-AM-04", "Guía para Presentación de Trabajos de Grado", "Guía institucional para elaboración y presentación de documentos de grado", "formato_institucional", "ACTIVO"),
+            ("fam_f_am_04", "cat_formatos", "F-AM-04", "Solicitud de Grado", "Formato institucional de solicitud de grado", "formato_institucional", "ACTIVO"),
             ("fam_f_dc_124", "cat_formatos", "F-DC-124", "Propuesta de Trabajo de Grado", "Formato institucional para presentación de propuesta de grado", "formato_institucional", "ACTIVO"),
             ("fam_f_dc_125", "cat_formatos", "F-DC-125", "Informe Final de Trabajo de Grado", "Formato institucional para presentación de informe final de grado", "formato_institucional", "ACTIVO"),
-            ("fam_f_dc_126", "cat_formatos", "F-DC-126", "Carta de Aceptación Director de Trabajo de Grado", "Carta y formato de aceptación y visto bueno de dirección", "formato_institucional", "ACTIVO"),
-            ("fam_f_dc_127", "cat_formatos", "F-DC-127", "Acta de Inicio de Práctica", "Acta institucional para formalización del inicio de modalidad práctica", "formato_institucional", "ACTIVO"),
-            ("fam_f_dc_128", "cat_formatos", "F-DC-128", "Evaluación Parcial de Práctica", "Formato institucional para seguimiento parcial de práctica", "formato_institucional", "ACTIVO"),
-            ("fam_f_dc_129", "cat_formatos", "F-DC-129", "Evaluación Final de Práctica", "Formato institucional con rúbrica de evaluación final de práctica", "formato_institucional", "ACTIVO"),
-            ("fam_f_dc_130", "cat_formatos", "F-DC-130", "Concepto del Director del Trabajo de Grado", "Concepto valorativo y autorización de sustentación por el director", "formato_institucional", "ACTIVO"),
-            ("fam_f_dc_196", "cat_formatos", "F-DC-196", "Acta de Compromiso de Trabajo de Grado", "Acta de compromiso ético e institucional de los estudiantes de grado", "formato_institucional", "ACTIVO"),
+            ("fam_f_dc_126", "cat_formatos", "F-DC-126", "Requerimiento de la Empresa para Solicitar Practicantes", "Formato institucional de requerimiento de practicantes por una empresa", "formato_institucional", "ACTIVO"),
+            ("fam_f_dc_127", "cat_formatos", "F-DC-127", "Propuesta de Trabajo de Grado en Modalidad Práctica", "Formato institucional de propuesta en modalidad práctica", "formato_institucional", "ACTIVO"),
+            ("fam_f_dc_128", "cat_formatos", "F-DC-128", "Informe Final de Trabajo de Grado en Modalidad Práctica", "Formato institucional de informe final en modalidad práctica", "formato_institucional", "ACTIVO"),
+            ("fam_f_dc_129", "cat_formatos", "F-DC-129", "Rejilla de Evaluación del Informe Final de Trabajo de Grado", "Rejilla institucional de evaluación del informe final", "formato_institucional", "ACTIVO"),
+            ("fam_f_dc_130", "cat_formatos", "F-DC-130", "Concepto Final del Trabajo de Grado", "Formato institucional de concepto final", "formato_institucional", "ACTIVO"),
+            ("fam_f_dc_196", "cat_formatos", "F-DC-196", "Acta de Terminación y Recibo a Satisfacción de Prácticas", "Formato institucional de terminación y recibo a satisfacción de prácticas", "formato_institucional", "ACTIVO"),
         ]
         for fam_id, cat_id, fam_cod, fam_nom, fam_desc, fam_perf, fam_est in default_families:
             conn.execute(
                 """
                 INSERT INTO families (id, categoria_id, codigo, nombre, descripcion, perfil_procesamiento, estado, created_at, updated_at)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-                ON CONFLICT(id) DO UPDATE SET
-                    perfil_procesamiento = excluded.perfil_procesamiento,
-                    nombre = excluded.nombre,
-                    descripcion = excluded.descripcion;
+                ON CONFLICT(id) DO NOTHING;
                 """,
                 (fam_id, cat_id, fam_cod, fam_nom, fam_desc, fam_perf, fam_est, now, now),
+            )
+
+        # Corregir únicamente rótulos sembrados por versiones anteriores.
+        legacy_labels = {
+            "F-AM-04": (
+                "Guía para Presentación de Trabajos de Grado",
+                "Guía institucional para elaboración y presentación de documentos de grado",
+            ),
+            "F-DC-126": (
+                "Carta de Aceptación Director de Trabajo de Grado",
+                "Carta y formato de aceptación y visto bueno de dirección",
+            ),
+            "F-DC-127": (
+                "Acta de Inicio de Práctica",
+                "Acta institucional para formalización del inicio de modalidad práctica",
+            ),
+            "F-DC-128": (
+                "Evaluación Parcial de Práctica",
+                "Formato institucional para seguimiento parcial de práctica",
+            ),
+            "F-DC-129": (
+                "Evaluación Final de Práctica",
+                "Formato institucional con rúbrica de evaluación final de práctica",
+            ),
+            "F-DC-130": (
+                "Concepto del Director del Trabajo de Grado",
+                "Concepto valorativo y autorización de sustentación por el director",
+            ),
+            "F-DC-196": (
+                "Acta de Compromiso de Trabajo de Grado",
+                "Acta de compromiso ético e institucional de los estudiantes de grado",
+            ),
+        }
+        for fam_id, cat_id, code, name, description, _, _ in default_families:
+            if code not in legacy_labels:
+                continue
+            old_name, old_description = legacy_labels[code]
+            conn.execute(
+                """
+                UPDATE families
+                SET nombre = CASE WHEN nombre = ? THEN ? ELSE nombre END,
+                    descripcion = CASE WHEN descripcion = ? THEN ? ELSE descripcion END,
+                    updated_at = ?
+                WHERE id = ? AND codigo = ? AND categoria_id = ?
+                  AND (nombre = ? OR descripcion = ?)
+                """,
+                (old_name, name, old_description, description, now, fam_id, code, cat_id, old_name, old_description),
             )
 
         # Actualizar datos de chunks huérfanos de familia/categoría
