@@ -97,7 +97,7 @@ export const CitationCard: React.FC<CitationCardProps> = ({ citation, index }) =
             </blockquote>
 
             <div className="flex items-center justify-between pt-1 text-[11px] text-slate-400">
-              <span className="font-mono">ID Chunk: {citation.chunk_id}</span>
+              <span className="font-mono">Referencia documental verificada</span>
               <button
                 type="button"
                 onClick={() => setIsPdfModalOpen(true)}

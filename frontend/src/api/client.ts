@@ -60,17 +60,20 @@ export async function apiClient<T>(
     }
 
     let errorDetail = `Error ${response.status}: ${response.statusText}`;
+    let errorJson: any;
     try {
-      const errorJson = await response.json();
+      errorJson = await response.json();
       if (errorJson?.detail) {
         errorDetail = typeof errorJson.detail === 'string' 
           ? errorJson.detail 
           : JSON.stringify(errorJson.detail);
+      } else if (errorJson?.status === 'technical_error' && typeof errorJson.answer === 'string') {
+        errorDetail = errorJson.answer;
       }
     } catch {
       // Ignorar fallo de parseo JSON
     }
-    throw new ApiError(errorDetail, response.status);
+    throw new ApiError(errorDetail, response.status, errorJson);
   }
 
   // Si la respuesta no tiene contenido (204)

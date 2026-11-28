@@ -61,7 +61,10 @@ export interface QueryResponse {
   disclaimer: string;
   trace_id: string;
   latency_ms: number;
-  response_type?: 'greeting' | 'normative' | 'clarification' | 'abstention';
+  status?: 'complete' | 'partial' | 'insufficient_evidence' | 'out_of_scope' | 'technical_error' | 'social';
+  answered_parts?: string[];
+  unanswered_parts?: string[];
+  response_type?: 'greeting' | 'normative' | 'clarification' | 'abstention' | 'partial' | 'out_of_scope' | 'error';
   clarification_needed?: boolean;
   clarification_question?: string | null;
   authorized_versions?: string[];
@@ -111,6 +114,7 @@ export interface AdminStats {
   active_version: NormativeVersion | null;
   active_corpus?: NormativeVersion[];
   total_chunks: number;
+  active_chunks?: number;
   total_traces: number;
   inconsistent_versions_count?: number;
 }
@@ -152,7 +156,8 @@ export interface ChatMessageItem {
   latency_ms?: number;
   error?: boolean;
   disclaimer?: string;
-  response_type?: 'greeting' | 'normative' | 'clarification' | 'abstention';
+  response_type?: 'greeting' | 'normative' | 'clarification' | 'abstention' | 'partial' | 'out_of_scope' | 'error';
+  unanswered_parts?: string[];
   clarification_needed?: boolean;
   clarification_question?: string | null;
 }

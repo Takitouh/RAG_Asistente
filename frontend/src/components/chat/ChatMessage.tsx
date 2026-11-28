@@ -11,6 +11,9 @@ interface ChatMessageProps {
 export const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
   const isUser = message.sender === 'user';
   const [copied, setCopied] = useState(false);
+  const pendingParts = message.unanswered_parts?.filter(
+    (part) => !message.text.toLocaleLowerCase().includes(part.toLocaleLowerCase())
+  ) ?? [];
 
   const handleCopy = () => {
     navigator.clipboard.writeText(message.text);
@@ -121,6 +124,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
             <AbstentionAlert
               reason={message.abstention_reason}
               messageText={message.text}
+              outOfScope={message.response_type === 'out_of_scope'}
             />
           ) : (
             /* Texto generado por el LLM */
@@ -128,6 +132,16 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
               {message.text}
             </div>
           )}
+
+          {message.response_type === 'partial' && (pendingParts.length > 0 || message.clarification_question) ? (
+            <div className="text-sm text-slate-600">
+              <p className="font-semibold">Información pendiente</p>
+              <ul className="list-disc pl-5">
+                {pendingParts.map((part, index) => <li key={index}>{part}</li>)}
+              </ul>
+              {message.clarification_question && <p>{message.clarification_question}</p>}
+            </div>
+          ) : null}
 
           {/* Sección de Citas Normativas Deterministas */}
           {message.citations && message.citations.length > 0 && (

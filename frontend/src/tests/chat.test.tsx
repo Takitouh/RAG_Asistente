@@ -113,6 +113,20 @@ describe('Chat Components & RAG Flow Tests', () => {
     expect(screen.getByText('1.20s')).toBeInTheDocument();
   });
 
+  it('muestra los datos pendientes expresados dentro de una respuesta parcial', () => {
+    render(<ChatMessage message={{
+      id: 'partial',
+      sender: 'assistant',
+      text: 'Consta el lugar de la entrega.\n\nLa evidencia no especifica el horario.',
+      timestamp: '2026-01-01T00:00:00Z',
+      response_type: 'partial',
+      unanswered_parts: ['La evidencia no especifica el horario.'],
+    }} />);
+
+    expect(screen.getByText(/La evidencia no especifica el horario/i)).toBeInTheDocument();
+    expect(screen.queryByText('Información pendiente')).not.toBeInTheDocument();
+  });
+
   it('4. CitationCard: muestra metadatos normativos y expande fragmento de evidencia', async () => {
     render(<CitationCard citation={mockCitation} index={0} />);
 

@@ -246,9 +246,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             <span>Chunks Vectoriales</span>
           </div>
           <div className="text-2xl font-bold text-slate-900">
-            {stats?.total_chunks ?? '—'}
+            {stats?.active_chunks ?? stats?.total_chunks ?? '—'}
           </div>
-          <div className="text-[11px] text-slate-500 mt-1">Indexados en Qdrant</div>
+          <div className="text-[11px] text-slate-500 mt-1">Fragmentos del corpus activo</div>
         </div>
 
         {/* Consultas Trazadas */}

@@ -4,11 +4,13 @@ import { ShieldAlert, HelpCircle } from 'lucide-react';
 interface AbstentionAlertProps {
   reason?: string | null;
   messageText?: string;
+  outOfScope?: boolean;
 }
 
 export const AbstentionAlert: React.FC<AbstentionAlertProps> = ({
   reason,
   messageText,
+  outOfScope,
 }) => {
   return (
     <div className="rounded-lg border border-amber-300 bg-amber-50/80 p-4 text-amber-900 shadow-xs">
@@ -20,7 +22,7 @@ export const AbstentionAlert: React.FC<AbstentionAlertProps> = ({
               Abstención Normativa
             </span>
             <span className="text-[10px] bg-amber-200/80 text-amber-800 font-semibold px-2 py-0.5 rounded-full">
-              Evidencia Insuficiente
+              {outOfScope ? 'Fuera de alcance' : 'Evidencia Insuficiente'}
             </span>
           </div>
 

@@ -184,7 +184,7 @@ export const VersionList: React.FC<VersionListProps> = ({
                     ver.status === 'PROCESADO' &&
                     !ver.is_active &&
                     !ver.inconsistencia_identidad &&
-                    ver.estado_revision !== 'RECHAZADO';
+                    ver.estado_revision === 'APROBADO';
 
                   return (
                     <tr

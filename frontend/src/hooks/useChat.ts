@@ -39,6 +39,7 @@ export function useChat() {
         disclaimer: response.disclaimer,
         latency_ms: response.latency_ms,
         response_type: response.response_type,
+        unanswered_parts: response.unanswered_parts,
         clarification_needed: response.clarification_needed,
         clarification_question: response.clarification_question,
       };
