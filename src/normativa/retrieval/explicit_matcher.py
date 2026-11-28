@@ -7,7 +7,6 @@ garantizando precisión absoluta sin depender exclusivamente de embeddings.
 from __future__ import annotations
 
 import re
-import sqlite3
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -173,4 +172,14 @@ def fetch_explicit_chunks(
                     )
                 )
 
+    if match.paragrafo_numero is not None or match.inciso_marker is not None:
+        def subdivision_matches(chunk: RetrievedChunk) -> bool:
+            paragraph = (chunk.payload.get("paragrafo_numero") or "").casefold().replace("ú", "u")
+            inciso = (chunk.payload.get("inciso_marker") or "").casefold()
+            return (
+                (match.paragrafo_numero is None or paragraph == match.paragrafo_numero.replace("ú", "u"))
+                and (match.inciso_marker is None or inciso == match.inciso_marker)
+            )
+
+        results.sort(key=subdivision_matches, reverse=True)
     return results

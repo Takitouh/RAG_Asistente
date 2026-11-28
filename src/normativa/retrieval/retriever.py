@@ -1,21 +1,11 @@
-"""Módulo de recuperación normativa híbrida y contextual.
-
-Responsabilidades:
-- Identificar las versiones activas autorizadas en el momento de la consulta.
-- Detectar referencias normativas explícitas (artículos, parágrafos, acuerdos).
-- Generar el embedding de la pregunta usando Ollama (bge-m3).
-- Buscar en Qdrant filtrando OBLIGATORIAMENTE por ``version_id`` autorizado.
-- Enriquecer la recuperación con búsqueda léxica y contextual (artículo, cuerpo, incisos).
-- Verificar que cada resultado pertenezca a las versiones autorizadas (doble seguro).
-- Gestionar la abstención cuando no hay versiones activas o no hay resultados relevantes.
-"""
+"""Recuperación semántica, léxica y estructural bajo un snapshot documental."""
 from __future__ import annotations
 
 import re
 import time
-from dataclasses import dataclass, field
+import unicodedata
+from itertools import zip_longest
 from pathlib import Path
-from typing import Any
 
 from llama_index.embeddings.ollama import OllamaEmbedding
 from qdrant_client import QdrantClient
@@ -23,42 +13,45 @@ from qdrant_client.http import models as qdrant_models
 
 from normativa.config import settings
 from normativa.corpus import db
-from normativa.corpus.db import get_active_versions
 from normativa.corpus.models import ProcessingStatus
-from normativa.retrieval.context_expander import expand_normative_context
+from normativa.retrieval.context_expander import expand_normative_context, structural_unit
 from normativa.retrieval.explicit_matcher import fetch_explicit_chunks, match_explicit_reference
 from normativa.retrieval.models import RetrievalResult, RetrievedChunk
+from normativa.tracing.models import elapsed
+
+_IDENTIFIER = re.compile(r"\b[a-z][a-z0-9]*(?:[-_][a-z0-9]+)*[-_]\d+[a-z0-9]*\b")
+_STOP_WORDS = frozenset("""
+    al algo como con cual cuales cuando cuanto cuantos cuya cuyo donde del desde durante
+    ella ellas ellos entre era esa ese eso esta estas este estos hacer hasta hay las los me
+    mi mis para pero por porque puedo puede que quien quienes quiere sea segun ser sin son sus
+    sobre tengo tiene toda todo tras una unas uno unos usted y
+""".split())
 
 
-# ---------------------------------------------------------------------------
-# Palabras clave para enriquecimiento léxico en SQLite
-# ---------------------------------------------------------------------------
-_KEYWORD_PATTERNS = [
-    r"\bmodalidad(?:es)?\b",
-    r"\bpr[oó]rroga(?:s)?\b",
-    r"\binforme\s+final\b",
-    r"\bpropuesta(?:s)?\b",
-    r"\bcalificaci[oó]n(?:es)?\b",
-    r"\breprobaci[oó]n\b",
-    r"\bcomit[eé]\b",
-    r"\bevaluador(?:es)?\b",
-    r"\bdirector(?:es)?\b",
-    r"\bseminario\b",
-    r"\bmonograf[ií]a\b",
-    r"\bpr[aá]ctica\b",
-    r"\bemprendimiento\b",
-    r"\bderechos?\s+pecuniarios?\b",
-    r"\b180\s+d[ií]as\b",
-]
+def _normalize(text: str) -> str:
+    return "".join(ch for ch in unicodedata.normalize("NFKD", text.casefold()) if not unicodedata.combining(ch))
 
 
-# ---------------------------------------------------------------------------
-# Retriever
-# ---------------------------------------------------------------------------
+def _terms(text: str) -> set[str]:
+    return set(re.findall(r"[^\W_]{3,}", text)) - _STOP_WORDS
+
+
+def _merge_rankings(
+    explicit: list[RetrievedChunk], semantic: list[RetrievedChunk], lexical: list[RetrievedChunk],
+) -> list[RetrievedChunk]:
+    """Prioriza referencias explícitas y alterna los resultados de los dos rankings."""
+    candidates: dict[str, RetrievedChunk] = {}
+    for chunk in explicit:
+        candidates.setdefault(chunk.chunk_id, chunk)
+    for pair in zip_longest(semantic, lexical):
+        for chunk in pair:
+            if chunk is not None:
+                candidates.setdefault(chunk.chunk_id, chunk)
+    return list(candidates.values())
 
 
 class NormativeRetriever:
-    """Recupera fragmentos normativos de Qdrant y SQLite, aislados por version_id autorizado."""
+    """Recupera candidatos de Qdrant y SQLite limitados al snapshot de la consulta."""
 
     def __init__(
         self,
@@ -71,10 +64,14 @@ class NormativeRetriever:
         db_path: str | Path | None = None,
         client: QdrantClient | None = None,
         embed_fn=None,  # inyectable para tests
+        expansion_units: int = settings.RAG_EXPANSION_UNITS,
+        max_expanded_chunks: int | None = settings.RAG_MAX_EXPANDED_CHUNKS,
     ) -> None:
         self.collection_name = collection_name
         self.top_k = top_k
         self.min_score = min_score
+        self.expansion_units = expansion_units
+        self.max_expanded_chunks = max_expanded_chunks
         self.db_path = db_path
         self._client = client or QdrantClient(url=qdrant_url)
         self._embed_fn = embed_fn
@@ -92,249 +89,140 @@ class NormativeRetriever:
             )
         return self._embed_model.get_text_embedding
 
-    def _lexical_search(self, query: str, authorized_version_ids: list[str]) -> list[RetrievedChunk]:
-        """Búsqueda complementaria por palabras clave en SQLite limitada a versiones autorizadas."""
-        matches = []
-        for pat in _KEYWORD_PATTERNS:
-            if re.search(pat, query, re.IGNORECASE):
-                clean_term = re.sub(r"[^\w\s]", "", pat).replace("\\b", "").strip()
-                if clean_term:
-                    matches.append(clean_term)
-
-        if not matches or not authorized_version_ids:
+    def _lexical_search(self, query: str, version_ids: list[str]) -> list[RetrievedChunk]:
+        normalized = _normalize(query)
+        codes = set(_IDENTIFIER.findall(normalized))
+        terms = _terms(_IDENTIFIER.sub(" ", normalized))
+        if not (terms or codes):
             return []
 
-        chunks: list[RetrievedChunk] = []
-        seen_ids: set[str] = set()
-        placeholders = ",".join("?" for _ in authorized_version_ids)
-
-        try:
-            with db.get_connection(self.db_path) as conn:
-                for term in matches[:2]:  # máximo 2 términos
-                    params: list[Any] = list(authorized_version_ids)
-                    params.extend([f"%{term}%", f"%{term}%"])
-                    cursor = conn.execute(
-                        f"""
-                        SELECT id, version_id, document_id, document_name,
-                               capitulo_numero, capitulo_romano, capitulo_titulo,
-                               articulo_numero, articulo_ordinal, articulo_tipo,
-                               paragrafo_numero, inciso_marker, page_start, page_end,
-                               texto, ocr_confidence, location_hint
-                        FROM chunks
-                        WHERE version_id IN ({placeholders})
-                          AND (texto LIKE ? OR location_hint LIKE ?)
-                        ORDER BY
-                          CASE
-                            WHEN paragrafo_numero IS NULL AND inciso_marker IS NULL THEN 0
-                            WHEN inciso_marker IS NOT NULL THEN 1
-                            ELSE 2
-                          END,
-                          id
-                        LIMIT 5
-                        """,
-                        params,
-                    )
-                    rows = cursor.fetchall()
-                    for r in rows:
-                        cid = r["id"]
-                        if cid not in seen_ids:
-                            seen_ids.add(cid)
-                            payload = dict(r)
-                            payload["origin"] = "lexical_search"
-                            payload["text"] = r["texto"]
-                            chunks.append(
-                                RetrievedChunk(
-                                    chunk_id=cid,
-                                    version_id=r["version_id"],
-                                    score=0.75,
-                                    payload=payload,
-                                    text=r["texto"],
-                                    location_hint=r["location_hint"],
-                                )
-                            )
-        except Exception:
-            pass
-
-        return chunks
-
-    def retrieve(
-        self,
-        query: str,
-        authorized_version_ids: list[str] | None = None,
-    ) -> RetrievalResult:
-        """Ejecuta una búsqueda híbrida y contextual contra el conjunto de versiones autorizadas.
-
-        1. Verifica las versiones autorizadas (aislamiento de corpus activo).
-        2. Búsqueda exacta si se menciona un artículo explícito.
-        3. Búsqueda vectorial en Qdrant con filtro obligatorio por version_id.
-        4. Búsqueda léxica complementaria en SQLite.
-        5. Expansión contextual jerárquica por versión (cuerpo, incisos, parágrafos).
-        6. Verificación de seguridad en payload.
-        """
-        t0 = time.perf_counter()
-
-        # 1. Determinar versiones autorizadas (corpus activo)
-        active_docs: list[Any] = []
-        if authorized_version_ids is None:
-            active_list = get_active_versions(self.db_path)
-            # Reglas 10 y 11: Solo versiones PROCESADO, explícitamente APROBADAS y sin inconsistencias
-            # Debe ser consistente con las condiciones de activación en db.activate_version
-            valid_actives = [
-                v for v in active_list
-                if not v.inconsistencia_identidad
-                and v.status == ProcessingStatus.PROCESADO
-                and v.estado_revision == "APROBADO"
-            ]
-            authorized_version_ids = [v.id for v in valid_actives]
-            active_docs = valid_actives
-        else:
-            for vid in authorized_version_ids:
-                v = db.get_version(vid, self.db_path)
-                if v:
-                    active_docs.append(v)
-
-        if not authorized_version_ids:
-            return RetrievalResult(
-                version_id=None,
-                document_name=None,
-                abstained=True,
-                abstention_reason="Sin versión activa: no hay ningún reglamento habilitado para consulta.",
-                retrieval_ms=(time.perf_counter() - t0) * 1000,
+        placeholders = ",".join("?" for _ in version_ids)
+        ranked: list[tuple[int, int, RetrievedChunk]] = []
+        with db.get_connection(self.db_path) as conn:
+            rows = conn.execute(
+                f"SELECT * FROM chunks WHERE version_id IN ({placeholders}) ORDER BY id", version_ids,
             )
+            for row in rows:
+                title = _normalize(f"{row['document_name']} {row['location_hint']}")
+                text = _normalize(row["texto"])
+                code_hits = len(codes.intersection(_IDENTIFIER.findall(f"{title} {text}")))
+                overlap = terms & _terms(f"{title} {text}")
+                if not (code_hits or overlap):
+                    continue
+                payload = dict(row)
+                payload["origin"] = "lexical_search"
+                ranked.append((code_hits, len(overlap), RetrievedChunk(
+                    chunk_id=row["id"], version_id=row["version_id"],
+                    score=len(overlap) / max(1, len(terms)), payload=payload,
+                    text=row["texto"], location_hint=row["location_hint"],
+                )))
+        ranked.sort(key=lambda hit: (hit[0], hit[1]), reverse=True)
+        return [chunk for _, _, chunk in ranked[:self.top_k]]
 
-        if len(authorized_version_ids) == 1:
-            primary_version_id = authorized_version_ids[0]
-            document_name = active_docs[0].nombre if active_docs else primary_version_id
-        else:
-            primary_version_id = authorized_version_ids[0]
-            document_name = f"Corpus activo ({len(authorized_version_ids)} documentos)"
-
-        # 2. Búsqueda por referencia explícita (e.g. ¿Qué establece el artículo 15?)
-        explicit_chunks: list[RetrievedChunk] = []
-        explicit_match = match_explicit_reference(query)
-        if explicit_match is not None:
-            for vid in authorized_version_ids:
-                explicit_chunks.extend(fetch_explicit_chunks(self.db_path, vid, explicit_match))
-
-        # 3. Búsqueda semántica en Qdrant con filtro estricto
-        semantic_chunks: list[RetrievedChunk] = []
+    def _semantic_search(self, vector: list[float], version_ids: list[str]) -> list[RetrievedChunk]:
+        match = (
+            qdrant_models.MatchValue(value=version_ids[0])
+            if len(version_ids) == 1 else qdrant_models.MatchAny(any=version_ids)
+        )
+        query_filter = qdrant_models.Filter(must=[qdrant_models.FieldCondition(key="version_id", match=match)])
         try:
-            embed_fn = self._get_embed_fn()
-            vector = embed_fn(query)
-        except Exception as exc:
-            raise RuntimeError(f"Error generando embedding para la consulta: {exc}") from exc
-
-        try:
-            search_limit = max(self.top_k, 10)
-            if len(authorized_version_ids) == 1:
-                qfilter = qdrant_models.Filter(
-                    must=[
-                        qdrant_models.FieldCondition(
-                            key="version_id",
-                            match=qdrant_models.MatchValue(value=authorized_version_ids[0]),
-                        )
-                    ]
-                )
-            else:
-                qfilter = qdrant_models.Filter(
-                    must=[
-                        qdrant_models.FieldCondition(
-                            key="version_id",
-                            match=qdrant_models.MatchAny(any=authorized_version_ids),
-                        )
-                    ]
-                )
-
-            results = self._client.query_points(
+            result = self._client.query_points(
                 collection_name=self.collection_name,
                 query=vector,
-                query_filter=qfilter,
-                limit=search_limit,
+                query_filter=query_filter,
+                limit=self.top_k,
             )
         except Exception as exc:
-            raise RuntimeError(f"Error consultando Qdrant: {exc}") from exc
+            raise RuntimeError("Error consultando Qdrant.") from exc
 
-        for point in results.points:
+        chunks: list[RetrievedChunk] = []
+        for point in result.points:
             payload = point.payload or {}
-            point_version_id = payload.get("version_id")
-            if point_version_id not in authorized_version_ids:
+            version_id = payload.get("version_id")
+            if version_id not in version_ids or point.score < self.min_score:
                 continue
-            score = point.score if hasattr(point, "score") else 0.0
-            if score < self.min_score:
-                continue
-            semantic_chunks.append(
-                RetrievedChunk(
-                    chunk_id=payload.get("chunk_id", str(point.id)),
-                    version_id=point_version_id,
-                    score=score,
-                    payload=payload,
-                    text=payload.get("text", ""),
-                    location_hint=payload.get("location_hint", ""),
-                )
-            )
+            chunks.append(RetrievedChunk(
+                chunk_id=payload.get("chunk_id", str(point.id)),
+                version_id=version_id, score=point.score,
+                payload={**payload, "origin": "semantic"}, text=payload.get("text", ""),
+                location_hint=payload.get("location_hint", ""),
+            ))
+        return sorted(chunks, key=lambda chunk: chunk.score, reverse=True)
 
-        # 4. Búsqueda léxica complementaria
-        lexical_chunks = self._lexical_search(query, authorized_version_ids)
+    def _context_order(self, seeds: list[RetrievedChunk]) -> list[RetrievedChunk]:
+        anchors: dict[tuple, RetrievedChunk] = {}
+        for seed in seeds:
+            anchors.setdefault(structural_unit(seed), seed)
+        # Acercar subdivisiones de las dos unidades de mayor rango. Mantener
+        # las demás coincidencias iniciales, sin expandir unidades de menor pertinencia.
+        ordered: dict[str, RetrievedChunk] = {}
+        remaining: list[list[RetrievedChunk]] = []
+        seed_metadata = {seed.chunk_id: seed for seed in seeds}
+        for index, seed in enumerate(list(anchors.values())[:self.expansion_units]):
+            ordered.setdefault(seed.chunk_id, seed)
+            related = [chunk for chunk in expand_normative_context([seed], self.db_path, seed.version_id)
+                       if chunk.chunk_id != seed.chunk_id]
+            early_count = max(0, 2 - index)
+            for chunk in related[:early_count]:
+                ordered.setdefault(chunk.chunk_id, seed_metadata.get(chunk.chunk_id, chunk))
+            remaining.append(related[early_count:])
+        for seed in seeds:
+            ordered.setdefault(seed.chunk_id, seed)
+        for row in zip_longest(*remaining):
+            for chunk in row:
+                if chunk is not None:
+                    ordered.setdefault(chunk.chunk_id, chunk)
+        return list(ordered.values())
 
-        # 5. Fusión de candidatos priorizando coincidencias explícitas
-        combined_chunks: list[RetrievedChunk] = []
-        seen_ids: set[str] = set()
-
-        for c in explicit_chunks:
-            if c.chunk_id not in seen_ids:
-                seen_ids.add(c.chunk_id)
-                combined_chunks.append(c)
-
-        for c in semantic_chunks:
-            if c.chunk_id not in seen_ids:
-                seen_ids.add(c.chunk_id)
-                combined_chunks.append(c)
-
-        for c in lexical_chunks:
-            if c.chunk_id not in seen_ids:
-                seen_ids.add(c.chunk_id)
-                combined_chunks.append(c)
-
-        # 6. Expansión contextual jerárquica por cada versión (aislamiento total entre versiones)
-        final_chunks: list[RetrievedChunk] = []
-        for vid in authorized_version_ids:
-            vid_chunks = [c for c in combined_chunks if c.version_id == vid]
-            if vid_chunks:
-                expanded = expand_normative_context(
-                    vid_chunks,
-                    self.db_path,
-                    vid,
-                    query,
-                )
-                final_chunks.extend(expanded)
-
-        retrieval_ms = (time.perf_counter() - t0) * 1000
-
-        # 7. Evaluación de abstención en recuperación:
-        if not final_chunks:
+    def retrieve(
+        self, query: str, authorized_version_ids: list[str] | None = None,
+        timings: dict[str, float] | None = None,
+    ) -> RetrievalResult:
+        if timings is None:
+            timings = {}
+        start = time.perf_counter()
+        if authorized_version_ids is None:
+            authorized_version_ids = [v.id for v in db.get_active_versions(self.db_path)
+                if not v.inconsistencia_identidad and v.status == ProcessingStatus.PROCESADO
+                and v.estado_revision == "APROBADO"]
+        if not authorized_version_ids:
             return RetrievalResult(
-                version_id=primary_version_id,
-                document_name=document_name,
-                abstained=True,
-                abstention_reason="No se encontraron fragmentos normativos relevantes para la consulta.",
-                retrieval_ms=retrieval_ms,
+                None, None, abstained=True,
+                abstention_reason="Sin versión activa: no hay ningún reglamento habilitado para consulta.",
+                retrieval_ms=(time.perf_counter() - start) * 1000,
             )
+        primary = authorized_version_ids[0]
+        version = db.get_version(primary, self.db_path) if len(authorized_version_ids) == 1 else None
+        document_name = version.nombre if version else f"Corpus activo ({len(authorized_version_ids)} documentos)"
 
-        max_semantic_score = max((c.score for c in semantic_chunks), default=0.0)
-        has_explicit = bool(explicit_chunks)
-        if not has_explicit and max_semantic_score < 0.35 and not lexical_chunks:
-            return RetrievalResult(
-                version_id=primary_version_id,
-                document_name=document_name,
-                abstained=True,
-                abstention_reason="La pregunta está fuera del alcance del reglamento de trabajo de grado.",
-                retrieval_ms=retrieval_ms,
-            )
+        with elapsed(timings, "embedding_ms"):
+            try:
+                vector = self._get_embed_fn()(query)
+            except Exception as exc:
+                raise RuntimeError("Error generando el embedding de la consulta.") from exc
+        with elapsed(timings, "semantic_ms"):
+            semantic = self._semantic_search(vector, authorized_version_ids)
+        with elapsed(timings, "lexical_ms"):
+            lexical = self._lexical_search(query, authorized_version_ids)
+        with elapsed(timings, "selection_ms"):
+            reference = match_explicit_reference(query)
+            explicit = [
+                chunk for vid in authorized_version_ids
+                for chunk in fetch_explicit_chunks(self.db_path, vid, reference)
+            ] if reference else []
+            ranked = _merge_rankings(explicit, semantic, lexical)
+            seeds = ranked[:self.top_k]
+            ordered = self._context_order(seeds)
+            seed_ids = {seed.chunk_id for seed in seeds}
+            added = [chunk for chunk in ordered if chunk.chunk_id not in seed_ids]
+            omitted = added[self.max_expanded_chunks:] if self.max_expanded_chunks is not None else []
+            omitted_ids = {chunk.chunk_id for chunk in omitted}
+            context = [chunk for chunk in ordered if chunk.chunk_id not in omitted_ids]
 
         return RetrievalResult(
-            version_id=primary_version_id,
-            document_name=document_name,
-            chunks=final_chunks,
-            abstained=False,
-            retrieval_ms=retrieval_ms,
+            primary, document_name, chunks=context, candidates=ranked, seeds=seeds,
+            rankings={"semantic": semantic, "lexical": lexical, "explicit": explicit}, omitted_expansion=omitted,
+            abstained=not context,
+            abstention_reason=None if context else "No se encontraron fragmentos pertinentes para la consulta.",
+            retrieval_ms=(time.perf_counter() - start) * 1000,
         )

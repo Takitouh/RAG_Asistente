@@ -6,9 +6,13 @@ chunk_ids usó, y el backend verifica que existan en la lista de recuperados.
 """
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
+from pathlib import Path
 
-from normativa.retrieval.retriever import RetrievedChunk
+from normativa.corpus.db import get_connection
+
+from normativa.retrieval.models import RetrievedChunk
 
 
 @dataclass(frozen=True)
@@ -47,8 +51,52 @@ class Citation:
             "page_start": self.page_start,
             "page_end": self.page_end,
             "location_hint": self.location_hint,
-            "texto_fragmento": self.texto_fragmento[:300],  # preview truncado
+            "texto_fragmento": self.texto_fragmento,
         }
+
+
+def load_evidence(
+    chunks: list[RetrievedChunk], version_ids: list[str], db_path: str | Path | None,
+) -> list[RetrievedChunk]:
+    """Resuelve los candidatos contra SQLite antes de enviarlos al modelo."""
+    if not chunks or not version_ids:
+        return []
+    ids = ",".join("?" for _ in chunks)
+    versions = ",".join("?" for _ in version_ids)
+    with get_connection(db_path) as conn:
+        rows = conn.execute(
+            f"""
+            SELECT c.*, v.perfil_procesamiento, v.report_json
+            FROM chunks c
+            JOIN versions v ON v.id = c.version_id AND v.document_id = c.document_id
+            JOIN documents d ON d.id = v.document_id
+            WHERE c.id IN ({ids}) AND c.version_id IN ({versions})
+              AND c.page_start > 0 AND c.page_end >= c.page_start
+              AND length(trim(c.texto)) > 0
+            """,
+            [*(c.chunk_id for c in chunks), *version_ids],
+        ).fetchall()
+
+    evidence = {}
+    for row in rows:
+        payload = dict(row)
+        report = json.loads(payload.pop("report_json") or "{}")
+        page_count = report.get("num_pages") if isinstance(report, dict) else None
+        if isinstance(page_count, int) and row["page_end"] > page_count:
+            continue
+        evidence[row["id"]] = payload
+
+    verified: list[RetrievedChunk] = []
+    for chunk in chunks:
+        payload = evidence.get(chunk.chunk_id)
+        if payload is None or payload["version_id"] != chunk.version_id:
+            continue
+        verified.append(RetrievedChunk(
+            chunk_id=chunk.chunk_id, version_id=chunk.version_id, score=chunk.score,
+            payload={**payload, "origin": chunk.payload.get("origin")},
+            text=payload["texto"], location_hint=payload["location_hint"],
+        ))
+    return verified
 
 
 def build_citations(

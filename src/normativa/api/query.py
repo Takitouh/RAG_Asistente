@@ -2,8 +2,10 @@
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
+from normativa.generation.generator import ResponseStatus
 from normativa.generation.rag_service import RAGService
 
 query_router = APIRouter(prefix="/api", tags=["Consulta RAG"])
@@ -37,6 +39,7 @@ class CitationOut(BaseModel):
 
 
 class QueryResponse(BaseModel):
+    status: ResponseStatus
     answer: str
     version_id: str | None
     document_name: str | None
@@ -50,6 +53,8 @@ class QueryResponse(BaseModel):
     clarification_needed: bool = False
     clarification_question: str | None = None
     authorized_versions: list[str] = Field(default_factory=list)
+    answered_parts: list[str] = Field(default_factory=list)
+    unanswered_parts: list[str] = Field(default_factory=list)
 
 
 # ---------------------------------------------------------------------------
@@ -66,11 +71,11 @@ def get_rag_service() -> RAGService:
 # ---------------------------------------------------------------------------
 
 
-@query_router.post("/query", response_model=QueryResponse)
+@query_router.post("/query", response_model=QueryResponse, responses={503: {"model": QueryResponse}})
 def query_normativa(
     request: QueryRequest,
     service: RAGService = Depends(get_rag_service),
-) -> QueryResponse:
+) -> QueryResponse | JSONResponse:
     try:
         result = service.query(request.query)
     except ValueError as exc:
@@ -80,7 +85,8 @@ def query_normativa(
 
     citations_out = [CitationOut(**c.to_dict()) for c in result.citations]
 
-    return QueryResponse(
+    response = QueryResponse(
+        status=result.status,
         answer=result.answer,
         version_id=result.version_id,
         document_name=result.document_name,
@@ -94,4 +100,9 @@ def query_normativa(
         clarification_needed=result.clarification_needed,
         clarification_question=result.clarification_question,
         authorized_versions=result.authorized_versions,
+        answered_parts=result.answered_parts,
+        unanswered_parts=result.unanswered_parts,
     )
+    if result.status == ResponseStatus.TECHNICAL_ERROR:
+        return JSONResponse(status_code=503, content=response.model_dump(mode="json"))
+    return response

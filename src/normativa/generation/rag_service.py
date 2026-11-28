@@ -1,310 +1,219 @@
-"""Servicio RAG de extremo a extremo.
-
-Orquesta: Intent Detector → Retriever → Generator → Citations → Trace → Response.
-"""
+"""Orquesta recuperación, generación y trazabilidad de la consulta."""
 from __future__ import annotations
 
 import json
 import time
 import uuid
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 
-from normativa.corpus.db import get_active_version, get_active_versions
-from normativa.corpus.models import ProcessingStatus
-from normativa.generation.citations import Citation, build_citations
-from normativa.generation.generator import GenerationResult, NormativeGenerator, _DISCLAIMER
+from normativa.corpus.db import get_active_versions
+from normativa.corpus.models import NormativeVersion, ProcessingStatus
+from normativa.generation.citations import Citation, build_citations, load_evidence
+from normativa.generation.generator import _DISCLAIMER, NormativeGenerator, ResponseStatus, context_references
 from normativa.generation.intents import is_greeting_or_social
+from normativa.generation.providers import LLMProvider
+from normativa.retrieval.context_expander import structural_unit
+from normativa.retrieval.models import RetrievedChunk
 from normativa.retrieval.retriever import NormativeRetriever
 from normativa.tracing.db import insert_trace
-from normativa.tracing.models import QueryTrace
+from normativa.tracing.models import QueryTrace, elapsed
 
-# Longitud máxima de la consulta (protección básica contra abusos)
 _MAX_QUERY_LEN = 1000
 _MIN_QUERY_LEN = 3
 
 
 @dataclass
 class RAGResponse:
-    """Respuesta estructurada del motor RAG."""
-
-    answer: str
-    version_id: str | None
-    document_name: str | None
-    citations: list[Citation]
-    abstained: bool
-    abstention_reason: str | None
-    disclaimer: str
-    trace_id: str
-    retrieval_ms: float
-    generation_ms: float
-    total_ms: float
-    response_type: str = "normative"  # "greeting", "normative", "clarification", "abstention"
-    clarification_needed: bool = False
+    answer: str = ""
+    version_id: str | None = None
+    document_name: str | None = None
+    citations: list[Citation] = field(default_factory=list)
+    status: ResponseStatus = ResponseStatus.INSUFFICIENT
+    abstention_reason: str | None = None
+    disclaimer: str = _DISCLAIMER
+    trace_id: str = ""
+    retrieval_ms: float = 0.0
+    generation_ms: float = 0.0
+    total_ms: float = 0.0
+    response_type: str = "abstention"
     clarification_question: str | None = None
     authorized_versions: list[str] = field(default_factory=list)
+    answered_parts: list[str] = field(default_factory=list)
+    unanswered_parts: list[str] = field(default_factory=list)
+
+    @property
+    def abstained(self) -> bool:
+        return self.status in {ResponseStatus.INSUFFICIENT, ResponseStatus.OUT_OF_SCOPE}
+
+    @property
+    def clarification_needed(self) -> bool:
+        return bool(self.clarification_question)
+
+
+def _trace_chunk(chunk: RetrievedChunk) -> dict:
+    return {
+        "chunk_id": chunk.chunk_id, "version_id": chunk.version_id, "score": chunk.score,
+        "location": chunk.location_hint, "origin": chunk.payload.get("origin"),
+    }
+
+
+def authorized_versions(db_path: str | Path | None) -> list[NormativeVersion]:
+    return [
+        version for version in get_active_versions(db_path)
+        if not version.inconsistencia_identidad and version.status == ProcessingStatus.PROCESADO
+        and version.estado_revision == "APROBADO"
+    ]
 
 
 class RAGService:
-    """Servicio principal de consulta RAG.
-
-    Parámetros:
-        retriever: instancia de NormativeRetriever (inyectable para tests).
-        generator: instancia de NormativeGenerator (inyectable para tests).
-        db_path: ruta a la base SQLite (None → usa settings).
-    """
-
     def __init__(
         self,
         retriever: NormativeRetriever | None = None,
         generator: NormativeGenerator | None = None,
         db_path: str | Path | None = None,
+        provider: LLMProvider | None = None,
+        trace_sink: Callable[[QueryTrace], None] | None = None,
     ) -> None:
+        if generator is not None and provider is not None:
+            raise ValueError("Inyecte el generador o el proveedor, según corresponda.")
         self._retriever = retriever or NormativeRetriever(db_path=db_path)
-        self._generator = generator or NormativeGenerator()
+        self._generator = generator or NormativeGenerator(provider=provider)
         self._db_path = db_path
+        self._trace_sink = trace_sink
 
     def query(self, query_text: str) -> RAGResponse:
-        """Ejecuta una consulta RAG completa.
-
-        Flujo:
-        1. Validar la consulta.
-        2. Capturar instantánea de versiones activas autorizadas (aislamiento ante concurrencia).
-        3. Detección de intenciones sociales (saludos/cortesía).
-        4. Recuperación normativa contextual (versiones autorizadas obligatorias).
-        5. Verificar condiciones de abstención.
-        6. Generar respuesta fundamentada (completa, parcial o aclaratoria).
-        7. Construir citas deterministas verificadas.
-        8. Registrar traza completa en SQLite.
-        9. Devolver RAGResponse.
-        """
-        t0 = time.perf_counter()
-        trace_id = str(uuid.uuid4())
-
-        # --- 1. Validación ---
+        start = time.perf_counter()
         query_text = query_text.strip()
-        if len(query_text) < _MIN_QUERY_LEN:
-            raise ValueError(f"La consulta debe tener al menos {_MIN_QUERY_LEN} caracteres.")
-        if len(query_text) > _MAX_QUERY_LEN:
-            raise ValueError(f"La consulta no puede superar {_MAX_QUERY_LEN} caracteres.")
+        if not _MIN_QUERY_LEN <= len(query_text) <= _MAX_QUERY_LEN:
+            raise ValueError(f"La consulta debe tener entre {_MIN_QUERY_LEN} y {_MAX_QUERY_LEN} caracteres.")
 
-        # --- 2. Captura inmutable de versiones autorizadas al inicio de la consulta (Regla 14) ---
-        active_versions = get_active_versions(self._db_path)
-        valid_actives = [
-            v for v in active_versions
-            if not v.inconsistencia_identidad
-            and v.status == ProcessingStatus.PROCESADO
-            and v.estado_revision != "RECHAZADO"
-        ]
-        authorized_version_ids = [v.id for v in valid_actives]
-        snapshot_metadata = [
-            {"id": v.id, "family_id": v.family_id, "nombre": v.nombre}
-            for v in valid_actives
-        ]
-        authorized_snapshot_json = json.dumps(snapshot_metadata)
-
-        # --- 3. Detección de saludo / cortesía social rápida ---
-        primary_active = valid_actives[0] if valid_actives else get_active_version(self._db_path)
-        active_name = primary_active.nombre if primary_active else None
-        is_social, social_msg, social_type = is_greeting_or_social(query_text, active_name)
-        if is_social and social_msg is not None:
-            total_ms = (time.perf_counter() - t0) * 1000
-            self._save_trace(
-                trace_id=trace_id,
-                query=query_text,
-                version_id=primary_active.id if primary_active else None,
-                retrieved_chunks_json="[]",
-                response=social_msg,
-                citations=[],
-                abstained=False,
-                abstention_reason=None,
-                retrieval_ms=0.0,
-                generation_ms=0.0,
-                total_ms=total_ms,
-                execution_status="social",
-                error_message=None,
-                query_type=social_type or "greeting",
-                context_chunks_json="[]",
-                authorized_versions_json=authorized_snapshot_json,
-            )
-            return RAGResponse(
-                answer=social_msg,
-                version_id=primary_active.id if primary_active else None,
-                document_name=primary_active.nombre if primary_active else None,
-                citations=[],
-                abstained=False,
-                abstention_reason=None,
-                disclaimer=_DISCLAIMER,
-                trace_id=trace_id,
-                retrieval_ms=0.0,
-                generation_ms=0.0,
-                total_ms=total_ms,
-                response_type="greeting",
-                clarification_needed=False,
-                clarification_question=None,
-                authorized_versions=authorized_version_ids,
-            )
-
-        # --- 4. Recuperación (limitada al conjunto de versiones autorizadas) ---
-        retrieval_result = self._retriever.retrieve(query_text, authorized_version_ids=authorized_version_ids)
-
-        citations: list[Citation] = []
-        gen_result: GenerationResult | None = None
-        response_type = "normative"
-        clarification_needed = False
-        clarification_question: str | None = None
-
-        if retrieval_result.abstained:
-            # --- 5a. Abstención por recuperación ---
-            abstained = True
-            abstention_reason = retrieval_result.abstention_reason
-            answer = f"ABSTENCIÓN: {abstention_reason}"
-            generation_ms = 0.0
-            response_type = "abstention"
-        else:
-            # --- 6. Generación ---
-            try:
-                gen_result = self._generator.generate(
-                    query=query_text,
-                    retrieved_chunks=retrieval_result.chunks,
-                )
-            except RuntimeError as exc:
-                # Error en LLM: registrar y propagar
-                total_ms = (time.perf_counter() - t0) * 1000
-                self._save_trace(
-                    trace_id=trace_id,
-                    query=query_text,
-                    version_id=retrieval_result.version_id,
-                    retrieved_chunks_json=json.dumps(
-                        [{"chunk_id": c.chunk_id, "score": c.score} for c in retrieval_result.chunks]
-                    ),
-                    response="",
-                    citations=[],
-                    abstained=True,
-                    abstention_reason=str(exc),
-                    retrieval_ms=retrieval_result.retrieval_ms,
-                    generation_ms=0.0,
-                    total_ms=total_ms,
-                    execution_status="error",
-                    error_message=str(exc),
-                    query_type="error",
-                    context_chunks_json="[]",
-                    authorized_versions_json=authorized_snapshot_json,
-                )
-                raise
-
-            abstained = gen_result.abstained
-            abstention_reason = gen_result.abstention_reason
-            answer = gen_result.answer
-            generation_ms = gen_result.generation_ms
-            response_type = gen_result.response_type
-            clarification_needed = gen_result.clarification_needed
-            clarification_question = gen_result.clarification_question
-
-            # --- 7. Citas verificadas ---
-            citations = build_citations(
-                retrieved_chunks=retrieval_result.chunks,
-                used_chunk_ids=gen_result.used_chunk_ids,
-            )
-
-        total_ms = (time.perf_counter() - t0) * 1000
-
-        # --- 8. Traza en SQLite ---
-        retrieved_json = json.dumps(
-            [{"chunk_id": c.chunk_id, "score": c.score} for c in retrieval_result.chunks]
+        result = RAGResponse(trace_id=str(uuid.uuid4()))
+        timings = dict.fromkeys(
+            ("embedding_ms", "semantic_ms", "lexical_ms", "selection_ms", "generation_ms", "validation_ms"), 0.0,
         )
-        context_chunks_json = json.dumps(
-            [
-                {
-                    "chunk_id": c.chunk_id,
-                    "location": c.location_hint,
-                    "origin": c.payload.get("origin", "semantic"),
-                }
-                for c in retrieval_result.chunks
-            ]
-        )
-        exec_status = "abstained" if abstained else "ok"
-
-        self._save_trace(
-            trace_id=trace_id,
-            query=query_text,
-            version_id=retrieval_result.version_id,
-            retrieved_chunks_json=retrieved_json,
-            response=answer,
-            citations=citations,
-            abstained=abstained,
-            abstention_reason=abstention_reason,
-            retrieval_ms=retrieval_result.retrieval_ms,
-            generation_ms=generation_ms,
-            total_ms=total_ms,
-            execution_status=exec_status,
-            error_message=None,
-            query_type=response_type,
-            context_chunks_json=context_chunks_json,
-            authorized_versions_json=authorized_snapshot_json,
-        )
-
-        return RAGResponse(
-            answer=answer,
-            version_id=retrieval_result.version_id,
-            document_name=retrieval_result.document_name,
-            citations=citations,
-            abstained=abstained,
-            abstention_reason=abstention_reason,
-            disclaimer=_DISCLAIMER,
-            trace_id=trace_id,
-            retrieval_ms=retrieval_result.retrieval_ms,
-            generation_ms=generation_ms,
-            total_ms=total_ms,
-            response_type=response_type,
-            clarification_needed=clarification_needed,
-            clarification_question=clarification_question,
-            authorized_versions=authorized_version_ids,
-        )
-
-    def _save_trace(
-        self,
-        *,
-        trace_id: str,
-        query: str,
-        version_id: str | None,
-        retrieved_chunks_json: str,
-        response: str,
-        citations: list[Citation],
-        abstained: bool,
-        abstention_reason: str | None,
-        retrieval_ms: float,
-        generation_ms: float,
-        total_ms: float,
-        execution_status: str,
-        error_message: str | None,
-        query_type: str = "normative",
-        context_chunks_json: str = "[]",
-        authorized_versions_json: str = "[]",
-    ) -> None:
-        citations_json = json.dumps([c.to_dict() for c in citations])
-        trace = QueryTrace(
-            id=trace_id,
-            created_at=datetime.now(timezone.utc).isoformat(),
-            query=query,
-            version_id=version_id,
-            retrieved_chunks_json=retrieved_chunks_json,
-            response=response,
-            citations_json=citations_json,
-            abstained=abstained,
-            abstention_reason=abstention_reason,
-            retrieval_ms=retrieval_ms,
-            generation_ms=generation_ms,
-            total_ms=total_ms,
-            execution_status=execution_status,
-            error_message=error_message,
-            query_type=query_type,
-            context_chunks_json=context_chunks_json,
-            authorized_versions_json=authorized_versions_json,
-        )
+        snapshot: list[dict] = []
+        candidates: list[RetrievedChunk] = []
+        context: list[RetrievedChunk] = []
+        incomplete_units: set[tuple] = set()
+        retrieval_diagnostics: dict = {}
+        generation_diagnostics: dict = {}
+        provider_name = model_name = error = error_type = social_type = None
+        execution_status = "ok"
         try:
+            versions = authorized_versions(self._db_path)
+            snapshot = [
+                {"id": v.id, "family_id": v.family_id, "nombre": v.nombre, "document_id": v.document_id}
+                for v in versions
+            ]
+            result.authorized_versions = [v.id for v in versions]
+            if versions:
+                result.version_id, result.document_name = versions[0].id, versions[0].nombre
+            social, message, social_type = is_greeting_or_social(query_text, result.document_name)
+            if social and message:
+                result.answer = message
+                result.status = ResponseStatus.SOCIAL
+                result.response_type = "greeting"
+                execution_status = "social"
+            else:
+                with elapsed(timings, "retrieval_ms"):
+                    retrieval = self._retriever.retrieve(query_text, result.authorized_versions, timings=timings)
+                result.version_id, result.document_name = retrieval.version_id, retrieval.document_name
+                candidates = retrieval.candidates
+                seed_ids = {chunk.chunk_id for chunk in retrieval.seeds}
+                retrieval_diagnostics = {
+                    "rankings": {
+                        name: [_trace_chunk(chunk) for chunk in ranking]
+                        for name, ranking in retrieval.rankings.items()
+                    },
+                    "initial_chunks": [chunk.chunk_id for chunk in retrieval.seeds],
+                    "expanded_chunks": [chunk.chunk_id for chunk in retrieval.chunks if chunk.chunk_id not in seed_ids],
+                    "omitted_by_expansion": [chunk.chunk_id for chunk in retrieval.omitted_expansion],
+                    "outside_initial_limit": [chunk.chunk_id for chunk in candidates if chunk.chunk_id not in seed_ids],
+                }
+                with elapsed(timings, "selection_ms"):
+                    evidence = load_evidence(retrieval.chunks, result.authorized_versions, self._db_path)
+                    selection = self._generator.select_context(query_text, evidence) if evidence else None
+                    if selection is not None:
+                        retrieval_diagnostics.update(
+                            omitted_by_count=selection.omitted_by_count,
+                            omitted_by_budget=selection.omitted_by_budget,
+                            omitted_as_duplicate=selection.omitted_as_duplicate,
+                        )
+                    verified_ids = {chunk.chunk_id for chunk in evidence}
+                    retrieval_diagnostics["unverified_chunks"] = [
+                        chunk.chunk_id for chunk in retrieval.chunks if chunk.chunk_id not in verified_ids
+                    ]
+                if selection is not None and selection.chunks:
+                    provider = self._generator.provider
+                    provider_name, model_name = provider.provider_name, provider.model_name
+                    context = selection.chunks
+                    incomplete_units = selection.incomplete_units | {
+                        structural_unit(chunk) for chunk in retrieval.omitted_expansion
+                    }
+                    generated = self._generator.generate(
+                        query_text, context, timings, generation_diagnostics, incomplete_units=incomplete_units,
+                    )
+                    with elapsed(timings, "validation_ms"):
+                        result.citations = build_citations(context, generated.used_chunk_ids)
+                    result.status = generated.status
+                    result.response_type = generated.response_type
+                    result.abstention_reason = generated.abstention_reason
+                    result.answer = generated.public_answer or "No hay una respuesta sustentada para esta consulta."
+                    result.unanswered_parts = generated.unanswered_parts
+                else:
+                    result.abstention_reason = (
+                        retrieval.abstention_reason or "No hay fragmentos verificables dentro del presupuesto de contexto."
+                    )
+                    result.answer = "No hay evidencia suficiente para responder la consulta."
+                if result.abstained:
+                    execution_status = "abstained"
+        except Exception as exc:
+            execution_status = "error"
+            error, error_type = str(exc), type(exc).__name__
+            result.status = ResponseStatus.TECHNICAL_ERROR
+            result.response_type = "error"
+            result.answer = "No fue posible completar la consulta por un error técnico."
+            result.abstention_reason = None
+            result.citations = []
+
+        result.total_ms = (time.perf_counter() - start) * 1000
+        result.retrieval_ms = timings.get("retrieval_ms", 0.0)
+        result.generation_ms = timings["generation_ms"]
+        trace = QueryTrace(
+            id=result.trace_id,
+            created_at=datetime.now(timezone.utc).isoformat(),
+            query=query_text,
+            version_id=result.version_id,
+            retrieved_chunks_json=json.dumps([_trace_chunk(c) for c in candidates]),
+            response=result.answer,
+            citations_json=json.dumps([c.to_dict() for c in result.citations]),
+            abstained=result.abstained,
+            abstention_reason=result.abstention_reason,
+            retrieval_ms=result.retrieval_ms,
+            generation_ms=result.generation_ms,
+            total_ms=result.total_ms,
+            execution_status=execution_status,
+            error_message=error,
+            query_type=(social_type or "greeting") if execution_status == "social" else result.status.value,
+            context_chunks_json=json.dumps([
+                {**_trace_chunk(chunk), "reference": alias, "text": chunk.text,
+                 "document_name": chunk.payload.get("document_name"),
+                 "document_profile": chunk.payload.get("perfil_procesamiento"), "literal": chunk.payload.get("inciso_marker"),
+                 "incomplete_unit": structural_unit(chunk) in incomplete_units}
+                for alias, chunk in context_references(context).items()
+            ]),
+            authorized_versions_json=json.dumps(snapshot),
+            diagnostics_json=json.dumps({
+                "provider": provider_name, "model": model_name, "status": result.status,
+                "retrieval": retrieval_diagnostics, "generation": generation_diagnostics,
+                "timings_ms": {**timings, "total_ms": result.total_ms}, "error_type": error_type,
+            }),
+        )
+        if self._trace_sink is None:
             insert_trace(trace, db_path=self._db_path)
-        except Exception:
-            # No interrumpir la respuesta al usuario si falla la traza
-            pass
+        else:
+            self._trace_sink(trace)
+        return result

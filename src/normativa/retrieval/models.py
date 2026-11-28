@@ -26,3 +26,7 @@ class RetrievalResult:
     abstained: bool = False
     abstention_reason: str | None = None
     retrieval_ms: float = 0.0
+    candidates: list[RetrievedChunk] = field(default_factory=list)
+    rankings: dict[str, list[RetrievedChunk]] = field(default_factory=dict)
+    seeds: list[RetrievedChunk] = field(default_factory=list)
+    omitted_expansion: list[RetrievedChunk] = field(default_factory=list)

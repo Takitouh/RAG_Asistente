@@ -21,8 +21,8 @@ def insert_trace(trace: QueryTrace, db_path: str | Path | None = None) -> None:
                 abstained, retrieved_chunks_json, citations_json,
                 abstention_reason, retrieval_ms, generation_ms,
                 total_ms, execution_status, error_message, latency_ms,
-                query_type, context_chunks_json, authorized_versions_json
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                query_type, context_chunks_json, authorized_versions_json, diagnostics_json
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(id) DO NOTHING
             """,
             (
@@ -44,6 +44,7 @@ def insert_trace(trace: QueryTrace, db_path: str | Path | None = None) -> None:
                 trace.query_type,
                 trace.context_chunks_json,
                 trace.authorized_versions_json,
+                trace.diagnostics_json,
             ),
         )
 
@@ -73,4 +74,5 @@ def get_trace(trace_id: str, db_path: str | Path | None = None) -> QueryTrace | 
         query_type=row["query_type"] if "query_type" in keys else "normative",
         context_chunks_json=row["context_chunks_json"] if "context_chunks_json" in keys else "[]",
         authorized_versions_json=row["authorized_versions_json"] if "authorized_versions_json" in keys else "[]",
+        diagnostics_json=row["diagnostics_json"] if "diagnostics_json" in keys else "{}",
     )

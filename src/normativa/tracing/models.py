@@ -1,7 +1,10 @@
 """Modelos de datos para el subsistema de trazabilidad."""
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from collections.abc import Iterator
+from contextlib import contextmanager
+from dataclasses import dataclass
+from time import perf_counter
 
 
 @dataclass
@@ -25,3 +28,13 @@ class QueryTrace:
     query_type: str = "normative"  # "normative" | "explicit_article" | "greeting" | "clarification"
     context_chunks_json: str = "[]"
     authorized_versions_json: str = "[]"
+    diagnostics_json: str = "{}"
+
+
+@contextmanager
+def elapsed(timings: dict[str, float], stage: str) -> Iterator[None]:
+    start = perf_counter()
+    try:
+        yield
+    finally:
+        timings[stage] = timings.get(stage, 0.0) + (perf_counter() - start) * 1000

@@ -77,6 +77,34 @@ def _make_qdrant_point(chunk_id: str, version_id: str, score: float = 0.85) -> M
     return point
 
 
+def _store_point(db: Path, point: MagicMock) -> None:
+    payload = point.payload
+    with sqlite3.connect(db) as conn:
+        conn.execute(
+            """INSERT INTO chunks (
+                id, version_id, document_id, document_name, articulo_tipo, page_start,
+                page_end, texto, location_hint, created_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, '2026-01-01')""",
+            (payload["chunk_id"], payload["version_id"], payload["document_id"],
+             payload["document_name"], payload["articulo_tipo"], payload["page_start"],
+             payload["page_end"], payload["text"], payload["location_hint"]),
+        )
+
+
+def _complete(answer: str, *ids: str) -> str:
+    return json.dumps({
+        "status": "complete", "answer": answer, "used_chunk_ids": ids,
+        "abstention_reason": None, "unanswered_parts": [],
+    })
+
+
+def _out_of_scope() -> str:
+    return json.dumps({
+        "status": "out_of_scope", "answer": "", "used_chunk_ids": [],
+        "abstention_reason": "La consulta se refiere a otro ámbito.", "unanswered_parts": [],
+    })
+
+
 def _qdrant_result(points: list) -> MagicMock:
     result = MagicMock()
     result.points = points
@@ -340,29 +368,26 @@ class TestNormativeGenerator:
         """El generador incluye los chunks en el prompt y extrae IDs usados."""
         from normativa.generation.generator import NormativeGenerator
 
-        mock_llm = MagicMock()
-        mock_llm.complete.return_value = MagicMock(
-            __str__=lambda s: "Las modalidades son tres.\nEVIDENCIA_USADA: [c1]"
-        )
+        mock_llm = MagicMock(provider_name="simulated", model_name="simulated")
+        mock_llm.complete.return_value = _complete('Las modalidades son tres.', 'REF-1')
 
-        gen = NormativeGenerator(llm=mock_llm)
+        gen = NormativeGenerator(provider=mock_llm)
         chunks = [self._make_chunk("c1")]
         result = gen.generate("¿Cuáles son las modalidades?", chunks)
 
         assert not result.abstained
         assert "c1" in result.used_chunk_ids
-        assert "EVIDENCIA_USADA" not in result.answer
+        request = mock_llm.complete.call_args.args[0]
+        assert json.loads(request.prompt)["evidencia"][0]["id"] == "REF-1"
 
     def test_generator_abstains_on_llm_abstention(self):
-        """Si el LLM responde con ABSTENCIÓN:, el resultado indica abstención."""
+        """El estado estructurado fuera de alcance produce una abstención."""
         from normativa.generation.generator import NormativeGenerator
 
-        mock_llm = MagicMock()
-        mock_llm.complete.return_value = MagicMock(
-            __str__=lambda s: "ABSTENCIÓN: La pregunta no está relacionada con el reglamento."
-        )
+        mock_llm = MagicMock(provider_name="simulated", model_name="simulated")
+        mock_llm.complete.return_value = _out_of_scope()
 
-        gen = NormativeGenerator(llm=mock_llm)
+        gen = NormativeGenerator(provider=mock_llm)
         result = gen.generate("¿Cuánto cuesta el almuerzo?", [self._make_chunk()])
 
         assert result.abstained
@@ -372,28 +397,25 @@ class TestNormativeGenerator:
         """Sin chunks recuperados, el generador abstiene sin llamar al LLM."""
         from normativa.generation.generator import NormativeGenerator
 
-        mock_llm = MagicMock()
-        gen = NormativeGenerator(llm=mock_llm)
+        mock_llm = MagicMock(provider_name="simulated", model_name="simulated")
+        gen = NormativeGenerator(provider=mock_llm)
         result = gen.generate("¿Algo?", [])
 
         assert result.abstained
         mock_llm.complete.assert_not_called()
 
     def test_generator_rejects_invented_chunk_ids(self):
-        """Los IDs de evidencia que el LLM inventa son descartados."""
+        """Una referencia inventada invalida la respuesta completa."""
         from normativa.generation.generator import NormativeGenerator
 
-        mock_llm = MagicMock()
-        mock_llm.complete.return_value = MagicMock(
-            __str__=lambda s: "Respuesta.\nEVIDENCIA_USADA: [c1, inventado_xyz]"
-        )
+        mock_llm = MagicMock(provider_name="simulated", model_name="simulated")
+        mock_llm.complete.return_value = _complete('Respuesta.', 'REF-1', 'inventado_xyz')
 
-        gen = NormativeGenerator(llm=mock_llm)
+        gen = NormativeGenerator(provider=mock_llm)
         result = gen.generate("pregunta", [self._make_chunk("c1")])
 
-        # inventado_xyz no debe aparecer en los IDs verificados
-        assert "inventado_xyz" not in result.used_chunk_ids
-        assert "c1" in result.used_chunk_ids
+        assert result.abstained
+        assert result.used_chunk_ids == []
 
 
 # ---------------------------------------------------------------------------
@@ -473,20 +495,19 @@ class TestAbstencion:
         _insert_version(db, "v_active")
 
         point = _make_qdrant_point("c1", "v_active")
+        _store_point(db, point)
         mock_client = MagicMock()
         mock_client.query_points.return_value = _qdrant_result([point])
 
-        mock_llm = MagicMock()
-        mock_llm.complete.return_value = MagicMock(
-            __str__=lambda s: "ABSTENCIÓN: La pregunta no está relacionada con el reglamento de TG."
-        )
+        mock_llm = MagicMock(provider_name="simulated", model_name="simulated")
+        mock_llm.complete.return_value = _out_of_scope()
 
         retriever = NormativeRetriever(
             client=mock_client,
             embed_fn=lambda t: [0.1] * 1024,
             db_path=db,
         )
-        generator = NormativeGenerator(llm=mock_llm)
+        generator = NormativeGenerator(provider=mock_llm)
         service = RAGService(retriever=retriever, generator=generator, db_path=db)
         result = service.query("¿Cuál es el precio del menú?")
 
@@ -511,18 +532,17 @@ class TestTracing:
         _insert_version(db, "v_active")
 
         point = _make_qdrant_point("c1", "v_active")
+        _store_point(db, point)
         mock_client = MagicMock()
         mock_client.query_points.return_value = _qdrant_result([point])
 
-        mock_llm = MagicMock()
-        mock_llm.complete.return_value = MagicMock(
-            __str__=lambda s: "Las modalidades son tres.\nEVIDENCIA_USADA: [c1]"
-        )
+        mock_llm = MagicMock(provider_name="simulated", model_name="simulated")
+        mock_llm.complete.return_value = _complete('Las modalidades son tres.', 'REF-1')
 
         retriever = NormativeRetriever(
             client=mock_client, embed_fn=lambda t: [0.1] * 1024, db_path=db
         )
-        generator = NormativeGenerator(llm=mock_llm)
+        generator = NormativeGenerator(provider=mock_llm)
         service = RAGService(retriever=retriever, generator=generator, db_path=db)
         result = service.query("¿Cuáles son las modalidades?")
 
@@ -562,18 +582,17 @@ class TestTracing:
         _insert_version(db, "v_active")
 
         point = _make_qdrant_point("c1", "v_active")
+        _store_point(db, point)
         mock_client = MagicMock()
         mock_client.query_points.return_value = _qdrant_result([point])
 
-        mock_llm = MagicMock()
-        mock_llm.complete.return_value = MagicMock(
-            __str__=lambda s: "Respuesta.\nEVIDENCIA_USADA: [c1]"
-        )
+        mock_llm = MagicMock(provider_name="simulated", model_name="simulated")
+        mock_llm.complete.return_value = _complete('Respuesta.', 'REF-1')
 
         retriever = NormativeRetriever(
             client=mock_client, embed_fn=lambda t: [0.1] * 1024, db_path=db
         )
-        generator = NormativeGenerator(llm=mock_llm)
+        generator = NormativeGenerator(provider=mock_llm)
         service = RAGService(retriever=retriever, generator=generator, db_path=db)
         result = service.query("pregunta de tiempo")
 
@@ -601,20 +620,19 @@ class TestQueryEndpoint:
         if with_version:
             _insert_version(db, "v_active")
             point = _make_qdrant_point("c1", "v_active")
+            _store_point(db, point)
             mock_client = MagicMock()
             mock_client.query_points.return_value = _qdrant_result([point])
         else:
             mock_client = MagicMock()
 
-        mock_llm = MagicMock()
-        mock_llm.complete.return_value = MagicMock(
-            __str__=lambda s: "El trabajo de grado tiene tres modalidades.\nEVIDENCIA_USADA: [c1]"
-        )
+        mock_llm = MagicMock(provider_name="simulated", model_name="simulated")
+        mock_llm.complete.return_value = _complete('El trabajo de grado tiene tres modalidades.', 'REF-1')
 
         retriever = NormativeRetriever(
             client=mock_client, embed_fn=lambda t: [0.1] * 1024, db_path=db
         )
-        generator = NormativeGenerator(llm=mock_llm)
+        generator = NormativeGenerator(provider=mock_llm)
         svc = RAGService(retriever=retriever, generator=generator, db_path=db)
 
         app.dependency_overrides[get_rag_service] = lambda: svc
@@ -641,6 +659,8 @@ class TestQueryEndpoint:
         assert "trace_id" in data
         assert "latency_ms" in data
         assert isinstance(data["citations"], list)
+        assert data["answered_parts"] == data["unanswered_parts"] == []
+        assert data["clarification_question"] is None
 
         from normativa.api.main import app
         from normativa.api.query import get_rag_service

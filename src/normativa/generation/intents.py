@@ -10,22 +10,6 @@ from __future__ import annotations
 import re
 
 
-# Palabras clave normativas que indican que la consulta contiene una pregunta real,
-# incluso si comienza con un saludo
-_NORMATIVE_KEYWORDS = {
-    "modalidad", "modalidades", "articulo", "artículo", "plazo", "plazos",
-    "prorroga", "prórroga", "prorrogas", "prórrogas", "informe", "final",
-    "propuesta", "anteproyecto", "grado", "comite", "comité", "evaluador",
-    "evaluadores", "director", "directores", "reprobacion", "reprobación",
-    "calificacion", "calificación", "nota", "notas", "requisito", "requisitos",
-    "inscripcion", "inscripción", "seminario", "monografia", "monografía",
-    "practica", "práctica", "emprendimiento", "investigacion", "investigación",
-    "desarrollo", "tecnologico", "tecnológico", "cancelacion", "cancelación",
-    "acuerdo", "reglamento", "capitulo", "capítulo", "paragrafo", "parágrafo",
-    "inciso", "derecho", "pecuniario", "pago", "beca", "sustentacion",
-    "sustentación", "fecha", "jurado", "hamburguesa", "precio", "costo",
-}
-
 # Patrones de saludos simples y sociales
 _GREETING_PATTERNS = [
     r"^(?:¡|\s)*hola(?:\s+a\s+todos)?(?:!|\.|\?|\s)*$",
@@ -38,7 +22,7 @@ _GREETING_PATTERNS = [
 
 _THANKS_PATTERNS = [
     r"^(?:¡|\s)*gracias(?:\s+muchas)?(?:!|\.|\?|\s)*$",
-    r"^(?:¡|\s)*muchas\s+gracias(?:\s+por\s+.*)?(?:!|\.|\?|\s)*$",
+    r"^(?:¡|\s)*muchas\s+gracias(?:!|\.|\?|\s)*$",
     r"^(?:¡|\s)*mil\s+gracias(?:!|\.|\?|\s)*$",
     r"^(?:¡|\s)*gracias\s+por\s+(?:la\s+)?(?:ayuda|informaci[oó]n|tu\s+ayuda|su\s+ayuda)(?:!|\.|\?|\s)*$",
     r"^(?:¡|\s)*te\s+lo\s+agradezco(?:!|\.|\?|\s)*$",
@@ -61,12 +45,6 @@ def is_greeting_or_social(query: str, active_doc_name: str | None = None) -> tup
     """
     clean = query.strip()
     lower = clean.lower()
-
-    # Si la consulta contiene palabras clave normativas sustantivas, no es un saludo simple
-    words = set(re.findall(r"\w+", lower))
-    has_normative_intent = any(w in _NORMATIVE_KEYWORDS for w in words)
-    if has_normative_intent:
-        return False, None, None
 
     # 1. Saludos
     for pat in _GREETING_PATTERNS:

@@ -473,18 +473,15 @@ def test_8_prorroga_query_retrieves_pertinent_info(test_db: Path):
     assert "v_2019_art_15_par_3" in chunk_ids
 
 
-def test_9_ambiguous_query_produces_clarification(test_db: Path):
-    """9. Una consulta ambigua produce una solicitud de aclaración sin abstención indebida."""
+def test_9_ambiguous_query_can_report_a_missing_condition(test_db: Path):
+    """9. La respuesta parcial puede explicar qué condición falta."""
     mock_llm = MagicMock()
-    mock_llm.complete.return_value = MagicMock(
-        __str__=lambda s: (
-            "El reglamento establece un plazo general de 180 días calendario para la finalización del trabajo de grado "
-            "(Artículo 14), pero si estás en la modalidad de Seminario el plazo corresponde únicamente al periodo académico. "
-            "¿Podrías indicarnos cuál es tu modalidad de trabajo de grado para darte el dato exacto?\n"
-            "EVIDENCIA_USADA: [v_2019_art_14_cuerpo]"
-        )
-    )
-    generator = NormativeGenerator(llm=mock_llm)
+    mock_llm.complete.return_value = json.dumps({
+        "status": "partial", "answer": "La regla general establece un plazo de 180 días.",
+        "used_chunk_ids": ["REF-1"], "abstention_reason": None,
+        "unanswered_parts": ["El plazo aplicable depende de la modalidad."],
+    })
+    generator = NormativeGenerator(provider=mock_llm)
     chunks = [
         RetrievedChunk(
             chunk_id="v_2019_art_14_cuerpo",
@@ -497,21 +494,19 @@ def test_9_ambiguous_query_produces_clarification(test_db: Path):
     ]
     res = generator.generate("¿Cuántos días tengo para desarrollar mi informe final?", chunks)
     assert not res.abstained
-    assert res.clarification_needed
-    assert res.response_type == "clarification"
+    assert "depende de la modalidad" in res.public_answer
+    assert res.response_type == "partial"
 
 
 def test_10_partial_evidence_gives_grounded_partial_response():
     """10. La evidencia parcial produce una respuesta fundamentada con advertencia de lo no cubierto."""
     mock_llm = MagicMock()
-    mock_llm.complete.return_value = MagicMock(
-        __str__=lambda s: (
-            "De acuerdo con el Artículo 15, la persona natural tiene derecho a solicitar prórroga por otro periodo igual "
-            "hasta en dos ocasiones sucesivas. Sin embargo, el texto no detalla el formato de carta requerido.\n"
-            "EVIDENCIA_USADA: [v_2019_art_15_cuerpo]"
-        )
-    )
-    generator = NormativeGenerator(llm=mock_llm)
+    mock_llm.complete.return_value = json.dumps({
+        "status": "partial", "answer": "Se admite prórroga por otro periodo igual.",
+        "used_chunk_ids": ["REF-1"], "abstention_reason": None,
+        "unanswered_parts": ["La evidencia no especifica el formato de solicitud."],
+    })
+    generator = NormativeGenerator(provider=mock_llm)
     chunks = [
         RetrievedChunk(
             chunk_id="v_2019_art_15_cuerpo",
@@ -524,12 +519,13 @@ def test_10_partial_evidence_gives_grounded_partial_response():
     ]
     res = generator.generate("¿Cómo solicito una prórroga?", chunks)
     assert not res.abstained
-    assert "hasta en dos ocasiones sucesivas" in res.answer
+    assert "otro periodo igual" in res.answer
+    assert "no especifica el formato de solicitud" in res.public_answer
     assert "v_2019_art_15_cuerpo" in res.used_chunk_ids
 
 
-def test_11_out_of_domain_query_produces_abstention(test_db: Path):
-    """11. Una consulta fuera del dominio produce abstención."""
+def test_11_low_semantic_score_is_not_an_out_of_scope_classifier(test_db: Path):
+    """Un score bajo puede pasar al modelo si satisface el umbral configurado."""
     mock_client = MagicMock()
     # Simula puntuaciones muy bajas (< 0.35)
     point = MagicMock()
@@ -544,8 +540,8 @@ def test_11_out_of_domain_query_produces_abstention(test_db: Path):
         db_path=test_db,
     )
     res = retriever.retrieve("¿Cuál es el precio de una hamburguesa?")
-    assert res.abstained
-    assert "fuera del alcance" in res.abstention_reason.lower()
+    assert not res.abstained
+    assert res.chunks[0].chunk_id == "v_2019_art_59_cuerpo"
 
 
 def test_12_technical_errors_not_presented_as_abstentions(test_db: Path):
